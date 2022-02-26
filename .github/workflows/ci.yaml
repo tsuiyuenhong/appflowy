@@ -3,7 +3,8 @@ name: CI
 on:
   push:
     branches:
-      - '*'
+      - 'main'
+      - 'feature/test'
       
   pull_request:
     branches:
@@ -81,4 +82,3 @@ jobs:
         working-directory: frontend
         run: |
           cargo make --profile ${{ matrix.flutter_profile }} appflowy-dev
-          
