@@ -42,6 +42,7 @@ jobs:
         run: |
           flutter config --enable-macos-desktop
           cargo make --profile production-mac-x86 appflowy
+  
   build-ubuntu:
     runs-on: ubuntu-latest
     steps:
