@@ -18,10 +18,10 @@ jobs:
         include:
           - os: ubuntu-latest
             flutter_path: /opt/hostedtoolcache/flutter
-            flutter_profile: production-linux-x86
+            flutter_profile: development-linux-x86
           - os: macos-latest
             flutter_path: ~/hostedtoolcache/flutter
-            flutter_profile: production-mac-x86
+            flutter_profile: development-mac
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -87,4 +87,4 @@ jobs:
       - name: Build
         working-directory: frontend
         run: |
-          cargo make --profile ${{ matrix.flutter_profile }} appflowy
+          cargo make --profile ${{ matrix.flutter_profile }} appflowy-dev
