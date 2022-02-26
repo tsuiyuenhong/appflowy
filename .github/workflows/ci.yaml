@@ -48,12 +48,17 @@ jobs:
             ${{ matrix.flutter_path }}
           key: ${{ runner.os }}-flutter-${{ hashFiles('./frontend/app_flowy/pubspec.lock') }}
       
-      - if: matrix.os == 'ubuntu-latest'
-        run: |
-          sudo wget -qO /etc/apt/trusted.gpg.d/dart_linux_signing_key.asc https://dl-ssl.google.com/linux/linux_signing_key.pub
-          sudo wget -qO /etc/apt/sources.list.d/dart_stable.list https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list
-          sudo apt-get update
-          sudo apt-get install -y dart curl build-essential libsqlite3-dev libssl-dev clang cmake ninja-build pkg-config libgtk-3-dev
+      - name: Setup Environment
+        run:   |
+          if [ "$RUNNER_OS" == "Linux" ]; then
+            sudo wget -qO /etc/apt/trusted.gpg.d/dart_linux_signing_key.asc https://dl-ssl.google.com/linux/linux_signing_key.pub
+            sudo wget -qO /etc/apt/sources.list.d/dart_stable.list https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list
+            sudo apt-get update
+            sudo apt-get install -y dart curl build-essential libsqlite3-dev libssl-dev clang cmake ninja-build pkg-config libgtk-3-dev
+          elif [ "$RUNNER_OS" == "macOS" ]; then
+            echo 'nothing'
+          fi
+        shell: bash
 
       - uses: actions-rs/toolchain@v1
         with:
@@ -69,14 +74,15 @@ jobs:
           cargo install --force cargo-make
           cargo install --force duckscript_cli
           cargo make flowy_dev
-      
-      - if: matrix.os == 'ubuntu-latest'
-        run: |
-          flutter config --enable-linux-desktop
 
-      - if: matrix.os == 'macOS-latest'
+      - name: Config Flutter
         run: |
-          flutter config --enable-macos-desktop
+          if [ "$RUNNER_OS" == "Linux" ]; then
+            flutter config --enable-linux-desktop
+          elif [ "$RUNNER_OS" == "macOS" ]; then
+            flutter config --enable-macos-desktop
+          fi
+        shell: bash
 
       - name: Build
         working-directory: frontend
