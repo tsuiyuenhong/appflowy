@@ -27,7 +27,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - id: rust-toolchain
+      - id: rust_toolchain
         uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
@@ -43,14 +43,14 @@ jobs:
         with: 
           path: |
             ~/.cargo
-          key: ${{ runner.os }}-cargo-${{ steps.rust-toolchain.rustc_hash }}-${{ hashFiles('./frontend/rust-lib/Cargo.toml') }}
+          key: ${{ runner.os }}-cargo-${{ steps.rust_toolchain.outputs.rustc_hash }}-${{ hashFiles('./frontend/rust-lib/Cargo.toml') }}
 
       - name: Cache Rust
         uses: actions/cache@v2
         with: 
           path: |
             frontend/rust-lib/target
-          key: ${{ runner.os }}-rust-${{ steps.rust-toolchain.rustc_hash }}-${{ hashFiles('./frontend/rust-lib/Cargo.toml') }}    
+          key: ${{ runner.os }}-rust-${{ steps.rust_toolchain.outputs.rustc_hash }}-${{ hashFiles('./frontend/rust-lib/Cargo.toml') }}    
 
       - name: Setup Environment
         run:   |
