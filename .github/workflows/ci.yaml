@@ -27,27 +27,31 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
+      - id: rust-toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      
+      - id: flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
       - name: Cache Cargo
         uses: actions/cache@v2
         with: 
           path: |
             ~/.cargo
-          key: ${{ runner.os }}-cargo-v2-${{ hashFiles('./frontend/rust-lib/Cargo.toml') }}
+          key: ${{ runner.os }}-cargo-${{ steps.rust-toolchain.rustc_hash }}-${{ hashFiles('./frontend/rust-lib/Cargo.toml') }}
 
       - name: Cache Rust
         uses: actions/cache@v2
         with: 
           path: |
             frontend/rust-lib/target
-          key: ${{ runner.os }}-rust-v2-${{ hashFiles('./frontend/rust-lib/Cargo.toml') }}    
+          key: ${{ runner.os }}-rust-${{ steps.rust-toolchain.rustc_hash }}-${{ hashFiles('./frontend/rust-lib/Cargo.toml') }}    
 
-      - name: Cache Flutter
-        uses: actions/cache@v2
-        with:
-          path: |
-            ${{ matrix.flutter_path }}
-          key: ${{ runner.os }}-flutter-v2-${{ hashFiles('./frontend/app_flowy/pubspec.lock') }}
-      
       - name: Setup Environment
         run:   |
           if [ "$RUNNER_OS" == "Linux" ]; then
@@ -59,14 +63,6 @@ jobs:
             echo 'nothing'
           fi
         shell: bash
-
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-      
-      - uses: subosito/flutter-action@v2
-        with:
-          channel: 'stable'
 
       - name: Deps
         working-directory: frontend
