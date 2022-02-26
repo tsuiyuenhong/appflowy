@@ -32,21 +32,21 @@ jobs:
         with: 
           path: |
             ~/.cargo
-          key: ${{ runner.os }}-cargo-${{ hashFiles('./frontend/rust-lib/Cargo.toml') }}
+          key: ${{ runner.os }}-cargo-v2-${{ hashFiles('./frontend/rust-lib/Cargo.toml') }}
 
       - name: Cache Rust
         uses: actions/cache@v2
         with: 
           path: |
             frontend/rust-lib/target
-          key: ${{ runner.os }}-rust-${{ hashFiles('./frontend/rust-lib/Cargo.toml') }}    
+          key: ${{ runner.os }}-rust-v2-${{ hashFiles('./frontend/rust-lib/Cargo.toml') }}    
 
       - name: Cache Flutter
         uses: actions/cache@v2
         with:
           path: |
             ${{ matrix.flutter_path }}
-          key: ${{ runner.os }}-flutter-${{ hashFiles('./frontend/app_flowy/pubspec.lock') }}
+          key: ${{ runner.os }}-flutter-v2-${{ hashFiles('./frontend/app_flowy/pubspec.lock') }}
       
       - name: Setup Environment
         run:   |
