@@ -14,6 +14,7 @@ impl EventASTContext {
         let command_name = variant.enum_item_name.clone();
         if command_name.is_empty() {
             panic!("Invalid command name: {}", variant.enum_item_name);
+            panic!("Invalid command name: {}", variant.enum_item_name);
         }
 
         let event = format_ident!("{}", &command_name);
