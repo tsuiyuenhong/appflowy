@@ -17,6 +17,7 @@ pub struct AttrsContainer {
     pb_enum_type: Option<syn::Type>,
 }
 
+
 impl AttrsContainer {
     /// Extract out the `#[pb(...)]` attributes from an item.
     pub fn from_ast(cx: &Ctxt, item: &syn::DeriveInput) -> Self {
