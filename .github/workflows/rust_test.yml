@@ -29,6 +29,7 @@ jobs:
         with:
           toolchain: 'stable-2022-01-20'
           override: true
+          
 
       - name: Cache Cargo
         uses: actions/cache@v2
