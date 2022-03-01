@@ -52,6 +52,9 @@ jobs:
       - name: Run rust-lib tests
         working-directory: frontend/rust-lib
         run: |
+          rustc --version
+          rustup show
+          rustc --version
           rustup run stable rustc --version
           rustup run stable cargo test --no-default-features
         
