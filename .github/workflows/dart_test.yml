@@ -20,7 +20,7 @@ jobs:
       
       - uses: actions-rs/toolchain@v1
         with:
-          toolchain: stable
+          toolchain: 'stable-2022-01-20'
       
       - uses: subosito/flutter-action@v2
         with:
@@ -39,7 +39,8 @@ jobs:
         with: 
           path: |
             frontend/rust-lib/target
-          key: ${{ runner.os }}-rust-${{ steps.rust_toolchain.outputs.rustc_hash }}-${{ hashFiles('./frontend/rust-lib/Cargo.toml') }}    
+            shared-lib/target
+          key: ${{ runner.os }}-rust-rust-lib-share-lib-${{ steps.rust_toolchain.outputs.rustc_hash }}-${{ hashFiles('./frontend/rust-lib/Cargo.toml') }}    
 
       - name: Deps Flutter
         working-directory: frontend/app_flowy

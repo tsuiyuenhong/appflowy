@@ -28,8 +28,6 @@ jobs:
         uses: actions-rs/toolchain@v1
         with:
           toolchain: 'stable-2022-01-20'
-          override: true
-          
 
       - name: Cache Cargo
         uses: actions/cache@v2
@@ -44,20 +42,15 @@ jobs:
           path: |
             frontend/rust-lib/target
             shared-lib/target
-          key: ${{ runner.os }}-rust-lib-shared-lib-${{ steps.rust_toolchain.outputs.rustc_hash }}-${{ hashFiles('./frontend/rust-lib/Cargo.toml') }}    
-      
+          key: ${{ runner.os }}-rust-rust-lib-share-lib-${{ steps.rust_toolchain.outputs.rustc_hash }}-${{ hashFiles('./frontend/rust-lib/Cargo.toml') }}    
+
       - name: Install cargo-make
         working-directory: frontend
         run: cargo install cargo-make
         
       - name: Run rust-lib tests
         working-directory: frontend/rust-lib
-        run: |
-          rustc --version
-          rustup show
-          rustc --version
-          rustup run stable rustc --version
-          rustup run stable cargo test --no-default-features
+        run: cargo test --no-default-features
         
       - name: Run shared-lib tests
         working-directory: shared-lib
