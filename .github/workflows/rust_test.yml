@@ -42,7 +42,7 @@ jobs:
           path: |
             frontend/rust-lib/target
             shared-lib/target
-          key: ${{ runner.os }}-rust-${{ steps.rust_toolchain.outputs.rustc_hash }}-${{ hashFiles('./frontend/rust-lib/Cargo.toml') }}    
+          key: ${{ runner.os }}-rust-lib-and-shared-lib-${{ steps.rust_toolchain.outputs.rustc_hash }}-${{ hashFiles('./frontend/rust-lib/Cargo.toml') }}    
       
       - name: Install cargo-make
         working-directory: frontend
