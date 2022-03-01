@@ -55,4 +55,3 @@ jobs:
       - name: Run shared-lib tests
         working-directory: shared-lib
         run: cargo test --no-default-features
-        
