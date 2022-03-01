@@ -41,6 +41,7 @@ jobs:
         with: 
           path: |
             frontend/rust-lib/target
+            shared-lib/target
           key: ${{ runner.os }}-rust-${{ steps.rust_toolchain.outputs.rustc_hash }}-${{ hashFiles('./frontend/rust-lib/Cargo.toml') }}    
       
       - name: Install cargo-make
@@ -49,7 +50,9 @@ jobs:
         
       - name: Run rust-lib tests
         working-directory: frontend/rust-lib
-        run: cargo test --no-default-features
+        run: |
+          rustc --version
+          cargo test --no-default-features
         
       - name: Run shared-lib tests
         working-directory: shared-lib
