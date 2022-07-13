@@ -1,0 +1,53 @@
+{
+  "document": {
+    "type": "root",
+    "children": [
+      {
+        "type": "text",
+        "attributes": {
+          "subtype": "with-heading"
+        }
+      },
+      {
+        "type": "text", 
+        "attributes": {
+          "tag": "*"
+        },
+        "children": [
+          {
+            "type": "text",
+            "attributes": {
+              "text-type": "heading2",
+              "check": true
+            }
+          },
+          {
+            "type": "text",
+            "attributes": {
+              "text-type": "checkbox",
+              "check": true
+            }
+          },
+          {
+            "type": "text",
+            "attributes": {
+              "tag": "**"
+            }
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attributes": {
+          "url": "x.png"
+        }
+      },
+      {
+        "type": "video",
+        "attributes": {
+          "url": "x.mp4"
+        }
+      }
+    ]
+  }
+}
