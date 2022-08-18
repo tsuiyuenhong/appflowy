@@ -22,23 +22,23 @@ import 'package:appflowy_editor/src/operation/transaction_builder.dart';
 /// ```
 ///
 abstract class FlowyInputService {
-  /// Updates the [TextEditingValue] of the text currently being edited.
+  /// Update the [TextEditingValue] of the text currently being edited.
   ///
   /// Note that if there are IME-related requirements,
   ///   please config `composing` value within [TextEditingValue]
   void attach(TextEditingValue textEditingValue);
 
-  /// Applies insertion, deletion and replacement
+  /// Apply insertion, deletion and replacement
   ///   to the text currently being edited.
   ///
   /// For more information, please check [TextEditingDelta].
   void apply(List<TextEditingDelta> deltas);
 
-  /// Closes the editing state of the text currently being edited.
+  /// Close the editing state of the text currently being edited.
   void close();
 }
 
-/// Processes text input
+/// Process text input
 class FlowyInput extends StatefulWidget {
   const FlowyInput({
     Key? key,
