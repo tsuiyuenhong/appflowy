@@ -37,6 +37,9 @@ jobs:
           flutter pub get
           flutter test --coverage
 
-          curl -Os https://uploader.codecov.io/latest/linux/codecov
-          chmod +x codecov
-          ./codecov
+      - uses: codecov/codecov-action@v3
+        with: 
+          name: appflowy_editor
+          fail_ci_if_error: true
+          verbose: true
+
