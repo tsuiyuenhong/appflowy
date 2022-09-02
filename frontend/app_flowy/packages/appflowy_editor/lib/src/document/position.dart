@@ -14,6 +14,7 @@ class Position {
     if (other is! Position) {
       return false;
     }
+
     return pathEquals(path, other.path) && offset == other.offset;
   }
 

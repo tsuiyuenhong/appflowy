@@ -5,17 +5,14 @@ on:
     branches:
       - "main"
       - "codecov"
-    paths:
-      - "frontend/app_flowy/packages/appflowy_editor"
 
   pull_request:
     branches:
       - "main"
-    paths:
-      - "frontend/app_flowy/packages/appflowy_editor"
 
 env:
   CARGO_TERM_COLOR: always
+
 
 jobs:
   tests:
@@ -39,7 +36,7 @@ jobs:
         run: |
           flutter pub get
           flutter test --coverage
-          
+
           curl -Os https://uploader.codecov.io/latest/linux/codecov
           chmod +x codecov
           ./codecov
