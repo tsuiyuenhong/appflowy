@@ -18,6 +18,9 @@ and the Flutter guide for
 <p align="center">
     <a href="https://discord.gg/ZCCYN4Anzq"><b>Discord</b></a> •
     <a href="https://twitter.com/appflowy"><b>Twitter</b></a>
+    <a href="https://codecov.io/gh/LucasXu0/AppFlowy" >
+        <img src="https://codecov.io/gh/LucasXu0/AppFlowy/branch/main/graph/badge.svg?token=L60UELQJFB"/>
+    </a>
 </p>
 
 <div align="center">
