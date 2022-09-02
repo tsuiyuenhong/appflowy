@@ -39,6 +39,7 @@ jobs:
         run: |
           flutter pub get
           flutter test --coverage
+          
           curl -Os https://uploader.codecov.io/latest/linux/codecov
           chmod +x codecov
           ./codecov
