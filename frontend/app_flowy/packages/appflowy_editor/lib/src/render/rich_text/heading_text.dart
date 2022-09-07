@@ -4,6 +4,7 @@ import 'package:appflowy_editor/src/render/rich_text/default_selectable.dart';
 import 'package:appflowy_editor/src/render/rich_text/flowy_rich_text.dart';
 import 'package:appflowy_editor/src/render/rich_text/rich_text_style.dart';
 import 'package:appflowy_editor/src/render/selection/selectable.dart';
+import 'package:appflowy_editor/src/render/style/editor_style.dart';
 import 'package:appflowy_editor/src/service/render_plugin_service.dart';
 import 'package:flutter/material.dart';
 
@@ -46,6 +47,9 @@ class _HeadingTextNodeWidgetState extends State<HeadingTextNodeWidget>
   final _richTextKey = GlobalKey(debugLabel: 'heading_text');
   final _topPadding = 5.0;
 
+  NodeStyle get headingStyle =>
+      widget.editorState.editorStyle.style(widget.textNode);
+
   @override
   SelectableMixin<StatefulWidget> get forward =>
       _richTextKey.currentState as SelectableMixin;
@@ -58,13 +62,10 @@ class _HeadingTextNodeWidgetState extends State<HeadingTextNodeWidget>
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(
-        top: _topPadding,
-        bottom: defaultLinePadding,
-      ),
+      padding: headingStyle.padding,
       child: FlowyRichText(
         key: _richTextKey,
-        placeholderText: 'Heading',
+        placeholderText: headingStyle.placeholderText,
         placeholderTextSpanDecorator: _placeholderTextSpanDecorator,
         textSpanDecorator: _textSpanDecorator,
         textNode: widget.textNode,
@@ -80,9 +81,7 @@ class _HeadingTextNodeWidgetState extends State<HeadingTextNodeWidget>
           .map(
             (span) => TextSpan(
               text: span.text,
-              style: span.style?.copyWith(
-                fontSize: widget.textNode.attributes.fontSize,
-              ),
+              style: headingStyle.textStyle,
               recognizer: span.recognizer,
             ),
           )
