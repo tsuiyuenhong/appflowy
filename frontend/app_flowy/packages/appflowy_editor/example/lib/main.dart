@@ -75,6 +75,31 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _buildEditorWithJsonString(Future<String> jsonString) {
+    final editorStyle = const EditorStyle.defaultStyle().copyWith(
+      styleCustomizer: (node, defaultStyle) {
+        if (node.type == 'text' && node.subtype == 'heading') {
+          return defaultStyle.copyWith(
+            textStyle: defaultStyle.textStyle.copyWith(
+              fontSize: 36,
+              fontWeight: FontWeight.bold,
+            ),
+          );
+        } else if (node.type == 'text' && node.subtype == 'checkbox') {
+          final decoration = defaultStyle.textStyle.decoration;
+          return defaultStyle.copyWith(
+            textStyle: defaultStyle.textStyle.copyWith(
+              decoration: node.attributes.check
+                  ? TextDecoration.combine([
+                      TextDecoration.lineThrough,
+                      if (decoration != null) decoration
+                    ])
+                  : defaultStyle.textStyle.decoration,
+            ),
+          );
+        }
+      },
+    );
+
     return FutureBuilder<String>(
       future: jsonString,
       builder: (_, snapshot) {
@@ -95,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
             width: MediaQuery.of(context).size.width,
             child: AppFlowyEditor(
               editorState: _editorState,
-              editorStyle: const EditorStyle.defaultStyle(),
+              editorStyle: editorStyle,
               shortcutEvents: [
                 underscoreToItalicEvent,
               ],

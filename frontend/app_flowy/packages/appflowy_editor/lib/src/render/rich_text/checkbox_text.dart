@@ -1,12 +1,8 @@
-import 'package:appflowy_editor/src/document/node.dart';
-import 'package:appflowy_editor/src/editor_state.dart';
+import 'package:appflowy_editor/appflowy_editor.dart';
 import 'package:appflowy_editor/src/infra/flowy_svg.dart';
-import 'package:appflowy_editor/src/operation/transaction_builder.dart';
 import 'package:appflowy_editor/src/render/rich_text/default_selectable.dart';
 import 'package:appflowy_editor/src/render/rich_text/flowy_rich_text.dart';
 import 'package:appflowy_editor/src/render/rich_text/rich_text_style.dart';
-import 'package:appflowy_editor/src/render/selection/selectable.dart';
-import 'package:appflowy_editor/src/service/render_plugin_service.dart';
 import 'package:flutter/material.dart';
 
 class CheckboxNodeWidgetBuilder extends NodeWidgetBuilder<TextNode> {
@@ -47,6 +43,9 @@ class _CheckboxNodeWidgetState extends State<CheckboxNodeWidget>
   final _richTextKey = GlobalKey(debugLabel: 'checkbox_text');
   final _iconWidth = 20.0;
   final _iconRightPadding = 5.0;
+
+  NodeStyle get _checkboxStyle =>
+      widget.editorState.editorStyle.style(widget.textNode);
 
   @override
   SelectableMixin<StatefulWidget> get forward =>
@@ -142,16 +141,7 @@ class _CheckboxNodeWidgetState extends State<CheckboxNodeWidget>
           .map(
             (span) => TextSpan(
               text: span.text,
-              style: widget.textNode.attributes.check
-                  ? span.style?.copyWith(
-                      color: Colors.grey,
-                      decoration: TextDecoration.combine([
-                        TextDecoration.lineThrough,
-                        if (span.style?.decoration != null)
-                          span.style!.decoration!
-                      ]),
-                    )
-                  : span.style,
+              style: _checkboxStyle.textStyle,
               recognizer: span.recognizer,
             ),
           )

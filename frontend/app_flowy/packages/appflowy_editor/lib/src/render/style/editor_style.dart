@@ -1,12 +1,20 @@
-import 'package:appflowy_editor/src/document/node.dart';
-import 'package:appflowy_editor/src/render/rich_text/rich_text_style.dart';
 import 'package:flutter/material.dart';
 
-typedef StyleCustomizer = dynamic Function(Node node);
+import 'package:appflowy_editor/src/document/node.dart';
+import 'package:appflowy_editor/src/render/rich_text/rich_text_style.dart';
+
+typedef StyleCustomizer = dynamic Function(Node node, NodeStyle defaultStyle);
 
 dynamic _builtInStyleCustomizer(Node node) {
-  if (node is TextNode && node.subtype == 'heading') {
+  if (node.type == 'text' && node.subtype == 'heading') {
     return NodeStyle.heading(hX: node.attributes.heading);
+  } else if (node.type == 'text' && node.subtype == 'checkbox') {
+    final normalStyle = NodeStyle.normal();
+    return normalStyle.copyWith(
+      textStyle: normalStyle.textStyle.copyWith(
+        color: node.attributes.check ? Colors.grey : Colors.black,
+      ),
+    );
   }
   return null;
 }
@@ -28,17 +36,25 @@ class EditorStyle {
   final StyleCustomizer? styleCustomizer;
 
   dynamic style(Node node) {
+    final defaultStyle = _builtInStyleCustomizer(node);
     if (styleCustomizer != null) {
-      return styleCustomizer!(node);
+      final style = styleCustomizer!(node, defaultStyle);
+      if (style != null) {
+        return style;
+      }
     }
-    return _builtInStyleCustomizer(node);
+    return defaultStyle;
   }
 
-  EditorStyle copyWith({EdgeInsets? padding}) {
-    return EditorStyle(
+  EditorStyle copyWith({
+    EdgeInsets? padding,
+    StyleCustomizer? styleCustomizer,
+  }) {
+    final ret = EditorStyle(
       padding: padding ?? this.padding,
-      styleCustomizer: styleCustomizer ?? styleCustomizer,
+      styleCustomizer: styleCustomizer ?? this.styleCustomizer,
     );
+    return ret;
   }
 }
 

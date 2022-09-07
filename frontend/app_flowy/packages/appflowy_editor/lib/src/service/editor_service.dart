@@ -75,8 +75,11 @@ class _AppFlowyEditorState extends State<AppFlowyEditor> {
 
     if (editorState.service != oldWidget.editorState.service) {
       editorState.selectionMenuItems = widget.selectionMenuItems;
-      editorState.editorStyle = widget.editorStyle;
       editorState.service.renderPluginService = _createRenderPlugin();
+    }
+
+    if (editorState.editorStyle != oldWidget.editorStyle) {
+      editorState.editorStyle = widget.editorStyle;
     }
   }
 

@@ -45,9 +45,8 @@ class _HeadingTextNodeWidgetState extends State<HeadingTextNodeWidget>
   GlobalKey? get iconKey => null;
 
   final _richTextKey = GlobalKey(debugLabel: 'heading_text');
-  final _topPadding = 5.0;
 
-  NodeStyle get headingStyle =>
+  NodeStyle get _headingStyle =>
       widget.editorState.editorStyle.style(widget.textNode);
 
   @override
@@ -56,16 +55,16 @@ class _HeadingTextNodeWidgetState extends State<HeadingTextNodeWidget>
 
   @override
   Offset get baseOffset {
-    return Offset(0, _topPadding);
+    return _headingStyle.padding.topLeft;
   }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: headingStyle.padding,
+      padding: _headingStyle.padding,
       child: FlowyRichText(
         key: _richTextKey,
-        placeholderText: headingStyle.placeholderText,
+        placeholderText: _headingStyle.placeholderText,
         placeholderTextSpanDecorator: _placeholderTextSpanDecorator,
         textSpanDecorator: _textSpanDecorator,
         textNode: widget.textNode,
@@ -81,7 +80,7 @@ class _HeadingTextNodeWidgetState extends State<HeadingTextNodeWidget>
           .map(
             (span) => TextSpan(
               text: span.text,
-              style: headingStyle.textStyle,
+              style: _headingStyle.textStyle,
               recognizer: span.recognizer,
             ),
           )
