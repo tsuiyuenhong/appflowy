@@ -27,3 +27,4 @@ export 'src/service/shortcut_event/keybinding.dart';
 export 'src/service/shortcut_event/shortcut_event.dart';
 export 'src/service/shortcut_event/shortcut_event_handler.dart';
 export 'src/render/rich_text/rich_text_style.dart';
+export 'src/render/style/build_in_style.dart';

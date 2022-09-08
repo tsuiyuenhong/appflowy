@@ -2,7 +2,6 @@ import 'package:appflowy_editor/appflowy_editor.dart';
 import 'package:appflowy_editor/src/infra/flowy_svg.dart';
 import 'package:appflowy_editor/src/render/rich_text/default_selectable.dart';
 import 'package:appflowy_editor/src/render/rich_text/flowy_rich_text.dart';
-import 'package:appflowy_editor/src/render/rich_text/rich_text_style.dart';
 import 'package:flutter/material.dart';
 
 class CheckboxNodeWidgetBuilder extends NodeWidgetBuilder<TextNode> {
@@ -44,8 +43,8 @@ class _CheckboxNodeWidgetState extends State<CheckboxNodeWidget>
   final _iconWidth = 20.0;
   final _iconRightPadding = 5.0;
 
-  NodeStyle get _checkboxStyle =>
-      widget.editorState.editorStyle.style(widget.textNode);
+  BuiltInNodeStyle get _checkboxStyle =>
+      widget.editorState.editorStyle.style(widget.textNode) as BuiltInNodeStyle;
 
   @override
   SelectableMixin<StatefulWidget> get forward =>

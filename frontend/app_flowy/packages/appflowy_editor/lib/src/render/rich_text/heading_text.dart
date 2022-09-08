@@ -4,7 +4,7 @@ import 'package:appflowy_editor/src/render/rich_text/default_selectable.dart';
 import 'package:appflowy_editor/src/render/rich_text/flowy_rich_text.dart';
 import 'package:appflowy_editor/src/render/rich_text/rich_text_style.dart';
 import 'package:appflowy_editor/src/render/selection/selectable.dart';
-import 'package:appflowy_editor/src/render/style/editor_style.dart';
+import 'package:appflowy_editor/src/render/style/build_in_style.dart';
 import 'package:appflowy_editor/src/service/render_plugin_service.dart';
 import 'package:flutter/material.dart';
 
@@ -46,7 +46,7 @@ class _HeadingTextNodeWidgetState extends State<HeadingTextNodeWidget>
 
   final _richTextKey = GlobalKey(debugLabel: 'heading_text');
 
-  NodeStyle get _headingStyle =>
+  BuiltInNodeStyle get _headingStyle =>
       widget.editorState.editorStyle.style(widget.textNode);
 
   @override
