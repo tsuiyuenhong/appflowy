@@ -1,11 +1,11 @@
-import 'package:appflowy_editor/src/render/style/editor_style.dart';
 import 'package:flutter/material.dart';
 
 import 'package:appflowy_editor/src/render/rich_text/rich_text_style.dart';
+import 'package:appflowy_editor/src/render/style/editor_style.dart';
 
 Map<String, StyleCustomizer> builtInStyleCustomizer = {
   'text': ((_, __) {
-    BuiltInNodeStyle.normal();
+    return BuiltInNodeStyle.normal();
   }),
   'text/checkbox': ((node, __) {
     final normalStyle = BuiltInNodeStyle.normal();
@@ -20,8 +20,10 @@ Map<String, StyleCustomizer> builtInStyleCustomizer = {
                 if (decoration != null) decoration
               ])
             : decoration,
+        color: check ? Colors.grey : Colors.black,
       ),
       placeholderText: 'To-Do',
+      iconPadding: const EdgeInsets.only(right: 5.0),
     );
   }),
   'text/heading': ((node, __) {
@@ -32,7 +34,7 @@ Map<String, StyleCustomizer> builtInStyleCustomizer = {
     final fontSize =
         level >= 0 && level < fontSizes.length ? fontSizes[level] : null;
     return normalStyle.copyWith(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
       textStyle: normalStyle.textStyle.copyWith(
         fontSize: fontSize,
         fontWeight: FontWeight.bold,
@@ -56,34 +58,51 @@ Map<String, StyleCustomizer> builtInStyleCustomizer = {
 
 class BuiltInNodeStyle extends NodeStyle {
   BuiltInNodeStyle.normal({
-    this.padding = const EdgeInsets.symmetric(horizontal: 5.0),
+    this.padding = const EdgeInsets.symmetric(vertical: 5.0),
     this.textStyle = const TextStyle(
       color: Colors.black,
       fontSize: 18.0,
-      fontWeight: FontWeight.normal,
+    ),
+    this.placeHolderTextStyle = const TextStyle(
+      color: Colors.grey,
+      fontSize: 18.0,
     ),
     this.placeholderText = 'Type something...',
+    this.iconSize = const Size.square(24.0),
+    this.iconPadding = const EdgeInsets.all(0.0),
   });
 
   BuiltInNodeStyle._({
     required this.padding,
     required this.textStyle,
+    required this.placeHolderTextStyle,
     required this.placeholderText,
+    this.iconSize = const Size.square(24.0),
+    this.iconPadding = const EdgeInsets.all(0.0),
   });
 
   final EdgeInsets padding;
   final TextStyle textStyle;
+  final TextStyle placeHolderTextStyle;
   final String placeholderText;
+  final Size? iconSize;
+  final EdgeInsets? iconPadding;
 
   BuiltInNodeStyle copyWith({
     EdgeInsets? padding,
     TextStyle? textStyle,
+    TextStyle? placeHolderTextStyle,
     String? placeholderText,
+    Size? iconSize,
+    EdgeInsets? iconPadding,
   }) {
     return BuiltInNodeStyle._(
       padding: padding ?? this.padding,
       textStyle: textStyle ?? this.textStyle,
+      placeHolderTextStyle: placeHolderTextStyle ?? this.placeHolderTextStyle,
       placeholderText: placeholderText ?? this.placeholderText,
+      iconSize: iconSize ?? this.iconSize,
+      iconPadding: iconPadding ?? this.iconPadding,
     );
   }
 }

@@ -190,8 +190,8 @@ class _FlowyRichTextState extends State<FlowyRichText> with SelectableMixin {
       key: _placeholderTextKey,
       textHeightBehavior: const TextHeightBehavior(
           applyHeightToFirstAscent: false, applyHeightToLastDescent: false),
-      text: widget.textSpanDecorator != null
-          ? widget.textSpanDecorator!(textSpan)
+      text: widget.placeholderTextSpanDecorator != null
+          ? widget.placeholderTextSpanDecorator!(textSpan)
           : textSpan,
     );
   }

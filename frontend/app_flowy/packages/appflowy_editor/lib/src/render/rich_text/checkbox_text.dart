@@ -40,8 +40,6 @@ class _CheckboxNodeWidgetState extends State<CheckboxNodeWidget>
   final iconKey = GlobalKey();
 
   final _richTextKey = GlobalKey(debugLabel: 'checkbox_text');
-  final _iconWidth = 20.0;
-  final _iconRightPadding = 5.0;
 
   BuiltInNodeStyle get _checkboxStyle =>
       widget.editorState.editorStyle.style(widget.textNode) as BuiltInNodeStyle;
@@ -69,9 +67,9 @@ class _CheckboxNodeWidgetState extends State<CheckboxNodeWidget>
           GestureDetector(
             key: iconKey,
             child: FlowySvg(
-              width: _iconWidth,
-              height: _iconWidth,
-              padding: EdgeInsets.only(right: _iconRightPadding),
+              width: _checkboxStyle.iconSize?.width ?? 20.0,
+              height: _checkboxStyle.iconSize?.height ?? 20.0,
+              padding: _checkboxStyle.iconPadding ?? EdgeInsets.zero,
               name: check ? 'check' : 'uncheck',
             ),
             onTap: () {
@@ -85,10 +83,10 @@ class _CheckboxNodeWidgetState extends State<CheckboxNodeWidget>
           Flexible(
             child: FlowyRichText(
               key: _richTextKey,
-              placeholderText: 'To-do',
+              placeholderText: _checkboxStyle.placeholderText,
               textNode: widget.textNode,
               textSpanDecorator: _textSpanDecorator,
-              placeholderTextSpanDecorator: _textSpanDecorator,
+              placeholderTextSpanDecorator: _placeholderTextSpanDecorator,
               editorState: widget.editorState,
             ),
           ),
@@ -140,7 +138,22 @@ class _CheckboxNodeWidgetState extends State<CheckboxNodeWidget>
           .map(
             (span) => TextSpan(
               text: span.text,
-              style: _checkboxStyle.textStyle,
+              style: span.style?.merge(_checkboxStyle.textStyle),
+              recognizer: span.recognizer,
+            ),
+          )
+          .toList(),
+    );
+  }
+
+  TextSpan _placeholderTextSpanDecorator(TextSpan textSpan) {
+    return TextSpan(
+      children: textSpan.children
+          ?.whereType<TextSpan>()
+          .map(
+            (span) => TextSpan(
+              text: span.text,
+              style: span.style?.merge(_checkboxStyle.placeHolderTextStyle),
               recognizer: span.recognizer,
             ),
           )

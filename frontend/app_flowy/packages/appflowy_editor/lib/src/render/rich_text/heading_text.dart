@@ -80,7 +80,7 @@ class _HeadingTextNodeWidgetState extends State<HeadingTextNodeWidget>
           .map(
             (span) => TextSpan(
               text: span.text,
-              style: _headingStyle.textStyle,
+              style: span.style?.merge(_headingStyle.textStyle),
               recognizer: span.recognizer,
             ),
           )
@@ -95,9 +95,7 @@ class _HeadingTextNodeWidgetState extends State<HeadingTextNodeWidget>
           .map(
             (span) => TextSpan(
               text: span.text,
-              style: span.style?.copyWith(
-                fontSize: widget.textNode.attributes.fontSize,
-              ),
+              style: span.style?.merge(_headingStyle.placeHolderTextStyle),
               recognizer: span.recognizer,
             ),
           )

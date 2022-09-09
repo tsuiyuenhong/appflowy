@@ -76,20 +76,19 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _buildEditorWithJsonString(Future<String> jsonString) {
-    _editorStyle = const EditorStyle.defaultStyle().copyWith(styleCustomizers: {
-      'text/heading': (node, defaultStyle) {
-        if (defaultStyle is BuiltInNodeStyle) {
-          final ds = defaultStyle;
+    _editorStyle = EditorStyle(
+      padding: const EdgeInsets.symmetric(horizontal: 200),
+      styleCustomizers: {
+        'text': (node, defaultStyle) {
+          final ds = defaultStyle as BuiltInNodeStyle;
           return ds.copyWith(
             textStyle: ds.textStyle.copyWith(
               fontSize: 20,
-              fontWeight: FontWeight.bold,
             ),
           );
-        }
-      }
-    });
-
+        },
+      },
+    );
     return FutureBuilder<String>(
       future: jsonString,
       builder: (_, snapshot) {

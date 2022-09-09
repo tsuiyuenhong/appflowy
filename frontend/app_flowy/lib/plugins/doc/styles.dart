@@ -37,7 +37,7 @@ DefaultStyles customStyles(BuildContext context) {
             fontSize: 24,
             color: defaultTextStyle.style.color!.withOpacity(0.70),
             height: 1.15,
-            fontWeight: FontWeight.normal,
+            fontWeight: FontWeight.bold,
           ),
           const Tuple2(8, 0),
           const Tuple2(0, 0),
