@@ -128,12 +128,25 @@ class _AppFlowyInputState extends State<AppFlowyInput>
       _updateComposing(delta);
 
       if (delta is TextEditingDeltaInsertion) {
+        Log.input.debug(
+          'receive insertion: text = ${delta.textInserted}, composing = ${delta.composing}, selection = ${delta.selection}',
+        );
         _applyInsert(delta);
       } else if (delta is TextEditingDeltaDeletion) {
+        Log.input.debug(
+          'receive deletion: text = ${delta.textDeleted}, composing = ${delta.composing}, selection = ${delta.deletedRange}',
+        );
         _applyDelete(delta);
       } else if (delta is TextEditingDeltaReplacement) {
+        Log.input.debug(
+          'receive replacement: text = ${delta.replacementText}, composing = ${delta.composing}, selection = ${delta.replacedRange}, old text = ${delta.textReplaced}',
+        );
         _applyReplacement(delta);
-      } else if (delta is TextEditingDeltaNonTextUpdate) {}
+      } else if (delta is TextEditingDeltaNonTextUpdate) {
+        Log.input.debug(
+          'receive non text update: composing = ${delta.composing}, selection = ${delta.selection}',
+        );
+      }
     }
   }
 
