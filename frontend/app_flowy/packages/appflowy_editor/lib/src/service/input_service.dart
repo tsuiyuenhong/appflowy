@@ -1,12 +1,8 @@
-import 'package:appflowy_editor/src/infra/log.dart';
-import 'package:appflowy_editor/src/core/transform/transaction.dart';
+import 'package:appflowy_editor/appflowy_editor.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:appflowy_editor/src/core/document/node.dart';
-import 'package:appflowy_editor/src/core/location/selection.dart';
-import 'package:appflowy_editor/src/editor_state.dart';
 import 'package:appflowy_editor/src/extensions/node_extensions.dart';
 
 /// [AppFlowyInputService] is responsible for processing text input,
@@ -109,16 +105,15 @@ class _AppFlowyInputState extends State<AppFlowyInput>
         this,
         const TextInputConfiguration(
           // TODO: customize
-          enableDeltaModel: true,
+          enableDeltaModel: false,
           inputType: TextInputType.multiline,
           textCapitalization: TextCapitalization.sentences,
         ),
       );
+      _textInputConnection!
+        ..setEditingState(textEditingValue)
+        ..show();
     }
-
-    _textInputConnection!
-      ..setEditingState(textEditingValue)
-      ..show();
   }
 
   @override
@@ -259,6 +254,19 @@ class _AppFlowyInputState extends State<AppFlowyInput>
   @override
   void updateEditingValue(TextEditingValue value) {
     // TODO: implement updateEditingValue
+    Log.input.debug(value.toString());
+
+    final selection =
+        widget.editorState.service.selectionService.currentSelectedNodes;
+    final textNode = selection.first;
+    if (textNode is TextNode) {
+      final transaction = widget.editorState.transaction;
+      transaction.replaceText(
+          textNode, 0, textNode.toPlainText().length, value.text);
+      transaction.afterSelection = Selection.collapsed(
+          Position(path: textNode.path, offset: value.selection.extentOffset));
+      widget.editorState.apply(transaction);
+    }
   }
 
   @override
