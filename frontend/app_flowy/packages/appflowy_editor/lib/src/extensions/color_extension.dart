@@ -3,7 +3,8 @@ import 'package:flutter/painting.dart';
 extension ColorExtension on Color {
   /// Try to parse the `rgba(red, greed, blue, alpha)`
   /// from the string.
-  static Color? tryFromRgbaString(String colorString) {
+  static Color? tryFromRgbaString(String? colorString) {
+    if (colorString == null) return null;
     final reg = RegExp(r'rgba\((\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)');
     final match = reg.firstMatch(colorString);
     if (match == null) {

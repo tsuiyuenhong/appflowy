@@ -250,6 +250,9 @@ class Delta extends Iterable<TextOperation> {
         0, (previousValue, element) => previousValue + element.length);
   }
 
+  @override
+  bool get isNotEmpty => _operations.isNotEmpty && length != 0;
+
   /// Returns a Delta that is equivalent to applying the operations of own Delta, followed by another Delta.
   Delta compose(Delta other) {
     final thisIter = _OpIterator(_operations);
