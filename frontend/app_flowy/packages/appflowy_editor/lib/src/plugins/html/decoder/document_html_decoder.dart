@@ -3,51 +3,9 @@ import 'dart:convert';
 
 import 'package:appflowy_editor/appflowy_editor.dart';
 import 'package:appflowy_editor/src/extensions/color_extension.dart';
+import 'package:appflowy_editor/src/plugins/html/html_tags.dart';
 import 'package:html/parser.dart';
 import 'package:html/dom.dart' as html;
-
-class _HTMLTag {
-  static const h1 = 'h1';
-  static const h2 = 'h2';
-  static const h3 = 'h3';
-
-  static const blockQuote = 'blockquote';
-  static const orderedList = 'ol';
-  static const unorderedList = 'ul';
-  static const list = 'li';
-
-  static const paragraph = 'p';
-  static const image = 'img';
-  static const div = 'div';
-
-  static const anchor = 'a';
-  static const italic = 'i';
-  static const bold = 'b';
-  static const underline = 'u';
-  static const del = 'del';
-  static const strong = 'strong';
-  static const span = 'span';
-  static const code = 'code';
-
-  static bool isTopLevel(String tag) {
-    return tag == h1 ||
-        tag == h2 ||
-        tag == h3 ||
-        tag == paragraph ||
-        tag == div ||
-        tag == blockQuote;
-  }
-
-  static List<String> inlineTags = [
-    anchor,
-    span,
-    code,
-    strong,
-    underline,
-    italic,
-    del,
-  ];
-}
 
 class DocumentHTMLDecoder extends Converter<String, Document> {
   /// This flag is used for parsing HTML pasting from Google Docs
@@ -68,55 +26,90 @@ class DocumentHTMLDecoder extends Converter<String, Document> {
   }
 
   List<Node> _convertHTMLNodes(List<html.Node> nodes) {
-    final delta = Delta();
-    final result = <Node>[];
-    for (final node in nodes) {
+    final List<Node> result = [];
+    for (var node in nodes) {
       if (node is html.Element) {
-        if (_HTMLTag.inlineTags.contains(node.localName)) {
-          _acceptInlineElement(delta, node);
-        } else if (_HTMLTag.bold == node.localName) {
-          if (!_inParagraph) {
-            // Google docs wraps the the content inside the `<b></b>` tag.
-            // It's strange
-            result.addAll(_convertHTMLNodes(node.children));
-          } else {
-            result.add(_convertElementToTextNode(node, null));
-          }
-        } else if (_HTMLTag.blockQuote == node.localName) {
-          result.addAll(_convertElementToQuotedTextNode(node));
-        } else {
-          result.addAll(_convertBlockElementToNode(node, null));
+        if (node.localName == HTMLTag.paragraph) {
+          result.add(_convertParagraphNode(node));
+        } else if (node.localName == HTMLTag.anchor) {
+          result.addAll(_convertAnchorNode(node));
         }
-      } else {
-        delta.insert(node.text ?? '');
+      } else if (node is html.Text) {
+        // leaf node
+
       }
-    }
-    if (delta.isNotEmpty) {
-      result.add(TextNode(delta: delta));
     }
     return result;
   }
+
+  TextNode _convertParagraphNode(html.Node node) {
+    final delta = Delta();
+    for (final child in node.nodes) {
+      _acceptInlineElement(delta, child, {});
+    }
+    return TextNode(delta: delta);
+  }
+
+  List<Node> _convertAnchorNode(html.Node node) {
+    if (node.nodes.length == 1) {
+      final delta = Delta();
+      _acceptInlineElement(delta, node.nodes.first, {});
+      return [
+        TextNode(delta: delta),
+      ];
+    }
+
+    return _convertHTMLNodes(node.nodes);
+  }
+
+  // List<Node> _convertHTMLNodes(List<html.Node> nodes) {
+  //   final delta = Delta();
+  //   final result = <Node>[];
+  //   for (final node in nodes) {
+  //     if (node is html.Element) {
+  //       if (HTMLTag.inlineTags.contains(node.localName)) {
+  //         _acceptInlineElement(delta, node);
+  //       } else if (HTMLTag.bold == node.localName) {
+  //         if (!_inParagraph) {
+  //           // Google docs wraps the the content inside the `<b></b>` tag.
+  //           // It's strange
+  //           result.addAll(_convertHTMLNodes(node.children));
+  //         } else {
+  //           result.add(_convertElementToTextNode(node, null));
+  //         }
+  //       } else {
+  //         result.addAll(_convertBlockElementToNode(node, null));
+  //       }
+  //     } else {
+  //       delta.insert(node.text ?? '');
+  //     }
+  //   }
+  //   if (delta.isNotEmpty) {
+  //     result.add(TextNode(delta: delta));
+  //   }
+  //   return result;
+  // }
 
   List<Node> _convertBlockElementToNode(
     html.Element element,
     Map<String, dynamic>? attributes,
   ) {
     switch (element.localName) {
-      case _HTMLTag.h1:
-      case _HTMLTag.h2:
-      case _HTMLTag.h3:
+      case HTMLTag.h1:
+      case HTMLTag.h2:
+      case HTMLTag.h3:
         return [_convertElementToHeadingNode(element, element.localName!)];
-      case _HTMLTag.unorderedList:
+      case HTMLTag.unorderedList:
         return _convertElementToBulletedList(element);
-      case _HTMLTag.orderedList:
+      case HTMLTag.orderedList:
         return _convertElementToNumberList(element);
-      case _HTMLTag.list:
+      case HTMLTag.list:
         return _convertElementsToNodes(element, attributes);
-      case _HTMLTag.paragraph:
-        return [_convertElementToParagraphNode(element, attributes)];
-      case _HTMLTag.image:
+      case HTMLTag.paragraph:
+        return _convertElementToParagraphNode(element, attributes);
+      case HTMLTag.image:
         return [_convertElementToImageNode(element)];
-      case _HTMLTag.blockQuote:
+      case HTMLTag.blockQuote:
         return _convertElementToQuotedTextNode(element);
       default:
         return [_convertElementToTextNode(element, attributes)];
@@ -125,12 +118,21 @@ class DocumentHTMLDecoder extends Converter<String, Document> {
 
   List<Node> _convertElementToQuotedTextNode(html.Element element) {
     final result = <Node>[];
-    for (final child in element.nodes.toList()) {
-      if (child is html.Element) {
+    for (final node in element.nodes) {
+      if (node is html.Element) {
         result.addAll(
           _convertBlockElementToNode(
-            child,
+            node,
             {BuiltInAttributeKey.subtype: BuiltInAttributeKey.quote},
+          ),
+        );
+      } else if (node.text != null) {
+        result.add(
+          TextNode(
+            delta: Delta()..insert(node.text!),
+            attributes: {
+              BuiltInAttributeKey.subtype: BuiltInAttributeKey.quote
+            },
           ),
         );
       }
@@ -138,14 +140,14 @@ class DocumentHTMLDecoder extends Converter<String, Document> {
     return result;
   }
 
-  Node _convertElementToParagraphNode(
+  List<Node> _convertElementToParagraphNode(
     html.Element element,
     Map<String, dynamic>? attributes,
   ) {
     _inParagraph = true;
-    final node = _convertElementToTextNode(element, attributes);
+    final nodes = _convertHTMLNodes(element.children);
     _inParagraph = false;
-    return node;
+    return nodes;
   }
 
   Node _convertElementToHeadingNode(html.Element element, String heading) {
@@ -163,7 +165,7 @@ class DocumentHTMLDecoder extends Converter<String, Document> {
   ///
   /// A container contains a <img /> will be regarded as a image block
   Node _convertElementToTextNode(html.Element element, Attributes? attributes) {
-    final image = element.querySelector(_HTMLTag.image);
+    final image = element.querySelector(HTMLTag.image);
     if (image != null) {
       return _convertElementToImageNode(image);
     }
@@ -202,7 +204,7 @@ class DocumentHTMLDecoder extends Converter<String, Document> {
     final nodes = element.nodes;
     for (final node in nodes) {
       if (node is html.Element) {
-        result.addAll(_convertHTMLNodes([node]));
+        result.addAll(_convertBlockElementToNode(node, attributes));
       }
     }
     return result;
@@ -226,7 +228,7 @@ class DocumentHTMLDecoder extends Converter<String, Document> {
     final delta = Delta();
     for (final node in element.nodes) {
       if (node is html.Element) {
-        _acceptInlineElement(delta, node);
+        _acceptInlineElement(delta, node, {});
       } else {
         delta.insert(node.text ?? "");
       }
@@ -250,35 +252,48 @@ class DocumentHTMLDecoder extends Converter<String, Document> {
     );
   }
 
-  void _acceptInlineElement(Delta delta, html.Element element) {
-    Attributes? attributes;
-    switch (element.localName) {
-      case _HTMLTag.span:
-        attributes = _converHTMLAttributesToDeltaAttributes(element.attributes);
-        break;
-      case _HTMLTag.anchor:
-        final href = element.attributes['href'];
-        attributes = {BuiltInAttributeKey.href: href};
-        break;
-      case _HTMLTag.bold:
-      case _HTMLTag.strong:
-        attributes = {BuiltInAttributeKey.bold: true};
-        break;
-      case _HTMLTag.underline:
-        attributes = {BuiltInAttributeKey.underline: true};
-        break;
-      case _HTMLTag.italic:
-        attributes = {BuiltInAttributeKey.italic: true};
-        break;
-      case _HTMLTag.del:
-        attributes = {BuiltInAttributeKey.strikethrough: true};
-        break;
-      case _HTMLTag.code:
-        attributes = {BuiltInAttributeKey.code: true};
-        break;
-      default:
+  void _acceptInlineElement(
+    Delta delta,
+    html.Node node,
+    Attributes? attributes,
+  ) {
+    attributes ??= {};
+    String text = node.text ?? '';
+    if (node is html.Element) {
+      switch (node.localName) {
+        case HTMLTag.span:
+          attributes.addAll(
+            _converHTMLAttributesToDeltaAttributes(node.attributes) ?? {},
+          );
+          break;
+        case HTMLTag.anchor:
+          final href = node.attributes['href'];
+          attributes.addAll({BuiltInAttributeKey.href: href});
+          break;
+        case HTMLTag.bold:
+        case HTMLTag.strong:
+          attributes.addAll({BuiltInAttributeKey.bold: true});
+          break;
+        case HTMLTag.underline:
+          attributes.addAll({BuiltInAttributeKey.underline: true});
+          break;
+        case HTMLTag.italic:
+          attributes.addAll({BuiltInAttributeKey.italic: true});
+          break;
+        case HTMLTag.del:
+          attributes.addAll({BuiltInAttributeKey.strikethrough: true});
+          break;
+        case HTMLTag.code:
+          attributes.addAll({BuiltInAttributeKey.code: true});
+          break;
+        default:
+      }
+      for (final child in node.nodes) {
+        _acceptInlineElement(delta, child, attributes);
+      }
+    } else {
+      delta.insert(text, attributes: attributes);
     }
-    delta.insert(element.text, attributes: attributes);
   }
 
   /// Convert HTML attributes to Delta attributes
