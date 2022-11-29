@@ -1,17 +1,16 @@
 import 'package:appflowy_editor/appflowy_editor.dart';
-import 'package:example/firebase_options.dart';
 import 'package:example/home_page.dart';
 import 'package:example/pages/collaborative_web_page.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:go_router/go_router.dart';
 
+import 'config/desktop_config.dart'
+    if (dart.library.html) 'config/web_config.dart';
+
 void main() async {
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await configureApp();
   runApp(const MyApp());
 }
 
@@ -22,7 +21,7 @@ final _router = GoRouter(
       builder: (context, state) => const HomePage(),
     ),
     GoRoute(
-      path: '/web/:token',
+      path: '/docs/:token',
       builder: (context, state) {
         final token = state.params['token'] ?? '';
         return CollaborativeWebPage(token: token);
