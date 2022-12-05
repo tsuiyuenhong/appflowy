@@ -155,11 +155,16 @@
       "appearance": "Appearance",
       "language": "Language",
       "user": "User",
+      "files": "Files",
       "open": "Open Settings"
     },
     "appearance": {
       "lightLabel": "Light Mode",
       "darkLabel": "Dark Mode"
+    },
+    "files": {
+      "defaultLocation": "Default location for new notes",
+      "defaultLocationDescription": "Where newly created notes are placed. ..."
     }
   },
   "grid": {
