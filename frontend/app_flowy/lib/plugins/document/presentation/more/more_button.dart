@@ -4,6 +4,8 @@ import 'package:flowy_infra/image.dart';
 import 'package:flowy_infra_ui/style_widget/text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:app_flowy/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class DocumentMoreButton extends StatelessWidget {
   const DocumentMoreButton({
@@ -28,8 +30,8 @@ class DocumentMoreButton extends StatelessWidget {
           PopupMenuItem(
             value: 2,
             enabled: true,
-            child: const FlowyText.medium(
-              'Export Database',
+            child: FlowyText.medium(
+              LocaleKeys.moreAction_exportDatabase.tr(),
               fontSize: 14,
             ),
             onTap: () {},
