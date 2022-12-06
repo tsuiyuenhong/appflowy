@@ -164,7 +164,10 @@
     },
     "files": {
       "defaultLocation": "Default location for new notes",
-      "defaultLocationDescription": "Where newly created notes are placed. ..."
+      "doubleTapToCopy": "Double tap to copy the path",
+      "restoreLocation": "Restore to default location",
+      "customizeLocation": "Customize location",
+      "restartApp": "Please restart app for the changes to take effect."
     }
   },
   "grid": {
