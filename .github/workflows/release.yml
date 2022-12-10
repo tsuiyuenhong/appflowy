@@ -207,7 +207,7 @@ jobs:
               asset_content_type: application/octet-stream
 
   build-windows-x86_64:
-    runs-on: windows-latest
+    runs-on: windows-2019
     needs: create-release
     env:
       WINDOWS_APP_RELEASE_PATH: frontend\app_flowy\product\${{ github.ref_name }}\windows
