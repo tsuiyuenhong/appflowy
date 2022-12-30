@@ -46,6 +46,8 @@ class SimpleEditor extends StatelessWidget {
               kMathEquationType: MathEquationNodeWidgetBuidler(),
               // Code Block
               kCodeBlockType: CodeBlockNodeWidgetBuilder(),
+              // Table
+              kTableType: TableNodeWidgetBuilder(),
             },
             shortcutEvents: [
               // Divider
@@ -64,6 +66,8 @@ class SimpleEditor extends StatelessWidget {
               codeBlockMenuItem,
               // Emoji
               emojiMenuItem,
+              // Table
+              tableMenuItem,
             ],
           );
         } else {

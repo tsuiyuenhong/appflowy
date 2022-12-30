@@ -604,14 +604,30 @@ class _AppFlowySelectionState extends State<AppFlowySelection>
     final node = sortedNodes[min];
     if (node.children.isNotEmpty && node.children.first.rect.top <= offset.dy) {
       final children = node.children.toList(growable: false);
-      return _getNodeInOffset(
-        children,
-        offset,
-        0,
-        children.length - 1,
-      );
+
+      // Use binary search to find the result
+      // return _getNodeInOffset(
+      //   children,
+      //   offset,
+      //   0,
+      //   children.length - 1,
+      // );
+
+      // Use traveser to find the result
+      return _getNodeInOffsetByTraversing(children, offset);
     }
     return node;
+  }
+
+  Node? _getNodeInOffsetByTraversing(List<Node> sortedNodes, Offset offset) {
+    for (final node in sortedNodes) {
+      if (node.rect.contains(offset)) {
+        final children = node.children.toList(growable: false);
+        final innerNode = _getNodeInOffsetByTraversing(children, offset);
+        return innerNode ?? node;
+      }
+    }
+    return null;
   }
 
   void _enableInteraction() {

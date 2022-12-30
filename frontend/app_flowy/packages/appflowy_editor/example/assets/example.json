@@ -23,6 +23,17 @@
         ]
       },
       { "type": "text", "delta": [] },
+      { "type": "text", "delta": [] },
+      {
+        "type": "table",
+        "children": [
+          { "type": "text", "delta": [{ "insert": "ABCD" }] },
+          { "type": "text", "delta": [{ "insert": "EFG" }] },
+          { "type": "text", "delta": [{ "insert": "HIJK" }] }
+        ]
+      },
+      { "type": "text", "delta": [] },
+      { "type": "text", "delta": [] },
       {
         "type": "text",
         "delta": [
