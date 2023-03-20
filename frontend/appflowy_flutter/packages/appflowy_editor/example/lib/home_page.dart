@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math';
 
 import 'package:appflowy_editor/appflowy_editor.dart';
 import 'package:example/pages/simple_editor.dart';
@@ -220,7 +221,16 @@ Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
   Widget _buildFloatingActionButton(BuildContext context) {
     return FloatingActionButton(
       onPressed: () {
-        _scaffoldKey.currentState?.openDrawer();
+        // _scaffoldKey.currentState?.openDrawer();
+        final tr = _editorState.transaction;
+        tr.insertNode(
+          [100],
+          TextNode(
+            delta: Delta()
+              ..insert('100, ${Random(1000000000000000).nextDouble()}'),
+          ),
+        );
+        _editorState.apply(tr);
       },
       child: const Icon(Icons.menu),
     );

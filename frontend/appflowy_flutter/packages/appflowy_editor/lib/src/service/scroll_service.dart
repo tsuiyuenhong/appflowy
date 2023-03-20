@@ -90,6 +90,7 @@ class _AppFlowyScrollState extends State<AppFlowyScroll>
 
   @override
   Widget build(BuildContext context) {
+    return widget.child;
     return Listener(
       onPointerSignal: _onPointerSignal,
       onPointerPanZoomUpdate: _onPointerPanZoomUpdate,

@@ -18,7 +18,7 @@ import 'package:appflowy_editor/src/extensions/attributes_extension.dart';
 import 'package:appflowy_editor/src/render/selection/selectable.dart';
 import 'package:appflowy_editor/src/render/toolbar/toolbar_item.dart';
 
-const _kRichTextDebugMode = false;
+const _kRichTextDebugMode = true;
 
 typedef FlowyTextSpanDecorator = TextSpan Function(TextSpan textSpan);
 
@@ -204,8 +204,11 @@ class _FlowyRichTextState extends State<FlowyRichText> with SelectableMixin {
   }
 
   Widget _buildSingleRichText(BuildContext context) {
+    final container = SelectionContainer.maybeOf(context);
     final textSpan = _textSpan;
     return RichText(
+      selectionRegistrar: container,
+      selectionColor: DefaultSelectionStyle.of(context).selectionColor,
       key: _textKey,
       textHeightBehavior: const TextHeightBehavior(
         applyHeightToFirstAscent: false,

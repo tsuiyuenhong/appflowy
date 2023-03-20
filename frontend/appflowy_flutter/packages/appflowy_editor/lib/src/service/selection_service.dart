@@ -206,6 +206,7 @@ class _AppFlowySelectionState extends State<AppFlowySelection>
 
   @override
   void updateSelection(Selection? selection) {
+    return;
     if (!widget.editable) {
       return;
     }

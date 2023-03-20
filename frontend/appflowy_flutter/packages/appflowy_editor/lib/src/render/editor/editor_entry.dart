@@ -32,6 +32,28 @@ class EditorNodeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return SelectionArea(
+      child: ListView.builder(
+        itemBuilder: (context, index) {
+          final child = node.children.toList(growable: false)[index];
+          return editorState.service.renderPluginService.buildPluginWidget(
+            child is TextNode
+                ? NodeWidgetContext<TextNode>(
+                    context: context,
+                    node: child,
+                    editorState: editorState,
+                  )
+                : NodeWidgetContext<Node>(
+                    context: context,
+                    node: child,
+                    editorState: editorState,
+                  ),
+          );
+        },
+        itemCount: node.children.length,
+      ),
+    );
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: node.children
