@@ -96,6 +96,7 @@ class HomeMenu extends StatelessWidget {
             ).padding(horizontal: Insets.l),
           ),
           const VSpace(20),
+          const VSpace(20),
           const MenuTrash(),
           const VSpace(20),
           _renderNewAppButton(context),

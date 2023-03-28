@@ -3,6 +3,7 @@ import 'package:appflowy/generated/locale_keys.g.dart';
 import 'package:appflowy/workspace/presentation/settings/widgets/settings_appearance_view.dart';
 import 'package:appflowy/workspace/presentation/settings/widgets/settings_file_system_view.dart';
 import 'package:appflowy/workspace/presentation/settings/widgets/settings_language_view.dart';
+import 'package:appflowy/workspace/presentation/settings/widgets/settings_plugin_marketplace_view.dart';
 import 'package:appflowy/workspace/presentation/settings/widgets/settings_user_view.dart';
 import 'package:appflowy/workspace/presentation/settings/widgets/settings_menu.dart';
 import 'package:appflowy/workspace/application/settings/settings_dialog_bloc.dart';
@@ -67,6 +68,8 @@ class SettingsDialog extends StatelessWidget {
         return const SettingsFileSystemView();
       case SettingsPage.user:
         return SettingsUserView(user);
+      case SettingsPage.pluginMarketplace:
+        return const SettingPluginMarketPlaceView();
       default:
         return Container();
     }

@@ -13,6 +13,7 @@ enum SettingsPage {
   language,
   files,
   user,
+  pluginMarketplace,
 }
 
 class SettingsDialogBloc

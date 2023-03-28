@@ -1,10 +1,12 @@
 import 'package:appflowy/plugins/document/presentation/more/cubit/document_appearance_cubit.dart';
 import 'package:appflowy_editor/appflowy_editor.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
 EditorStyle customEditorTheme(BuildContext context) {
-  final documentStyle = context.watch<DocumentAppearanceCubit>().state;
+  final documentStyle = context.read<DocumentAppearanceCubit?>()?.state;
+  final fontSize = documentStyle?.fontSize ?? 16.0;
   var editorStyle = Theme.of(context).brightness == Brightness.dark
       ? EditorStyle.dark
       : EditorStyle.light;
@@ -12,11 +14,11 @@ EditorStyle customEditorTheme(BuildContext context) {
     padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 0),
     textStyle: editorStyle.textStyle?.copyWith(
       fontFamily: 'poppins',
-      fontSize: documentStyle.fontSize,
+      fontSize: fontSize,
     ),
     placeholderTextStyle: editorStyle.placeholderTextStyle?.copyWith(
       fontFamily: 'poppins',
-      fontSize: documentStyle.fontSize,
+      fontSize: fontSize,
     ),
     bold: editorStyle.bold?.copyWith(
       fontWeight: FontWeight.w600,
@@ -32,8 +34,8 @@ EditorStyle customEditorTheme(BuildContext context) {
 }
 
 Iterable<ThemeExtension<dynamic>> customPluginTheme(BuildContext context) {
-  final documentStyle = context.watch<DocumentAppearanceCubit>().state;
-  final baseFontSize = documentStyle.fontSize;
+  final documentStyle = context.read<DocumentAppearanceCubit?>()?.state;
+  final baseFontSize = documentStyle?.fontSize ?? 16.0;
   const basePadding = 12.0;
   var headingPluginStyle = Theme.of(context).brightness == Brightness.dark
       ? HeadingPluginStyle.dark
