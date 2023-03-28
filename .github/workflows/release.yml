@@ -35,6 +35,13 @@ jobs:
           release_name: v${{ github.ref }}
           body_path: ${{ env.RELEASE_NOTES_PATH }}
 
+      - name: Notify Discord
+        uses: appleboy/discord-action@master
+        with:
+          webhook_id: ${{ secrets.DISCORD_WEBHOOK_ID }}
+          webhook_token: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
+          message: "New release '${{ github.event.release.tag_name }}' published! View the release notes here: ${{ github.event.release.html_url }}"
+
   build-for-windows:
     name: ${{ matrix.job.target }} (${{ matrix.job.os }})
     needs: create-release
