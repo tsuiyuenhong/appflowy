@@ -37,7 +37,7 @@ jobs:
 
       - name: Notify Discord
         run: |
-          curl -H "Content-Type: application/json" -d '{"username": "release@appflowy", "content": "New release '${{ github.ref_name }}' published! View the release notes here: https://github.com/LucasXu0/AppFlowy/releases/tag/'${{ github.ref_name }}'"}' "https://discord.com/api/webhooks/${{ secrets.DISCORD }}"
+          curl -H "Content-Type: application/json" -d '{"username": "release@appflowy", "content": "New release **'${{ github.ref_name }}'** published! View the release notes here: https://github.com/LucasXu0/AppFlowy/releases/tag/'${{ github.ref_name }}'"}' "https://discord.com/api/webhooks/${{ secrets.DISCORD }}"
         shell: bash
 
   build-for-windows:
