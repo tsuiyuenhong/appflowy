@@ -37,7 +37,9 @@ jobs:
 
       - name: Notify Discord
         run: |
-          curl -H "Content-Type: application/json" -d '{"username": "test", "content": "hello"}' "https://discord.com/api/webhooks/${{ secrets.DISCORD }}"
+          curl -H \
+            "Content-Type: application/json" -d '{"username": "release@appflowy", "content": "message: "New release '${{ github.ref }}' published! View the release notes here: ${{ github.ref.html_url }}"            "}'
+            "https://discord.com/api/webhooks/${{ secrets.DISCORD }}"
         shell: bash
 
   build-for-windows:
