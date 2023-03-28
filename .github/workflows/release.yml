@@ -35,10 +35,16 @@ jobs:
           release_name: v${{ github.ref }}
           body_path: ${{ env.RELEASE_NOTES_PATH }}
 
+
+  notify-discord:
+    runs-on: ubuntu-latest
+    needs: create-release
+    steps:
       - name: Notify Discord
         run: |
-          curl -H "Content-Type: application/json" -d '{"username": "release@appflowy", "content": "New release **'${{ github.ref_name }}'** published! View the release notes here: https://github.com/LucasXu0/AppFlowy/releases/tag/'${{ github.ref_name }}'"}' "https://discord.com/api/webhooks/${{ secrets.DISCORD }}"
+          curl -H "Content-Type: application/json" -d '{"username": "release@appflowy", "content": "🎉 AppFlowy ${{ github.ref_name }} is available. https://github.com/LucasXu0/AppFlowy/releases/tag/'${{ github.ref_name }}'"}' "https://discord.com/api/webhooks/${{ secrets.DISCORD }}"
         shell: bash
+
 
   build-for-windows:
     name: ${{ matrix.job.target }} (${{ matrix.job.os }})
@@ -357,3 +363,4 @@ jobs:
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/appflowy_client:${{ github.ref_name }}
           cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/af_build_cache:buildcache
           cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/af_build_cache:buildcache,mode=max
+
