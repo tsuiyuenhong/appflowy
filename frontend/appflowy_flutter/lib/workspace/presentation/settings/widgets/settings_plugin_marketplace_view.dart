@@ -10,69 +10,9 @@ class SettingPluginMarketPlaceView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // FIXME: remove this test code later.
-    final List<PluginDescription> pluginDesciptions = [];
-    pluginDesciptions.addAll(builtInPluginDesriptions);
-    for (var i = 0; i < 20; i++) {
-      pluginDesciptions.add(PluginDescription(
-        id: 'PLUGIN $i',
-        name: 'PLUGIN $i',
-        author: 'LUCAS XU',
-        version: '$i.0.0',
-        timestamp: 1679994126,
-        oneLineDescription:
-            'IMPROVE THE PERFORMANCE OF THE APP, HELLO WORLD, HELLO WORLD',
-        markdownDescription: '''
-# IMPROVE THE PERFORMANCE OF THE APP.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-* HELLO WORLD.
-''',
-      ));
-    }
+    final List<PluginDescription> pluginDesciptions = [
+      ...builtInPluginDesriptions,
+    ];
     return PluginMarketPlace(
       pluginDesciptions: pluginDesciptions,
     );

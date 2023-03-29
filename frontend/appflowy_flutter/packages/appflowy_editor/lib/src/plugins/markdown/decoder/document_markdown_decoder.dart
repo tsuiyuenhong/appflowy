@@ -1,8 +1,15 @@
 import 'dart:convert';
 
 import 'package:appflowy_editor/appflowy_editor.dart';
+import 'package:appflowy_editor/src/plugins/markdown/decoder/parser/markdown_parser.dart';
 
 class DocumentMarkdownDecoder extends Converter<String, Document> {
+  DocumentMarkdownDecoder({
+    this.parsers = const [],
+  });
+
+  final List<MarkdownParser> parsers;
+
   @override
   Document convert(String input) {
     final lines = input.split('\n');
@@ -18,6 +25,15 @@ class DocumentMarkdownDecoder extends Converter<String, Document> {
 
   Node _convertLineToNode(String text) {
     final decoder = DeltaMarkdownDecoder();
+
+    Node? node;
+    for (final parser in parsers) {
+      node = parser.transform(text);
+      if (node != null) {
+        return node;
+      }
+    }
+
     // Heading Style
     if (text.startsWith('### ')) {
       return TextNode(

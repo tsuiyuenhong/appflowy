@@ -4,6 +4,7 @@ import 'dart:convert';
 
 import 'package:appflowy_editor/src/core/document/document.dart';
 import 'package:appflowy_editor/src/plugins/markdown/decoder/document_markdown_decoder.dart';
+import 'package:appflowy_editor/src/plugins/markdown/decoder/parser/markdown_parser.dart';
 import 'package:appflowy_editor/src/plugins/markdown/encoder/document_markdown_encoder.dart';
 import 'package:appflowy_editor/src/plugins/markdown/encoder/parser/image_node_parser.dart';
 import 'package:appflowy_editor/src/plugins/markdown/encoder/parser/node_parser.dart';
@@ -14,16 +15,20 @@ import 'package:appflowy_editor/src/plugins/markdown/encoder/parser/text_node_pa
 /// [customParsers] is a list of custom parsers that will be used to parse the markdown.
 Document markdownToDocument(
   String markdown, {
-  List<NodeParser> customParsers = const [],
+  List<MarkdownParser> customParsers = const [],
 }) {
-  return const AppFlowyEditorMarkdownCodec().decode(markdown);
+  return AppFlowyEditorMarkdownCodec(
+    decodeParsers: customParsers,
+  ).decode(markdown);
 }
 
 /// Converts a [Document] to markdown.
 ///
 /// [customParsers] is a list of custom parsers that will be used to parse the markdown.
-String documentToMarkdown(Document document,
-    {List<NodeParser> customParsers = const []}) {
+String documentToMarkdown(
+  Document document, {
+  List<NodeParser> customParsers = const [],
+}) {
   return AppFlowyEditorMarkdownCodec(encodeParsers: [
     ...customParsers,
     const TextNodeParser(),
@@ -34,13 +39,16 @@ String documentToMarkdown(Document document,
 class AppFlowyEditorMarkdownCodec extends Codec<Document, String> {
   const AppFlowyEditorMarkdownCodec({
     this.encodeParsers = const [],
+    this.decodeParsers = const [],
   });
 
   final List<NodeParser> encodeParsers;
+  final List<MarkdownParser> decodeParsers;
 
-  // TODO: Add support for custom parsers
   @override
-  Converter<String, Document> get decoder => DocumentMarkdownDecoder();
+  Converter<String, Document> get decoder => DocumentMarkdownDecoder(
+        parsers: decodeParsers,
+      );
 
   @override
   Converter<Document, String> get encoder => DocumentMarkdownEncoder(

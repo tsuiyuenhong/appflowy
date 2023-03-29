@@ -106,6 +106,10 @@ class _MathEquationNodeWidgetState extends State<_MathEquationNodeWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final mathEquation = _buildMathEquation(context);
+    if (!widget.editorState.editable) {
+      return mathEquation;
+    }
     return InkWell(
       onHover: (value) {
         setState(() {
@@ -117,7 +121,7 @@ class _MathEquationNodeWidgetState extends State<_MathEquationNodeWidget> {
       },
       child: Stack(
         children: [
-          _buildMathEquation(context),
+          mathEquation,
         ],
       ),
     );

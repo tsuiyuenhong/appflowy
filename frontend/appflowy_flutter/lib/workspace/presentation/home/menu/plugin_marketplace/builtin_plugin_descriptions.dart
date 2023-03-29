@@ -36,20 +36,22 @@ const mathEquationPluginDescription = PluginDescription(
   version: '1.0.0',
   timestamp: 1669852800000,
   oneLineDescription: 'Math Equation',
-  markdownDescription: '''
+  markdownDescription: r'''
 # Description
-To create a divider, use three underscores (___) on a line or insert it via slash menu.
+To create a math equation, insert it via slash menu.
+
+This \`$$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$\`
 
 The rendered output of it looks identical:
 
----
+$$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
 ''',
 );
 
 const codeBlockPluginDescription = PluginDescription(
   id: 'text/code_block',
   name: 'Code Block',
-  author: 'AppFlowy',
+  author: 'AppFlowy, abichinger',
   version: '1.0.0',
   timestamp: 1669852800000,
   oneLineDescription: 'Code Block',
@@ -100,7 +102,7 @@ The rendered output of it looks identical:
 const calloutPluginDescription = PluginDescription(
   id: 'callout',
   name: 'Callout',
-  author: 'AppFlowy',
+  author: 'abichinger',
   version: '1.0.0',
   timestamp: 1669852800000,
   oneLineDescription: 'Callout',
@@ -134,7 +136,7 @@ The rendered output of it looks identical:
 const coverPluginDescription = PluginDescription(
   id: 'cover',
   name: 'Cover',
-  author: 'AppFlowy',
+  author: 'Muhammad Rizwan',
   version: '1.0.0',
   timestamp: 1669852800000,
   oneLineDescription: 'Cover',
