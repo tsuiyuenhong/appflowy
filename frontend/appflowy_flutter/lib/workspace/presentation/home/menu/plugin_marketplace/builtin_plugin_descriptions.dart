@@ -135,13 +135,8 @@ const coverPluginDescription = PluginDescription(
   version: '1.0.0',
   timestamp: 1669852800000,
   oneLineDescription: 'Cover',
-  markdownDescription: '''
-# Description
-To create a divider, use three underscores (___) on a line or insert it via slash menu.
-
-The rendered output of it looks identical:
-
----
+  documentJsonDescription: r'''
+{"document":{"type":"editor","children":[{"type":"cover","attributes":{"cover_selection_type":"CoverSelectionType.asset","cover_selection":"assets/images/app_flowy_abstract_cover_1.jpg","selected_icon":"😄"}},{"type":"text","delta":[{"insert":"Here's a cover plugin example."}]}]}}
 ''',
 );
 

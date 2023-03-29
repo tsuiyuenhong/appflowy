@@ -311,10 +311,15 @@ class _CoverImageState extends State<_CoverImage> {
                   direction: PopoverDirection.bottomWithCenterAligned,
                   constraints: BoxConstraints.loose(const Size(320, 380)),
                   margin: EdgeInsets.zero,
+                  triggerActions: widget.editorState.editable
+                      ? PopoverTriggerFlags.click
+                      : PopoverTriggerFlags.none,
                   child: EmojiIconWidget(
                     emoji: widget.node.attributes[kIconSelectionAttribute],
                     onEmojiTapped: () {
-                      iconPopoverController.show();
+                      if (widget.editorState.editable) {
+                        iconPopoverController.show();
+                      }
                     },
                   ),
                   popupBuilder: (BuildContext popoverContext) {
@@ -476,7 +481,9 @@ class _CoverImageState extends State<_CoverImage> {
               width: double.infinity,
               child: coverImage,
             ),
-            hasCover ? _buildCoverOverlayButtons(context) : const SizedBox()
+            hasCover && widget.editorState.editable
+                ? _buildCoverOverlayButtons(context)
+                : const SizedBox()
           ],
         ),
       ),
