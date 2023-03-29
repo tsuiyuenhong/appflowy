@@ -1,3 +1,4 @@
+import 'package:appflowy/workspace/presentation/home/menu/plugin_marketplace/builtin_plugin_descriptions.dart';
 import 'package:appflowy/workspace/presentation/home/menu/plugin_marketplace/plugin_description.dart';
 import 'package:appflowy/workspace/presentation/home/menu/plugin_marketplace/plugin_marketplace.dart';
 import 'package:flutter/material.dart';
@@ -11,8 +12,10 @@ class SettingPluginMarketPlaceView extends StatelessWidget {
   Widget build(BuildContext context) {
     // FIXME: remove this test code later.
     final List<PluginDescription> pluginDesciptions = [];
+    pluginDesciptions.addAll(builtInPluginDesriptions);
     for (var i = 0; i < 20; i++) {
       pluginDesciptions.add(PluginDescription(
+        id: 'PLUGIN $i',
         name: 'PLUGIN $i',
         author: 'LUCAS XU',
         version: '$i.0.0',

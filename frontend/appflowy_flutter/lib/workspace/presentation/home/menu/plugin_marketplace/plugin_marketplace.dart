@@ -4,6 +4,12 @@ import 'package:appflowy_editor/appflowy_editor.dart';
 import 'package:flowy_infra/size.dart';
 import 'package:flowy_infra_ui/flowy_infra_ui.dart';
 import 'package:flutter/material.dart';
+import 'package:appflowy_editor_plugins/appflowy_editor_plugins.dart';
+import 'package:appflowy/plugins/document/presentation/plugins/board/board_node_widget.dart';
+import 'package:appflowy/plugins/document/presentation/plugins/cover/cover_node_widget.dart';
+import 'package:appflowy/plugins/document/presentation/plugins/grid/grid_node_widget.dart';
+import 'package:appflowy/plugins/document/presentation/plugins/openai/widgets/auto_completion_node_widget.dart';
+import 'package:appflowy/plugins/document/presentation/plugins/openai/widgets/smart_edit_node_widget.dart';
 
 class PluginMarketPlace extends StatefulWidget {
   const PluginMarketPlace({
@@ -60,6 +66,26 @@ class PluginDescriptionCard extends StatelessWidget {
             child: AppFlowyEditor(
               editorState: editorState,
               editable: false,
+              customBuilders: {
+                // Divider
+                kDividerType: DividerWidgetBuilder(),
+                // Math Equation
+                kMathEquationType: MathEquationNodeWidgetBuidler(),
+                // Code Block
+                kCodeBlockType: CodeBlockNodeWidgetBuilder(),
+                // Board
+                kBoardType: BoardNodeWidgetBuilder(),
+                // Grid
+                kGridType: GridNodeWidgetBuilder(),
+                // Card
+                kCalloutType: CalloutNodeWidgetBuilder(),
+                // Auto Generator,
+                kAutoCompletionInputType: AutoCompletionInputBuilder(),
+                // Cover
+                kCoverType: CoverNodeWidgetBuilder(),
+                // Smart Edit,
+                kSmartEditType: SmartEditInputBuilder(),
+              },
               themeData: theme.copyWith(
                 extensions: [
                   ...theme.extensions.values,

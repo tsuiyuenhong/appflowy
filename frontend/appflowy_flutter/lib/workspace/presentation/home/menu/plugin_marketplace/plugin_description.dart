@@ -1,5 +1,8 @@
+import 'package:intl/intl.dart';
+
 class PluginDescription {
   const PluginDescription({
+    required this.id,
     required this.name,
     required this.author,
     required this.version,
@@ -7,6 +10,8 @@ class PluginDescription {
     required this.oneLineDescription,
     required this.markdownDescription,
   });
+
+  final String id;
 
   // name of the plugin
   final String name;
@@ -26,9 +31,8 @@ class PluginDescription {
   // markdown description of the plugin
   final String markdownDescription;
 
-  // static dateFormatter = DateFormat('MM/dd/yyyy');
-  String get lastUpdated {
-    // FIXME: use real timestamp
-    return '2023-01-01';
-  }
+  static DateFormat dateFormatter = DateFormat('yyyy-MM-dd');
+  String get lastUpdated => dateFormatter.format(
+        DateTime.fromMillisecondsSinceEpoch(timestamp),
+      );
 }
