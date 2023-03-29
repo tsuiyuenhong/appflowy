@@ -72,9 +72,9 @@ class CalloutNodeWidgetBuilder extends NodeWidgetBuilder<Node>
           return AppFlowyPopover(
             controller: state.colorPopoverController,
             popupBuilder: (context) => state._buildColorPicker(),
-            constraints: BoxConstraints.loose(const Size(200, 460)),
+            constraints: BoxConstraints.loose(const Size(320, 380)),
             triggerActions: 0,
-            offset: const Offset(0, 30),
+            offset: const Offset(0, 20),
             child: item,
             onClose: () {
               final menuState =
@@ -147,26 +147,29 @@ class _CalloutWidgetState extends State<_CalloutWidget> with SelectableMixin {
         children: [
           _buildEmoji(),
           Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: widget.node.children
-                  .map(
-                    (child) => widget.editorState.service.renderPluginService
-                        .buildPluginWidget(
-                      child is TextNode
-                          ? NodeWidgetContext<TextNode>(
-                              context: context,
-                              node: child,
-                              editorState: widget.editorState,
-                            )
-                          : NodeWidgetContext<Node>(
-                              context: context,
-                              node: child,
-                              editorState: widget.editorState,
-                            ),
-                    ),
-                  )
-                  .toList(),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 3.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: widget.node.children
+                    .map(
+                      (child) => widget.editorState.service.renderPluginService
+                          .buildPluginWidget(
+                        child is TextNode
+                            ? NodeWidgetContext<TextNode>(
+                                context: context,
+                                node: child,
+                                editorState: widget.editorState,
+                              )
+                            : NodeWidgetContext<Node>(
+                                context: context,
+                                node: child,
+                                editorState: widget.editorState,
+                              ),
+                      ),
+                    )
+                    .toList(),
+              ),
             ),
           ),
         ],
@@ -178,7 +181,7 @@ class _CalloutWidgetState extends State<_CalloutWidget> with SelectableMixin {
     required PopoverController controller,
     required Widget Function(BuildContext context) popupBuilder,
     required Widget child,
-    Size size = const Size(200, 460),
+    Size size = const Size(320, 380),
   }) {
     return AppFlowyPopover(
       controller: controller,
@@ -209,7 +212,7 @@ class _CalloutWidgetState extends State<_CalloutWidget> with SelectableMixin {
     return _popover(
       controller: emojiPopoverController,
       popupBuilder: (context) => _buildEmojiPicker(),
-      size: const Size(300, 200),
+      size: const Size(320, 380),
       child: FlowyTextButton(
         emoji,
         fontSize: 18,

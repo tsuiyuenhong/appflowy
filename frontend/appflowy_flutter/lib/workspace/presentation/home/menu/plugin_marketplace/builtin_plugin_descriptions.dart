@@ -101,14 +101,8 @@ const calloutPluginDescription = PluginDescription(
   version: '1.0.0',
   timestamp: 1669852800000,
   oneLineDescription: 'Callout',
-  markdownDescription: '''
-# Description
-To create a divider, use three underscores (___) on a line or insert it via slash menu.
-
-The rendered output of it looks identical:
-
----
-''',
+  documentJsonDescription: r'''
+{"document":{"type":"editor","children":[{"type":"cover"},{"type":"text","delta":[{"insert":"Here's an example for "},{"insert":"Callout","attributes":{"bold":true}},{"insert":".","attributes":{"bold":false}}]},{"type":"text"},{"type":"callout","children":[{"type":"text","delta":[{"insert":"Hello "},{"insert":"AppFlowy","attributes":{"bold":true,"underline":true,"italic":true}},{"insert":"!"}]},{"type":"text","attributes":{"subtype":null,"bulleted-list":null}}]},{"type":"text"}]}}''',
 );
 
 const askAIToWritePluginDescription = PluginDescription(
@@ -136,8 +130,7 @@ const coverPluginDescription = PluginDescription(
   timestamp: 1669852800000,
   oneLineDescription: 'Cover',
   documentJsonDescription: r'''
-{"document":{"type":"editor","children":[{"type":"cover","attributes":{"cover_selection_type":"CoverSelectionType.asset","cover_selection":"assets/images/app_flowy_abstract_cover_1.jpg","selected_icon":"😄"}},{"type":"text","delta":[{"insert":"Here's a cover plugin example."}]}]}}
-''',
+{"document":{"type":"editor","children":[{"type":"cover","attributes":{"cover_selection_type":"CoverSelectionType.asset","cover_selection":"assets/images/app_flowy_abstract_cover_1.jpg","selected_icon":"😄"}},{"type":"text","delta":[{"insert":"Here's a cover plugin example."}]}]}}''',
 );
 
 const smartEditPluginDescription = PluginDescription(
