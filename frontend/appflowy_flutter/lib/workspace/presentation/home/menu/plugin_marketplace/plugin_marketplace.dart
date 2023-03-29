@@ -1,5 +1,4 @@
 import 'package:appflowy/plugins/document/editor_styles.dart';
-import 'package:appflowy/plugins/document/presentation/plugins/parsers/math_equation_markdown_parser.dart';
 import 'package:appflowy/workspace/presentation/home/menu/plugin_marketplace/plugin_description.dart';
 import 'package:appflowy_editor/appflowy_editor.dart';
 import 'package:flowy_infra/size.dart';
@@ -61,12 +60,7 @@ class PluginDescriptionCard extends StatelessWidget {
         margin: const EdgeInsets.all(8.0),
         useIntrinsicWidth: true,
         onTap: () {
-          final document = markdownToDocument(
-            description.markdownDescription,
-            customParsers: [
-              MathEquationMarkdownParser(),
-            ],
-          );
+          final document = description.document;
           final editorState = EditorState(document: document);
           final dialog = FlowyDialog(
             child: AppFlowyEditor(

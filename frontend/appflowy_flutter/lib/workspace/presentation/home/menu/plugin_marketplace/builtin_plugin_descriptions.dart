@@ -55,13 +55,8 @@ const codeBlockPluginDescription = PluginDescription(
   version: '1.0.0',
   timestamp: 1669852800000,
   oneLineDescription: 'Code Block',
-  markdownDescription: '''
-# Description
-To create a divider, use three underscores (___) on a line or insert it via slash menu.
-
-The rendered output of it looks identical:
-
----
+  documentJsonDescription: r'''
+{"document":{"type":"editor","children":[{"type":"cover"},{"type":"text","attributes":{"subtype":"heading","heading":"h1"},"delta":[{"insert":"Description"}]},{"type":"text","delta":[{"insert":"code block"}]},{"type":"text"},{"type":"text","attributes":{"subtype":"code_block","theme":"vs","language":"dart"},"delta":[{"insert":"\nfinal String welcome = 'AppFlowy';\n"}]},{"type":"text"}]}}
 ''',
 );
 

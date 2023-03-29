@@ -1,3 +1,7 @@
+import 'dart:convert';
+
+import 'package:appflowy/plugins/document/presentation/plugins/parsers/math_equation_markdown_parser.dart';
+import 'package:appflowy_editor/appflowy_editor.dart';
 import 'package:intl/intl.dart';
 
 class PluginDescription {
@@ -8,7 +12,8 @@ class PluginDescription {
     required this.version,
     required this.timestamp,
     required this.oneLineDescription,
-    required this.markdownDescription,
+    this.markdownDescription,
+    this.documentJsonDescription,
   });
 
   final String id;
@@ -28,11 +33,31 @@ class PluginDescription {
   // one line description of the plugin
   final String oneLineDescription;
 
-  // markdown description of the plugin
-  final String markdownDescription;
+  // description of the plugin with markdown format
+  final String? markdownDescription;
+
+  // description of the plugin with document json format
+  final String? documentJsonDescription;
 
   static DateFormat dateFormatter = DateFormat('yyyy-MM-dd');
   String get lastUpdated => dateFormatter.format(
         DateTime.fromMillisecondsSinceEpoch(timestamp),
       );
+
+  Document get document {
+    assert(
+      (markdownDescription == null) != (documentJsonDescription == null),
+    );
+    if (markdownDescription != null) {
+      return markdownToDocument(
+        markdownDescription!,
+        customParsers: [
+          MathEquationMarkdownParser(),
+        ],
+      );
+    } else if (documentJsonDescription != null) {
+      return Document.fromJson(jsonDecode(documentJsonDescription!));
+    }
+    return Document.empty();
+  }
 }
