@@ -1,13 +1,14 @@
+import 'package:appflowy/plugins/document/presentation/editor_plugins/actions/block_action_button.dart';
 import 'package:appflowy/plugins/document/presentation/editor_plugins/actions/option_action.dart';
 import 'package:appflowy/workspace/presentation/widgets/pop_up_action.dart';
 import 'package:appflowy_editor/appflowy_editor.dart';
 import 'package:appflowy_popover/appflowy_popover.dart';
-import 'package:flowy_infra/image.dart';
-import 'package:flowy_infra_ui/widget/ignore_parent_gesture.dart';
 import 'package:flutter/material.dart';
+import 'package:appflowy/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
-class OptionActionList extends StatelessWidget {
-  const OptionActionList({
+class BlockOptionButton extends StatelessWidget {
+  const BlockOptionButton({
     Key? key,
     required this.blockComponentContext,
     required this.blockComponentState,
@@ -49,14 +50,30 @@ class OptionActionList extends StatelessWidget {
           controller.close();
         }
       },
-      buildChild: (controller) => OptionActionButton(
-        onTap: () {
-          controller.show();
+      buildChild: (controller) => _buildOptionButton(controller),
+    );
+  }
 
-          // update selection
-          _updateBlockSelection();
-        },
+  Widget _buildOptionButton(PopoverController controller) {
+    return BlockActionButton(
+      svgName: 'editor/option',
+      richMessage: TextSpan(
+        children: [
+          TextSpan(
+            // todo: customize the color to highlight the text.
+            text: LocaleKeys.document_plugins_optionAction_click.tr(),
+          ),
+          TextSpan(
+            text: LocaleKeys.document_plugins_optionAction_toOpenMenu.tr(),
+          )
+        ],
       ),
+      onTap: () {
+        controller.show();
+
+        // update selection
+        _updateBlockSelection();
+      },
     );
   }
 
@@ -110,61 +127,5 @@ class OptionActionList extends StatelessWidget {
         throw UnimplementedError();
     }
     editorState.apply(transaction);
-  }
-}
-
-class BlockComponentActionButton extends StatelessWidget {
-  const BlockComponentActionButton({
-    super.key,
-    required this.icon,
-    required this.onTap,
-  });
-
-  final bool isHovering = false;
-  final Widget icon;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return MouseRegion(
-      cursor: SystemMouseCursors.grab,
-      child: GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onTap: onTap,
-        onTapDown: (details) {},
-        onTapUp: (details) {},
-        child: icon,
-      ),
-    );
-  }
-}
-
-class OptionActionButton extends StatelessWidget {
-  const OptionActionButton({
-    super.key,
-    required this.onTap,
-  });
-
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.center,
-      child: MouseRegion(
-        cursor: SystemMouseCursors.grab,
-        child: IgnoreParentGestureWidget(
-          child: GestureDetector(
-            onTap: onTap,
-            behavior: HitTestBehavior.deferToChild,
-            child: svgWidget(
-              'editor/option',
-              size: const Size.square(24.0),
-              color: Theme.of(context).iconTheme.color,
-            ),
-          ),
-        ),
-      ),
-    );
   }
 }

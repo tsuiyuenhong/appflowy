@@ -1,6 +1,6 @@
 import 'package:appflowy/plugins/document/application/doc_bloc.dart';
+import 'package:appflowy/plugins/document/presentation/editor_plugins/actions/block_action_list.dart';
 import 'package:appflowy/plugins/document/presentation/editor_plugins/actions/option_action.dart';
-import 'package:appflowy/plugins/document/presentation/editor_plugins/actions/option_action_button.dart';
 import 'package:appflowy/plugins/document/presentation/editor_plugins/plugins.dart';
 import 'package:appflowy/plugins/document/presentation/editor_style.dart';
 import 'package:appflowy_editor/appflowy_editor.dart';
@@ -71,6 +71,10 @@ class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
       ), // remove the default slash command.
     customSlashCommand(slashMenuItems),
   ];
+  late final showSlashMenu = customSlashCommand(
+    slashMenuItems,
+    shouldInsertSlash: false,
+  ).handler;
 
   late final styleCustomizer = EditorStyleCustomizer(context: context);
   DocumentBloc get documentBloc => context.read<DocumentBloc>();
@@ -207,24 +211,23 @@ class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
         TodoListBlockKeys.type,
         CalloutBlockKeys.type
       ];
-      if (!supportColorBuilderTypes.contains(entry.key)) {
-        builder.actionBuilder = (context, state) => OptionActionList(
-              blockComponentContext: context,
-              blockComponentState: state,
-              editorState: widget.editorState,
-              actions: standardActions,
-            );
-        continue;
-      }
       final colorAction = [
         OptionAction.divider,
         OptionAction.color,
       ];
-      builder.actionBuilder = (context, state) => OptionActionList(
+      final List<OptionAction> actions = [
+        ...standardActions,
+        if (supportColorBuilderTypes.contains(entry.key)) ...colorAction,
+      ];
+
+      builder.actionBuilder = (context, state) => BlockActionList(
             blockComponentContext: context,
             blockComponentState: state,
             editorState: widget.editorState,
-            actions: standardActions + colorAction,
+            actions: actions,
+            showSlashMenu: () => showSlashMenu(
+              widget.editorState,
+            ),
           );
     }
 
