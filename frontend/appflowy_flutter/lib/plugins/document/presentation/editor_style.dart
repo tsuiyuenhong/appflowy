@@ -115,11 +115,13 @@ class EditorStyleCustomizer {
   }
 
   TextStyle codeBlockStyleBuilder() {
+    final theme = Theme.of(context);
     final fontSize = context.read<DocumentAppearanceCubit>().state.fontSize;
     return TextStyle(
       fontFamily: 'poppins',
       fontSize: fontSize,
       height: 1.5,
+      color: theme.colorScheme.onBackground,
     );
   }
 }

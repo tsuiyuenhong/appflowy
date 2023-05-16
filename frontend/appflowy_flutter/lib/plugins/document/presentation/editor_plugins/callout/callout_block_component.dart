@@ -178,6 +178,7 @@ class _CalloutBlockComponentWidgetState
         node: widget.node,
         editorState: editorState,
         placeholderText: placeholderText,
+        lineHeight: 1.5,
         textSpanDecorator: (textSpan) => textSpan.updateTextStyle(
           textStyle,
         ),

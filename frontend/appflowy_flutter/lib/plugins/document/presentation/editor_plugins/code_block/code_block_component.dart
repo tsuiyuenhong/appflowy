@@ -206,6 +206,7 @@ class _CodeBlockComponentWidgetState extends State<CodeBlockComponentWidget>
         node: widget.node,
         editorState: editorState,
         placeholderText: placeholderText,
+        lineHeight: 1.5,
         textSpanDecorator: (textSpan) => TextSpan(
           style: textStyle,
           children: codeTextSpans,
