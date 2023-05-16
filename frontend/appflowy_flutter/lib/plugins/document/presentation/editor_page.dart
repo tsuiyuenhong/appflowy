@@ -13,9 +13,11 @@ class AppFlowyEditorPage extends StatefulWidget {
   const AppFlowyEditorPage({
     super.key,
     required this.editorState,
+    this.header,
   });
 
   final EditorState editorState;
+  final Widget? header;
 
   @override
   State<AppFlowyEditorPage> createState() => _AppFlowyEditorPageState();
@@ -92,6 +94,7 @@ class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
       // customize the shortcuts
       characterShortcutEvents: characterShortcutEvents,
       commandShortcutEvents: commandShortcutEvents,
+      header: widget.header,
     );
 
     return Center(
