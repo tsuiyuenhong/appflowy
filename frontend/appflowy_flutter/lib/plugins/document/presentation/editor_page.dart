@@ -41,16 +41,12 @@ class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
 
   final List<ToolbarItem> toolbarItems = [
     smartEditItem,
-    placeholderItem,
     paragraphItem,
     ...headingItems,
-    placeholderItem,
     ...markdownFormatItems,
-    placeholderItem,
     quoteItem,
     bulletedListItem,
     numberedListItem,
-    placeholderItem,
     linkItem,
     textColorItem,
     highlightColorItem,
