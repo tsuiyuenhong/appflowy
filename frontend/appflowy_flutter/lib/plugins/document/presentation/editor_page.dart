@@ -68,6 +68,9 @@ class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
         (element) => element == slashCommand,
       ), // remove the default slash command.
     customSlashCommand(slashMenuItems),
+
+    // toggle list
+    // formatGreaterToToggleList,
   ];
   late final showSlashMenu = customSlashCommand(
     slashMenuItems,
@@ -186,6 +189,7 @@ class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
       ),
       AutoCompletionBlockKeys.type: AutoCompletionBlockComponentBuilder(),
       SmartEditBlockKeys.type: SmartEditBlockComponentBuilder(),
+      // ToggleListBlockKeys.type: ToggleListBlockComponentBuilder(),
     };
 
     final builders = {
