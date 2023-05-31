@@ -74,7 +74,7 @@ class ColorOptionAction extends PopoverActionCell {
                 for (final node in nodes) {
                   transaction.updateNode(node, {
                     blockComponentBackgroundColor:
-                        color.toColor(context).toHex(),
+                        color.toColor(context).withOpacity(0.2).toHex(),
                   });
                 }
                 editorState.apply(transaction);

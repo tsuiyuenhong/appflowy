@@ -99,6 +99,7 @@ class EditorStyleCustomizer {
   }
 
   TextStyle headingStyleBuilder(int level) {
+    final theme = Theme.of(context);
     final fontSize = context.read<DocumentAppearanceCubit>().state.fontSize;
     final fontSizes = [
       fontSize + 16,
@@ -111,6 +112,7 @@ class EditorStyleCustomizer {
     return TextStyle(
       fontSize: fontSizes.elementAtOrNull(level - 1) ?? fontSize,
       fontWeight: FontWeight.bold,
+      color: theme.colorScheme.onBackground,
     );
   }
 
@@ -134,6 +136,13 @@ class EditorStyleCustomizer {
       selectionMenuItemSelectedIconColor: theme.colorScheme.onSurface,
       selectionMenuItemSelectedTextColor: theme.colorScheme.onSurface,
       selectionMenuItemSelectedColor: theme.hoverColor,
+    );
+  }
+
+  FloatingToolbarStyle floatingToolbarStyleBuilder() {
+    final theme = Theme.of(context);
+    return FloatingToolbarStyle(
+      backgroundColor: theme.cardColor,
     );
   }
 }
