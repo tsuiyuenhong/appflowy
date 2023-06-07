@@ -180,9 +180,9 @@
       "theme": "主題"
     },
     "files": {
-      "defaultLocation": "Appflowy 資料儲存位置",
+      "defaultLocation": "AppFlowy 資料儲存位置",
       "doubleTapToCopy": "雙擊以複製路徑",
-      "restoreLocation": "回復 Appflowy 預設路徑",
+      "restoreLocation": "回復 AppFlowy 預設路徑",
       "customizeLocation": "開啓其他資料夾",
       "restartApp": "請重新啓動以讓更動生效",
       "exportDatabase": "匯出資料庫",
@@ -194,7 +194,7 @@
       "openFolderDesc": "讀寫已存在的 AppFlowy 資料夾",
       "folderHintText": "資料夾名稱",
       "location": "建立新資料夾",
-      "locationDesc": "命名 Appflowy 資料夾",
+      "locationDesc": "命名 AppFlowy 資料夾",
       "browser": "瀏覽",
       "create": "建立",
       "folderPath": "儲存資料夾的路徑",
