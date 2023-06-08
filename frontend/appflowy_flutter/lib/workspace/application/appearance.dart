@@ -58,14 +58,14 @@ class AppearanceSettingsCubit extends Cubit<AppearanceSettingsState> {
     }
 
     if (state.locale != newLocale) {
-      context.setLocale(newLocale);
-
       _setting.locale.languageCode = newLocale.languageCode;
       _setting.locale.countryCode = newLocale.countryCode ?? "";
       _saveAppearanceSettings();
 
       emit(state.copyWith(locale: newLocale));
     }
+
+    context.setLocale(newLocale);
   }
 
   // Saves the menus current visibility
