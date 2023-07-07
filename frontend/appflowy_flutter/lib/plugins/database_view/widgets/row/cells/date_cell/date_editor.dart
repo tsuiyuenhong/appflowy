@@ -208,7 +208,7 @@ class _CellCalendarWidgetState extends State<_CellCalendarWidget> {
           selectedDayPredicate: (day) => isSameDay(state.dateTime, day),
           onDaySelected: (selectedDay, focusedDay) {
             context.read<DateCellCalendarBloc>().add(
-                  DateCellCalendarEvent.selectDay(selectedDay.toLocal().date),
+                  DateCellCalendarEvent.selectDay(selectedDay.date),
                 );
           },
           onFormatChanged: (format) {
