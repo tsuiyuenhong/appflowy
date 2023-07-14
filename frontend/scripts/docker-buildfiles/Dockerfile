@@ -11,8 +11,8 @@ RUN pacman -Syyu --noconfirm
 # Set up makepkg user and workdir
 ARG user=makepkg
 RUN pacman -S --needed --noconfirm sudo
-RUN useradd --system --create-home $user && \
-    echo "$user ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers
+RUN useradd --system --create-home $user &&
+    echo "$user ALL=(ALL:ALL) NOPASSWD:ALL" >>/etc/sudoers
 ENV PATH="/home/$user/.pub-cache/bin:/home/$user/flutter/bin:/home/$user/flutter/bin/cache/dart-sdk/bin:${PATH}"
 USER $user
 WORKDIR /home/$user
@@ -21,30 +21,30 @@ WORKDIR /home/$user
 RUN sudo pacman -S --needed --noconfirm curl tar
 RUN curl -sSfL \
     --output yay.tar.gz \
-    https://github.com/Jguer/yay/releases/download/v12.0.2/yay_12.0.2_x86_64.tar.gz && \
-  tar -xf yay.tar.gz && \
-  sudo mv yay_12.0.2_x86_64/yay /bin && \
-  rm -rf yay_12.0.2_x86_64 && \
-  yay --version
+    https://github.com/Jguer/yay/releases/download/v12.0.2/yay_12.0.2_x86_64.tar.gz &&
+    tar -xf yay.tar.gz &&
+    sudo mv yay_12.0.2_x86_64/yay /bin &&
+    rm -rf yay_12.0.2_x86_64 &&
+    yay --version
 
 # Install Rust
 RUN yay -S --noconfirm curl base-devel openssl clang cmake ninja pkg-config xdg-user-dirs
 RUN xdg-user-dirs-update
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-RUN source ~/.cargo/env && \
-    rustup toolchain install 1.70 && \
+RUN source ~/.cargo/env &&
+    rustup toolchain install 1.70 &&
     rustup default 1.70
 
 # Install Flutter
 RUN sudo pacman -S --noconfirm git tar gtk3
 RUN curl -sSfL \
-      --output flutter.tar.xz \
-      https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.10.1-stable.tar.xz && \
-    tar -xf flutter.tar.xz && \
+    --output flutter.tar.xz \
+    https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.10.6-stable.tar.xz &&
+    tar -xf flutter.tar.xz &&
     rm flutter.tar.xz
 RUN flutter config --enable-linux-desktop
 RUN flutter doctor
-RUN dart pub global activate protoc_plugin 20.0.1
+RUN dart pub global activate protoc_plugin 21.0.2
 
 # Install build dependencies for AppFlowy
 RUN sudo pacman -S --noconfirm git libkeybinder3 sqlite clang
@@ -54,12 +54,11 @@ RUN source ~/.cargo/env && cargo install --force cargo-make duckscript_cli
 COPY . /appflowy
 RUN sudo chown -R $user: /appflowy
 WORKDIR /appflowy
-RUN cd frontend && \
-    source ~/.cargo/env && \
-    cargo make appflowy-flutter-deps-tools && \
-    cargo make flutter_clean && \
+RUN cd frontend &&
+    source ~/.cargo/env &&
+    cargo make appflowy-flutter-deps-tools &&
+    cargo make flutter_clean &&
     cargo make -p production-linux-x86_64 appflowy-linux
-
 
 #================
 # APP
@@ -71,7 +70,7 @@ FROM archlinux/archlinux
 RUN pacman -Syyu --noconfirm
 
 # Install runtime dependencies
-RUN pacman -S --noconfirm xdg-user-dirs gtk3 libkeybinder3 && \
+RUN pacman -S --noconfirm xdg-user-dirs gtk3 libkeybinder3 &&
     pacman -Scc --noconfirm
 
 # Set up appflowy user
@@ -85,8 +84,8 @@ USER $user
 # Set up the AppFlowy app
 WORKDIR /home/$user
 COPY --from=builder /appflowy/frontend/appflowy_flutter/build/linux/x64/release/bundle .
-RUN xdg-user-dirs-update && \
-    test -e ./AppFlowy && \
+RUN xdg-user-dirs-update &&
+    test -e ./AppFlowy &&
     file ./AppFlowy
 
 CMD ["./AppFlowy"]
