@@ -185,7 +185,6 @@ script_runner = "@shell"
 script = [
   """
   cd appflowy_flutter
-  flutter clean
   flutter pub get
   cd ../
   sh scripts/code_generation/generate.sh
