@@ -4,8 +4,14 @@
 
 ### New Features
 
-- Dynamic load themes
-- Inline math equation
+- Added support for opening the page in tabs
+- Toggle list
+- Alt/Option + click to add a text block above
+
+### Bug fixes
+
+- Pasting or inserting text on Grid will cause a crash on Windows
+- Some UI issues
 
 ## Version 0.2.6 - 07/11/2023
 
