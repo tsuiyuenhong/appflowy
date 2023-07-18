@@ -69,6 +69,13 @@ jobs:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
 
+      - name: Cache the Flutter build
+        uses: actions/cache@v3
+        with:
+          path: |
+            frontend/appflowy_flutter/build
+          key: ${{ runner.os }}-${{ hashFiles('frontend/appflowy_flutter/pubspec.lock') }}-${{ hashFiles('frontend/rust-lib/Cargo.lock') }}
+
       - uses: Swatinem/rust-cache@v2
         with:
           prefix-key: ${{ matrix.os }}
