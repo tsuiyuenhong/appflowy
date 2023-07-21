@@ -1,4 +1,5 @@
 import 'package:appflowy/plugins/document/application/doc_bloc.dart';
+import 'package:appflowy/plugins/document/presentation/editor_plugins/copy_paste_cut/paste_comman.dart';
 import 'package:appflowy/plugins/document/presentation/editor_plugins/plugins.dart';
 import 'package:appflowy/plugins/document/presentation/editor_style.dart';
 import 'package:appflowy/workspace/application/settings/shortcuts/settings_shortcuts_service.dart';
@@ -47,6 +48,8 @@ class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
   final inlinePageReferenceService = InlinePageReferenceService();
 
   final List<CommandShortcutEvent> commandShortcutEvents = [
+    customCopyCommand,
+    customPasteCommand,
     toggleToggleListCommand,
     ...codeBlockCommands,
     ...standardCommandShortcutEvents,
