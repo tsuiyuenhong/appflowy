@@ -111,6 +111,7 @@
     "feedback": "Feedback"
   },
   "menuAppHeader": {
+    "moreButtonToolTip": "Remove, rename, and more...",
     "addPageTooltip": "Quickly add a page inside",
     "defaultNewPageName": "Untitled",
     "renameDialog": "Rename"
