@@ -1,0 +1,41 @@
+name: Sign
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+      runs-on: macos-lastest
+      steps:
+        - name: Download
+          run: curl https://objects.githubusercontent.com/github-production-release-asset-2e65be/463730986/e5e26bff-eb38-44ca-b523-cb258783ecc4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230815%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230815T110306Z&X-Amz-Expires=300&X-Amz-Signature=d89bd09232e8d7cad9acd7f51693fb37e61aa2c276791b55aa5315b9f5c489e9&X-Amz-SignedHeaders=host&actor_id=11863087&key_id=0&repo_id=463730986&response-content-disposition=attachment%3B%20filename%3DAppFlowy.zip&response-content-type=application%2Foctet-stream -o AppFlowy.zip
+        - name: Unzip
+          run: unzip AppFlowy.zip
+        - name: Sign binary
+          uses: lando/code-sign-action@v2
+          with:
+            file: AppFlowy.app
+            certificate-data: ${{ secrets.MACOS_CERTIFICATE }}
+            certificate-password: ${{ secrets.MACOS_CERTIFICATE_PWD }}
+            apple-team-id: ${{ secrets.MACOS_TEAM_ID }}
+            apple-notary-user: ${{ secrets.MACOS_NOTARY_USER }}
+            apple-notary-password: ${{ secrets.MACOS_NOTARY_PWD }}
+            apple-product-id: ${{ secrets.MACOS_PRODUCT_ID }}
+        - name: Create macOS dmg
+          run: |
+            brew install create-dmg
+            create-dmg \
+            --volname AppFlowy.dmg \
+            --hide-extension "AppFlowy.app" \
+            --background frontend/scripts/dmg_assets/AppFlowyInstallerBackground.jpg \
+            --window-size 600 450 \
+            --icon-size 94 \
+            --icon "AppFlowy.app" 141 249 \
+            --app-drop-link 458 249 \
+            "AppFlowy.dmg" \
+            "${{ steps.code-sign-action.outputs.file }}"
+        - name: Upload
+          uses: actions/upload-artifact@v3
+          with:
+            name: AppFlowy
+            path: AppFlowy.dmg
