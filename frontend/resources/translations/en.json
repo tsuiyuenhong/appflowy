@@ -784,5 +784,13 @@
     "tooltipDelete": "Delete",
     "tooltipMarkRead": "Mark as read",
     "tooltipMarkUnread": "Mark as unread"
+  },
+  "findAndReplace": {
+    "find": "Find",
+    "previousMatch": "Previous match",
+    "nextMatch": "Next match",
+    "close": "Close",
+    "replace": "Replace",
+    "replaceAll": "Replace all"
   }
 }

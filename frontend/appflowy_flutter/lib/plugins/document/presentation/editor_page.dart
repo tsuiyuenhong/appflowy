@@ -1,15 +1,17 @@
+import 'package:appflowy/generated/locale_keys.g.dart';
 import 'package:appflowy/plugins/document/application/doc_bloc.dart';
 import 'package:appflowy/plugins/document/presentation/editor_plugins/plugins.dart';
 import 'package:appflowy/plugins/document/presentation/editor_style.dart';
 import 'package:appflowy/plugins/inline_actions/handlers/date_reference.dart';
-import 'package:appflowy/plugins/inline_actions/handlers/reminder_reference.dart';
-import 'package:appflowy/workspace/application/appearance.dart';
-import 'package:appflowy/workspace/application/settings/shortcuts/settings_shortcuts_service.dart';
 import 'package:appflowy/plugins/inline_actions/handlers/inline_page_reference.dart';
+import 'package:appflowy/plugins/inline_actions/handlers/reminder_reference.dart';
 import 'package:appflowy/plugins/inline_actions/inline_actions_command.dart';
 import 'package:appflowy/plugins/inline_actions/inline_actions_service.dart';
+import 'package:appflowy/workspace/application/appearance.dart';
+import 'package:appflowy/workspace/application/settings/shortcuts/settings_shortcuts_service.dart';
 import 'package:appflowy_editor/appflowy_editor.dart';
 import 'package:collection/collection.dart';
+import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 import 'package:flowy_infra/theme_extension.dart';
 import 'package:flowy_infra_ui/flowy_infra_ui.dart';
 import 'package:flutter/material.dart';
@@ -55,6 +57,26 @@ class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
       ReminderReferenceService(context).reminderReferenceDelegate,
     ],
   );
+
+  late final List<CommandShortcutEvent> commandShortcutEvents = [
+    toggleToggleListCommand,
+    ...codeBlockCommands,
+    customCopyCommand,
+    customPasteCommand,
+    customCutCommand,
+    ...standardCommandShortcutEvents,
+    ...findAndReplaceCommands(
+      context: context,
+      localizations: FindReplaceLocalizations(
+        find: LocaleKeys.findAndReplace_find.tr(),
+        previousMatch: LocaleKeys.findAndReplace_previousMatch.tr(),
+        nextMatch: LocaleKeys.findAndReplace_nextMatch.tr(),
+        close: LocaleKeys.findAndReplace_close.tr(),
+        replace: LocaleKeys.findAndReplace_replace.tr(),
+        replaceAll: LocaleKeys.findAndReplace_replaceAll.tr(),
+      ),
+    ),
+  ];
 
   final List<ToolbarItem> toolbarItems = [
     smartEditItem..isActive = onlyShowInSingleTextTypeSelectionAndExcludeTable,
@@ -188,6 +210,7 @@ class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
         items: toolbarItems,
         editorState: widget.editorState,
         editorScrollController: editorScrollController,
+        textDirection: layoutDirection,
         child: Directionality(
           textDirection: layoutDirection,
           child: editor,
