@@ -17,6 +17,8 @@ class HomeLayout {
   late double editPanelWidth;
   late double homePageLOffset;
   late double homePageROffset;
+  late double homePageWidth;
+  late double homePageHeight;
   late double menuSpacing;
   late Duration animDuration;
 
@@ -36,12 +38,18 @@ class HomeLayout {
       menuIsDrawer = context.widthPx <= PageBreaks.tabletPortrait;
     }
 
-    homePageLOffset = (showMenu && !menuIsDrawer) ? menuWidth : 0.0;
+    homePageLOffset = (showMenu) ? menuWidth : 0.0;
 
     menuSpacing = !showMenu && Platform.isMacOS ? 80.0 : 0.0;
     animDuration = homeSetting.resizeType.duration();
 
     editPanelWidth = HomeSizes.editPanelWidth;
     homePageROffset = showEditPanel ? editPanelWidth : 0;
+
+    homePageWidth = homeScreenConstraint.maxWidth -
+        (homeSetting.isMenuCollapsed
+            ? 0
+            : Sizes.sideBarWidth + homeSetting.resizeOffset);
+    homePageHeight = homeScreenConstraint.maxHeight;
   }
 }

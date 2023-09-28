@@ -1,14 +1,18 @@
 import 'package:appflowy/core/frameless_window.dart';
+import 'package:appflowy/generated/locale_keys.g.dart';
 import 'package:appflowy/plugins/blank/blank.dart';
 import 'package:appflowy/startup/plugin/plugin.dart';
 import 'package:appflowy/startup/startup.dart';
-import 'package:appflowy/workspace/application/tabs/tabs_bloc.dart';
+import 'package:appflowy/workspace/application/home/home_setting_bloc.dart';
+import 'package:appflowy/workspace/application/panes/panes.dart';
+import 'package:appflowy/workspace/application/panes/panes_cubit/panes_cubit.dart';
 import 'package:appflowy/workspace/presentation/home/home_sizes.dart';
 import 'package:appflowy/workspace/presentation/home/navigation.dart';
-import 'package:appflowy/workspace/presentation/home/tabs/tabs_manager.dart';
+import 'package:appflowy/workspace/presentation/home/panes/flowy_pane_group.dart';
 import 'package:appflowy/workspace/presentation/home/toast.dart';
 import 'package:appflowy_backend/dispatch/dispatch.dart';
 import 'package:appflowy_backend/protobuf/flowy-folder2/view.pb.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flowy_infra_ui/flowy_infra_ui.dart';
 import 'package:flowy_infra_ui/style_widget/extension.dart';
 import 'package:flutter/material.dart';
@@ -27,44 +31,39 @@ abstract class HomeStackDelegate {
 class HomeStack extends StatelessWidget {
   final HomeStackDelegate delegate;
   final HomeLayout layout;
+  final PaneNode? paneNode;
   const HomeStack({
     required this.delegate,
+    this.paneNode,
     required this.layout,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    final pageController = PageController();
-
-    return BlocProvider<TabsBloc>.value(
-      value: getIt<TabsBloc>(),
-      child: BlocBuilder<TabsBloc, TabsState>(
-        builder: (context, state) {
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(left: layout.menuSpacing),
-                child: TabsManager(pageController: pageController),
-              ),
-              state.currentPageManager.stackTopBar(layout: layout),
-              Expanded(
-                child: PageView(
-                  physics: const NeverScrollableScrollPhysics(),
-                  controller: pageController,
-                  children: state.pageManagers
-                      .map(
-                        (pm) => PageStack(pageManager: pm, delegate: delegate),
-                      )
-                      .toList(),
-                ),
-              ),
-            ],
-          );
-        },
-      ),
+    return BlocBuilder<PanesCubit, PanesState>(
+      builder: (context, state) {
+        _printTree(state.root);
+        return BlocBuilder<HomeSettingBloc, HomeSettingState>(
+          builder: (context, homeState) {
+            return FlowyPaneGroup(
+              groupHeight: layout.homePageHeight,
+              groupWidth: layout.homePageWidth,
+              node: state.root,
+              layout: layout,
+              delegate: delegate,
+            );
+          },
+        );
+      },
     );
+  }
+
+  void _printTree(PaneNode node, [String prefix = '']) {
+    print('$prefix${node.tabs.hashCode}');
+    for (final child in node.children) {
+      _printTree(child, '$prefix └─ ');
+    }
   }
 }
 
@@ -88,7 +87,23 @@ class _PageStackState extends State<PageStack>
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    if (widget.pageManager.readOnly) {
+      return Stack(
+        children: [
+          AbsorbPointer(
+            child: Opacity(
+              opacity: 0.5,
+              child: _buildWidgetStack(context),
+            ),
+          ),
+          Positioned(child: _buildReadOnlyBanner())
+        ],
+      );
+    }
+    return _buildWidgetStack(context);
+  }
 
+  Widget _buildWidgetStack(BuildContext context) {
     return Container(
       color: Theme.of(context).colorScheme.surface,
       child: FocusTraversalGroup(
@@ -96,6 +111,29 @@ class _PageStackState extends State<PageStack>
           onDeleted: (view, index) {
             widget.delegate.didDeleteStackWidget(view, index);
           },
+        ),
+      ),
+    );
+  }
+
+  Widget _buildReadOnlyBanner() {
+    final colorScheme = Theme.of(context).colorScheme;
+    return ConstrainedBox(
+      constraints: const BoxConstraints(minHeight: 20),
+      child: Container(
+        width: double.infinity,
+        color: colorScheme.primary,
+        child: FittedBox(
+          alignment: Alignment.center,
+          fit: BoxFit.scaleDown,
+          child: Row(
+            children: [
+              FlowyText.medium(
+                LocaleKeys.readOnlyViewText.tr(),
+                fontSize: 14,
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -163,14 +201,16 @@ abstract mixin class NavigationItem {
 
 class PageNotifier extends ChangeNotifier {
   Plugin _plugin;
+  bool _readOnly;
 
   Widget get titleWidget => _plugin.widgetBuilder.leftBarItem;
 
   Widget tabBarWidget(String pluginId) =>
       _plugin.widgetBuilder.tabBarItem(pluginId);
 
-  PageNotifier({Plugin? plugin})
-      : _plugin = plugin ?? makePlugin(pluginType: PluginType.blank);
+  PageNotifier({Plugin? plugin, bool? readOnly})
+      : _plugin = plugin ?? makePlugin(pluginType: PluginType.blank),
+        _readOnly = readOnly ?? false;
 
   /// This is the only place where the plugin is set.
   /// No need compare the old plugin with the new plugin. Just set it.
@@ -184,7 +224,14 @@ class PageNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
+  set readOnlyStatus(bool status) {
+    _readOnly = status;
+    notifyListeners();
+  }
+
   Plugin get plugin => _plugin;
+
+  bool get readOnly => _readOnly;
 }
 
 // PageManager manages the view for one Tab
@@ -201,15 +248,21 @@ class PageManager {
 
   Plugin get plugin => _notifier.plugin;
 
+  bool get readOnly => _notifier.readOnly;
+
   void setPlugin(Plugin newPlugin) {
     _notifier.plugin = newPlugin;
+  }
+
+  void setReadOnlyStatus(bool status) {
+    _notifier.readOnlyStatus = status;
   }
 
   void setStackWithId(String id) {
     // Navigate to the page with id
   }
 
-  Widget stackTopBar({required HomeLayout layout}) {
+  Widget stackTopBar({required HomeLayout layout, required String paneId}) {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: _notifier),
@@ -217,7 +270,9 @@ class PageManager {
       child: Selector<PageNotifier, Widget>(
         selector: (context, notifier) => notifier.titleWidget,
         builder: (context, widget, child) {
-          return MoveWindowDetector(child: HomeTopBar(layout: layout));
+          return MoveWindowDetector(
+            child: HomeTopBar(layout: layout, paneId: paneId),
+          );
         },
       ),
     );
@@ -256,9 +311,10 @@ class PageManager {
 }
 
 class HomeTopBar extends StatelessWidget {
-  const HomeTopBar({super.key, required this.layout});
+  const HomeTopBar({super.key, required this.layout, required this.paneId});
 
   final HomeLayout layout;
+  final String paneId;
 
   @override
   Widget build(BuildContext context) {
@@ -283,6 +339,19 @@ class HomeTopBar extends StatelessWidget {
                     const SizedBox.shrink(),
               ),
             ),
+            BlocBuilder<PanesCubit, PanesState>(
+              builder: (context, state) {
+                if (state.count <= 1) {
+                  return const SizedBox.shrink();
+                }
+
+                return IconButton(
+                  onPressed: () =>
+                      context.read<PanesCubit>().closePane(paneId: paneId),
+                  icon: const Icon(Icons.close_sharp),
+                );
+              },
+            )
           ],
         ),
       ).bottomBorder(color: Theme.of(context).dividerColor),

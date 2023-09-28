@@ -1,12 +1,13 @@
 import 'dart:io';
 import 'package:appflowy/workspace/application/appearance.dart';
 import 'package:appflowy/workspace/application/home/home_setting_bloc.dart';
-import 'package:appflowy/workspace/application/tabs/tabs_bloc.dart';
+import 'package:appflowy/workspace/application/panes/panes_cubit/panes_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:hotkey_manager/hotkey_manager.dart';
 import 'package:provider/provider.dart';
 
 typedef KeyDownHandler = void Function(HotKey hotKey);
+typedef KeyUpHandler = void Function(HotKey hotKey);
 
 /// Helper class that utilizes the global [HotKeyManager] to easily
 /// add a [HotKey] with different handlers.
@@ -18,14 +19,19 @@ typedef KeyDownHandler = void Function(HotKey hotKey);
 class HotKeyItem {
   final HotKey hotKey;
   final KeyDownHandler? keyDownHandler;
+  final KeyUpHandler? keyUpHandler;
 
   HotKeyItem({
     required this.hotKey,
     this.keyDownHandler,
+    this.keyUpHandler,
   });
 
-  void register() =>
-      hotKeyManager.register(hotKey, keyDownHandler: keyDownHandler);
+  void register() => hotKeyManager.register(
+        hotKey,
+        keyDownHandler: keyDownHandler,
+        keyUpHandler: keyUpHandler,
+      );
 }
 
 class HomeHotKeys extends StatelessWidget {
@@ -68,8 +74,7 @@ class HomeHotKeys extends StatelessWidget {
         modifiers: [Platform.isMacOS ? KeyModifier.meta : KeyModifier.control],
         scope: HotKeyScope.inapp,
       ),
-      keyDownHandler: (_) =>
-          context.read<TabsBloc>().add(const TabsEvent.closeCurrentTab()),
+      keyDownHandler: (_) => context.read<PanesCubit>().closeCurrentTab(),
     ).register();
 
     // Go to previous tab
@@ -96,7 +101,9 @@ class HomeHotKeys extends StatelessWidget {
   }
 
   void _selectTab(BuildContext context, int change) {
-    final bloc = context.read<TabsBloc>();
-    bloc.add(TabsEvent.selectTab(bloc.state.currentIndex + change));
+    final bloc = context.read<PanesCubit>();
+    context
+        .read<PanesCubit>()
+        .selectTab(index: bloc.state.activePane.tabs.currentIndex + change);
   }
 }

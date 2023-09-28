@@ -1,6 +1,7 @@
 import 'package:appflowy/workspace/application/view/view_bloc.dart';
 import 'package:appflowy/workspace/application/view/view_ext.dart';
-import 'package:appflowy/workspace/presentation/widgets/draggable_item/draggable_item.dart';
+import 'package:appflowy/workspace/presentation/home/home_draggables.dart';
+import 'package:appflowy/workspace/presentation/widgets/draggable_item/combined_draggable_item.dart';
 import 'package:appflowy_backend/log.dart';
 import 'package:appflowy_backend/protobuf/flowy-folder2/view.pb.dart';
 import 'package:flutter/material.dart';
@@ -14,17 +15,17 @@ enum DraggableHoverPosition {
 }
 
 class DraggableViewItem extends StatefulWidget {
-  const DraggableViewItem({
+  DraggableViewItem({
     super.key,
-    required this.view,
+    required ViewPB view,
     this.feedback,
     required this.child,
     this.isFirstChild = false,
-  });
+  }) : view = CrossDraggablesEntity(draggable: view);
 
   final Widget child;
   final WidgetBuilder? feedback;
-  final ViewPB view;
+  final CrossDraggablesEntity view;
   final bool isFirstChild;
 
   @override
@@ -67,31 +68,37 @@ class _DraggableViewItemState extends State<DraggableViewItem> {
       ],
     );
 
-    return DraggableItem<ViewPB>(
+    return CombinedDraggableItem<CrossDraggablesEntity>(
       data: widget.view,
       onWillAccept: (data) => true,
       onMove: (data) {
-        final renderBox = context.findRenderObject() as RenderBox;
-        final offset = renderBox.globalToLocal(data.offset);
-        final position = _computeHoverPosition(offset, renderBox.size);
-        if (!_shouldAccept(data.data, position)) {
-          return;
+        if (data.data.crossDraggableType == CrossDraggableType.view) {
+          final view = data.data.draggable as ViewPB;
+          final renderBox = context.findRenderObject() as RenderBox;
+          final offset = renderBox.globalToLocal(data.offset);
+          final position = _computeHoverPosition(offset, renderBox.size);
+          if (!_shouldAccept(view, position)) {
+            return;
+          }
+          setState(() {
+            Log.debug(
+              'offset: $offset, position: $position, size: ${renderBox.size}',
+            );
+            this.position = position;
+          });
         }
-        setState(() {
-          Log.debug(
-            'offset: $offset, position: $position, size: ${renderBox.size}',
-          );
-          this.position = position;
-        });
       },
       onLeave: (_) => setState(
         () => position = DraggableHoverPosition.none,
       ),
       onAccept: (data) {
-        _move(data, widget.view);
-        setState(
-          () => position = DraggableHoverPosition.none,
-        );
+        if (data.crossDraggableType == CrossDraggableType.view) {
+          final from = data.draggable as ViewPB;
+          _move(from, widget.view.draggable as ViewPB);
+          setState(
+            () => position = DraggableHoverPosition.none,
+          );
+        }
       },
       feedback: IntrinsicWidth(
         child: Opacity(
@@ -155,19 +162,20 @@ class _DraggableViewItemState extends State<DraggableViewItem> {
   }
 
   bool _shouldAccept(ViewPB data, DraggableHoverPosition position) {
+    final view = widget.view.draggable as ViewPB;
     // could not move the view to a database
-    if (widget.view.layout.isDatabaseView &&
+    if (view.layout.isDatabaseView &&
         position == DraggableHoverPosition.center) {
       return false;
     }
 
     // ignore moving the view to itself
-    if (data.id == widget.view.id) {
+    if (data.id == view.id) {
       return false;
     }
 
     // ignore moving the view to its child view
-    if (data.containsView(widget.view)) {
+    if (data.containsView(view)) {
       return false;
     }
 

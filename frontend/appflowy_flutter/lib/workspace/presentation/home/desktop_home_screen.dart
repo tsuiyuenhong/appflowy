@@ -7,7 +7,7 @@ import 'package:appflowy/workspace/application/appearance.dart';
 import 'package:appflowy/workspace/application/home/home_bloc.dart';
 import 'package:appflowy/workspace/application/home/home_service.dart';
 import 'package:appflowy/workspace/application/home/home_setting_bloc.dart';
-import 'package:appflowy/workspace/application/tabs/tabs_bloc.dart';
+import 'package:appflowy/workspace/application/panes/panes_cubit/panes_cubit.dart';
 import 'package:appflowy/workspace/application/view/view_ext.dart';
 import 'package:appflowy/workspace/presentation/home/hotkeys.dart';
 import 'package:appflowy/workspace/presentation/home/menu/sidebar/sidebar.dart';
@@ -58,10 +58,10 @@ class DesktopHomeScreen extends StatelessWidget {
         return MultiBlocProvider(
           key: ValueKey(userProfile!.id),
           providers: [
+            BlocProvider<PanesCubit>.value(value: getIt<PanesCubit>()),
             BlocProvider<ReminderBloc>.value(
               value: getIt<ReminderBloc>()..add(const ReminderEvent.started()),
             ),
-            BlocProvider<TabsBloc>.value(value: getIt<TabsBloc>()),
             BlocProvider<HomeBloc>(
               create: (context) {
                 return HomeBloc(userProfile, workspaceSetting!)
@@ -89,15 +89,17 @@ class DesktopHomeScreen extends StatelessWidget {
                       if (view != null) {
                         // Only open the last opened view if the [TabsState.currentPageManager] current opened plugin is blank and the last opened view is not null.
                         // All opened widgets that display on the home screen are in the form of plugins. There is a list of built-in plugins defined in the [PluginType] enum, including board, grid and trash.
-                        final currentPageManager =
-                            context.read<TabsBloc>().state.currentPageManager;
+                        final currentPageManager = context
+                            .read<PanesCubit>()
+                            .state
+                            .activePane
+                            .tabs
+                            .currentPageManager;
 
                         if (currentPageManager.plugin.pluginType ==
                             PluginType.blank) {
-                          getIt<TabsBloc>().add(
-                            TabsEvent.openPlugin(
-                              plugin: view.plugin(listenOnViewChanged: true),
-                            ),
+                          getIt<PanesCubit>().openPlugin(
+                            plugin: view.plugin(listenOnViewChanged: true),
                           );
                         }
                       }
@@ -278,9 +280,7 @@ class DesktopHomeScreen extends StatelessWidget {
               animate: true,
             )
             .animate(layout.animDuration, Curves.easeOut),
-        homeMenuResizer
-            .positioned(left: layout.menuWidth - 5)
-            .animate(layout.animDuration, Curves.easeOut),
+        homeMenuResizer.positioned(left: layout.menuWidth - 5)
       ],
     );
   }
@@ -305,18 +305,10 @@ class DesktopHomeScreenStackAdaptor extends HomeStackDelegate {
             if (index != null && index != 0 && views.length > index - 1) {
               lastView = views[index - 1];
             }
-
-            getIt<TabsBloc>().add(
-              TabsEvent.openPlugin(
-                plugin: lastView.plugin(listenOnViewChanged: true),
-              ),
-            );
+            getIt<PanesCubit>()
+                .openPlugin(plugin: lastView.plugin(listenOnViewChanged: true));
           } else {
-            getIt<TabsBloc>().add(
-              TabsEvent.openPlugin(
-                plugin: BlankPagePlugin(),
-              ),
-            );
+            getIt<PanesCubit>().openPlugin(plugin: BlankPagePlugin());
           }
         },
         (err) => Log.error(err),
