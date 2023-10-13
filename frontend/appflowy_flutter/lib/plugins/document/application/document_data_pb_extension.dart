@@ -119,10 +119,12 @@ extension BlockToNode on BlockPB {
       attributes: _dataAdapter(ty, data, meta),
       children: children ?? [],
     );
-    node.externalValues = ExternalValues(
-      externalId: externalId,
-      externalType: externalType,
-    );
+    if (node.delta != null) {
+      node.externalValues = ExternalValues(
+        externalId: externalId,
+        externalType: externalType,
+      );
+    }
     return node;
   }
 
