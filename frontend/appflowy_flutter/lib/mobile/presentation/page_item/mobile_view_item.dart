@@ -144,7 +144,6 @@ class InnerMobileViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget child = SingleMobileInnerViewItem(
-      key: ValueKey('${categoryType.name} ${view.id} $isExpanded'),
       view: view,
       parentView: parentView,
       level: level,
@@ -396,12 +395,6 @@ class _SingleMobileInnerViewItemState extends State<SingleMobileInnerViewItem> {
             },
           ),
         );
-        // context.read<ViewBloc>().add(
-        //       ViewEvent.createView(
-        //         LocaleKeys.menuAppHeader_defaultNewPageName.tr(),
-        //         ViewLayoutPB.Document,
-        //       ),
-        //     );
       },
     );
   }
