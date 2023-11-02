@@ -22,15 +22,18 @@ use crate::reminder::DocumentReminderAction;
 
 pub trait DocumentUser: Send + Sync {
   fn user_id(&self) -> Result<i64, FlowyError>;
-
   fn workspace_id(&self) -> Result<String, FlowyError>;
-
   fn token(&self) -> Result<Option<String>, FlowyError>; // unused now.
   fn collab_db(&self, uid: i64) -> Result<Weak<RocksCollabDB>, FlowyError>;
 }
 
+pub trait DocumentFolder: Send + Sync {
+  fn update_view_with_doc_id(&self, doc_id: String) -> FlowyResult<()>;
+}
+
 pub struct DocumentManager {
   pub user: Arc<dyn DocumentUser>,
+  // pub folder: Arc<dyn DocumentFolder>,
   collab_builder: Arc<AppFlowyCollabBuilder>,
   documents: Arc<RwLock<HashMap<String, Arc<MutexDocument>>>>,
   #[allow(dead_code)]
@@ -41,12 +44,14 @@ pub struct DocumentManager {
 impl DocumentManager {
   pub fn new(
     user: Arc<dyn DocumentUser>,
+    // folder: Arc<dyn DocumentFolder>,
     collab_builder: Arc<AppFlowyCollabBuilder>,
     cloud_service: Arc<dyn DocumentCloudService>,
     storage_service: Weak<dyn FileStorageService>,
   ) -> Self {
     Self {
       user,
+      // folder,
       collab_builder,
       documents: Default::default(),
       cloud_service,

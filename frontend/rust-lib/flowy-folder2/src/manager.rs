@@ -6,8 +6,8 @@ use collab::core::collab::{CollabRawData, MutexCollab};
 use collab::core::collab_state::SyncState;
 use collab_entity::CollabType;
 use collab_folder::{
-  Folder, FolderData, FolderNotify, SectionItem, TrashChange, TrashChangeReceiver, TrashInfo,
-  UserId, View, ViewChange, ViewChangeReceiver, ViewLayout, ViewUpdate, Workspace,
+  timestamp, Folder, FolderData, FolderNotify, SectionItem, TrashChange, TrashChangeReceiver,
+  TrashInfo, UserId, View, ViewChange, ViewChangeReceiver, ViewLayout, ViewUpdate, Workspace,
 };
 use parking_lot::{Mutex, RwLock};
 use tokio_stream::wrappers::WatchStream;
@@ -446,7 +446,7 @@ impl FolderManager {
     }
 
     let index = params.index;
-    let view = create_view(params, view_layout);
+    let view = create_view(params, view_layout, Some(user_id));
     self.with_folder(
       || (),
       |folder| {
@@ -470,7 +470,7 @@ impl FolderManager {
     handler
       .create_built_in_view(user_id, &params.view_id, &params.name, view_layout.clone())
       .await?;
-    let view = create_view(params, view_layout);
+    let view = create_view(params, view_layout, Some(user_id));
     self.with_folder(
       || (),
       |folder| {
@@ -674,6 +674,19 @@ impl FolderManager {
     Ok(views)
   }
 
+  /// Update the last edited time
+  #[tracing::instrument(level = "trace", skip(self), err)]
+  pub async fn update_view_last_edited_time(&self, params: UpdateViewParams) -> FlowyResult<()> {
+    self
+      .update_view(&params.view_id, |update| {
+        update
+          .set_last_edited_by(self.user.user_id().ok())
+          .set_last_edited_time(timestamp())
+          .done()
+      })
+      .await
+  }
+
   /// Update the view with the given params.
   #[tracing::instrument(level = "trace", skip(self), err)]
   pub async fn update_view_with_params(&self, params: UpdateViewParams) -> FlowyResult<()> {
@@ -684,6 +697,8 @@ impl FolderManager {
           .set_desc_if_not_none(params.desc)
           .set_layout_if_not_none(params.layout)
           .set_favorite_if_not_none(params.is_favorite)
+          .set_last_edited_by(self.user.user_id().ok())
+          .set_last_edited_time(timestamp())
           .done()
       })
       .await
@@ -911,7 +926,8 @@ impl FolderManager {
       index: None,
     };
 
-    let view = create_view(params, import_data.view_layout);
+    let uid = self.user.user_id().ok();
+    let view = create_view(params, import_data.view_layout, uid);
     self.with_folder(
       || (),
       |folder| {

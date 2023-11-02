@@ -14,7 +14,7 @@ use uuid::Uuid;
 use collab_integrate::collab_builder::{AppFlowyCollabBuilder, DefaultCollabStorageProvider};
 use collab_integrate::RocksCollabDB;
 use flowy_document2::document::MutexDocument;
-use flowy_document2::manager::{DocumentManager, DocumentUser};
+use flowy_document2::manager::{DocumentFolder, DocumentManager, DocumentUser};
 use flowy_document_deps::cloud::*;
 use flowy_error::FlowyError;
 use flowy_storage::{FileStorageService, StorageObject};
@@ -29,8 +29,10 @@ impl DocumentTest {
     let user = FakeUser::new();
     let cloud_service = Arc::new(LocalTestDocumentCloudServiceImpl());
     let file_storage = Arc::new(DocumentTestFileStorageService) as Arc<dyn FileStorageService>;
+    let folder = FakeFolder {};
     let manager = DocumentManager::new(
       Arc::new(user),
+      // Arc::new(folder),
       default_collab_builder(),
       cloud_service,
       Arc::downgrade(&file_storage),
@@ -44,6 +46,14 @@ impl Deref for DocumentTest {
 
   fn deref(&self) -> &Self::Target {
     &self.inner
+  }
+}
+
+pub struct FakeFolder {}
+
+impl DocumentFolder for FakeFolder {
+  fn update_view_with_doc_id(&self, _doc_id: String) -> Result<(), FlowyError> {
+    Result::Ok(())
   }
 }
 

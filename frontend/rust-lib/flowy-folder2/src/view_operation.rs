@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 use std::future::Future;
+use std::i64;
 use std::sync::Arc;
 
 use bytes::Bytes;
@@ -105,12 +106,13 @@ impl ViewBuilder {
   }
 
   pub fn build(self) -> ParentChildViews {
+    let time = timestamp();
     let view = View {
       id: self.view_id,
       parent_view_id: self.parent_view_id,
       name: self.name,
       desc: self.desc,
-      created_at: timestamp(),
+      created_at: time,
       is_favorite: self.is_favorite,
       layout: self.layout,
       icon: self.icon,
@@ -123,6 +125,10 @@ impl ViewBuilder {
           })
           .collect(),
       ),
+      // TODO: pass the value
+      created_by: None,
+      last_edited_by: None,
+      last_edited_time: time,
     };
     ParentChildViews {
       parent_view: view,
@@ -246,7 +252,7 @@ impl From<ViewLayoutPB> for ViewLayout {
   }
 }
 
-pub(crate) fn create_view(params: CreateViewParams, layout: ViewLayout) -> View {
+pub(crate) fn create_view(params: CreateViewParams, layout: ViewLayout, uid: Option<i64>) -> View {
   let time = timestamp();
   View {
     id: params.view_id,
@@ -258,6 +264,9 @@ pub(crate) fn create_view(params: CreateViewParams, layout: ViewLayout) -> View 
     is_favorite: false,
     layout,
     icon: None,
+    last_edited_time: time,
+    created_by: uid,
+    last_edited_by: uid,
   }
 }
 

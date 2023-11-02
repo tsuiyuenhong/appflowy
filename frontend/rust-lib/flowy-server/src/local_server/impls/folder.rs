@@ -15,14 +15,18 @@ pub(crate) struct LocalServerFolderCloudServiceImpl {
 }
 
 impl FolderCloudService for LocalServerFolderCloudServiceImpl {
-  fn create_workspace(&self, _uid: i64, name: &str) -> FutureResult<Workspace, Error> {
+  fn create_workspace(&self, uid: i64, name: &str) -> FutureResult<Workspace, Error> {
     let name = name.to_string();
+    let time = timestamp();
     FutureResult::new(async move {
       Ok(Workspace {
         id: gen_workspace_id().to_string(),
         name: name.to_string(),
         child_views: Default::default(),
-        created_at: timestamp(),
+        created_at: time,
+        created_by: Some(uid),
+        last_edited_time: time,
+        last_edited_by: Some(uid),
       })
     })
   }

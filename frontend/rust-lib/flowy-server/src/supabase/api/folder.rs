@@ -161,5 +161,9 @@ fn workspace_from_json_value(value: Value) -> Result<Workspace, Error> {
       .and_then(|s| DateTime::<Utc>::from_str(s).ok())
       .map(|date| date.timestamp())
       .unwrap_or_default(),
+    // TODO: add new column in database later.
+    last_edited_by: None,
+    created_by: None,
+    last_edited_time: 0,
   })
 }

@@ -57,6 +57,18 @@ pub struct ViewPB {
 
   #[pb(index = 8)]
   pub is_favorite: bool,
+
+  // user id of the user who created the view.
+  #[pb(index = 9, one_of)]
+  pub created_by: Option<i64>,
+
+  // The last time the view or the view content was edited.
+  #[pb(index = 10)]
+  pub last_edited_time: i64,
+
+  // user id of the user who last edit the view or the view content.
+  #[pb(index = 11, one_of)]
+  pub last_edited_by: Option<i64>,
 }
 
 pub fn view_pb_without_child_views(view: Arc<View>) -> ViewPB {
@@ -69,6 +81,9 @@ pub fn view_pb_without_child_views(view: Arc<View>) -> ViewPB {
     layout: view.layout.clone().into(),
     icon: view.icon.clone().map(|icon| icon.into()),
     is_favorite: view.is_favorite,
+    created_by: view.created_by,
+    last_edited_time: view.last_edited_time,
+    last_edited_by: view.last_edited_by,
   }
 }
 
@@ -86,6 +101,9 @@ pub fn view_pb_with_child_views(view: Arc<View>, child_views: Vec<Arc<View>>) ->
     layout: view.layout.clone().into(),
     icon: view.icon.clone().map(|icon| icon.into()),
     is_favorite: view.is_favorite,
+    created_by: view.created_by,
+    last_edited_by: view.last_edited_by.clone(),
+    last_edited_time: view.last_edited_time,
   }
 }
 
@@ -323,6 +341,19 @@ pub struct UpdateViewParams {
   pub thumbnail: Option<String>,
   pub layout: Option<ViewLayout>,
   pub is_favorite: Option<bool>,
+}
+
+impl Default for UpdateViewParams {
+  fn default() -> Self {
+    Self {
+      view_id: "".to_string(),
+      name: None,
+      desc: None,
+      thumbnail: None,
+      layout: None,
+      is_favorite: None,
+    }
+  }
 }
 
 impl TryInto<UpdateViewParams> for UpdateViewPayloadPB {

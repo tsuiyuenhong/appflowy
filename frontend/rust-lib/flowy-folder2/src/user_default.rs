@@ -36,11 +36,15 @@ impl DefaultFolderBuilder {
       })
       .collect::<Vec<_>>();
 
+    let time: i64 = timestamp();
     let workspace = Workspace {
       id: workspace_id,
       name: "Workspace".to_string(),
       child_views: RepeatedViewIdentifier::new(first_level_views),
-      created_at: timestamp(),
+      created_at: time,
+      created_by: Some(uid),
+      last_edited_time: time,
+      last_edited_by: Some(uid),
     };
 
     FolderData {
