@@ -33,4 +33,13 @@
     },
     "editor.formatOnSave": true,
     "files.eol": "\n",
+    "dart.flutterSdkPath": "appflowy_flutter/.fvm/flutter_sdk",
+    // Remove .fvm files from search
+    "search.exclude": {
+        "**/.fvm": true
+    },
+    // Remove from file watching
+    "files.watcherExclude": {
+        "**/.fvm": true
+    }
 }
