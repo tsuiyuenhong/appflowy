@@ -34,7 +34,7 @@ final List<CommandShortcutEvent> commandShortcutEvents = [
 ];
 
 final List<CommandShortcutEvent> defaultCommandShortcutEvents = [
-  ...commandShortcutEvents.map((e) => e.copyWith()).toList(),
+  ...commandShortcutEvents.map((e) => e.copyWith()),
 ];
 
 /// Wrapper for the appflowy editor.

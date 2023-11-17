@@ -35,8 +35,8 @@ class GridTextCell extends GridCellWidget {
   GridTextCell({
     required this.cellControllerBuilder,
     GridCellStyle? style,
-    Key? key,
-  }) : super(key: key) {
+    super.key,
+  }) {
     if (style != null) {
       cellStyle = (style as GridTextCellStyle);
     } else {

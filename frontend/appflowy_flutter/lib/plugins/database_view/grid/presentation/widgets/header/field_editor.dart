@@ -132,9 +132,9 @@ class FieldTypeOptionCell extends StatelessWidget {
   final PopoverMutex popoverMutex;
 
   const FieldTypeOptionCell({
-    Key? key,
+    super.key,
     required this.popoverMutex,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -161,8 +161,8 @@ class FieldNameTextField extends StatefulWidget {
   final PopoverMutex popoverMutex;
   const FieldNameTextField({
     required this.popoverMutex,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<FieldNameTextField> createState() => _FieldNameTextFieldState();

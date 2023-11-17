@@ -45,8 +45,8 @@ class NumberTypeOptionWidget extends TypeOptionWidget {
   const NumberTypeOptionWidget({
     required this.typeOptionContext,
     required this.popoverMutex,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -120,8 +120,8 @@ class NumberFormatList extends StatelessWidget {
   const NumberFormatList({
     required this.selectedFormat,
     required this.onSelected,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -176,8 +176,8 @@ class NumberFormatCell extends StatelessWidget {
     required this.isSelected,
     required this.format,
     required this.onSelected,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -198,7 +198,7 @@ class NumberFormatCell extends StatelessWidget {
 }
 
 class _FilterTextField extends StatelessWidget {
-  const _FilterTextField({Key? key}) : super(key: key);
+  const _FilterTextField();
   @override
   Widget build(BuildContext context) {
     return Padding(

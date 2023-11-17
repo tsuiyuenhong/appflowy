@@ -156,10 +156,10 @@ class ChecklistItem extends StatefulWidget {
   final bool autofocus;
   const ChecklistItem({
     required this.task,
-    Key? key,
+    super.key,
     this.onSubmitted,
     this.autofocus = false,
-  }) : super(key: key);
+  });
 
   @override
   State<ChecklistItem> createState() => _ChecklistItemState();

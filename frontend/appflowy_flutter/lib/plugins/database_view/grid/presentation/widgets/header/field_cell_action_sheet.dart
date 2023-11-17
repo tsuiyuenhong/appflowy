@@ -25,8 +25,8 @@ class GridFieldCellActionSheet extends StatefulWidget {
   const GridFieldCellActionSheet({
     required this.viewId,
     required this.fieldInfo,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<StatefulWidget> createState() => _GridFieldCellActionSheetState();
@@ -79,7 +79,7 @@ class _GridFieldCellActionSheetState extends State<GridFieldCellActionSheet> {
 
 class _EditFieldButton extends StatelessWidget {
   final void Function()? onTap;
-  const _EditFieldButton({Key? key, this.onTap}) : super(key: key);
+  const _EditFieldButton({this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -107,8 +107,7 @@ class _FieldOperationList extends StatelessWidget {
   const _FieldOperationList({
     required this.viewId,
     required this.fieldInfo,
-    Key? key,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -177,8 +176,8 @@ class FieldActionCell extends StatelessWidget {
     required this.fieldInfo,
     required this.action,
     required this.enable,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

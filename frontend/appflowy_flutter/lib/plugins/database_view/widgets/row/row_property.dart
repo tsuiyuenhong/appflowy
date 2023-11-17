@@ -32,8 +32,8 @@ class RowPropertyList extends StatelessWidget {
   const RowPropertyList({
     required this.viewId,
     required this.cellBuilder,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -118,9 +118,9 @@ class _PropertyCell extends StatefulWidget {
   const _PropertyCell({
     required this.cellContext,
     required this.cellBuilder,
-    Key? key,
+    super.key,
     required this.index,
-  }) : super(key: key);
+  });
 
   @override
   State<StatefulWidget> createState() => _PropertyCellState();

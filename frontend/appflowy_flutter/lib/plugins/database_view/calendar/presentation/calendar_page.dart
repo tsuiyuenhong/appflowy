@@ -454,8 +454,8 @@ class UnscheduledEventCell extends StatelessWidget {
   const UnscheduledEventCell({
     required this.event,
     required this.onPressed,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

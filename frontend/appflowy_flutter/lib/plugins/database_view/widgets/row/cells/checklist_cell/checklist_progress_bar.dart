@@ -12,8 +12,8 @@ class ChecklistProgressBar extends StatefulWidget {
   const ChecklistProgressBar({
     required this.tasks,
     required this.percent,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<ChecklistProgressBar> createState() => _ChecklistProgressBarState();

@@ -393,9 +393,7 @@ class DocumentCoverState extends State<DocumentCover> {
             setOverlayButtonsHidden(isPopoverOpen ? false : true),
         child: Stack(
           children: [
-            SizedBox(
-              height: double.infinity,
-              width: double.infinity,
+            SizedBox.expand(
               child: _buildCoverImage(),
             ),
             if (!isOverlayButtonsHidden) _buildCoverOverlayButtons(context),
@@ -410,9 +408,7 @@ class DocumentCoverState extends State<DocumentCover> {
       height: kCoverHeight,
       child: Stack(
         children: [
-          SizedBox(
-            height: double.infinity,
-            width: double.infinity,
+          SizedBox.expand(
             child: _buildCoverImage(),
           ),
           Positioned(
