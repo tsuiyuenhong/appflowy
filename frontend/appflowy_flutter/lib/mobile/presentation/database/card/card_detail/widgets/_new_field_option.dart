@@ -163,6 +163,7 @@ class _FieldOptionState extends State<FieldOption> {
             const _Divider(),
             ..._buildOption(),
             ..._buildOptionActions(),
+            const _Divider(),
           ],
         ),
       ),
@@ -733,6 +734,7 @@ class _SelectOptionListState extends State<_SelectOptionList> {
     }
     return ListView(
       shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
       padding: EdgeInsets.zero,
       children: widget.selectOptions
           .mapIndexed(
