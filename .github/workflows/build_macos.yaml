@@ -1,0 +1,174 @@
+name: Build AppFlowy Release APK
+
+on:
+  workflow_dispatch:
+    inputs:
+        build_version:
+            description: 'Build Version'
+            required: true
+            default: '0.0.0'
+
+env:
+  FLUTTER_VERSION: "3.18.0-0.2.pre"
+  RUST_TOOLCHAIN: "1.75"
+
+jobs:
+  build-for-macOS-x86_64:
+    name: ${{ matrix.job.target }} (${{ matrix.job.os }}) [${{ matrix.job.extra-build-args }}]
+    runs-on: ${{ matrix.job.os }}
+    env:
+      MACOS_APP_RELEASE_PATH: frontend/appflowy_flutter/product/${{ github.event.inputs.build_version }}/macos/Release
+      MACOS_X86_ZIP_NAME: AppFlowy-${{ github.event.inputs.build_version }}-macos-x86_64.zip
+      MACOS_DMG_NAME: AppFlowy-${{ github.event.inputs.build_version }}-macos-x86_64
+    strategy:
+      fail-fast: false
+      matrix:
+        job:
+          - { target: x86_64-apple-darwin, os: macos-11, extra-build-args: "" }
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      - name: Install flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: "beta"
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+
+      - name: Install Rust toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: ${{ env.RUST_TOOLCHAIN }}
+          target: ${{ matrix.job.target }}
+          override: true
+          components: rustfmt
+          profile: minimal
+
+      - name: Install prerequisites
+        working-directory: frontend
+        run: |
+          cargo install --force cargo-make
+          cargo install --force duckscript_cli
+
+      - name: Build AppFlowy
+        working-directory: frontend
+        run: |
+          flutter config --enable-macos-desktop
+          dart ./scripts/flutter_release_build/build_flowy.dart run . ${{ github.event.inputs.build_version }}
+
+      - name: Codesign AppFlowy
+        run: |
+          echo ${{ secrets.MACOS_CERTIFICATE }} | base64 --decode > certificate.p12
+          security create-keychain -p action build.keychain
+          security default-keychain -s build.keychain
+          security unlock-keychain -p action build.keychain
+          security import certificate.p12 -k build.keychain -P ${{ secrets.MACOS_CERTIFICATE_PWD }} -T /usr/bin/codesign
+          security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k action build.keychain
+          /usr/bin/codesign --force --options runtime --deep --sign "${{ secrets.MACOS_CODESIGN_ID }}" "${{ env.MACOS_APP_RELEASE_PATH }}/AppFlowy.app" -v
+
+      - name: Create macOS dmg
+        run: |
+          brew install create-dmg
+          create-dmg \
+          --volname ${{ env.MACOS_DMG_NAME }} \
+          --hide-extension "AppFlowy.app" \
+          --background frontend/scripts/dmg_assets/AppFlowyInstallerBackground.jpg \
+          --window-size 600 450 \
+          --icon-size 94 \
+          --icon "AppFlowy.app" 141 249 \
+          --app-drop-link 458 249 \
+          "${{ env.MACOS_APP_RELEASE_PATH }}/${{ env.MACOS_DMG_NAME }}.dmg" \
+          "${{ env.MACOS_APP_RELEASE_PATH }}/AppFlowy.app"
+
+      - name: Notarize AppFlowy
+        run: |
+          xcrun notarytool submit ${{ env.MACOS_APP_RELEASE_PATH }}/${{ env.MACOS_DMG_NAME }}.dmg --apple-id ${{ secrets.MACOS_NOTARY_USER }} --team-id ${{ secrets.MACOS_TEAM_ID }} --password ${{ secrets.MACOS_NOTARY_PWD }} -v -f "json" --wait
+
+      - name: Archive Asset
+        working-directory: ${{ env.MACOS_APP_RELEASE_PATH }}
+        run: zip --symlinks -qr ${{ env.MACOS_X86_ZIP_NAME }} AppFlowy.app
+
+      - name: Upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ env.MACOS_X86_ZIP_NAME }}
+          path: ${{ env.MACOS_APP_RELEASE_PATH }}/${{ env.MACOS_X86_ZIP_NAME }}
+
+  build-for-macOS-arm64:
+    name: ${{ matrix.job.target }} (${{ matrix.job.os }}) [${{ matrix.job.extra-build-args }}]
+    runs-on: ${{ matrix.job.os }}
+    env:
+      MACOS_APP_RELEASE_PATH: frontend/appflowy_flutter/product/${{ github.event.inputs.build_version }}/macos/Release
+      MACOS_AARCH64_ZIP_NAME: AppFlowy-${{ github.event.inputs.build_version }}-macos-aarch64.zip
+      MACOS_DMG_NAME: AppFlowy${{ github.event.inputs.build_version }}-macos-aarch64
+    strategy:
+      fail-fast: false
+      matrix:
+        job:
+          - { targets: aarch64-apple-darwin, os: macos-latest-xlarge }
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      - name: Install flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: "beta"
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: ${{ env.RUST_TOOLCHAIN }}
+          targets: ${{ matrix.job.targets }}
+          components: rustfmt
+
+      - name: Install prerequisites
+        working-directory: frontend
+        run: |
+          cargo install --force cargo-make
+          cargo install --force duckscript_cli
+
+      - name: Build AppFlowy
+        working-directory: frontend
+        run: |
+          flutter config --enable-macos-desktop
+          dart ./scripts/flutter_release_build/build_flowy.dart run . ${{ github.event.inputs.build_version }}
+
+      - name: Codesign AppFlowy
+        run: |
+          echo ${{ secrets.MACOS_CERTIFICATE }} | base64 --decode > certificate.p12
+          security create-keychain -p action build.keychain
+          security default-keychain -s build.keychain
+          security unlock-keychain -p action build.keychain
+          security import certificate.p12 -k build.keychain -P ${{ secrets.MACOS_CERTIFICATE_PWD }} -T /usr/bin/codesign
+          security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k action build.keychain
+          /usr/bin/codesign --force --options runtime --deep --sign "${{ secrets.MACOS_CODESIGN_ID }}" "${{ env.MACOS_APP_RELEASE_PATH }}/AppFlowy.app" -v
+
+      - name: Create macOS dmg
+        run: |
+          brew install create-dmg
+          create-dmg \
+          --volname ${{ env.MACOS_DMG_NAME }} \
+          --hide-extension "AppFlowy.app" \
+          --background frontend/scripts/dmg_assets/AppFlowyInstallerBackground.jpg \
+          --window-size 600 450 \
+          --icon-size 94 \
+          --icon "AppFlowy.app" 141 249 \
+          --app-drop-link 458 249 \
+          "${{ env.MACOS_APP_RELEASE_PATH }}/${{ env.MACOS_DMG_NAME }}.dmg" \
+          "${{ env.MACOS_APP_RELEASE_PATH }}/AppFlowy.app"
+
+      - name: Notarize AppFlowy
+        run: |
+          xcrun notarytool submit ${{ env.MACOS_APP_RELEASE_PATH }}/${{ env.MACOS_DMG_NAME }}.dmg --apple-id ${{ secrets.MACOS_NOTARY_USER }} --team-id ${{ secrets.MACOS_TEAM_ID }} --password ${{ secrets.MACOS_NOTARY_PWD }} -v -f "json" --wait
+
+      - name: Archive Asset
+        working-directory: ${{ env.MACOS_APP_RELEASE_PATH }}
+        run: zip --symlinks -qr ${{ env.MACOS_AARCH64_ZIP_NAME }} AppFlowy.app
+
+      - name: Upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ env.MACOS_AARCH64_ZIP_NAME }}
+          path: ${{ env.MACOS_APP_RELEASE_PATH }}/${{ env.MACOS_AARCH64_ZIP_NAME }}
