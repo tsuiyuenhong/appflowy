@@ -3,8 +3,9 @@ import 'package:appflowy_editor/appflowy_editor.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
-import 'util/keyboard.dart';
-import 'util/util.dart';
+
+import '../util/keyboard.dart';
+import '../util/util.dart';
 
 /// Integration tests for an empty document. The [TestWorkspaceService] will load a workspace from an empty document `assets/test/workspaces/empty_document.zip` for all tests.
 ///

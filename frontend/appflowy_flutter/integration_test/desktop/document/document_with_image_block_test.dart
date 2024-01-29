@@ -22,8 +22,8 @@ import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:run_with_network_images/run_with_network_images.dart';
 
-import '../util/mock/mock_file_picker.dart';
-import '../util/util.dart';
+import '../../util/mock/mock_file_picker.dart';
+import '../../util/util.dart';
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();

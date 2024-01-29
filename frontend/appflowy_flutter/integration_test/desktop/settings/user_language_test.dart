@@ -1,10 +1,11 @@
 import 'dart:ui';
 
-import 'package:appflowy/workspace/presentation/settings/widgets/settings_language_view.dart';
-import 'package:integration_test/integration_test.dart';
-import 'package:flutter_test/flutter_test.dart';
-import '../util/util.dart';
 import 'package:appflowy/workspace/application/settings/prelude.dart';
+import 'package:appflowy/workspace/presentation/settings/widgets/settings_language_view.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:integration_test/integration_test.dart';
+
+import '../../util/util.dart';
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();

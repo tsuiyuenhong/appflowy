@@ -7,8 +7,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 
-import 'util/mock/mock_openai_repository.dart';
-import 'util/util.dart';
+import '../util/mock/mock_openai_repository.dart';
+import '../util/util.dart';
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();

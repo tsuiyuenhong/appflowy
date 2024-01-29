@@ -6,9 +6,9 @@ import 'package:flowy_infra_ui/style_widget/hover.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 
-import '../util/base.dart';
-import '../util/common_operations.dart';
-import '../util/expectation.dart';
+import '../../util/base.dart';
+import '../../util/common_operations.dart';
+import '../../util/expectation.dart';
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();

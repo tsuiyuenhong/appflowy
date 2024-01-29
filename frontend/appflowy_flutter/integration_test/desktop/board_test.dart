@@ -1,7 +1,8 @@
 import 'package:appflowy_board/appflowy_board.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
-import 'util/util.dart';
+
+import '../util/util.dart';
 
 /// Integration tests for an empty board. The [TestWorkspaceService] will load
 /// a workspace from an empty board `assets/test/workspaces/board.zip` for all

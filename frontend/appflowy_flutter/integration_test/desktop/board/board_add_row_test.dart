@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 
-import '../util/util.dart';
+import '../../util/util.dart';
 
 const defaultFirstCardName = 'Card 1';
 const defaultLastCardName = 'Card 3';
