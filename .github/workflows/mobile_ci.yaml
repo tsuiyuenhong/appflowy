@@ -99,4 +99,5 @@ jobs:
           api-level: 29
           arch: arm64-v8a
           profile: Pixel 6
+          working-directory: frontend/appflowy_flutter
           script: flutter test integration_test/runner.dart
