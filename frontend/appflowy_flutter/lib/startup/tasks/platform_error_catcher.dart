@@ -13,7 +13,7 @@ class PlatformErrorCatcherTask extends LaunchTask {
     // only active in non debug mode.
     if (!kDebugMode) {
       PlatformDispatcher.instance.onError = (error, stack) {
-        Log.error('Uncaught platform error', error, stack);
+        Log.error('Uncaught platform error, $error, $stack');
         return true;
       };
     }
