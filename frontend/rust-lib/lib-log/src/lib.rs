@@ -9,9 +9,10 @@ use tracing_bunyan_formatter::JsonStorageLayer;
 use tracing_subscriber::fmt::format::Writer;
 use tracing_subscriber::{layer::SubscriberExt, EnvFilter};
 
-use crate::layer::FlowyFormattingLayer;
+use crate::flowy_formatting_layer::FlowyFormattingLayer;
 
-mod layer;
+mod flowy_formatting_layer;
+mod flowy_ios_layer;
 
 lazy_static! {
   static ref LOG_GUARD: RwLock<Option<WorkerGuard>> = RwLock::new(None);
