@@ -9,6 +9,7 @@
   "title": "سه‌ردێڕ",
   "youCanAlso": "هەروەها ئەتوانی",
   "and": "وە",
+  "failedToOpenUrl": "شکستی هێنا لە کردنەوەی url: {}",
   "blockActions": {
     "addBelowTooltip": "بۆ زیادکردن لە خوارەوە کلیک بکە",
     "addAboveCmd": "Alt+click",
@@ -49,6 +50,11 @@
     "LogInWithGithub": "چوونە ژوورەوە لە ڕێگەی گیتهاب",
     "LogInWithDiscord": "چوونە ژوورەوە لە ڕێگەی دیسکۆرد",
     "signInWith": "ناونووسین وە:",
+    "signInWithEmail": "بە ئیمەیڵ بچۆرە ژوورەوە",
+    "logInWithMagicLink": "بە لینکی ماجیک بچۆرە ژوورەوە",
+    "pleaseInputYourEmail": "تکایە ناونیشانی ئیمەیڵەکەت بنووسە",
+    "magicLinkSent": "لینکی سیحراوی بۆ ئیمەیڵەکەت نێردراوە، تکایە ئیمەیڵەکەت بپشکنە",
+    "invalidEmail": "تکایە ناونیشانێکی ئیمایل بنوسە",
     "loginAsGuestButtonText": "دەست پێ بکە"
   },
   "workspace": {
@@ -64,12 +70,31 @@
       "reportIssueOnGithub": "ڕاپۆرت کردنی کێشەیەک لەسەر گیتهابەوە ",
       "exportLogFiles": "هەناردەکردنی فایلەکانی گوزارش",
       "reachOut": "پەیوەندی لەگەڵ دیسکۆرد"
-    }
+    },
+    "menuTitle": "شوێنی کارکردن",
+    "deleteWorkspaceHintText": "ئایا دڵنیای کە دەتەوێت شوێنی کارەکە بسڕیتەوە؟ ئەم کارە ناتوانرێت پووچەڵ بکرێتەوە.",
+    "createSuccess": "شوێنی کارکردن بە سەرکەوتوویی دروستکرا",
+    "createFailed": "شکستی هێنا لە دروستکردنی شوێنی کارکردن",
+    "createLimitExceeded": "تۆ گەیشتووی بە زۆرترین سنووری شوێنی کارکردن کە ڕێگەپێدراوە بۆ ئەکاونتەکەت. ئەگەر پێویستت بە شوێنی کاری زیاترە بۆ بەردەوامبوون لە کارەکانت، تکایە لە Github داوای بکە",
+    "deleteSuccess": "شوێنی کارکردن بە سەرکەوتوویی سڕاوەتەوە",
+    "deleteFailed": "شکستی هێنا لە سڕینەوەی شوێنی کارکردن",
+    "openSuccess": "شوێنی کارکردن بە سەرکەوتوویی بکەرەوە",
+    "openFailed": "شکستی هێنا لە کردنەوەی شوێنی کارکردن",
+    "renameSuccess": "ناوی شوێنی کار بە سەرکەوتوویی گۆڕدرا",
+    "renameFailed": "شکستی هێنا لە گۆڕینی ناوی شوێنی کار",
+    "updateIconSuccess": "ئایکۆنی شوێنی کار بە سەرکەوتوویی نوێکرایەوە",
+    "updateIconFailed": "ئایکۆنی نوێکراوەی شوێنی کارکردن شکستی هێنا",
+    "cannotDeleteTheOnlyWorkspace": "ناتوانرێت تاکە شوێنی کارکردن بسڕدرێتەوە",
+    "fetchWorkspacesFailed": "شکستی هێنا لە هێنانی شوێنی کارکردن",
+    "leaveCurrentWorkspace": "شوێنی کارکردن بەجێبهێڵە",
+    "leaveCurrentWorkspacePrompt": "ئایا دڵنیای کە دەتەوێت شوێنی کارکردنی ئێستا بەجێبهێڵیت؟"
   },
   "shareAction": {
     "buttonText": "هاوبەشکردن",
     "workInProgress": "بەم زووانە",
     "markdown": "Markdown",
+    "html": "HTML",
+    "clipboard": "کۆپی بکە بۆ کلیپبۆرد",
     "csv": "CSV",
     "copyLink": "کۆپی کردنی لینک"
   },
@@ -79,7 +104,12 @@
     "large": "گەورە",
     "fontSize": "قەبارەی قەڵەم",
     "import": "زیادکردن",
-    "moreOptions": "بژاردەی زیاتر"
+    "moreOptions": "بژاردەی زیاتر",
+    "wordCount": "ژمارەی وشەکان: {}",
+    "charCount": "ژمارەی کاراکتەرەکان: {}",
+    "createdAt": "دروستکراوە: {}",
+    "deleteView": "سڕینەوە",
+    "duplicateView": "دووبارەکردنەوە"
   },
   "importPanel": {
     "textAndMarkdown": "Text & Markdown",
@@ -128,7 +158,8 @@
       "emptyDescription": "هیچ فایلێکی سڕاوەت نییە",
       "isDeleted": "دەسڕدرێتەوە",
       "isRestored": "دەگەڕێتەوە"
-    }
+    },
+    "confirmDeleteTitle": "دڵنیای کە دەتەوێت ئەم لاپەڕەیە بۆ هەمیشە بسڕیتەوە؟"
   },
   "deletePagePrompt": {
     "text": "ئەم لاپەڕەیە لە زبڵداندایە",
@@ -190,10 +221,16 @@
     "closeSidebar": "داخستنی سایدبار",
     "openSidebar": "کردنەوەی سایدبار",
     "personal": "کەسی",
+    "private": "تایبەت",
+    "workspace": "شوێنی کارکردن",
     "favorites": "دڵخوازەکان",
+    "clickToHidePrivate": "بۆ شاردنەوەی شوێنی تایبەت کلیک بکە\nئەو لاپەڕانەی لێرە دروستت کردووە تەنها بۆ تۆ دیارە",
+    "clickToHideWorkspace": "بۆ شاردنەوەی شوێنی کارکردن کلیک بکە\nئەو پەیجانەی لێرە دروستت کردووە بۆ هەموو ئەندامێک دیارە",
     "clickToHidePersonal": "بۆ شاردنەوەی بەشی کەسی کلیک بکە",
     "clickToHideFavorites": "بۆ شاردنەوەی بەشی دڵخوازەکان کلیک بکە",
     "addAPage": "زیاد کردنی لاپەڕەیەک",
+    "addAPageToPrivate": "لاپەڕەیەک زیاد بکە بۆ شوێنی تایبەت",
+    "addAPageToWorkspace": "لاپەڕەیەک زیاد بکە بۆ شوێنی کارکردن",
     "recent": "نوێ"
   },
   "notifications": {
@@ -237,6 +274,18 @@
     "helpCenter": "ناوەندی یارمەتی",
     "add": "زیادکردن",
     "yes": "بەڵێ",
+    "clear": "ڕوون",
+    "remove": "لابردن",
+    "dontRemove": "لامەبە",
+    "copyLink": "کۆپی لینک",
+    "align": "ڕێکبخە",
+    "login": "چونه‌ ژووره‌وه‌",
+    "logout": "چوونە دەرەوە",
+    "deleteAccount": "حسابەکە بسڕەوە",
+    "back": "گەڕانەوە",
+    "signInGoogle": "لە ڕێگەی گووگڵەوە بچۆرە ژوورەوە",
+    "signInGithub": "لەگەڵ Github بچۆرە ژوورەوە",
+    "signInDiscord": "لەگەڵ دیسکۆرد بچۆرە ژوورەوە",
     "Done": "تەواوه",
     "Cancel": "ڕەتکردن",
     "OK": "ئۆکەی"
@@ -335,6 +384,7 @@
         "dark": "مۆدی تاریک",
         "system": "خۆگونجاندن لەگەڵ سیستەمدا"
       },
+      "fontScaleFactor": "فاکتەری پێوەرەکانی فۆنت",
       "documentSettings": {
         "cursorColor": "ڕەنگی جێنیشانده‌ری بەڵگەنامە",
         "selectionColor": "ڕەنگی \"دیاریكراو\" بەڵگەنامە",
@@ -388,7 +438,36 @@
         "twelveHour": "دوانزە کاتژمێر",
         "twentyFourHour": "بیست و چوار کاتژمێر"
       },
-      "showNamingDialogWhenCreatingPage": "پیشاندانی دیالۆگی ناونان لە کاتی دروستکردنی لاپەڕەیەکدا"
+      "showNamingDialogWhenCreatingPage": "پیشاندانی دیالۆگی ناونان لە کاتی دروستکردنی لاپەڕەیەکدا",
+      "enableRTLToolbarItems": "بابەتە ئامرازەکانی RTL چالاک بکە",
+      "members": {
+        "title": "ڕێکخستنەکانی ئەندامان",
+        "inviteMembers": "بانگهێشتی ئەندامان بکە",
+        "sendInvite": "بانگهێشتنامە بنێرە",
+        "copyInviteLink": "لینکی بانگهێشتکردن کۆپی بکە",
+        "label": "ئەندامان",
+        "user": "بەکارهێنەر",
+        "role": "ئەرک",
+        "removeFromWorkspace": "لە Workspace دەربهێنە",
+        "owner": "خاوەن",
+        "guest": "میوان",
+        "member": "ئەندام",
+        "memberHintText": "ئەندامێک دەتوانێت لاپەڕەکان بخوێنێتەوە و کۆمێنت بکات و دەستکاری بکات. ئەندامان و میوانان بانگهێشت بکە.",
+        "guestHintText": "میوان دەتوانێت بە مۆڵەت بخوێنێتەوە، کاردانەوەی هەبێت، کۆمێنت بکات و دەتوانێت دەستکاری هەندێک لاپەڕە بکات.",
+        "emailInvalidError": "ئیمەیڵی نادروستە، تکایە پشکنین بکە و دووبارە هەوڵبدەرەوە",
+        "emailSent": "ئیمەیڵ نێردراوە، تکایە ئیمەیڵەکە بزانە",
+        "members": "ئەندامان",
+        "membersCount": {
+          "zero": "{} ئەندامان",
+          "one": "{} ئەندام",
+          "other": "{} ئەندامان"
+        },
+        "memberLimitExceeded": "تۆ گەیشتووی بە زۆرترین سنووری ئەندام کە ڕێگەپێدراوە بۆ ئەکاونتەکەت. ئەگەر دەتەوێت ئەندامی زیاتر زیاد بکەیت بۆ بەردەوامبوون لە کارەکانت، تکایە لە Github داوای بکە",
+        "failedToAddMember": "شکستی هێنا لە زیادکردنی ئەندام",
+        "addMemberSuccess": "ئەندام بە سەرکەوتوویی زیادکرا",
+        "removeMember": "لابردنی ئەندام",
+        "areYouSureToRemoveMember": "دڵنیای کە دەتەوێت ئەم ئەندامە لاببەیت؟"
+      }
     },
     "files": {
       "copy": "کۆپی",
@@ -424,7 +503,11 @@
       "recoverLocationTooltips": "گەڕاندنەوە بۆ دایرێکتۆری پێشووی داتاکان",
       "exportFileSuccess": "هەناردەکردنی فایل بە سەرکەوتوویی!",
       "exportFileFail": "هەناردەکردنی فایلەکە شکستی هێنا!",
-      "export": "هەناردەکردن"
+      "export": "هەناردەکردن",
+      "clearCache": "کاش پاک بکەرەوە",
+      "clearCacheDesc": "ئەگەر تووشی کێشە بوویت لە بارنەکردنی وێنەکان یان فۆنتەکان بە دروستی پیشان نەدان، هەوڵبدە کاشەکەت پاک بکەیتەوە. ئەم کردارە داتای بەکارهێنەرەکەت لانابات.",
+      "areYouSureToClearCache": "ئایا دڵنیای لە پاککردنەوەی کاشەکە؟",
+      "clearCacheSuccess": "کاش بە سەرکەوتوویی پاککرایەوە!"
     },
     "user": {
       "name": "ناو",
@@ -444,7 +527,17 @@
       "shortcutIsAlreadyUsed": "ئەم کورتە ڕێگایە پێشتر بۆ: {conflict} بەکارهاتووە.",
       "resetToDefault": "گەڕاندنەوە بۆ کلیلەکانی بنه‌ڕه‌ت",
       "couldNotLoadErrorMsg": "کورتە ڕێگاکان نەتوانرا باربکرێن، تکایە دووبارە هەوڵبدەرەوە",
-      "couldNotSaveErrorMsg": "کورتە ڕێگاکان نەتوانرا پاشەکەوت بکرێن، تکایە دووبارە هەوڵبدەرەوە"
+      "couldNotSaveErrorMsg": "کورتە ڕێگاکان نەتوانرا پاشەکەوت بکرێن، تکایە دووبارە هەوڵبدەرەوە",
+      "commands": {
+        "codeBlockNewParagraph": "پەرەگرافێکی نوێ لە تەنیشت بلۆکی کۆدەکەدا دابنێ",
+        "codeBlockAddTwoSpaces": "دوو بۆشایی لە سەرەتای هێڵەکەدا لە بلۆکی کۆدەکاندا دابنێ",
+        "codeBlockDeleteTwoSpaces": "دوو بۆشایی لە سەرەتای هێڵەکە لە بلۆکی کۆددا بسڕەوە",
+        "codeBlockSelectAll": "هەموو ناوەڕۆکێک لە ناو بلۆکێکی کۆددا هەڵبژێرە",
+        "codeBlockPasteText": "دەق لە کۆدبلۆکدا لێبدە",
+        "textAlignLeft": "دەقەکان بەلای چەپەوە ڕێکبخە",
+        "textAlignCenter": "دەقەکە لەگەڵ ناوەندەکەدا ڕێکبخە",
+        "textAlignRight": "دەقەکە بەلای ڕاستەوە ڕێکبخە"
+      }
     },
     "mobile": {
       "personalInfo": "زانیاری کەسی",
@@ -491,6 +584,9 @@
       "editView": "دەستکاری دیمەن",
       "boardSettings": "ڕێکخستنەکانی تەختە",
       "calendarSettings": "ڕێکخستنەکانی ساڵنامە",
+      "createView": "ڕوانگەی نوێ",
+      "duplicateView": "دیمەنی دووبارە",
+      "deleteView": "دیمەنی سڕینەوە",
       "numberOfVisibleFields": "{} نیشان دراوە"
     },
     "textFilter": {
@@ -521,13 +617,41 @@
       "isComplete": "تەواوە",
       "isIncomplted": "ناتەواوە"
     },
+    "selectOptionFilter": {
+      "is": "بریتیە لە",
+      "isNot": "نییە",
+      "contains": "لەخۆ دەگرێت",
+      "doesNotContain": "لەخۆناگرێت",
+      "isEmpty": "به‌تاڵه‌",
+      "isNotEmpty": "بەتاڵ نییە"
+    },
     "dateFilter": {
       "is": "هەیە",
       "before": "پێشترە",
       "after": "دوای ئەبێت",
+      "onOrBefore": "لەسەرە یان پێشتر",
+      "onOrAfter": "لەسەرە یان دوای ئەوە",
       "between": "لە نێواندایە",
       "empty": "به‌تاڵه‌",
-      "notEmpty": "بەتاڵ نییە"
+      "notEmpty": "بەتاڵ نییە",
+      "choicechipPrefix": {
+        "before": "پێش",
+        "after": "دوای",
+        "onOrBefore": "لەسەر یان پێشتر",
+        "onOrAfter": "لەسەر یان دوای",
+        "isEmpty": "به‌تاڵه‌",
+        "isNotEmpty": "بەتاڵ نییە"
+      }
+    },
+    "numberFilter": {
+      "equal": "یەکسانە",
+      "notEqual": "یەکسان ناکات",
+      "lessThan": "کەمترە لە",
+      "greaterThan": "گەورەترە لە",
+      "lessThanOrEqualTo": "کەمترە لە یان یەکسانە بە",
+      "greaterThanOrEqualTo": "گەورەترە لە یان یەکسانە بە",
+      "isEmpty": "به‌تاڵه‌",
+      "isNotEmpty": "بەتاڵ نییە"
     },
     "field": {
       "hide": "شاردنەوە",
@@ -536,6 +660,8 @@
       "insertRight": "جێگیرکردن لە ڕاست",
       "duplicate": "دووبارەکردنەوە",
       "delete": "سڕینەوە",
+      "wrap": "پێچانەوە",
+      "clear": "خانەکان پاک بکەرەوە",
       "textFieldName": "دەق",
       "checkboxFieldName": "بابەتە هەڵبژێردراوەکان",
       "dateFieldName": "ڕێکەوت",
@@ -546,6 +672,7 @@
       "multiSelectFieldName": "فرە هەڵبژاردن",
       "urlFieldName": "ناونیشانی ئینتەرنێتی",
       "checklistFieldName": "لیستی پشکنین",
+      "relationFieldName": "پەیوەندی",
       "numberFormat": "فۆرمات ژمارە",
       "dateFormat": "فۆرمات ڕێکەوت",
       "includeTime": "کات لەخۆ بگرێت",
@@ -575,19 +702,36 @@
       "editProperty": "دەستکاریکردنی تایبەتمەندی",
       "newProperty": "تایبەتمەندی نوێ",
       "deleteFieldPromptMessage": "ئایا دڵنیایت لە سڕدنەوەی ئەم تایبەتمەندییە؟",
+      "clearFieldPromptMessage": "ئایا دڵنیایت? هەموو خانەکانی ئەم ستوونە بەتاڵ دەبنەوە",
       "newColumn": "ستوونی نوێ",
       "format": "فۆرمات",
-      "reminderOnDateTooltip": "ئەم خانەیە بیرخستنەوەیەکی بەرنامە بۆ داڕێژراوی هەیە"
+      "reminderOnDateTooltip": "ئەم خانەیە بیرخستنەوەیەکی بەرنامە بۆ داڕێژراوی هەیە",
+      "optionAlreadyExist": "بژاردە پێشتر بوونی هەیە"
     },
     "rowPage": {
       "newField": "خانەیێکی نوێ زیاد بکە",
-      "fieldDragElementTooltip": "بۆ کردنەوەی مێنۆ کرتە بکە"
+      "fieldDragElementTooltip": "بۆ کردنەوەی مێنۆ کرتە بکە",
+      "showHiddenFields": {
+        "one": "{ژماردن} مەیدانی شاراوە پیشان بدە",
+        "many": "{ژماردن} مەیدانی شاراوە پیشان بدە",
+        "other": "{ژماردن} مەیدانی شاراوە پیشان بدە"
+      },
+      "hideHiddenFields": {
+        "one": "مەیدانی شاراوەی {ژماردن} بشارەوە",
+        "many": "{ژماردن} مەیدانی شاراوە بشارەوە",
+        "other": "{ژماردن} مەیدانی شاراوە بشارەوە"
+      }
     },
     "sort": {
       "ascending": "هەڵکشاو",
       "descending": "بەرەو خوار",
+      "by": "تا",
+      "empty": "هیچ جۆرە چالاکێک نییە",
+      "cannotFindCreatableField": "ناتوانرێت مەیدانێکی گونجاو بدۆزرێتەوە بۆ ڕیزکردن",
       "deleteAllSorts": "هەموو ڕیزکردنەکان لاببە",
-      "addSort": "زیادکردنی ڕیزکردن"
+      "addSort": "زیادکردنی ڕیزکردن",
+      "removeSorting": "حەز دەکەیت ڕیزکردن لاببەیت؟",
+      "fieldInUse": "تۆ پێشتر بەپێی ئەم بوارە ڕیز دەکەیت"
     },
     "row": {
       "duplicate": "دووبارە کردنەوە",
@@ -598,8 +742,11 @@
       "count": "سەرژمێرکردن",
       "newRow": "ڕیزی نوێ",
       "action": "کردەوە",
+      "add": "کلیک لە add to below بکە",
       "drag": "ڕاکێشان بۆ جوڵە",
-      "dragAndClick": "بۆ جوڵاندن ڕابکێشە، کلیک بکە بۆ کردنەوەی مێنۆ"
+      "dragAndClick": "بۆ جوڵاندن ڕابکێشە، کلیک بکە بۆ کردنەوەی مێنۆ",
+      "insertRecordAbove": "تۆمار لە سەرەوە دابنێ",
+      "insertRecordBelow": "لە خوارەوە تۆمارەکە دابنێ"
     },
     "selectOption": {
       "create": "دروستکردن",
@@ -629,6 +776,22 @@
       "hideComplete": "شاردنەوەی ئەرکە تەواوکراوەکان",
       "showComplete": "هەموو ئەرکەکان پیشان بدە"
     },
+    "url": {
+      "launch": "لە وێبگەڕدا بەستەر بکەرەوە",
+      "copy": "لینکی کۆپی بکە بۆ کلیپبۆرد",
+      "textFieldHint": "URLێک داخڵ بکە",
+      "copiedNotification": "کۆپی کراوە بۆ کلیپبۆرد!"
+    },
+    "relation": {
+      "relatedDatabasePlaceLabel": "بنکەدراوەی پەیوەندیدار",
+      "relatedDatabasePlaceholder": "هیچ",
+      "inRelatedDatabase": "لە",
+      "rowSearchTextFieldPlaceholder": "گەڕان",
+      "noDatabaseSelected": "هیچ بنکەدراوەیەک هەڵنەبژێردراوە، تکایە سەرەتا یەکێکیان هەڵبژێرە لەم لیستەی خوارەوە:",
+      "emptySearchResult": "هیچ تۆمارێك نەدۆزرایەە",
+      "linkedRowListLabel": "{ژمارە} ڕیزەکانی بەستراو",
+      "unlinkedRowListLabel": "ڕیزێکی تر بەستنەوە"
+    },
     "menuName": "تۆڕ",
     "referencedGridPrefix": "نواندن",
     "calculate": "حیساب بکە",
@@ -638,7 +801,12 @@
       "max": "زۆر",
       "median": "ناوەند",
       "min": "کەم",
-      "sum": "کۆ"
+      "sum": "کۆ",
+      "count": "گێرانەوە",
+      "countEmpty": "بەتاڵ بژمێرە",
+      "countEmptyShort": "بەتاڵ",
+      "countNonEmpty": "ژمارە بەتاڵ نییە",
+      "countNonEmptyShort": "پڕی کردەوە"
     },
     "singleSelectOptionFilter": {
       "is": "هەیە",
@@ -705,9 +873,14 @@
       "discardResponse": "ئایا دەتەوێت وەڵامەکانی AI بسڕیتەوە؟",
       "createInlineMathEquation": "درووست کردنی هاوکێشە",
       "fonts": "فۆنتەکان",
+      "insertDate": "بەروار بنووسە",
+      "emoji": "ئیمۆجی",
       "toggleList": "Toggle لیستی",
       "quoteList": "لیستی وەرگرتە",
       "numberedList": "لیستی ژمارەدار",
+      "bulletedList": "لیستی فیشەکدار",
+      "todoList": "لیستی تۆدۆ",
+      "callout": "تەواو بونی پەیوەندی",
       "cover": {
         "changeCover": "گۆڕینی بەرگ",
         "colors": "ڕەنگەکان",
@@ -729,10 +902,12 @@
         "couldNotFetchImage": "نەمتوانی وێنەکەت بهێنم",
         "imageSavingFailed": "پاشەکەوتکردنی وێنە شکستی هێنا",
         "addIcon": "زیاد کردنی وێنۆچكه‌",
+        "changeIcon": "ئایکۆنی گۆڕینی",
         "coverRemoveAlert": "دوای لابردنی، لە بەرگەکە دەسڕدرێتەوە!",
         "alertDialogConfirmation": "دڵنیای کە دەتەوێت بەردەوام بیت؟🤨️"
       },
       "mathEquation": {
+        "name": "هاوکێشەی بیرکاری",
         "addMathEquation": "هاوکێشەی بیرکاری زیاد بکە",
         "editMathEquation": "ده‌ستكاری هاوکێشەی بیرکاری"
       },
@@ -749,14 +924,48 @@
         "left": "چەپ",
         "center": "ناوەند",
         "right": "ڕاست",
-        "defaultColor": "ڕەنگی بنەڕەت"
+        "defaultColor": "ڕەنگی بنەڕەت",
+        "depth": "قووڵی"
       },
       "image": {
-        "copiedToPasteBoard": "بەستەری وێنەکە کۆپی کرا بۆ کلیپبۆرد"
+        "copiedToPasteBoard": "بەستەری وێنەکە کۆپی کرا بۆ کلیپبۆرد",
+        "addAnImage": "وێنەیەک زیاد بکە",
+        "imageUploadFailed": "بارکردنی وێنە شکستی هێنا"
+      },
+      "urlPreview": {
+        "copiedToPasteBoard": "بەستەرەکە کۆپی کراوە بۆ کلیپبۆردەکە",
+        "convertToLink": "گۆڕینی بۆ بەستەری جێگیرکردن"
       },
       "outline": {
-        "addHeadingToCreateOutline": "بۆ دروستکردنی خشتەی ناوەڕۆک سەردێڕەکان داخڵ بکە"
-      }
+        "addHeadingToCreateOutline": "بۆ دروستکردنی خشتەی ناوەڕۆک سەردێڕەکان داخڵ بکە",
+        "noMatchHeadings": "هیچ سەردێڕێکی هاوتا نەدۆزراوەتەوە."
+      },
+      "table": {
+        "addAfter": "دوای زیاد بکە",
+        "addBefore": "پێشتر زیاد بکە",
+        "delete": "سڕینەوە",
+        "clear": "ناوەڕۆکێکی ڕوون",
+        "duplicate": "دووبارەکردنەوە",
+        "bgColor": "ڕەنگی باكگراوند"
+      },
+      "contextMenu": {
+        "copy": "کۆپی بکە",
+        "cut": "بڕین",
+        "paste": "هەویر بکە"
+      },
+      "action": "کردارەکان",
+      "database": {
+        "selectDataSource": "سەرچاوەی داتا هەڵبژێرە",
+        "noDataSource": "هیچ سەرچاوەیەکی داتا نییە",
+        "selectADataSource": "سەرچاوەیەکی داتا هەڵبژێرە",
+        "toContinue": "بۆبەردەوامبوون",
+        "newDatabase": "بنکەدراوەی نوێ",
+        "linkToDatabase": "لینکی بنکەدراوە"
+      },
+      "date": "ڕێکەوت"
+    },
+    "outlineBlock": {
+      "placeholder": "خشتەی ناوەرۆک"
     },
     "textBlock": {
       "placeholder": "بۆ فەرمانەکان '/' بنووسە"
@@ -774,19 +983,49 @@
         "label": "بەستەری وێنە",
         "placeholder": "بەستەری وێنەکە بنووسە"
       },
+      "ai": {
+        "label": "دروستکردنی وێنە لە OpenAI ەوە",
+        "placeholder": "تکایە پرسیارەکە بنووسە بۆ OpenAI بۆ دروستکردنی وێنە"
+      },
+      "stability_ai": {
+        "label": "دروستکردنی وێنە لە Stability AI",
+        "placeholder": "تکایە ئاماژە بۆ Stability AI دابنێ بۆ دروستکردنی وێنە"
+      },
       "support": "سنووری قەبارەی وێنە 5 مێگابایت. فۆرماتەکەنی پشتیوانی کراو: JPEG، PNG، GIF، SVG",
       "error": {
         "invalidImage": "وێنەیەکی نادروست",
         "invalidImageSize": "قەبارەی وێنەکە دەبێت لە 5 مێگابایت کەمتر بێت",
         "invalidImageFormat": "فۆرماتی وێنەکە پشتیوانی ناکرێ. فۆرماتەکەنی پشتیوانی کراو: JPEG، PNG، GIF، SVG",
-        "invalidImageUrl": "Urlی وێنەکە نادروستە"
-      }
+        "invalidImageUrl": "Urlی وێنەکە نادروستە",
+        "noImage": "هیچ فایل و دایرێکتۆرێکی لەو جۆرە نییە"
+      },
+      "embedLink": {
+        "label": "بەستەری جێگیرکردن",
+        "placeholder": "بەستەری وێنەیەک لێبدە یان بنووسە"
+      },
+      "unsplash": {
+        "label": "Unsplash"
+      },
+      "searchForAnImage": "بەدوای وێنەیەکدا بگەڕێ",
+      "pleaseInputYourOpenAIKey": "تکایە کلیلی OpenAI ـەکەت لە لاپەڕەی ڕێکخستنەکان دابنێ",
+      "pleaseInputYourStabilityAIKey": "تکایە کلیلی Stability AI ی خۆت لە لاپەڕەی ڕێکخستنەکان دابنێ",
+      "saveImageToGallery": "هەڵگرتنی وێنەكە",
+      "failedToAddImageToGallery": "شکستی هێنا لە زیادکردنی وێنە بۆ گەلەری",
+      "successToAddImageToGallery": "وێنەکە بە سەرکەوتوویی زیادکرا بۆ گەلەری",
+      "unableToLoadImage": "ناتوانرێت وێنە باربکرێت",
+      "maximumImageSize": "زۆرترین قەبارەی وێنەی بارکردنی پشتگیریکراو 10MB یە",
+      "uploadImageErrorImageSizeTooBig": "قەبارەی وێنەکە دەبێت کەمتر بێت لە 10MB",
+      "imageIsUploading": "وێنەکە باردەکرێت"
     },
     "codeBlock": {
       "language": {
         "label": "زمان",
-        "placeholder": "هەڵبژاردنی زمان"
-      }
+        "placeholder": "هەڵبژاردنی زمان",
+        "auto": "ئۆتۆماتیکی"
+      },
+      "copyTooltip": "ناوەڕۆکی بلۆکی کۆدەکە کۆپی بکە",
+      "searchLanguageHint": "بەدوای زمانێکدا بگەڕێ",
+      "codeCopiedSnackbar": "کۆد کۆپی کراوە بۆ کلیپبۆرد!"
     },
     "inlineLink": {
       "placeholder": "ڕێڕەوەکە بلکێنە یان بینووسە",
@@ -807,16 +1046,53 @@
       "page": {
         "label": "لینکی پەیج",
         "tooltip": "کلیک بکە بۆ کردنەوەی لاپەڕەکە"
-      }
+      },
+      "deleted": "سڕاوەتەوە",
+      "deletedContent": "ئەم ناوەڕۆکە بوونی نییە یان سڕاوەتەوە"
+    },
+    "toolbar": {
+      "resetToDefaultFont": "ڕێست بکە بۆ پێشوەختە"
+    },
+    "errorBlock": {
+      "theBlockIsNotSupported": "وەشانی ئێستا پشتگیری ئەم بلۆکە ناکات.",
+      "blockContentHasBeenCopied": "ناوەڕۆکی بلۆکەکە کۆپی کراوە."
     }
   },
   "board": {
     "column": {
-      "createNewCard": "دروست کردنی نوێ"
+      "createNewCard": "دروست کردنی نوێ",
+      "renameGroupTooltip": "بۆ گۆڕینی ناوی گروپەکە فشار بدە",
+      "createNewColumn": "گروپێکی نوێ زیاد بکە",
+      "addToColumnTopTooltip": "لە سەرەوە کارتێکی نوێ زیاد بکە",
+      "addToColumnBottomTooltip": "لە خوارەوە کارتێکی نوێ زیاد بکە",
+      "renameColumn": "ناوی بگۆڕە",
+      "hideColumn": "شاردنەوە",
+      "newGroup": "گروپی نوێ",
+      "deleteColumn": "سڕینەوە",
+      "deleteColumnConfirmation": "بەم شێوەیە ئەم گروپە و هەموو کارتەکانی ناوی دەسڕدرێتەوە.\nدڵنیای کە دەتەوێت بەردەوام بیت؟"
     },
+    "hiddenGroupSection": {
+      "sectionTitle": "گروپە شاراوەکان",
+      "collapseTooltip": "گروپە شاراوەکان بشارنەوە",
+      "expandTooltip": "بینینی گروپە شاراوەکان"
+    },
+    "cardDetail": "وردەکاری کارت",
+    "cardActions": "کارت کردارەکان",
+    "cardDuplicated": "کارت دووبارە کراوەتەوە",
+    "cardDeleted": "کارتەکە سڕاوەتەوە",
+    "showOnCard": "لەسەر وردەکاری کارتەکە پیشان بدە",
+    "setting": "دۆخ",
+    "propertyName": "ناوی موڵکەکە",
     "menuName": "تەختە",
+    "showUngrouped": "شتە گرووپنەکراوەکان پیشان بدە",
+    "ungroupedButtonText": "بێ گروپ",
+    "ungroupedButtonTooltip": "کارتەکانی تێدایە کە سەر بە هیچ گروپێک نین",
+    "ungroupedItemsTitle": "بۆ زیادکردنی بۆردەکە کلیک بکە",
+    "groupBy": "گرووپ بەپێی",
     "referencedBoardPrefix": "دیمەنی...",
+    "notesTooltip": "تێبینی لە ناوەوە",
     "mobile": {
+      "editURL": "دەستکاری URL بکە",
       "showGroup": "نیشاندانی گروپ",
       "showGroupContent": "ئایا دڵنیایت دەتەوێت ئەم گروپە لەسەر تەختە نیشان بدەیت؟",
       "failedToLoad": "بارکردنی بینینی تەختە سەرکەوتوو نەبوو"
@@ -825,23 +1101,32 @@
   "calendar": {
     "menuName": "ساڵنامە",
     "defaultNewCalendarTitle": "بێ ناونیشان",
+    "newEventButtonTooltip": "ڕووداوێکی نوێ زیاد بکە",
     "navigation": {
       "today": "ئەمڕۆ",
       "jumpToday": "باز بدە بۆ ئەمڕۆ",
       "previousMonth": "مانگی پێشوو",
       "nextMonth": "مانگی داهاتوو"
     },
+    "mobileEventScreen": {
+      "emptyTitle": "هێشتا هیچ ڕووداوێک ڕووی نەداوە",
+      "emptyBody": "بۆ دروستکردنی ڕووداوێک لەم ڕۆژەدا دوگمەی پڵەس داگرە."
+    },
     "settings": {
       "showWeekNumbers": "پیشاندانی ژمارەکانی هەفتە",
       "showWeekends": "پیشاندانی کۆتایی هەفتە",
       "firstDayOfWeek": "سەرەتای هەفتە لە",
       "layoutDateField": "ڕیزبەستی ساڵنامە بە",
+      "changeLayoutDateField": "گۆڕینی بواری نەخشە",
       "noDateTitle": "بە بێ بەروارێک",
+      "unscheduledEventsTitle": "ڕووداوە بێ بەرنامەکان",
       "clickToAdd": "بۆ زیادکردن بۆ ساڵنامە کرتە بکە",
       "name": "شێواز و گه‌ڵاڵه‌به‌ندی ڕۆژژمێر",
       "noDateHint": "ڕووداوە بێ بەرنامە داڕێژراوەکان لێرەدا نیشان دەدرێن"
     },
-    "referencedCalendarPrefix": "دیمەنی..."
+    "referencedCalendarPrefix": "دیمەنی...",
+    "quickJumpYear": "باز بدە بۆ...",
+    "duplicateEvent": "ڕووداوی دووبارە"
   },
   "errorDialog": {
     "title": "هەڵەی⛔️ AppFlowy",
@@ -879,6 +1164,10 @@
     "gray": "خۆڵەمێشی"
   },
   "emoji": {
+    "emojiTab": "ئیمۆجی",
+    "search": "گەڕان بەدوای ئیمۆجیدا",
+    "noRecent": "هیچ ئیمۆجییەکی ئەم دواییە نییە",
+    "noEmojiFound": "هیچ ئیمۆجییەک نەدۆزراوەتەوە",
     "filter": "پاڵێو",
     "random": "هەڕەمەکی",
     "selectSkinTone": "هەڵبژاردنی ڕەنگی پێست",
@@ -895,6 +1184,294 @@
       "flags": "ئاڵاکان",
       "nature": "سروشت",
       "frequentlyUsed": "زۆرجار بەکارت هێناوە"
+    },
+    "skinTone": {
+      "default": "بنەڕەتی",
+      "light": "ڕووناکی",
+      "mediumLight": "مامناوەند-ڕووناکی",
+      "medium": "ناوەند",
+      "mediumDark": "مامناوەند-تاریک",
+      "dark": "تاریک"
     }
+  },
+  "inlineActions": {
+    "noResults": "بێ ئه‌نجام",
+    "pageReference": "ئاماژەی لاپەڕە",
+    "docReference": "ئاماژەی بەڵگەنامە",
+    "boardReference": "ئاماژەی بۆرد",
+    "calReference": "ئاماژەی ساڵنامە",
+    "gridReference": "ئاماژەی تۆڕ",
+    "date": "ڕێکەوت",
+    "reminder": {
+      "groupTitle": "بیرخەرەوە",
+      "shortKeyword": "بیرخستنەوە"
+    }
+  },
+  "datePicker": {
+    "dateTimeFormatTooltip": "فۆرماتەکەی بەروار و کات لە ڕێکخستنەکاندا بگۆڕە",
+    "dateFormat": "جۆری بەروار",
+    "includeTime": "کات لەخۆ بگرێت",
+    "isRange": "بەرواری کۆتایی",
+    "timeFormat": "فۆرمات کات",
+    "clearDate": "بەرواری ڕوون بکەرەوە",
+    "reminderLabel": "بیرخەرەوە",
+    "selectReminder": "بیرخستنەوە هەڵبژێرە",
+    "reminderOptions": {
+      "none": "هیچ",
+      "atTimeOfEvent": "کاتی ڕووداوەکە",
+      "fiveMinsBefore": "5 خولەک پێشتر",
+      "tenMinsBefore": "١٠ خولەک پێشتر",
+      "fifteenMinsBefore": "١٥ خولەک پێشتر",
+      "thirtyMinsBefore": "٣٠ خولەک پێشتر",
+      "oneHourBefore": "1 کاتژمێر پێش...",
+      "twoHoursBefore": "٢ کاتژمێر پێش...",
+      "onDayOfEvent": "لە ڕۆژی بۆنەدا",
+      "oneDayBefore": "1 ڕۆژ پێش...",
+      "twoDaysBefore": "٢ ڕۆژ پێش...",
+      "oneWeekBefore": "1 هەفتە پێش...",
+      "custom": "باو"
+    }
+  },
+  "relativeDates": {
+    "yesterday": "دوێنێ",
+    "today": "ئەمڕۆ",
+    "tomorrow": "بەیانی",
+    "oneWeek": "1 هەفتە"
+  },
+  "notificationHub": {
+    "title": "ئاگادارکردنەوەکان",
+    "mobile": {
+      "title": "نوێکارییەکان"
+    },
+    "emptyTitle": "هەموویان گرت!",
+    "emptyBody": "هیچ ئاگادارکردنەوە و کردارێکی چاوەڕوانکراو نییە. چێژ لە ئارامی وەربگرە.",
+    "tabs": {
+      "inbox": "ئیمەیڵ بۆکس",
+      "upcoming": "لە داهاتوودا"
+    },
+    "actions": {
+      "markAllRead": "هەموویان وەک خوێندنەوە نیشانە بکە",
+      "showAll": "گشت",
+      "showUnreads": "نەخوێنراوەتەوە"
+    },
+    "filters": {
+      "ascending": "بەرزبوونەوە",
+      "descending": "دابەزین",
+      "groupByDate": "گروپ بەپێی بەروار",
+      "showUnreadsOnly": "تەنها نەخوێندراوەکان پیشان بدە",
+      "resetToDefault": "ڕێست بکە بۆ پێشوەختە"
+    }
+  },
+  "reminderNotification": {
+    "title": "بیرخەرەوە",
+    "message": "لەبیرت بێت پێش ئەوەی لەبیرت بچێت ئەمە بپشکنە!",
+    "tooltipDelete": "سڕینەوە",
+    "tooltipMarkRead": "دیاری بکە کە خوێندراوەتەوە",
+    "tooltipMarkUnread": "نیشانەی بکە وەک نەخوێنراوە"
+  },
+  "findAndReplace": {
+    "find": "دۆزینەوە",
+    "previousMatch": "یاری پێشوو",
+    "nextMatch": "یاری داهاتوو",
+    "close": "داخستن",
+    "replace": "شوێن گرتنەوە",
+    "replaceAll": "هەمووی بگۆڕە",
+    "noResult": "بێ ئه‌نجام",
+    "caseSensitive": "بابەتی هەستیار",
+    "searchMore": "گەڕان بۆ دۆزینەوەی ئەنجامی زیاتر"
+  },
+  "error": {
+    "weAreSorry": "ئێمە داوای لێبوردن دەکەین",
+    "loadingViewError": "ئێمە کێشەمان هەیە لە بارکردنی ئەم دیمەنە. تکایە هێڵی ئینتەرنێتەکەت بپشکنە، ئەپەکە نوێ بکەرەوە، و دوودڵ مەبە لە پەیوەندیکردن بە تیمەکە ئەگەر کێشەکە بەردەوام بوو."
+  },
+  "editor": {
+    "bold": "تۆخ",
+    "bulletedList": "لیستی فیشەکدار",
+    "bulletedListShortForm": "بە فیشەک",
+    "checkbox": "بۆکسی هەڵبژاردن",
+    "embedCode": "کۆدی جێگیرکردن",
+    "heading1": "H1",
+    "heading2": "H2",
+    "heading3": "H3",
+    "highlight": "بەرجەستەکردن",
+    "color": "ڕەنگ",
+    "image": "وێنە",
+    "date": "ڕێکەوت",
+    "italic": "بە ئیتاڵیک",
+    "link": "لینک",
+    "numberedList": "لیستی ژمارەدار",
+    "numberedListShortForm": "ژمارەدارە",
+    "quote": "وەرگرتە",
+    "strikethrough": "ستڕایکثرو",
+    "text": "دەق",
+    "underline": "هێڵی ژێرەوە",
+    "fontColorDefault": "بنەڕەتی",
+    "fontColorGray": "خۆڵەمێشی",
+    "fontColorBrown": "قاوەیی",
+    "fontColorOrange": "نارنجی",
+    "fontColorYellow": "زەرد",
+    "fontColorGreen": "سەوز",
+    "fontColorBlue": "شین",
+    "fontColorPurple": "مۆر",
+    "fontColorPink": "پەمبە",
+    "fontColorRed": "سوور",
+    "backgroundColorDefault": "پاشبنەمای پێشوەختە",
+    "backgroundColorGray": "پاشبنەمای خۆڵەمێشی",
+    "backgroundColorBrown": "پاشبنەمای قاوەیی",
+    "backgroundColorOrange": "پاشبنەمای پرتەقاڵی",
+    "backgroundColorYellow": "پاشبنەمای زەرد",
+    "backgroundColorGreen": "پاشبنەمای سەوز",
+    "backgroundColorBlue": "پاشبنەمای شین",
+    "backgroundColorPurple": "پاشبنەمای وەنەوشەیی",
+    "backgroundColorPink": "پاشبنەمای پەمەیی",
+    "backgroundColorRed": "پاشبنەمای سوور",
+    "backgroundColorLime": "پاشبنەمای لیمۆ",
+    "backgroundColorAqua": "پاشبنەمای ئاکوا",
+    "done": "تەواو",
+    "cancel": "ڕەتکردنەوە",
+    "tint1": "ڕەنگ 1",
+    "tint2": "ڕەنگی ٢",
+    "tint3": "ڕەنگی ٣",
+    "tint4": "ڕەنگ 4",
+    "tint5": "ڕەنگ 5",
+    "tint6": "ڕەنگ ٦",
+    "tint7": "ڕەنگی ٧",
+    "tint8": "ڕەنگی ٨",
+    "tint9": "ڕەنگی ٩",
+    "lightLightTint1": "مۆر",
+    "lightLightTint2": "پەمبە",
+    "lightLightTint3": "پەمەیی کاڵ",
+    "lightLightTint4": "نارنجی",
+    "lightLightTint5": "زەرد",
+    "lightLightTint6": "لیمۆ",
+    "lightLightTint7": "سەوز",
+    "lightLightTint8": "ئاکوا",
+    "lightLightTint9": "شین",
+    "urlHint": "URL",
+    "mobileHeading1": "سەردێڕی 1",
+    "mobileHeading2": "سەردێڕی ٢",
+    "mobileHeading3": "سەردێڕی ٣",
+    "textColor": "ڕەنگی دەق",
+    "backgroundColor": "ڕەنگی باكگراوند",
+    "addYourLink": "لینکی خۆت زیاد بکە",
+    "openLink": "لینکی بکەرەوە",
+    "copyLink": "کۆپی لینک",
+    "removeLink": "بەستەری لابردنی",
+    "editLink": "بەستەری دەستکاریکردن",
+    "linkText": "دەق",
+    "linkTextHint": "تکایە دەق دابنێ",
+    "linkAddressHint": "تکایە URL داخڵ بکە",
+    "highlightColor": "ڕەنگی تیشک بخەرە سەر",
+    "clearHighlightColor": "ڕەنگی هایلایتی ڕوون",
+    "customColor": "ڕەنگی تایبەت بەخۆت",
+    "hexValue": "بەهای هێکس",
+    "opacity": "ناڕوونی",
+    "resetToDefaultColor": "ڕێست بکە بۆ ڕەنگی پێشوەختە",
+    "ltr": "LTR",
+    "rtl": "RTL",
+    "auto": "ئۆتۆماتیکی",
+    "cut": "بڕین",
+    "copy": "کۆپی بکە",
+    "paste": "هەویر بکە",
+    "find": "دۆزینەوە",
+    "select": "دەسنیاشنکردن",
+    "selectAll": "دیاری کردنی هەموو",
+    "previousMatch": "یاری پێشوو",
+    "nextMatch": "یاری داهاتوو",
+    "closeFind": "داخستن",
+    "replace": "شوێن گرتنەوە",
+    "replaceAll": "هەمووی بگۆڕە",
+    "regex": "ڕیگێکس",
+    "caseSensitive": "بابەتی هەستیار",
+    "uploadImage": "به‌رزكردنه‌وه‌ی وێنه‌",
+    "urlImage": "وێنەی URL",
+    "incorrectLink": "لینکی هەڵە",
+    "upload": "بەرزکردنەوە",
+    "chooseImage": "وێنەیەک هەڵبژێرە",
+    "loading": "بارکردن",
+    "imageLoadFailed": "نەتوانرا وێنەکە باربکرێت",
+    "divider": "دابەشکەر",
+    "table": "خشتە",
+    "colAddBefore": "پێشتر زیاد بکە",
+    "rowAddBefore": "پێشتر زیاد بکە",
+    "colAddAfter": "دوای زیاد بکە",
+    "rowAddAfter": "دوای زیاد بکە",
+    "colRemove": "لابردن",
+    "rowRemove": "لابردن",
+    "colDuplicate": "دووبارەکردنەوە",
+    "rowDuplicate": "دووبارەکردنەوە",
+    "colClear": "ناوەڕۆک ڕوون بکەرەوە",
+    "rowClear": "ناوەڕۆک ڕوون بکەرەوە",
+    "slashPlaceHolder": "بۆ دانانی بلۆکێک، یان دەستکردن بە نووسین '/' بنووسە",
+    "typeSomething": "شتێک بنووسە...",
+    "toggleListShortForm": "Toggle بکە",
+    "quoteListShortForm": "وەرگرتە",
+    "mathEquationShortForm": "فۆرمۆلا",
+    "codeBlockShortForm": "کۆد"
+  },
+  "favorite": {
+    "noFavorite": "هیچ لاپەڕەیەکی دڵخواز نییە",
+    "noFavoriteHintText": "لاپەڕەکە بۆ لای چەپ سوایپ بکە بۆ زیادکردنی بۆ ئەوانەی کە حەزت لێیە"
+  },
+  "cardDetails": {
+    "notesPlaceholder": "بۆ دانانی بلۆکێک / داخڵ بکە، یان دەست بە نووسین بکە"
+  },
+  "blockPlaceholders": {
+    "todoList": "بۆ كردنی",
+    "bulletList": "لیست",
+    "numberList": "لیست",
+    "quote": "وەرگرتە",
+    "heading": "سەردێڕی {}"
+  },
+  "titleBar": {
+    "pageIcon": "ئایکۆنی لاپەڕە",
+    "language": "زمان",
+    "font": "فۆنت",
+    "actions": "کردارەکان",
+    "date": "ڕێکەوت",
+    "addField": "مەیدانی زیادکردن",
+    "userIcon": "ئایکۆنی بەکارهێنەر"
+  },
+  "noLogFiles": "هیچ فایلێکی لۆگ نییە",
+  "newSettings": {
+    "myAccount": {
+      "title": "هەژماری من",
+      "profileNamePlaceholder": "ناوی خۆت تۆمار بکە",
+      "accountSecurity": "ئاسایشی ئەکاونت",
+      "2FA": "2-هەنگاوی ڕەسەنایەتی",
+      "aiKeys": "کلیلی AI",
+      "accountLogin": "چونەژوورەوی هەژمارە",
+      "deleteAccount": {
+        "title": "حسابەکە بسڕەوە",
+        "deleteMyAccount": "ئەکاونتەکەم بسڕەوە",
+        "dialogTitle": "حسابەکە بسڕەوە",
+        "dialogContent1": "ئایا دڵنیای کە دەتەوێت ئەکاونتەکەت بۆ هەمیشە بسڕیتەوە؟"
+      }
+    },
+    "workplace": {
+      "name": "شوێنی کار",
+      "subtitle": "دەرکەوتنی شوێنی کارەکەت، تەوەر، فۆنت، شێوازی دەق، بەروار، کات و زمانەکەت بەپێی خواستی خۆت دابنێ.",
+      "workplaceNamePlaceholder": "ناوی شوێنی کار دابنێ",
+      "workplaceIcon": "ئایکۆنی شوێنی کار",
+      "updateIconError": "شکستی هێنا لە نوێکردنەوەی ئایکۆن",
+      "appearance": {
+        "name": "ڕووخسار",
+        "themeMode": {
+          "auto": "ئۆتۆماتیکی",
+          "light": "ڕووناکی",
+          "dark": "تاریک"
+        },
+        "language": "زمان"
+      }
+    },
+    "syncState": {
+      "syncing": "هاوکاتکردن",
+      "synced": "هاوکات کراوە"
+    }
+  },
+  "commandPalette": {
+    "navigateHint": "بۆ گەشتکردن",
+    "betaLabel": "BETA",
+    "fromTrashHint": "لە زبڵ و خاشاکەوە"
   }
 }

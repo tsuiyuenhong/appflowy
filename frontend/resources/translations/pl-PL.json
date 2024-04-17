@@ -2,12 +2,14 @@
   "appName": "AppFlowy",
   "defaultUsername": "Ja",
   "welcomeText": "Witaj w @:appName",
+  "welcomeTo": "Witamy w",
   "githubStarText": "Gwiazdka na GitHub-ie",
   "subscribeNewsletterText": "Zapisz się do naszego Newslettera",
   "letsGoButtonText": "Start!",
   "title": "Tytuł",
   "youCanAlso": "Możesz również",
   "and": "i",
+  "failedToOpenUrl": "Nie udało się otworzyć adresu URL: {}",
   "blockActions": {
     "addBelowTooltip": "Kliknij, aby dodać poniżej",
     "addAboveCmd": "Alt+kliknięcie",
@@ -35,6 +37,7 @@
     "loginStartWithAnonymous": "Rozpocznij sesję anonimową",
     "continueAnonymousUser": "Kontynuuj sesję anonimową",
     "buttonText": "Zaloguj",
+    "signingInText": "Dołączanie do...",
     "forgotPassword": "Zapomniałeś hasła?",
     "emailHint": "Email",
     "passwordHint": "Hasło",
@@ -47,6 +50,11 @@
     "LogInWithGithub": "Zaloguj się za pomocą Githuba",
     "LogInWithDiscord": "Zaloguj się za pomocą Discorda",
     "signInWith": "Zaloguj się korzystając z:",
+    "signInWithEmail": "Zaloguj się za pomocą poczty e-mail",
+    "logInWithMagicLink": "Zaloguj się za pomocą Magic Link",
+    "pleaseInputYourEmail": "Podaj swój adres e-mail",
+    "magicLinkSent": "Magiczny link wysłany na Twój e-mail, sprawdź swoją skrzynkę odbiorczą",
+    "invalidEmail": "Proszę wpisać aktualny adres e-mail",
     "loginAsGuestButtonText": "Rozpocznij"
   },
   "workspace": {
@@ -59,13 +67,34 @@
     "failedToLoad": "Coś poszło nie tak! Wczytywanie przestrzeni roboczej nie powiodło się. Spróbuj wyłączyć wszystkie otwarte instancje AppFlowy i spróbuj ponownie.",
     "errorActions": {
       "reportIssue": "Zgłoś problem",
+      "reportIssueOnGithub": "Zgłoś problem na Githubie",
+      "exportLogFiles": "Eksportuj pliki dziennika",
       "reachOut": "Skontaktuj się na Discord"
-    }
+    },
+    "menuTitle": "Obszary robocze",
+    "deleteWorkspaceHintText": "Czy na pewno chcesz usunąć obszar roboczy? Tej akcji nie można cofnąć.",
+    "createSuccess": "Obszar roboczy został utworzony pomyślnie",
+    "createFailed": "Nie udało się utworzyć obszaru roboczego",
+    "createLimitExceeded": "Osiągnąłeś maksymalny limit przestrzeni roboczej dozwolony dla Twojego konta. Jeśli potrzebujesz dodatkowych obszarów roboczych do kontynuowania pracy, złóż wniosek na Githubie",
+    "deleteSuccess": "Obszar roboczy został pomyślnie usunięty",
+    "deleteFailed": "Nie udało się usunąć obszaru roboczego",
+    "openSuccess": "Pomyślnie otwórz obszar roboczy",
+    "openFailed": "Nie udało się otworzyć obszaru roboczego",
+    "renameSuccess": "Nazwa obszaru roboczego została pomyślnie zmieniona",
+    "renameFailed": "Nie udało się zmienić nazwy obszaru roboczego",
+    "updateIconSuccess": "Pomyślnie zaktualizowano ikonę obszaru roboczego",
+    "updateIconFailed": "Zaktualizowana ikona obszaru roboczego nie powiodła się",
+    "cannotDeleteTheOnlyWorkspace": "Nie można usunąć jedynego obszaru roboczego",
+    "fetchWorkspacesFailed": "Nie udało się pobrać obszarów roboczych",
+    "leaveCurrentWorkspace": "Opuść obszar roboczy",
+    "leaveCurrentWorkspacePrompt": "Czy na pewno chcesz opuścić bieżący obszar roboczy?"
   },
   "shareAction": {
     "buttonText": "Udostępnij",
     "workInProgress": "Dostępne wkrótce",
     "markdown": "Markdown",
+    "html": "HTML",
+    "clipboard": "Skopiuj do schowka",
     "csv": "CSV",
     "copyLink": "Skopiuj link"
   },
@@ -75,7 +104,12 @@
     "large": "duży",
     "fontSize": "Rozmiar czcionki",
     "import": "Import",
-    "moreOptions": "Więcej opcji"
+    "moreOptions": "Więcej opcji",
+    "wordCount": "Liczba słów: {}",
+    "charCount": "Liczba znaków: {}",
+    "createdAt": "Utworzony: {}",
+    "deleteView": "Usuwać",
+    "duplicateView": "Duplikować"
   },
   "importPanel": {
     "textAndMarkdown": "Tekst i Markdown",
@@ -124,7 +158,8 @@
       "emptyDescription": "Nie masz żadnych usuniętych plików",
       "isDeleted": "jest usunięty",
       "isRestored": "jest przywrócony"
-    }
+    },
+    "confirmDeleteTitle": "Czy na pewno chcesz trwale usunąć tę stronę?"
   },
   "deletePagePrompt": {
     "text": "Ta strona jest w Koszu",
@@ -184,10 +219,16 @@
     "closeSidebar": "Zamknij menu boczne",
     "openSidebar": "Otwórz menu boczne",
     "personal": "Osobisty",
+    "private": "Prywatny",
+    "workspace": "Obszar roboczy",
     "favorites": "Ulubione",
+    "clickToHidePrivate": "Kliknij, aby ukryć prywatną przestrzeń\nStrony, które tu utworzyłeś, są widoczne tylko dla Ciebie",
+    "clickToHideWorkspace": "Kliknij, aby ukryć obszar roboczy\nStrony, które tu utworzyłeś, są widoczne dla każdego członka",
     "clickToHidePersonal": "Kliknij, aby ukryć sekcję osobistą",
     "clickToHideFavorites": "Kliknij, aby ukryć ulubioną sekcję",
     "addAPage": "Dodaj stronę",
+    "addAPageToPrivate": "Dodaj stronę do przestrzeni prywatnej",
+    "addAPageToWorkspace": "Dodaj stronę do obszaru roboczego",
     "recent": "Najnowsze"
   },
   "notifications": {
@@ -228,7 +269,21 @@
     "removeFromFavorites": "Usuń z ulubionych",
     "addToFavorites": "Dodaj do ulubionych",
     "rename": "Zmień nazwę",
-    "helpCenter": "Centrum Pomocy"
+    "helpCenter": "Centrum Pomocy",
+    "add": "Dodać",
+    "yes": "Tak",
+    "clear": "Jasne",
+    "remove": "Usunąć",
+    "dontRemove": "Nie usuwaj",
+    "copyLink": "Skopiuj link",
+    "align": "Wyrównywać",
+    "login": "Zaloguj sie",
+    "logout": "Wyloguj",
+    "deleteAccount": "Usuń konto",
+    "back": "Z powrotem",
+    "signInGoogle": "Zaloguj się za pomocą Google",
+    "signInGithub": "Zaloguj się za pomocą Githuba",
+    "signInDiscord": "Zaloguj się za pomocą Discorda"
   },
   "label": {
     "welcome": "Witaj!",
@@ -263,16 +318,48 @@
       "logoutPrompt": "Czy na pewno chcesz się wylogować?",
       "selfEncryptionLogoutPrompt": "Czy na pewno chcesz się wylogować? Upewnij się, że skopiowałeś sekret szyfrowania",
       "syncSetting": "Ustawienie synchronizacji",
+      "cloudSettings": "Ustawienia chmury",
       "enableSync": "Włącz synchronizację",
       "enableEncrypt": "Szyfruj dane",
       "cloudURL": "URL Serwera",
+      "invalidCloudURLScheme": "Nieprawidłowy schemat",
+      "cloudServerType": "Serwer w chmurze",
+      "cloudServerTypeTip": "Należy pamiętać, że po zmianie serwera w chmurze może wylogować się z Twojego bieżącego konta",
+      "cloudLocal": "Lokalny",
+      "cloudSupabase": "Supabaza",
+      "cloudSupabaseUrl": "Adres URL Supabase",
+      "cloudSupabaseUrlCanNotBeEmpty": "Adres URL supabase nie może być pusty",
+      "cloudSupabaseAnonKey": "Klucz Supabase",
+      "cloudSupabaseAnonKeyCanNotBeEmpty": "Klucz anon nie może być pusty",
+      "cloudAppFlowy": "AppFlow Cloud Beta",
+      "cloudAppFlowySelfHost": "AppFlowy Cloud na własnym serwerze",
+      "appFlowyCloudUrlCanNotBeEmpty": "Adres URL chmury nie może być pusty",
+      "clickToCopy": "Kliknij, aby skopiować",
+      "selfHostStart": "Jeśli nie masz serwera, zapoznaj się z sekcją",
+      "selfHostContent": "dokument",
+      "selfHostEnd": "aby uzyskać wskazówki dotyczące samodzielnego hostowania własnego serwera",
+      "cloudURLHint": "Wprowadź podstawowy adres URL swojego serwera",
+      "cloudWSURL": "Adres URL gniazda internetowego",
+      "cloudWSURLHint": "Wprowadź adres websocket swojego serwera",
+      "restartApp": "Uruchom ponownie",
+      "restartAppTip": "Uruchom ponownie aplikację, aby zmiany zaczęły obowiązywać. Pamiętaj, że może to spowodować wylogowanie Twojego bieżącego konta",
+      "changeServerTip": "Po zmianie serwera należy kliknąć przycisk ponownego uruchomienia, aby zmiany odniosły skutek",
       "enableEncryptPrompt": "Aktywuj szyfrowanie, aby zabezpieczyć swoje dane tym sekretem. Przechowuj go bezpiecznie; po włączeniu nie można go wyłączyć. Jeśli zostanie utracony, nie będziesz w stanie odzyskać danych. Kliknij, aby skopiować",
       "inputEncryptPrompt": "Wprowadź swój sekret szyfrowania dla",
       "clickToCopySecret": "Kliknij, aby skopiować sekret",
+      "configServerSetting": "Skonfiguruj ustawienia serwera",
+      "configServerGuide": "Po wybraniu opcji „Szybki start” przejdź do „Ustawień”, a następnie „Ustawień chmury”, aby skonfigurować własny serwer.",
       "inputTextFieldHint": "Twój sekret",
       "historicalUserList": "Historia logowania użytkownika",
       "historicalUserListTooltip": "Na tej liście wyświetlane są Twoje anonimowe konta. Możesz kliknąć konto, aby wyświetlić jego szczegóły. Konta anonimowe tworzy się poprzez kliknięcie przycisku „Rozpocznij”.",
       "openHistoricalUser": "Kliknij, aby otworzyć anonimowe konto",
+      "customPathPrompt": "Przechowywanie folderu danych AppFlowy w folderze synchronizowanym z chmurą, takim jak Dysk Google, może stwarzać ryzyko. Jeśli dostęp do bazy danych w tym folderze lub modyfikacja z wielu lokalizacji jednocześnie może spowodować konflikty synchronizacji i potencjalne uszkodzenie danych",
+      "importAppFlowyData": "Importuj dane z zewnętrznego folderu AppFlowy",
+      "importingAppFlowyDataTip": "Trwa import danych. Proszę nie zamykać aplikacji",
+      "importAppFlowyDataDescription": "Skopiuj dane z zewnętrznego folderu danych AppFlowy i zaimportuj je do bieżącego folderu danych AppFlowy",
+      "importSuccess": "Pomyślnie zaimportowano folder danych AppFlowy",
+      "importFailed": "Importowanie folderu danych AppFlowy nie powiodło się",
+      "importGuide": "Więcej szczegółów można znaleźć w dokumencie odniesienia",
       "supabaseSetting": "Ustawienie Supabase",
       "cloudSetting": "Ustawienia Chmury"
     },
@@ -294,6 +381,19 @@
         "dark": "Tryb Ciemny",
         "system": "Dostosuj do Systemu"
       },
+      "fontScaleFactor": "Współczynnik skali czcionki",
+      "documentSettings": {
+        "cursorColor": "Kolor kursora dokumentu",
+        "selectionColor": "Kolor wyboru dokumentu",
+        "hexEmptyError": "Kolor szesnastkowy nie może być pusty",
+        "hexLengthError": "Wartość szesnastkowa musi mieć długość 6 cyfr",
+        "hexInvalidError": "Nieprawidłowa wartość szesnastkowa",
+        "opacityEmptyError": "Krycie nie może być puste",
+        "opacityRangeError": "Krycie musi mieścić się w przedziale od 1 do 100",
+        "app": "Aplikacja",
+        "flowy": "Płynny",
+        "apply": "Stosować"
+      },
       "layoutDirection": {
         "label": "Kierunek układu",
         "hint": "Kontroluj przepływ treści na ekranie, od lewej do prawej lub od prawej do lewej.",
@@ -310,6 +410,7 @@
       },
       "themeUpload": {
         "button": "Prześlij",
+        "uploadTheme": "Prześlij motyw",
         "description": "Prześlij własny motyw AppFlowy za pomocą przycisku poniżej.",
         "loading": "Poczekaj, aż zweryfikujemy i prześlemy Twój motyw...",
         "uploadSuccess": "Twój motyw został przesłany pomyślnie",
@@ -334,7 +435,36 @@
         "twelveHour": "12 godzinny",
         "twentyFourHour": "24 godzinny"
       },
-      "showNamingDialogWhenCreatingPage": "Pokaż okno dialogowe nazewnictwa podczas tworzenia strony"
+      "showNamingDialogWhenCreatingPage": "Pokaż okno dialogowe nazewnictwa podczas tworzenia strony",
+      "enableRTLToolbarItems": "Włącz elementy paska narzędzi RTL",
+      "members": {
+        "title": "Ustawienia członków",
+        "inviteMembers": "Zaproś członków",
+        "sendInvite": "Wyślij zaproszenie",
+        "copyInviteLink": "Skopiuj link z zaproszeniem",
+        "label": "Członkowie",
+        "user": "Użytkownik",
+        "role": "Rola",
+        "removeFromWorkspace": "Usuń z obszaru roboczego",
+        "owner": "Właściciel",
+        "guest": "Gość",
+        "member": "Członek",
+        "memberHintText": "Członek może czytać, komentować i edytować strony. Zaproś członków i gości.",
+        "guestHintText": "Gość może czytać, reagować, komentować i edytować niektóre strony za zgodą.",
+        "emailInvalidError": "Nieprawidłowy adres e-mail. Sprawdź i spróbuj ponownie",
+        "emailSent": "E-mail wysłany, sprawdź skrzynkę odbiorczą",
+        "members": "członkowie",
+        "membersCount": {
+          "zero": "{} członków",
+          "one": "{} członek",
+          "other": "{} członków"
+        },
+        "memberLimitExceeded": "Osiągnąłeś maksymalny limit członków dozwolony dla Twojego konta. Jeśli chcesz dodać więcej dodatkowych członków, aby kontynuować swoją pracę, złóż wniosek na Githubie",
+        "failedToAddMember": "Nie udało się dodać członka",
+        "addMemberSuccess": "Pomyślnie dodano członka",
+        "removeMember": "Usuń członka",
+        "areYouSureToRemoveMember": "Czy na pewno chcesz usunąć tego członka?"
+      }
     },
     "files": {
       "copy": "Kopiuj",
@@ -370,7 +500,11 @@
       "recoverLocationTooltips": "Zresetuj do domyślnego katalogu danych AppFlowy",
       "exportFileSuccess": "Eksportowanie pliku zakończono pomyślnie!",
       "exportFileFail": "Eksport pliku nie powiódł się!",
-      "export": "Eksport"
+      "export": "Eksport",
+      "clearCache": "Wyczyść pamięć podręczną",
+      "clearCacheDesc": "Jeśli napotkasz problemy z ładowaniem obrazów lub nieprawidłowym wyświetlaniem czcionek, spróbuj wyczyścić pamięć podręczną. Ta czynność nie spowoduje usunięcia Twoich danych użytkownika.",
+      "areYouSureToClearCache": "Czy na pewno wyczyścić pamięć podręczną?",
+      "clearCacheSuccess": "Pamięć podręczna została pomyślnie wyczyszczona!"
     },
     "user": {
       "name": "Nazwa",
@@ -390,7 +524,17 @@
       "shortcutIsAlreadyUsed": "Ten skrót jest już używany w przypadku: {conflict}",
       "resetToDefault": "Przywróć domyślne skróty klawiszowe",
       "couldNotLoadErrorMsg": "Nie udało się wczytać skrótów. Spróbuj ponownie",
-      "couldNotSaveErrorMsg": "Nie udało się zapisać skrótów. Spróbuj ponownie"
+      "couldNotSaveErrorMsg": "Nie udało się zapisać skrótów. Spróbuj ponownie",
+      "commands": {
+        "codeBlockNewParagraph": "Wstaw nowy akapit obok bloku kodu",
+        "codeBlockAddTwoSpaces": "Wstaw dwie spacje na początku linii w bloku kodu",
+        "codeBlockDeleteTwoSpaces": "Usuń dwie spacje na początku linii w bloku kodu",
+        "codeBlockSelectAll": "Zaznacz całą zawartość wewnątrz bloku kodu",
+        "codeBlockPasteText": "Wklej tekst w bloku kodu",
+        "textAlignLeft": "Wyrównaj tekst do lewej",
+        "textAlignCenter": "Wyrównaj tekst do środka",
+        "textAlignRight": "Wyrównaj tekst do prawej"
+      }
     },
     "mobile": {
       "personalInfo": "Informacje Osobiste",
@@ -402,8 +546,12 @@
       "joinDiscord": "Dołącz do nas na Discord",
       "privacyPolicy": "Polityka prywatności",
       "userAgreement": "Regulamin Użytkowania",
+      "termsAndConditions": "Regulamin",
       "userprofileError": "Nie udało się wczytać profilu użytkownika",
-      "userprofileErrorDescription": "Spróbuj wylogować się i zalogować ponownie, aby zobaczyć czy problem nadal występuje."
+      "userprofileErrorDescription": "Spróbuj wylogować się i zalogować ponownie, aby zobaczyć czy problem nadal występuje.",
+      "selectLayout": "Wybierz układ",
+      "selectStartingDay": "Wybierz dzień początkowy",
+      "version": "Wersja"
     }
   },
   "grid": {
@@ -424,7 +572,19 @@
       "filterBy": "Filtruj według...",
       "typeAValue": "Wpisz wartość...",
       "layout": "Układ",
-      "databaseLayout": "Układ"
+      "databaseLayout": "Układ",
+      "viewList": {
+        "zero": "0 wyświetleń",
+        "one": "Liczba wyświetleń",
+        "other": "Liczba wyświetleń: {count}"
+      },
+      "editView": "Edytuj widok",
+      "boardSettings": "Ustawienia tablicy",
+      "calendarSettings": "Ustawienia kalendarza",
+      "createView": "Nowy widok",
+      "duplicateView": "Zduplikowany widok",
+      "deleteView": "Usuń widok",
+      "numberOfVisibleFields": "{} pokazane"
     },
     "textFilter": {
       "contains": "Zawiera",
@@ -462,6 +622,34 @@
       "isEmpty": "Jest pusty",
       "isNotEmpty": "Nie jest pusty"
     },
+    "dateFilter": {
+      "is": "Jest",
+      "before": "Jest wcześniej",
+      "after": "Jest po",
+      "onOrBefore": "Jest włączony lub wcześniej",
+      "onOrAfter": "Jest włączony lub później",
+      "between": "Jest pomiędzy",
+      "empty": "Jest pusty",
+      "notEmpty": "Nie jest pusty",
+      "choicechipPrefix": {
+        "before": "Zanim",
+        "after": "Po",
+        "onOrBefore": "W dniu lub wcześniej",
+        "onOrAfter": "W dniu lub po",
+        "isEmpty": "Jest pusty",
+        "isNotEmpty": "Nie jest pusty"
+      }
+    },
+    "numberFilter": {
+      "equal": "Równa się",
+      "notEqual": "Nie równa się",
+      "lessThan": "Jest mniej niż",
+      "greaterThan": "Jest większy niż",
+      "lessThanOrEqualTo": "Jest mniejszy lub równy",
+      "greaterThanOrEqualTo": "Jest większa niż lub równa",
+      "isEmpty": "Jest pusty",
+      "isNotEmpty": "Nie jest pusty"
+    },
     "field": {
       "hide": "Ukryj",
       "show": "Pokaż",
@@ -469,6 +657,8 @@
       "insertRight": "Wstaw w prawo",
       "duplicate": "Duplikuj",
       "delete": "Usuń",
+      "wrap": "Zawinąć",
+      "clear": "Wyczyść komórki",
       "textFieldName": "Tekst",
       "checkboxFieldName": "Pole wyboru",
       "dateFieldName": "Data",
@@ -479,6 +669,7 @@
       "multiSelectFieldName": "Wielokrotny wybór",
       "urlFieldName": "Adres URL",
       "checklistFieldName": "Lista kontrolna",
+      "relationFieldName": "Relacja",
       "numberFormat": "Format liczbowy",
       "dateFormat": "Format daty",
       "includeTime": "Uwzględnij czas",
@@ -493,13 +684,26 @@
       "timeFormatTwelveHour": "12 godzinny",
       "timeFormatTwentyFourHour": "24 godzinny",
       "clearDate": "Wyczyść datę",
+      "dateTime": "Data i godzina",
+      "startDateTime": "Data i godzina rozpoczęcia",
+      "endDateTime": "Data zakończenia",
+      "failedToLoadDate": "Nie udało się załadować wartości daty",
+      "selectTime": "Wybierz czas",
+      "selectDate": "Wybierz datę",
+      "visibility": "Widoczność",
+      "propertyType": "Typ nieruchomości",
       "addSelectOption": "Dodaj opcję",
+      "typeANewOption": "Wpisz nową opcję",
       "optionTitle": "Opcje",
       "addOption": "Dodaj opcję",
       "editProperty": "Edytuj właściwość",
       "newProperty": "Nowa właściwość",
       "deleteFieldPromptMessage": "Jesteś pewny? Ta właściwość zostanie usunięta",
-      "newColumn": "Nowa kolumna"
+      "clearFieldPromptMessage": "Jesteś pewny? Wszystkie komórki w tej kolumnie zostaną opróżnione",
+      "newColumn": "Nowa kolumna",
+      "format": "Format",
+      "reminderOnDateTooltip": "Ta komórka ma zaplanowane przypomnienie",
+      "optionAlreadyExist": "Opcja już istnieje"
     },
     "rowPage": {
       "newField": "Dodaj nowe pole",
@@ -518,8 +722,13 @@
     "sort": {
       "ascending": "Rosnąco",
       "descending": "Malejąco",
+      "by": "Przez",
+      "empty": "Brak aktywnych sortowań",
+      "cannotFindCreatableField": "Nie można znaleźć odpowiedniego pola do sortowania",
       "deleteAllSorts": "Usuń wszystkie sortowania",
       "addSort": "Dodaj sortowanie",
+      "removeSorting": "Czy chcesz usunąć sortowanie?",
+      "fieldInUse": "Sortujesz już według tego pola",
       "deleteSort": "Usuń sortowanie"
     },
     "row": {
@@ -554,7 +763,9 @@
       "searchOption": "Wyszukaj opcję",
       "searchOrCreateOption": "Wyszukaj lub utwórz opcję...",
       "createNew": "Utwórz nowy",
-      "orSelectOne": "Lub wybierz opcję"
+      "orSelectOne": "Lub wybierz opcję",
+      "typeANewOption": "Wpisz nową opcję",
+      "tagName": "Nazwa znacznika"
     },
     "checklist": {
       "taskHint": "Opis zadania",
@@ -563,8 +774,38 @@
       "hideComplete": "Ukryj zakończone zadania",
       "showComplete": "Pokaż wszystkie zadania"
     },
+    "url": {
+      "launch": "Otwórz link w przeglądarce",
+      "copy": "Skopiuj link do schowka",
+      "textFieldHint": "Wpisz adres URL",
+      "copiedNotification": "Skopiowane do schowka!"
+    },
+    "relation": {
+      "relatedDatabasePlaceLabel": "Powiązana baza danych",
+      "relatedDatabasePlaceholder": "Nic",
+      "inRelatedDatabase": "W",
+      "rowSearchTextFieldPlaceholder": "Szukaj",
+      "noDatabaseSelected": "Nie wybrano żadnej bazy danych. Wybierz najpierw jedną z poniższej listy:",
+      "emptySearchResult": "Nic nie znaleziono",
+      "linkedRowListLabel": "Liczba połączonych wierszy: {count}",
+      "unlinkedRowListLabel": "Połącz kolejny wiersz"
+    },
     "menuName": "Siatka",
-    "referencedGridPrefix": "Widok"
+    "referencedGridPrefix": "Widok",
+    "calculate": "Oblicz",
+    "calculationTypeLabel": {
+      "none": "Nic",
+      "average": "Przeciętny",
+      "max": "Maks",
+      "median": "Mediana",
+      "min": "Min",
+      "sum": "Suma",
+      "count": "Liczyć",
+      "countEmpty": "Licznik pusty",
+      "countEmptyShort": "PUSTY",
+      "countNonEmpty": "Liczba nie jest pusta",
+      "countNonEmptyShort": "WYPEŁNIONY"
+    }
   },
   "document": {
     "menuName": "Dokument",
@@ -617,6 +858,9 @@
       "smartEditDisabled": "Połącz OpenAI w Ustawieniach",
       "discardResponse": "Czy chcesz odrzucić odpowiedzi AI?",
       "createInlineMathEquation": "Utwórz równanie",
+      "fonts": "Czcionki",
+      "insertDate": "Wstaw datę",
+      "emoji": "Emoji",
       "toggleList": "Przełącz listę",
       "quoteList": "Lista cytatów",
       "numberedList": "Numerowana lista",
@@ -666,14 +910,21 @@
         "left": "Lewo",
         "center": "Centrum",
         "right": "Prawo",
-        "defaultColor": "Domyślny"
+        "defaultColor": "Domyślny",
+        "depth": "Głębokość"
       },
       "image": {
         "copiedToPasteBoard": "Link do obrazu został skopiowany do schowka",
-        "addAnImage": "Dodaj obraz"
+        "addAnImage": "Dodaj obraz",
+        "imageUploadFailed": "Przesyłanie obrazu nie powiodło się"
+      },
+      "urlPreview": {
+        "copiedToPasteBoard": "Link został skopiowany do schowka",
+        "convertToLink": "Konwertuj, aby umieścić link"
       },
       "outline": {
-        "addHeadingToCreateOutline": "Dodaj nagłówki, aby utworzyć spis treści."
+        "addHeadingToCreateOutline": "Dodaj nagłówki, aby utworzyć spis treści.",
+        "noMatchHeadings": "Nie znaleziono pasujących nagłówków."
       },
       "table": {
         "addAfter": "Dodaj po",
@@ -688,7 +939,19 @@
         "cut": "Wytnij",
         "paste": "Wklej"
       },
-      "action": "Akcje"
+      "action": "Akcje",
+      "database": {
+        "selectDataSource": "Wybierz źródło danych",
+        "noDataSource": "Brak źródła danych",
+        "selectADataSource": "Wybierz źródło danych",
+        "toContinue": "kontynuować",
+        "newDatabase": "Nowa baza danych",
+        "linkToDatabase": "Link do bazy danych"
+      },
+      "date": "Data"
+    },
+    "outlineBlock": {
+      "placeholder": "Spis treści"
     },
     "textBlock": {
       "placeholder": "Wpisz „/” dla poleceń"
@@ -719,11 +982,15 @@
         "invalidImage": "Nieprawidłowy obraz",
         "invalidImageSize": "Rozmiar obrazu musi być mniejszy niż 5 MB",
         "invalidImageFormat": "Format obrazu nie jest obsługiwany. Obsługiwane formaty: JPEG, PNG, GIF, SVG",
-        "invalidImageUrl": "Nieprawidłowy adres URL obrazu"
+        "invalidImageUrl": "Nieprawidłowy adres URL obrazu",
+        "noImage": "Nie ma takiego pliku ani katalogu"
       },
       "embedLink": {
         "label": "Osadź link",
         "placeholder": "Wklej lub wpisz link obrazu"
+      },
+      "unsplash": {
+        "label": "Usuń rozpryski"
       },
       "searchForAnImage": "Szukaj obrazu",
       "pleaseInputYourOpenAIKey": "wpisz swój klucz OpenAI w ustawieniach",
@@ -731,13 +998,20 @@
       "saveImageToGallery": "Zapisz obraz",
       "failedToAddImageToGallery": "Nie udało się dodać obrazu do galerii",
       "successToAddImageToGallery": "Pomyślnie dodano obraz do galerii",
-      "unableToLoadImage": "Nie udało się wczytać obrazu"
+      "unableToLoadImage": "Nie udało się wczytać obrazu",
+      "maximumImageSize": "Maksymalny obsługiwany rozmiar przesyłanego obrazu to 10 MB",
+      "uploadImageErrorImageSizeTooBig": "Rozmiar obrazu musi być mniejszy niż 10 MB",
+      "imageIsUploading": "Trwa przesyłanie obrazu"
     },
     "codeBlock": {
       "language": {
         "label": "Język",
-        "placeholder": "Wybierz język"
-      }
+        "placeholder": "Wybierz język",
+        "auto": "Automatyczny"
+      },
+      "copyTooltip": "Skopiuj zawartość bloku kodu",
+      "searchLanguageHint": "Wyszukaj język",
+      "codeCopiedSnackbar": "Kod skopiowany do schowka!"
     },
     "inlineLink": {
       "placeholder": "Wklej lub wpisz link",
@@ -758,7 +1032,9 @@
       "page": {
         "label": "Link do strony",
         "tooltip": "Kliknij, aby otworzyć stronę"
-      }
+      },
+      "deleted": "Usunięto",
+      "deletedContent": "Ta treść nie istnieje lub została usunięta"
     },
     "toolbar": {
       "resetToDefaultFont": "Przywróć ustawienia domyślne"
@@ -774,21 +1050,35 @@
       "renameGroupTooltip": "Wciśnij by zmienić nazwę grupy",
       "createNewColumn": "Dodaj nową grupę",
       "addToColumnTopTooltip": "Dodaj nową kartę na górze",
+      "addToColumnBottomTooltip": "Dodaj nową kartę na dole",
       "renameColumn": "Zmień nazwę",
-      "hideColumn": "Ukryj"
+      "hideColumn": "Ukryj",
+      "newGroup": "Nowa grupa",
+      "deleteColumn": "Usuwać",
+      "deleteColumnConfirmation": "Spowoduje to usunięcie tej grupy i wszystkich znajdujących się w niej kart.\nJesteś pewien, że chcesz kontynuować?"
     },
     "hiddenGroupSection": {
       "sectionTitle": "Ukryte Grupy",
       "collapseTooltip": "Ukryj ukryte grupy",
       "expandTooltip": "Pokaż ukryte grupy"
     },
+    "cardDetail": "Szczegóły karty",
+    "cardActions": "Akcje kart",
+    "cardDuplicated": "Karta została zduplikowana",
+    "cardDeleted": "Karta została usunięta",
+    "showOnCard": "Pokaż szczegóły karty",
+    "setting": "Ustawienie",
+    "propertyName": "Nazwa właściwości",
     "menuName": "Tablica",
+    "showUngrouped": "Pokaż niezgrupowane elementy",
     "ungroupedButtonText": "Niepogrupowane",
     "ungroupedButtonTooltip": "Zawiera karty, które nie należą do żadnej grupy",
     "ungroupedItemsTitle": "Kliknij by dodać tablicę",
     "groupBy": "Grupuj zgodnie z",
     "referencedBoardPrefix": "Widok",
+    "notesTooltip": "Notatki w środku",
     "mobile": {
+      "editURL": "Edytuj adres URL",
       "showGroup": "Pokaż grupę",
       "showGroupContent": "Czy na pewno chcesz pokazać tę grupę na tablicy?",
       "failedToLoad": "Nie udało się załadować widoku tablicy"
@@ -804,21 +1094,29 @@
       "previousMonth": "Poprzedni miesiac",
       "nextMonth": "W następnym miesiącu"
     },
+    "mobileEventScreen": {
+      "emptyTitle": "Nie ma jeszcze żadnych wydarzeń",
+      "emptyBody": "Naciśnij przycisk plus, aby utworzyć wydarzenie w tym dniu."
+    },
     "settings": {
       "showWeekNumbers": "Pokaż numery tygodni",
       "showWeekends": "Pokaż weekendy",
       "firstDayOfWeek": "Rozpocznij tydzień",
       "layoutDateField": "Układ kalendarza wg",
+      "changeLayoutDateField": "Zmień pole układu",
       "noDateTitle": "Brak daty",
       "noDateHint": {
         "zero": "Tutaj pojawią się nieplanowane wydarzenia",
         "one": "{} nieplanowane wydarzenie",
         "other": "{} nieplanowane wydarzenia"
       },
+      "unscheduledEventsTitle": "Niezaplanowane wydarzenia",
       "clickToAdd": "Kliknij, aby dodać do kalendarza",
       "name": "Układ kalendarza"
     },
-    "referencedCalendarPrefix": "Widok"
+    "referencedCalendarPrefix": "Widok",
+    "quickJumpYear": "Skocz do",
+    "duplicateEvent": "Zduplikowane wydarzenie"
   },
   "errorDialog": {
     "title": "Błąd AppFlowy",
@@ -847,6 +1145,7 @@
     "default": "Domyślny",
     "red": "Czerwony",
     "orange": "Pomarańczowy",
+    "yellow": "Żółty",
     "green": "Zielony",
     "blue": "Niebieski",
     "purple": "Fioletowy",
@@ -888,6 +1187,10 @@
   "inlineActions": {
     "noResults": "Brak wyników",
     "pageReference": "Strona referencyjna",
+    "docReference": "Odnośnik do dokumentu",
+    "boardReference": "Odniesienie do tablicy",
+    "calReference": "Odniesienie do kalendarza",
+    "gridReference": "Odniesienie do siatki",
     "date": "Data",
     "reminder": {
       "groupTitle": "Przypomnienie",
@@ -895,7 +1198,29 @@
     }
   },
   "datePicker": {
-    "dateTimeFormatTooltip": "Zmień format daty i godziny w ustawieniach"
+    "dateTimeFormatTooltip": "Zmień format daty i godziny w ustawieniach",
+    "dateFormat": "Format daty",
+    "includeTime": "Uwzględnij czas",
+    "isRange": "Data końcowa",
+    "timeFormat": "Format czasu",
+    "clearDate": "Wyczyść datę",
+    "reminderLabel": "Przypomnienie",
+    "selectReminder": "Wybierz przypomnienie",
+    "reminderOptions": {
+      "none": "Nic",
+      "atTimeOfEvent": "Czas wydarzenia",
+      "fiveMinsBefore": "5 minut wcześniej",
+      "tenMinsBefore": "10 minut wcześniej",
+      "fifteenMinsBefore": "15 minut wcześniej",
+      "thirtyMinsBefore": "30 minut wcześniej",
+      "oneHourBefore": "1 godzinę wcześniej",
+      "twoHoursBefore": "2 godziny wcześniej",
+      "onDayOfEvent": "W dniu imprezy",
+      "oneDayBefore": "1 dzień wcześniej",
+      "twoDaysBefore": "2 dni wcześniej",
+      "oneWeekBefore": "1 tydzień wcześniej",
+      "custom": "Zwyczaj"
+    }
   },
   "relativeDates": {
     "yesterday": "Wczoraj",
@@ -905,6 +1230,9 @@
   },
   "notificationHub": {
     "title": "Powiadomienia",
+    "mobile": {
+      "title": "Aktualizacje"
+    },
     "emptyTitle": "Wszystko nadrobione!",
     "emptyBody": "Brak oczekujących powiadomień lub działań. Ciesz się ciszą.",
     "tabs": {
@@ -939,7 +1267,8 @@
     "replace": "Zastąp",
     "replaceAll": "Zastąp wszystkie",
     "noResult": "Brak wyników",
-    "caseSensitive": "Uwzględnij wielkość znaków"
+    "caseSensitive": "Uwzględnij wielkość znaków",
+    "searchMore": "Wyszukaj, aby znaleźć więcej wyników"
   },
   "error": {
     "weAreSorry": "Przykro nam",
@@ -948,6 +1277,7 @@
   "editor": {
     "bold": "Pogrubienie",
     "bulletedList": "Wypunktowana Lista",
+    "bulletedListShortForm": "Punktowane",
     "checkbox": "Pole wyboru",
     "embedCode": "Osadź Kod",
     "heading1": "H1",
@@ -956,9 +1286,11 @@
     "highlight": "Podświetlenie",
     "color": "Kolor",
     "image": "Obraz",
+    "date": "Data",
     "italic": "Kursywa",
     "link": "Link",
     "numberedList": "Numerowana Lista",
+    "numberedListShortForm": "Numerowane",
     "quote": "Cytat",
     "strikethrough": "Przekreślenie",
     "text": "Tekst",
@@ -983,6 +1315,8 @@
     "backgroundColorPurple": "Fioletowe tło",
     "backgroundColorPink": "Różowe tło",
     "backgroundColorRed": "Czerwone tło",
+    "backgroundColorLime": "Tło limonki",
+    "backgroundColorAqua": "Tło wodne",
     "done": "Zrobione",
     "cancel": "Anuluj",
     "tint1": "Odcień 1",
@@ -1030,6 +1364,8 @@
     "copy": "Skopiuj",
     "paste": "Wklej",
     "find": "Znajdź",
+    "select": "Wybierać",
+    "selectAll": "Zaznacz wszystko",
     "previousMatch": "Poprzednie dopasowanie",
     "nextMatch": "Kolejne dopasowanie",
     "closeFind": "Zamknij",
@@ -1056,7 +1392,12 @@
     "rowDuplicate": "Duplikuj",
     "colClear": "Wyczyść Zawartość",
     "rowClear": "Wyczyść Zawartość",
-    "slashPlaceHolder": "Wciśnij / by dodać blok, lub zacznij pisać"
+    "slashPlaceHolder": "Wciśnij / by dodać blok, lub zacznij pisać",
+    "typeSomething": "Napisz coś...",
+    "toggleListShortForm": "Przełącznik",
+    "quoteListShortForm": "Cytat",
+    "mathEquationShortForm": "Formuła",
+    "codeBlockShortForm": "Kod"
   },
   "favorite": {
     "noFavorite": "Brak ulubionej strony",
@@ -1075,6 +1416,52 @@
   "titleBar": {
     "pageIcon": "Ikona strony",
     "language": "Język",
-    "font": "Czcionka"
+    "font": "Czcionka",
+    "actions": "działania",
+    "date": "Data",
+    "addField": "Dodaj pole",
+    "userIcon": "Ikona użytkownika"
+  },
+  "noLogFiles": "Nie ma plików dziennika",
+  "newSettings": {
+    "myAccount": {
+      "title": "Moje konto",
+      "profileNamePlaceholder": "Wpisz swoje imię",
+      "accountSecurity": "Ochrona Konta",
+      "2FA": "Uwierzytelnianie dwuetapowe",
+      "aiKeys": "Klucze AI",
+      "accountLogin": "Login do konta",
+      "deleteAccount": {
+        "title": "Usuń konto",
+        "deleteMyAccount": "Usuń moje konto",
+        "dialogTitle": "Usuń konto",
+        "dialogContent1": "Czy na pewno chcesz trwale usunąć swoje konto?"
+      }
+    },
+    "workplace": {
+      "name": "Miejsce pracy",
+      "subtitle": "Dostosuj wygląd obszaru roboczego, motyw, czcionkę, układ tekstu, datę, godzinę i język.",
+      "workplaceNamePlaceholder": "Wpisz nazwę miejsca pracy",
+      "workplaceIcon": "Ikona miejsca pracy",
+      "updateIconError": "Nie udało się zaktualizować ikony",
+      "appearance": {
+        "name": "Wygląd",
+        "themeMode": {
+          "auto": "Automatyczny",
+          "light": "Światło",
+          "dark": "Ciemny"
+        },
+        "language": "Język"
+      }
+    },
+    "syncState": {
+      "syncing": "Synchronizowanie",
+      "synced": "Zsynchronizowany"
+    }
+  },
+  "commandPalette": {
+    "navigateHint": "nawigować",
+    "betaLabel": "BETA",
+    "fromTrashHint": "Ze śmieci"
   }
 }

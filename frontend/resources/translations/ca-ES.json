@@ -9,6 +9,7 @@
   "title": "Títol",
   "youCanAlso": "Tu pots també",
   "and": "i",
+  "failedToOpenUrl": "No s'ha pogut obrir l'URL: {}",
   "blockActions": {
     "addBelowTooltip": "Feu clic per afegir a continuació",
     "addAboveCmd": "Alt+clic",
@@ -43,28 +44,57 @@
     "dontHaveAnAccount": "No tens un compte?",
     "repeatPasswordEmptyError": "La contrasenya repetida no pot ser buida",
     "unmatchedPasswordError": "Les contrasenyes no concorden",
+    "syncPromptMessage": "La sincronització de les dades pot trigar una estona. Si us plau, no tanqueu aquesta pàgina",
     "or": "O",
     "LogInWithGoogle": "Inicieu sessió amb Google",
     "LogInWithGithub": "Inicieu sessió amb Github",
     "LogInWithDiscord": "Inicieu sessió amb Discord",
     "signInWith": "Inicia sessió amb:",
+    "signInWithEmail": "Inicieu la sessió amb correu electrònic",
+    "logInWithMagicLink": "Inicieu sessió amb Magic Link",
+    "pleaseInputYourEmail": "Si us plau, ingressi el seu correu electrònic",
+    "magicLinkSent": "Enllaç màgic enviat al vostre correu electrònic, comproveu la vostra safata d'entrada",
+    "invalidEmail": "siusplau, introdueixi una adreça de correu electrònic vàlida",
     "loginAsGuestButtonText": "Començar"
   },
   "workspace": {
     "chooseWorkspace": "Tria el teu espai de treball",
     "create": "Crear un espai de treball",
     "reset": "Restableix l'espai de treball",
+    "resetWorkspacePrompt": "En restablir l'espai de treball, se suprimiran totes les pàgines i les dades que hi hagi. Esteu segur que voleu restablir l'espai de treball? Alternativament, podeu contactar amb l'equip d'assistència per restaurar l'espai de treball",
     "hint": "espai de treball",
     "notFoundError": "No s'ha trobat l'espai de treball",
+    "failedToLoad": "Alguna cosa ha anat malament! No s'ha pogut carregar l'espai de treball. Intenta tancar qualsevol instància oberta d'AppFlowy i torna-ho a provar.",
     "errorActions": {
       "reportIssue": "Informar d'un problema",
+      "reportIssueOnGithub": "Informa d'un problema a Github",
+      "exportLogFiles": "Exportar fitxers de registre",
       "reachOut": "Posa't en contacte amb Discord"
-    }
+    },
+    "menuTitle": "Espais de treball",
+    "deleteWorkspaceHintText": "Esteu segur que voleu suprimir l'espai de treball? Aquesta acció no es pot desfer.",
+    "createSuccess": "Espai de treball creat correctament",
+    "createFailed": "No s'ha pogut crear l'espai de treball",
+    "createLimitExceeded": "Heu assolit el límit màxim d'espai de treball permès per al vostre compte. Si necessiteu espais de treball addicionals per continuar el vostre treball, sol·liciteu-lo a Github",
+    "deleteSuccess": "L'espai de treball s'ha suprimit correctament",
+    "deleteFailed": "No s'ha pogut suprimir l'espai de treball",
+    "openSuccess": "Obriu l'espai de treball correctament",
+    "openFailed": "No s'ha pogut obrir l'espai de treball",
+    "renameSuccess": "L'espai de treball s'ha canviat de nom correctament",
+    "renameFailed": "No s'ha pogut canviar el nom de l'espai de treball",
+    "updateIconSuccess": "La icona de l'espai de treball s'ha actualitzat correctament",
+    "updateIconFailed": "La icona de l'espai de treball actualitzada ha fallat",
+    "cannotDeleteTheOnlyWorkspace": "No es pot suprimir l'únic espai de treball",
+    "fetchWorkspacesFailed": "No s'han pogut recuperar els espais de treball",
+    "leaveCurrentWorkspace": "Abandonar l'espai de treball",
+    "leaveCurrentWorkspacePrompt": "Esteu segur que voleu abandonar l'espai de treball actual?"
   },
   "shareAction": {
     "buttonText": "Compartir",
     "workInProgress": "Pròximament",
     "markdown": "Markdown",
+    "html": "HTML",
+    "clipboard": "Copiar al portapapers",
     "csv": "CSV",
     "copyLink": "Copiar l'enllaç"
   },
@@ -74,7 +104,12 @@
     "large": "gran",
     "fontSize": "Mida de la font",
     "import": "Importar",
-    "moreOptions": "Més opcions"
+    "moreOptions": "Més opcions",
+    "wordCount": "Nombre de paraules: {}",
+    "charCount": "Recompte de caràcters: {}",
+    "createdAt": "Creat: {}",
+    "deleteView": "Suprimeix",
+    "duplicateView": "Duplicat"
   },
   "importPanel": {
     "textAndMarkdown": "Text i rebaixa",
@@ -97,6 +132,7 @@
   "blankPageTitle": "Pàgina en blanc",
   "newPageText": "Nova pàgina",
   "newDocumentText": "Nou document",
+  "newGridText": "Nova graella",
   "newCalendarText": "Nou calendari",
   "newBoardText": "Nou tauler",
   "trash": {
@@ -122,7 +158,8 @@
       "emptyDescription": "No tens cap fitxer suprimit",
       "isDeleted": "está eliminat",
       "isRestored": "es restaura"
-    }
+    },
+    "confirmDeleteTitle": "Esteu segur que voleu suprimir aquesta pàgina permanentment?"
   },
   "deletePagePrompt": {
     "text": "Aquest pàgina es troba a la paperera",
@@ -182,10 +219,16 @@
     "closeSidebar": "Close sidebar",
     "openSidebar": "Open sidebar",
     "personal": "Personal",
+    "private": "Privat",
+    "workspace": "Espai de treball",
     "favorites": "Preferits",
+    "clickToHidePrivate": "Feu clic per amagar l'espai privat\nLes pàgines que heu creat aquí només són visibles per a vosaltres",
+    "clickToHideWorkspace": "Feu clic per amagar l'espai de treball\nLes pàgines que heu creat aquí són visibles per a tots els membres",
     "clickToHidePersonal": "Feu clic per amagar la secció personal",
     "clickToHideFavorites": "Feu clic per amagar la secció preferida",
     "addAPage": "Afegeix una pàgina",
+    "addAPageToPrivate": "Afegeix una pàgina a l'espai privat",
+    "addAPageToWorkspace": "Afegeix una pàgina a l'espai de treball",
     "recent": "Recent"
   },
   "notifications": {
@@ -228,7 +271,19 @@
     "rename": "Renombrar",
     "helpCenter": "Centre d'ajuda",
     "add": "Afegir",
-    "yes": "Sí"
+    "yes": "Sí",
+    "clear": "Clar",
+    "remove": "Eliminar",
+    "dontRemove": "No elimineu",
+    "copyLink": "Copia l'enllaç",
+    "align": "Alinear",
+    "login": "iniciar Sessió",
+    "logout": "Tancar sessió",
+    "deleteAccount": "Esborrar compte",
+    "back": "esquena",
+    "signInGoogle": "Inicieu la sessió amb Google",
+    "signInGithub": "Inicieu la sessió amb Github",
+    "signInDiscord": "Inicieu la sessió amb Discord"
   },
   "label": {
     "welcome": "Benvingut!",
@@ -269,21 +324,48 @@
       "cloudURL": "URL base",
       "invalidCloudURLScheme": "Esquema no vàlid",
       "cloudServerType": "Servidor al núvol",
+      "cloudServerTypeTip": "Tingueu en compte que pot ser que tanqueu la sessió del vostre compte actual després de canviar el servidor del núvol",
       "cloudLocal": "Local",
+      "cloudSupabase": "Supabase",
+      "cloudSupabaseUrl": "URL de Supabase",
+      "cloudSupabaseUrlCanNotBeEmpty": "L'URL de supabase no pot estar buit",
+      "cloudSupabaseAnonKey": "Supabase anon clau",
+      "cloudSupabaseAnonKeyCanNotBeEmpty": "La clau anon no pot estar buida",
       "cloudAppFlowy": "AppFlowy Cloud Beta",
+      "cloudAppFlowySelfHost": "AppFlowy Cloud allotjat per compte propi",
+      "appFlowyCloudUrlCanNotBeEmpty": "L'URL del núvol no pot estar buit",
       "clickToCopy": "Feu clic per copiar",
+      "selfHostStart": "Si no teniu un servidor, consulteu el",
       "selfHostContent": "document",
+      "selfHostEnd": "per obtenir orientació sobre com allotjar el vostre propi servidor",
       "cloudURLHint": "Introduïu l'URL base del vostre servidor",
+      "cloudWSURL": "URL del websocket",
+      "cloudWSURLHint": "Introduïu l'adreça del websocket del vostre servidor",
       "restartApp": "Reinicia",
+      "restartAppTip": "Reinicieu l'aplicació perquè els canvis tinguin efecte. Tingueu en compte que això podria tancar la sessió del vostre compte actual",
+      "changeServerTip": "Després de canviar el servidor, heu de fer clic al botó de reinici perquè els canvis tinguin efecte",
+      "enableEncryptPrompt": "Activeu el xifratge per protegir les vostres dades amb aquest secret. Emmagatzemeu-lo de manera segura; un cop habilitat, no es pot desactivar. Si es perd, les vostres dades es tornen irrecuperables. Feu clic per copiar",
       "inputEncryptPrompt": "Introduïu el vostre secret de xifratge per a",
       "clickToCopySecret": "Feu clic per copiar el secret",
+      "configServerSetting": "Configureu la configuració del vostre servidor",
+      "configServerGuide": "Després de seleccionar \"Inici ràpid\", navegueu a \"Configuració\" i després a \"Configuració del núvol\" per configurar el vostre servidor allotjat.",
       "inputTextFieldHint": "El teu secret",
+      "historicalUserList": "Historial d'inici de sessió d'usuari",
+      "historicalUserListTooltip": "Aquesta llista mostra els vostres comptes anònims. Podeu fer clic en un compte per veure'n els detalls. Els comptes anònims es creen fent clic al botó \"Comença\".",
+      "openHistoricalUser": "Feu clic per obrir el compte anònim",
+      "customPathPrompt": "Emmagatzemar la carpeta de dades d'AppFlowy en una carpeta sincronitzada amb el núvol com Google Drive pot comportar riscos. Si s'accedeix a la base de dades dins d'aquesta carpeta o es modifica des de diverses ubicacions al mateix temps, pot ser que es produeixin conflictes de sincronització i una possible corrupció de dades.",
+      "importAppFlowyData": "Importa dades de la carpeta externa AppFlowy",
+      "importingAppFlowyDataTip": "La importació de dades està en curs. Si us plau, no tanqueu l'aplicació",
+      "importAppFlowyDataDescription": "Copieu les dades d'una carpeta de dades externa d'AppFlowy i importeu-les a la carpeta de dades de l'AppFlowy actual",
       "importSuccess": "S'ha importat correctament la carpeta de dades d'AppFlowy",
+      "importFailed": "No s'ha pogut importar la carpeta de dades d'AppFlowy",
+      "importGuide": "Per a més detalls, consulteu el document de referència",
       "supabaseSetting": "Configuració Supabase"
     },
     "notifications": {
       "enableNotifications": {
-        "label": "Activa les notificacions"
+        "label": "Activa les notificacions",
+        "hint": "Desactiveu-lo per evitar que apareguin les notificacions locals."
       }
     },
     "appearance": {
@@ -298,6 +380,7 @@
         "dark": "Mode Fosc",
         "system": "Adapt to System"
       },
+      "fontScaleFactor": "Factor d'escala de lletra",
       "documentSettings": {
         "cursorColor": "Color del cursor del document",
         "selectionColor": "Color de selecció del document",
@@ -311,10 +394,18 @@
         "apply": "Aplicar"
       },
       "layoutDirection": {
-        "label": "Direcció de maquetació"
+        "label": "Direcció de maquetació",
+        "hint": "Controla el flux de contingut a la pantalla, d'esquerra a dreta o de dreta a esquerra.",
+        "ltr": "LTR",
+        "rtl": "RTL"
       },
       "textDirection": {
-        "auto": "AUTO"
+        "label": "Direcció del text predeterminada",
+        "hint": "Especifiqueu si el text ha de començar per l'esquerra o per la dreta com a predeterminat.",
+        "ltr": "LTR",
+        "rtl": "RTL",
+        "auto": "AUTO",
+        "fallback": "Igual que la direcció del disseny"
       },
       "themeUpload": {
         "button": "Carrega",
@@ -333,13 +424,45 @@
       "dateFormat": {
         "label": "Format de data",
         "local": "Local",
+        "us": "NOSALTRES",
         "iso": "ISO",
+        "friendly": "Amable",
         "dmy": "D/M/A"
       },
       "timeFormat": {
         "label": "Format horari",
         "twelveHour": "Dotze hores",
         "twentyFourHour": "Vint-i-quatre hores"
+      },
+      "showNamingDialogWhenCreatingPage": "Mostra el diàleg de noms quan es crea una pàgina",
+      "enableRTLToolbarItems": "Activa els elements de la barra d'eines RTL",
+      "members": {
+        "title": "Configuració dels membres",
+        "inviteMembers": "Convida membres",
+        "sendInvite": "Envia invitació",
+        "copyInviteLink": "Copia l'enllaç d'invitació",
+        "label": "Membres",
+        "user": "Usuari",
+        "role": "Rol",
+        "removeFromWorkspace": "Elimina de l'àrea de treball",
+        "owner": "Propietari",
+        "guest": "Convidat",
+        "member": "Membre",
+        "memberHintText": "Un membre pot llegir, comentar i editar pàgines. Convida membres i convidats.",
+        "guestHintText": "Un convidat pot llegir, reaccionar, comentar i editar determinades pàgines amb permís.",
+        "emailInvalidError": "Correu electrònic no vàlid, comproveu-ho i torneu-ho a provar",
+        "emailSent": "Correu electrònic enviat, si us plau, comproveu la safata d'entrada",
+        "members": "membres",
+        "membersCount": {
+          "zero": "{} membres",
+          "one": "{} membre",
+          "other": "{} membres"
+        },
+        "memberLimitExceeded": "Heu assolit el límit màxim de membres permès per al vostre compte. Si voleu afegir més membres addicionals per continuar el vostre treball, sol·liciteu-lo a Github",
+        "failedToAddMember": "No s'ha pogut afegir un membre",
+        "addMemberSuccess": "Membre afegit correctament",
+        "removeMember": "Elimina el membre",
+        "areYouSureToRemoveMember": "Esteu segur que voleu eliminar aquest membre?"
       }
     },
     "files": {
@@ -376,22 +499,46 @@
       "recoverLocationTooltips": "Restableix al directori de dades predeterminat d'AppFlowy",
       "exportFileSuccess": "Exporta el fitxer correctament!",
       "exportFileFail": "Ha fallat l'exportació del fitxer!",
-      "export": "Exporta"
+      "export": "Exporta",
+      "clearCache": "Netejar memòria cau",
+      "clearCacheDesc": "Si trobeu problemes amb les imatges que no es carreguen o els tipus de lletra no es mostren correctament, proveu d'esborrar la memòria cau. Aquesta acció no eliminarà les vostres dades d'usuari.",
+      "areYouSureToClearCache": "Esteu segur d'esborrar la memòria cau?",
+      "clearCacheSuccess": "La memòria cau s'ha esborrat correctament!"
     },
     "user": {
       "name": "Nom",
       "email": "Correu electrònic",
       "tooltipSelectIcon": "Seleccioneu la icona",
       "selectAnIcon": "Seleccioneu una icona",
-      "pleaseInputYourOpenAIKey": "si us plau, introduïu la vostra clau OpenAI"
+      "pleaseInputYourOpenAIKey": "si us plau, introduïu la vostra clau OpenAI",
+      "pleaseInputYourStabilityAIKey": "introduïu la vostra clau d'IA d'estabilitat",
+      "clickToLogout": "Feu clic per tancar la sessió de l'usuari actual"
     },
     "shortcuts": {
+      "shortcutsLabel": "Dreceres",
       "command": "Comandament",
-      "addNewCommand": "Afegeix una comanda nova"
+      "keyBinding": "Enquadernació de tecles",
+      "addNewCommand": "Afegeix una comanda nova",
+      "updateShortcutStep": "Premeu la combinació de tecles desitjada i premeu ENTER",
+      "shortcutIsAlreadyUsed": "Aquesta drecera ja s'utilitza per a: {conflict}",
+      "resetToDefault": "Restableix les combinacions de tecles predeterminades",
+      "couldNotLoadErrorMsg": "No s'han pogut carregar les dreceres, torna-ho a provar",
+      "couldNotSaveErrorMsg": "No s'han pogut desar les dreceres, torna-ho a provar",
+      "commands": {
+        "codeBlockNewParagraph": "Insereix un nou paràgraf al costat del bloc de codi",
+        "codeBlockAddTwoSpaces": "Inseriu dos espais a l'inici de línia al bloc de codi",
+        "codeBlockDeleteTwoSpaces": "Suprimeix dos espais a l'inici de línia al bloc de codi",
+        "codeBlockSelectAll": "Seleccioneu tot el contingut dins d'un bloc de codi",
+        "codeBlockPasteText": "Enganxa text al bloc de codi",
+        "textAlignLeft": "Alineeu el text a l'esquerra",
+        "textAlignCenter": "Alineeu el text al centre",
+        "textAlignRight": "Alineeu el text a la dreta"
+      }
     },
     "mobile": {
       "personalInfo": "Informació personal",
       "username": "Nom d'usuari",
+      "usernameEmptyError": "El nom d'usuari no pot estar buit",
       "about": "Sobre",
       "pushNotifications": "Notificacions push",
       "support": "Suport",
@@ -400,6 +547,8 @@
       "userAgreement": "Acord d'usuari",
       "termsAndConditions": "Termes i condicions",
       "userprofileError": "No s'ha pogut carregar el perfil d'usuari",
+      "userprofileErrorDescription": "Si us plau, proveu de tancar la sessió i tornar a iniciar la sessió per comprovar si el problema encara persisteix.",
+      "selectLayout": "Seleccioneu la disposició",
       "selectStartingDay": "Seleccioneu el dia d'inici",
       "version": "Versió"
     }
@@ -429,6 +578,7 @@
       "createView": "Vista nova",
       "duplicateView": "Vista duplicada",
       "deleteView": "Suprimeix la vista",
+      "numberOfVisibleFields": "{} es mostra",
       "viewList": "Visualitzacions de la base de dades"
     },
     "textFilter": {
@@ -468,13 +618,32 @@
       "isNotEmpty": "No està buit"
     },
     "dateFilter": {
+      "is": "És",
       "before": "És abans",
       "after": "És després",
       "onOrBefore": "Està activat o abans",
       "onOrAfter": "Està activat o després",
       "between": "Està entre",
       "empty": "Està buit",
-      "notEmpty": "No està buit"
+      "notEmpty": "No està buit",
+      "choicechipPrefix": {
+        "before": "Abans",
+        "after": "Després",
+        "onOrBefore": "En o abans",
+        "onOrAfter": "En o després",
+        "isEmpty": "Està buit",
+        "isNotEmpty": "No està buit"
+      }
+    },
+    "numberFilter": {
+      "equal": "És igual",
+      "notEqual": "No és igual",
+      "lessThan": "És menys que",
+      "greaterThan": "És més gran que",
+      "lessThanOrEqualTo": "És menor o igual a",
+      "greaterThanOrEqualTo": "És major o igual a",
+      "isEmpty": "Està buit",
+      "isNotEmpty": "No està buit"
     },
     "field": {
       "hide": "Amaga",
@@ -483,6 +652,8 @@
       "insertRight": "Insereix a la dreta",
       "duplicate": "Duplicat",
       "delete": "Suprimeix",
+      "wrap": "Embolicar",
+      "clear": "Netegeu les cèl·lules",
       "textFieldName": "Text",
       "checkboxFieldName": "casella de selecció",
       "dateFieldName": "Data",
@@ -493,6 +664,7 @@
       "multiSelectFieldName": "Selecció múltiple",
       "urlFieldName": "URL",
       "checklistFieldName": "Llista de verificació",
+      "relationFieldName": "Relació",
       "numberFormat": "Format numèric",
       "dateFormat": "Format de data",
       "includeTime": "Inclou el temps",
@@ -522,18 +694,36 @@
       "editProperty": "Edita la propietat",
       "newProperty": "Nova propietat",
       "deleteFieldPromptMessage": "Estàs segur? Aquesta propietat se suprimirà",
+      "clearFieldPromptMessage": "Estàs segur? Es buidaran totes les cel·les d'aquesta columna",
       "newColumn": "Nova columna",
       "format": "Format",
-      "reminderOnDateTooltip": "Aquesta cel·la té un recordatori programat"
+      "reminderOnDateTooltip": "Aquesta cel·la té un recordatori programat",
+      "optionAlreadyExist": "L'opció ja existeix"
     },
     "rowPage": {
       "newField": "Afegeix un camp nou",
-      "fieldDragElementTooltip": "Feu clic per obrir el menú"
+      "fieldDragElementTooltip": "Feu clic per obrir el menú",
+      "showHiddenFields": {
+        "one": "Mostra {count} camp ocult",
+        "many": "Mostra {count} camps ocults",
+        "other": "Mostra {count} camps ocults"
+      },
+      "hideHiddenFields": {
+        "one": "Amaga {count} camp ocult",
+        "many": "Amaga {count} camps ocults",
+        "other": "Amaga {count} camps ocults"
+      }
     },
     "sort": {
       "ascending": "Ascendent",
       "descending": "Descens",
+      "by": "Per",
+      "empty": "No hi ha tipus actius",
+      "cannotFindCreatableField": "No es pot trobar un camp adequat per ordenar",
+      "deleteAllSorts": "Eliminar tot tipus",
       "addSort": "Afegeix ordenació",
+      "removeSorting": "Voleu eliminar l'ordenació?",
+      "fieldInUse": "Ja esteu ordenant per aquest camp",
       "deleteSort": "Suprimeix l'ordenació"
     },
     "row": {
@@ -545,7 +735,11 @@
       "count": "Compte",
       "newRow": "Nova fila",
       "action": "Acció",
-      "drag": "Arrossegueu per moure's"
+      "add": "Feu clic a afegir a sota",
+      "drag": "Arrossegueu per moure's",
+      "dragAndClick": "Arrossegueu per moure's, feu clic per obrir el menú",
+      "insertRecordAbove": "Insereix el registre a dalt",
+      "insertRecordBelow": "Insereix el registre a continuació"
     },
     "selectOption": {
       "create": "Crear",
@@ -561,18 +755,52 @@
       "deleteTag": "Suprimeix l'etiqueta",
       "colorPanelTitle": "Colors",
       "panelTitle": "Seleccioneu una opció o creeu-ne una",
-      "searchOption": "Cerca una opció"
+      "searchOption": "Cerca una opció",
+      "searchOrCreateOption": "Cerqueu una opció o creeu-ne una",
+      "createNew": "Crea una nova",
+      "orSelectOne": "O seleccioneu una opció",
+      "typeANewOption": "Escriviu una nova opció",
+      "tagName": "Nom de l'etiqueta"
     },
     "checklist": {
+      "taskHint": "Descripció de la tasca",
       "addNew": "Afegeix un element",
-      "submitNewTask": "Crear"
+      "submitNewTask": "Crear",
+      "hideComplete": "Amaga les tasques completades",
+      "showComplete": "Mostra totes les tasques"
     },
     "url": {
       "launch": "Oberta al navegador",
-      "copy": "Copia l'URL"
+      "copy": "Copia l'URL",
+      "textFieldHint": "Introduïu un URL",
+      "copiedNotification": "S'ha copiat al porta-retalls!"
+    },
+    "relation": {
+      "relatedDatabasePlaceLabel": "Base de dades relacionada",
+      "relatedDatabasePlaceholder": "Cap",
+      "inRelatedDatabase": "En",
+      "rowSearchTextFieldPlaceholder": "Cerca",
+      "noDatabaseSelected": "No s'ha seleccionat cap base de dades, seleccioneu-ne una de la llista següent:",
+      "emptySearchResult": "No s'han trobat registres",
+      "linkedRowListLabel": "{count} files enllaçades",
+      "unlinkedRowListLabel": "Enllaceu una altra fila"
     },
     "menuName": "Quadrícula",
-    "referencedGridPrefix": "Vista de"
+    "referencedGridPrefix": "Vista de",
+    "calculate": "Calcular",
+    "calculationTypeLabel": {
+      "none": "Cap",
+      "average": "Mitjana",
+      "max": "Màx",
+      "median": "Mitjana",
+      "min": "Min",
+      "sum": "Suma",
+      "count": "Compte",
+      "countEmpty": "Compte buit",
+      "countEmptyShort": "BUIT",
+      "countNonEmpty": "Compte no buit",
+      "countNonEmptyShort": "OMPLITA"
+    }
   },
   "document": {
     "menuName": "Document",
@@ -592,6 +820,9 @@
       "calendar": {
         "selectACalendarToLinkTo": "Seleccioneu un calendari al qual voleu enllaçar",
         "createANewCalendar": "Crea un calendari nou"
+      },
+      "document": {
+        "selectADocumentToLinkTo": "Seleccioneu un document per enllaçar"
       }
     },
     "selectionMenu": {
@@ -602,6 +833,7 @@
       "referencedBoard": "Junta de referència",
       "referencedGrid": "Quadrícula de referència",
       "referencedCalendar": "Calendari de referència",
+      "referencedDocument": "Document de referència",
       "autoGeneratorMenuItemName": "OpenAI Writer",
       "autoGeneratorTitleName": "OpenAI: Demana a AI que escrigui qualsevol cosa...",
       "autoGeneratorLearnMore": "Aprèn més",
@@ -622,9 +854,14 @@
       "discardResponse": "Voleu descartar les respostes d'IA?",
       "createInlineMathEquation": "Crea una equació",
       "fonts": "Fonts",
+      "insertDate": "Insereix data",
+      "emoji": "Emoji",
       "toggleList": "Commuta la llista",
+      "quoteList": "Llista de cotitzacions",
+      "numberedList": "Llista numerada",
       "bulletedList": "Llista amb pics",
       "todoList": "Llista de tasques",
+      "callout": "Cridar",
       "cover": {
         "changeCover": "Canvi de coberta",
         "colors": "Colors",
@@ -668,34 +905,48 @@
         "left": "Esquerra",
         "center": "Centre",
         "right": "Dret",
-        "defaultColor": "Per defecte"
+        "defaultColor": "Per defecte",
+        "depth": "profunditat"
       },
       "image": {
         "copiedToPasteBoard": "L'enllaç de la imatge s'ha copiat al porta-retalls",
-        "addAnImage": "Afegeix una imatge"
+        "addAnImage": "Afegeix una imatge",
+        "imageUploadFailed": "La càrrega de la imatge ha fallat"
+      },
+      "urlPreview": {
+        "copiedToPasteBoard": "L'enllaç s'ha copiat al porta-retalls",
+        "convertToLink": "Converteix a l'enllaç incrustat"
       },
       "outline": {
-        "addHeadingToCreateOutline": "Afegiu títols per crear una taula de continguts."
+        "addHeadingToCreateOutline": "Afegiu títols per crear una taula de continguts.",
+        "noMatchHeadings": "No s'han trobat cap encapçalaments coincidents."
       },
       "table": {
         "addAfter": "Afegeix després",
         "addBefore": "Afegeix abans",
         "delete": "Suprimeix",
+        "clear": "Contingut clar",
         "duplicate": "Duplicar",
         "bgColor": "Color de fon"
       },
       "contextMenu": {
         "copy": "Còpia",
-        "cut": "Talla"
+        "cut": "Talla",
+        "paste": "Enganxa"
       },
       "action": "Accions",
       "database": {
         "selectDataSource": "Seleccioneu la font de dades",
         "noDataSource": "Sense font de dades",
+        "selectADataSource": "Seleccioneu una font de dades",
         "toContinue": "per continuar",
         "newDatabase": "Nova base de dades",
         "linkToDatabase": "Enllaç a la base de dades"
-      }
+      },
+      "date": "Data"
+    },
+    "outlineBlock": {
+      "placeholder": "Taula de continguts"
     },
     "textBlock": {
       "placeholder": "Escriviu '/' per a les ordres"
@@ -714,28 +965,48 @@
         "placeholder": "Introduïu l'URL de la imatge"
       },
       "ai": {
-        "label": "Generar imatge des d'OpenAI"
+        "label": "Generar imatge des d'OpenAI",
+        "placeholder": "Introduïu la sol·licitud perquè OpenAI generi la imatge"
+      },
+      "stability_ai": {
+        "label": "Genereu imatge des de Stability AI",
+        "placeholder": "Introduïu la sol·licitud d'estabilitat AI per generar la imatge"
       },
       "support": "El límit de mida de la imatge és de 5 MB. Formats admesos: JPEG, PNG, GIF, SVG",
       "error": {
         "invalidImage": "Imatge no vàlida",
         "invalidImageSize": "La mida de la imatge ha de ser inferior a 5 MB",
         "invalidImageFormat": "El format d'imatge no és compatible. Formats admesos: JPEG, PNG, GIF, SVG",
-        "invalidImageUrl": "URL de la imatge no vàlid"
+        "invalidImageUrl": "URL de la imatge no vàlid",
+        "noImage": "el fitxer o directori no existeix"
       },
       "embedLink": {
         "label": "Insereix l'enllaç",
         "placeholder": "Enganxeu o escriviu un enllaç d'imatge"
       },
+      "unsplash": {
+        "label": "Desesquitxa"
+      },
       "searchForAnImage": "Cerca una imatge",
+      "pleaseInputYourOpenAIKey": "introduïu la vostra clau OpenAI a la pàgina de configuració",
+      "pleaseInputYourStabilityAIKey": "introduïu la vostra clau d'IA d'estabilitat a la pàgina de configuració",
       "saveImageToGallery": "Guardar imatge",
-      "unableToLoadImage": "No es pot carregar la imatge"
+      "failedToAddImageToGallery": "No s'ha pogut afegir la imatge a la galeria",
+      "successToAddImageToGallery": "La imatge s'ha afegit correctament a la galeria",
+      "unableToLoadImage": "No es pot carregar la imatge",
+      "maximumImageSize": "La mida màxima de la imatge de càrrega admesa és de 10 MB",
+      "uploadImageErrorImageSizeTooBig": "La mida de la imatge ha de ser inferior a 10 MB",
+      "imageIsUploading": "S'està carregant la imatge"
     },
     "codeBlock": {
       "language": {
         "label": "Llenguatge",
-        "placeholder": "Escolliu l'idioma"
-      }
+        "placeholder": "Escolliu l'idioma",
+        "auto": "Automàtic"
+      },
+      "copyTooltip": "Copia el contingut del bloc de codi",
+      "searchLanguageHint": "Cerca un idioma",
+      "codeCopiedSnackbar": "Codi copiat al porta-retalls!"
     },
     "inlineLink": {
       "placeholder": "Enganxeu o escriviu un enllaç",
@@ -752,18 +1023,57 @@
       }
     },
     "mention": {
+      "placeholder": "Esmenta una persona, una pàgina o una data...",
       "page": {
-        "label": "Enllaç a la pàgina"
-      }
+        "label": "Enllaç a la pàgina",
+        "tooltip": "Feu clic per obrir la pàgina"
+      },
+      "deleted": "S'ha suprimit",
+      "deletedContent": "Aquest contingut no existeix o s'ha suprimit"
+    },
+    "toolbar": {
+      "resetToDefaultFont": "Restableix els valors predeterminats"
+    },
+    "errorBlock": {
+      "theBlockIsNotSupported": "La versió actual no admet aquest bloc.",
+      "blockContentHasBeenCopied": "S'ha copiat el contingut del bloc."
     }
   },
   "board": {
     "column": {
-      "createNewCard": "Nou"
+      "createNewCard": "Nou",
+      "renameGroupTooltip": "Premeu per canviar el nom del grup",
+      "createNewColumn": "Afegeix un grup nou",
+      "addToColumnTopTooltip": "Afegiu una targeta nova a la part superior",
+      "addToColumnBottomTooltip": "Afegiu una targeta nova a la part inferior",
+      "renameColumn": "Canvia el nom",
+      "hideColumn": "Amaga",
+      "newGroup": "Grup Nou",
+      "deleteColumn": "Suprimeix",
+      "deleteColumnConfirmation": "Això suprimirà aquest grup i totes les cartes que hi ha.\nEsteu segur que voleu continuar?"
     },
+    "hiddenGroupSection": {
+      "sectionTitle": "Grups ocults",
+      "collapseTooltip": "Amaga els grups ocults",
+      "expandTooltip": "Veure els grups ocults"
+    },
+    "cardDetail": "Detall de la targeta",
+    "cardActions": "Accions de la targeta",
+    "cardDuplicated": "La targeta s'ha duplicat",
+    "cardDeleted": "La targeta s'ha suprimit",
+    "showOnCard": "Mostra el detall de la targeta",
+    "setting": "Configuració",
+    "propertyName": "Nom de la propietat",
     "menuName": "Pissarra",
+    "showUngrouped": "Mostra els elements no agrupats",
+    "ungroupedButtonText": "Desagrupat",
+    "ungroupedButtonTooltip": "Conté targetes que no pertanyen a cap grup",
+    "ungroupedItemsTitle": "Feu clic per afegir al tauler",
+    "groupBy": "Agrupar per",
     "referencedBoardPrefix": "Vista de",
+    "notesTooltip": "Notes a l'interior",
     "mobile": {
+      "editURL": "Edita l'URL",
       "showGroup": "Mostra grup",
       "showGroupContent": "Esteu segur que voleu mostrar aquest grup al tauler?",
       "failedToLoad": "No s'ha pogut carregar la vista del tauler"
@@ -772,23 +1082,32 @@
   "calendar": {
     "menuName": "Calendari",
     "defaultNewCalendarTitle": "Sense títol",
+    "newEventButtonTooltip": "Afegeix un esdeveniment nou",
     "navigation": {
       "today": "Avui",
       "jumpToday": "Salta a Avui",
       "previousMonth": "Mes anterior",
       "nextMonth": "El mes que ve"
     },
+    "mobileEventScreen": {
+      "emptyTitle": "Encara no hi ha esdeveniments",
+      "emptyBody": "Premeu el botó més per crear un esdeveniment aquest dia."
+    },
     "settings": {
       "showWeekNumbers": "Mostra els números de la setmana",
       "showWeekends": "Mostra els caps de setmana",
       "firstDayOfWeek": "Comença la setmana",
       "layoutDateField": "Disseny del calendari per",
+      "changeLayoutDateField": "Canvia el camp de disseny",
       "noDateTitle": "Sense data",
+      "unscheduledEventsTitle": "Esdeveniments no programats",
       "clickToAdd": "Feu clic per afegir al calendari",
       "name": "Disseny del calendari",
       "noDateHint": "Els esdeveniments no programats es mostraran aquí"
     },
-    "referencedCalendarPrefix": "Vista de"
+    "referencedCalendarPrefix": "Vista de",
+    "quickJumpYear": "Saltar a",
+    "duplicateEvent": "Esdeveniment duplicat"
   },
   "errorDialog": {
     "title": "Error d'AppFlowy",
@@ -811,5 +1130,329 @@
   "views": {
     "deleteContentTitle": "Esteu segur que voleu suprimir {pageType}?",
     "deleteContentCaption": "si suprimiu aquest {pageType}, podeu restaurar-lo des de la paperera."
+  },
+  "colors": {
+    "custom": "Personalitzat",
+    "default": "Per defecte",
+    "red": "Vermell",
+    "orange": "taronja",
+    "yellow": "Groc",
+    "green": "Verd",
+    "blue": "Blau",
+    "purple": "Porpra",
+    "pink": "Rosa",
+    "brown": "Marró",
+    "gray": "Gris"
+  },
+  "emoji": {
+    "emojiTab": "Emoji",
+    "search": "Cerca emoji",
+    "noRecent": "Cap emoji recent",
+    "noEmojiFound": "No s'ha trobat cap emoji",
+    "filter": "Filtre",
+    "random": "Aleatori",
+    "selectSkinTone": "Seleccioneu el to de pell",
+    "remove": "Elimina l'emoji",
+    "categories": {
+      "smileys": "Emocions i emocions",
+      "people": "Persones i Cos",
+      "animals": "Animals i natura",
+      "food": "Menjar i beure",
+      "activities": "Activitats",
+      "places": "Viatges i llocs",
+      "objects": "Objectes",
+      "symbols": "Símbols",
+      "flags": "Banderes",
+      "nature": "Naturalesa",
+      "frequentlyUsed": "S'utilitza amb freqüència"
+    },
+    "skinTone": {
+      "default": "Per defecte",
+      "light": "Llum",
+      "mediumLight": "Mitjà-Llum",
+      "medium": "Mitjana",
+      "mediumDark": "Mitjà-fosc",
+      "dark": "Fosc"
+    }
+  },
+  "inlineActions": {
+    "noResults": "Sense resultats",
+    "pageReference": "Referència de la pàgina",
+    "docReference": "Referència del document",
+    "boardReference": "Referència de la junta",
+    "calReference": "Referència del calendari",
+    "gridReference": "Referència de la quadrícula",
+    "date": "Data",
+    "reminder": {
+      "groupTitle": "Recordatori",
+      "shortKeyword": "recordar"
+    }
+  },
+  "datePicker": {
+    "dateTimeFormatTooltip": "Canvieu el format de data i hora a la configuració",
+    "dateFormat": "Format de data",
+    "includeTime": "Inclou el temps",
+    "isRange": "Data de finalització",
+    "timeFormat": "Format horari",
+    "clearDate": "Data clara",
+    "reminderLabel": "Recordatori",
+    "selectReminder": "Seleccioneu el recordatori",
+    "reminderOptions": {
+      "none": "Cap",
+      "atTimeOfEvent": "Hora de l'esdeveniment",
+      "fiveMinsBefore": "5 minuts abans",
+      "tenMinsBefore": "10 minuts abans",
+      "fifteenMinsBefore": "15 minuts abans",
+      "thirtyMinsBefore": "30 minuts abans",
+      "oneHourBefore": "1 hora abans",
+      "twoHoursBefore": "2 hores abans",
+      "onDayOfEvent": "El dia de l'esdeveniment",
+      "oneDayBefore": "1 dia abans",
+      "twoDaysBefore": "2 dies abans",
+      "oneWeekBefore": "1 setmana abans",
+      "custom": "Personalitzat"
+    }
+  },
+  "relativeDates": {
+    "yesterday": "Ahir",
+    "today": "Avui",
+    "tomorrow": "Demà",
+    "oneWeek": "1 setmana"
+  },
+  "notificationHub": {
+    "title": "Notificacions",
+    "mobile": {
+      "title": "Actualitzacions"
+    },
+    "emptyTitle": "Tot agafat!",
+    "emptyBody": "No hi ha notificacions ni accions pendents. Gaudeix de la calma.",
+    "tabs": {
+      "inbox": "Safata d'entrada",
+      "upcoming": "Properament"
+    },
+    "actions": {
+      "markAllRead": "Marcar tots com a llegits",
+      "showAll": "Tots",
+      "showUnreads": "Sense llegir"
+    },
+    "filters": {
+      "ascending": "Ascendent",
+      "descending": "Descens",
+      "groupByDate": "Agrupa per data",
+      "showUnreadsOnly": "Mostra només els no llegits",
+      "resetToDefault": "Restableix els valors predeterminats"
+    }
+  },
+  "reminderNotification": {
+    "title": "Recordatori",
+    "message": "Recordeu comprovar-ho abans d'oblidar-vos!",
+    "tooltipDelete": "Suprimeix",
+    "tooltipMarkRead": "Marcar com llegit",
+    "tooltipMarkUnread": "marcar com no llegit"
+  },
+  "findAndReplace": {
+    "find": "Troba",
+    "previousMatch": "Partit anterior",
+    "nextMatch": "Proper partit",
+    "close": "Tanca",
+    "replace": "Substituïu",
+    "replaceAll": "Substituïu-ho tot",
+    "noResult": "Sense resultats",
+    "caseSensitive": "Cas delicat",
+    "searchMore": "Cerca per trobar més resultats"
+  },
+  "error": {
+    "weAreSorry": "Ho sentim",
+    "loadingViewError": "Estem tenint problemes per carregar aquesta vista. Comproveu la vostra connexió a Internet, actualitzeu l'aplicació i no dubteu a posar-vos en contacte amb l'equip si el problema continua."
+  },
+  "editor": {
+    "bold": "Atrevit",
+    "bulletedList": "Llista amb pics",
+    "bulletedListShortForm": "Amb pics",
+    "checkbox": "casella de selecció",
+    "embedCode": "Codi incrustat",
+    "heading1": "H1",
+    "heading2": "H2",
+    "heading3": "H3",
+    "highlight": "Ressaltar",
+    "color": "Color",
+    "image": "Imatge",
+    "date": "Data",
+    "italic": "Cursiva",
+    "link": "Enllaç",
+    "numberedList": "Llista numerada",
+    "numberedListShortForm": "Numerat",
+    "quote": "Cita",
+    "strikethrough": "Tallat",
+    "text": "Text",
+    "underline": "Subratllar",
+    "fontColorDefault": "Per defecte",
+    "fontColorGray": "Gris",
+    "fontColorBrown": "Marró",
+    "fontColorOrange": "taronja",
+    "fontColorYellow": "Groc",
+    "fontColorGreen": "Verd",
+    "fontColorBlue": "Blau",
+    "fontColorPurple": "Porpra",
+    "fontColorPink": "Rosa",
+    "fontColorRed": "Vermell",
+    "backgroundColorDefault": "Fons predeterminat",
+    "backgroundColorGray": "Fons gris",
+    "backgroundColorBrown": "Fons marró",
+    "backgroundColorOrange": "Fons taronja",
+    "backgroundColorYellow": "Fons groc",
+    "backgroundColorGreen": "Fons verd",
+    "backgroundColorBlue": "Fons blau",
+    "backgroundColorPurple": "Fons morat",
+    "backgroundColorPink": "Fons rosa",
+    "backgroundColorRed": "Fons vermell",
+    "backgroundColorLime": "Fons de llima",
+    "backgroundColorAqua": "Fons aqua",
+    "done": "Fet",
+    "cancel": "Cancel · lar",
+    "tint1": "Tint 1",
+    "tint2": "Tint 2",
+    "tint3": "Tint 3",
+    "tint4": "Tint 4",
+    "tint5": "Tint 5",
+    "tint6": "Tint 6",
+    "tint7": "Tint 7",
+    "tint8": "Tint 8",
+    "tint9": "Tint 9",
+    "lightLightTint1": "Porpra",
+    "lightLightTint2": "Rosa",
+    "lightLightTint3": "Rosa clar",
+    "lightLightTint4": "taronja",
+    "lightLightTint5": "Groc",
+    "lightLightTint6": "Lima",
+    "lightLightTint7": "Verd",
+    "lightLightTint8": "Aqua",
+    "lightLightTint9": "Blau",
+    "urlHint": "URL",
+    "mobileHeading1": "Títol 1",
+    "mobileHeading2": "Títol 2",
+    "mobileHeading3": "Títol 3",
+    "textColor": "Color del text",
+    "backgroundColor": "Color de fons",
+    "addYourLink": "Afegeix el teu enllaç",
+    "openLink": "Enllaç obert",
+    "copyLink": "Copia l'enllaç",
+    "removeLink": "Elimina l'enllaç",
+    "editLink": "Edita l'enllaç",
+    "linkText": "Text",
+    "linkTextHint": "Introduïu text",
+    "linkAddressHint": "Introduïu l'URL",
+    "highlightColor": "Ressaltar el color",
+    "clearHighlightColor": "Color destacat clar",
+    "customColor": "Color personalitzat",
+    "hexValue": "Valor hexadecimal",
+    "opacity": "Opacitat",
+    "resetToDefaultColor": "Restableix el color predeterminat",
+    "ltr": "LTR",
+    "rtl": "RTL",
+    "auto": "Automàtic",
+    "cut": "Tallar",
+    "copy": "Còpia",
+    "paste": "Enganxa",
+    "find": "Troba",
+    "select": "Seleccioneu",
+    "selectAll": "Seleccionar tot",
+    "previousMatch": "Partit anterior",
+    "nextMatch": "Proper partit",
+    "closeFind": "Tanca",
+    "replace": "Substitueix",
+    "replaceAll": "Substituïu-ho tot",
+    "regex": "Regex",
+    "caseSensitive": "Cas delicat",
+    "uploadImage": "Carrega la imatge",
+    "urlImage": "Imatge d'URL",
+    "incorrectLink": "Enllaç incorrecte",
+    "upload": "Carrega",
+    "chooseImage": "Trieu una imatge",
+    "loading": "Carregant",
+    "imageLoadFailed": "No s'ha pogut carregar la imatge",
+    "divider": "Divisor",
+    "table": "Taula",
+    "colAddBefore": "Afegeix abans",
+    "rowAddBefore": "Afegeix abans",
+    "colAddAfter": "Afegeix després",
+    "rowAddAfter": "Afegeix després",
+    "colRemove": "Eliminar",
+    "rowRemove": "Eliminar",
+    "colDuplicate": "Duplicat",
+    "rowDuplicate": "Duplicat",
+    "colClear": "Contingut clar",
+    "rowClear": "Contingut clar",
+    "slashPlaceHolder": "Escriviu '/' per inserir un bloc o comenceu a escriure",
+    "typeSomething": "Escriu alguna cosa...",
+    "toggleListShortForm": "Commuta",
+    "quoteListShortForm": "Cita",
+    "mathEquationShortForm": "Fórmula",
+    "codeBlockShortForm": "Codi"
+  },
+  "favorite": {
+    "noFavorite": "Cap pàgina preferida",
+    "noFavoriteHintText": "Feu lliscar la pàgina cap a l'esquerra per afegir-la als vostres preferits"
+  },
+  "cardDetails": {
+    "notesPlaceholder": "Introduïu una / per inserir un bloc o comenceu a escriure"
+  },
+  "blockPlaceholders": {
+    "todoList": "Fer",
+    "bulletList": "Llista",
+    "numberList": "Llista",
+    "quote": "Cita",
+    "heading": "Encapçalament {}"
+  },
+  "titleBar": {
+    "pageIcon": "Icona de pàgina",
+    "language": "Llenguatge",
+    "font": "Font",
+    "actions": "Accions",
+    "date": "Data",
+    "addField": "Afegeix un camp",
+    "userIcon": "Icona d'usuari"
+  },
+  "noLogFiles": "No hi ha fitxers de registre",
+  "newSettings": {
+    "myAccount": {
+      "title": "El meu compte",
+      "profileNamePlaceholder": "Introdueixi el seu nom",
+      "accountSecurity": "Seguretat del compte",
+      "2FA": "Autenticació en 2 passos",
+      "aiKeys": "Tecles AI",
+      "accountLogin": "Inici de sessió al compte",
+      "deleteAccount": {
+        "title": "Esborrar compte",
+        "deleteMyAccount": "Esborra el meu compte",
+        "dialogTitle": "Esborrar compte",
+        "dialogContent1": "Esteu segur que voleu suprimir el vostre compte permanentment?"
+      }
+    },
+    "workplace": {
+      "name": "Lloc de treball",
+      "subtitle": "Personalitzeu l'aspecte, el tema, el tipus de lletra, la disposició del text, la data, l'hora i l'idioma de l'espai de treball.",
+      "workplaceNamePlaceholder": "Introduïu el nom del lloc de treball",
+      "workplaceIcon": "Icona del lloc de treball",
+      "updateIconError": "No s'ha pogut actualitzar la icona",
+      "appearance": {
+        "name": "Aparença",
+        "themeMode": {
+          "auto": "Automàtic",
+          "light": "Llum",
+          "dark": "Fosc"
+        },
+        "language": "Llenguatge"
+      }
+    },
+    "syncState": {
+      "syncing": "Sincronització",
+      "synced": "Sincronitzat"
+    }
+  },
+  "commandPalette": {
+    "navigateHint": "per navegar",
+    "betaLabel": "BETA",
+    "fromTrashHint": "De les escombraries"
   }
 }

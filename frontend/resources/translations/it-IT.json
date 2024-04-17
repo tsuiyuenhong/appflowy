@@ -2,12 +2,14 @@
   "appName": "AppFlowy",
   "defaultUsername": "Me",
   "welcomeText": "Benvenuto in @:appName",
+  "welcomeTo": "Benvenuto a",
   "githubStarText": "Vota su GitHub",
   "subscribeNewsletterText": "Sottoscrivi la Newsletter",
   "letsGoButtonText": "Andiamo",
   "title": "Titolo",
   "youCanAlso": "Puoi anche",
   "and": "E",
+  "failedToOpenUrl": "Impossibile aprire l'URL: {}",
   "blockActions": {
     "addBelowTooltip": "Fare clic per aggiungere di seguito",
     "addAboveCmd": "Alt+clic",
@@ -35,6 +37,7 @@
     "loginStartWithAnonymous": "Inizia con una sessione anonima",
     "continueAnonymousUser": "Continua con una sessione anonima",
     "buttonText": "Accedi",
+    "signingInText": "Registrarsi...",
     "forgotPassword": "Password Dimentica?",
     "emailHint": "Email",
     "passwordHint": "Password",
@@ -47,6 +50,11 @@
     "LogInWithGithub": "Accedi con Github",
     "LogInWithDiscord": "Accedi con Discord",
     "signInWith": "Loggati con:",
+    "signInWithEmail": "Accedi con l'e-mail",
+    "logInWithMagicLink": "Accedi con Magic Link",
+    "pleaseInputYourEmail": "Inserisci il tuo indirizzo email",
+    "magicLinkSent": "Link magico inviato alla tua email, controlla la tua casella di posta",
+    "invalidEmail": "Si prega di inserire un indirizzo email valido",
     "loginAsGuestButtonText": "Iniziare"
   },
   "workspace": {
@@ -62,12 +70,31 @@
       "reportIssueOnGithub": "Segnalate un problema su Github",
       "exportLogFiles": "Esporta i file di log",
       "reachOut": "Contattaci su Discord"
-    }
+    },
+    "menuTitle": "Spazi di lavoro",
+    "deleteWorkspaceHintText": "Sei sicuro di voler eliminare l'area di lavoro? Questa azione non può essere annullata.",
+    "createSuccess": "Area di lavoro creata correttamente",
+    "createFailed": "Impossibile creare l'area di lavoro",
+    "createLimitExceeded": "Hai raggiunto il limite massimo di spazio di lavoro consentito per il tuo account. Se hai bisogno di spazi di lavoro aggiuntivi per continuare il tuo lavoro, richiedili su Github",
+    "deleteSuccess": "Area di lavoro eliminata correttamente",
+    "deleteFailed": "Impossibile eliminare l'area di lavoro",
+    "openSuccess": "Apertura dell'area di lavoro riuscita",
+    "openFailed": "Impossibile aprire l'area di lavoro",
+    "renameSuccess": "Area di lavoro rinominata correttamente",
+    "renameFailed": "Impossibile rinominare l'area di lavoro",
+    "updateIconSuccess": "Icona dell'area di lavoro aggiornata correttamente",
+    "updateIconFailed": "L'aggiornamento dell'icona dell'area di lavoro non è riuscito",
+    "cannotDeleteTheOnlyWorkspace": "Impossibile eliminare l'unico spazio di lavoro",
+    "fetchWorkspacesFailed": "Impossibile recuperare le aree di lavoro",
+    "leaveCurrentWorkspace": "Lascia lo spazio di lavoro",
+    "leaveCurrentWorkspacePrompt": "Sei sicuro di voler lasciare l'area di lavoro corrente?"
   },
   "shareAction": {
     "buttonText": "Condividi",
     "workInProgress": "Prossimamente",
     "markdown": "Markdown",
+    "html": "HTML",
+    "clipboard": "Copia negli appunti",
     "csv": "CSV",
     "copyLink": "Copia Link"
   },
@@ -80,6 +107,7 @@
     "moreOptions": "Più opzioni",
     "wordCount": "Conteggio parole: {}",
     "charCount": "Numero di caratteri: {}",
+    "createdAt": "Creato: {}",
     "deleteView": "Cancella",
     "duplicateView": "Duplica"
   },
@@ -125,11 +153,13 @@
       "caption": "Questa azione non può essere annullata."
     },
     "mobile": {
+      "actions": "Azioni nel cestino",
       "empty": "Il cestino è vuoto",
       "emptyDescription": "Non hai alcun file eliminato",
       "isDeleted": "è stato cancellato",
       "isRestored": "è stato ripristinato"
-    }
+    },
+    "confirmDeleteTitle": "Sei sicuro di voler eliminare questa pagina in modo permanente?"
   },
   "deletePagePrompt": {
     "text": "Questa pagina è nel Cestino",
@@ -189,10 +219,16 @@
     "closeSidebar": "Close sidebar",
     "openSidebar": "Open sidebar",
     "personal": "Personale",
+    "private": "Privato",
+    "workspace": "Spazio di lavoro",
     "favorites": "Preferiti",
+    "clickToHidePrivate": "Fare clic per nascondere lo spazio privato\nLe pagine che hai creato qui sono visibili solo a te",
+    "clickToHideWorkspace": "Fare clic per nascondere l'area di lavoro\nLe pagine che hai creato qui sono visibili a tutti i membri",
     "clickToHidePersonal": "Fare clic per nascondere la sezione personale",
     "clickToHideFavorites": "Fare clic per nascondere la sezione dei preferiti",
     "addAPage": "Aggiungi una pagina",
+    "addAPageToPrivate": "Aggiungi una pagina allo spazio privato",
+    "addAPageToWorkspace": "Aggiungi una pagina all'area di lavoro",
     "recent": "Recente"
   },
   "notifications": {
@@ -236,8 +272,18 @@
     "helpCenter": "Centro assistenza",
     "add": "Aggiungi",
     "yes": "SÌ",
+    "clear": "Chiaro",
     "remove": "Rimuovi",
-    "dontRemove": "Non rimuovere"
+    "dontRemove": "Non rimuovere",
+    "copyLink": "Copia link",
+    "align": "Allineare",
+    "login": "Login",
+    "logout": "Disconnettersi",
+    "deleteAccount": "Eliminare l'account",
+    "back": "Indietro",
+    "signInGoogle": "Accedi con Google",
+    "signInGithub": "Accedi con Github",
+    "signInDiscord": "Accedi con Discord"
   },
   "label": {
     "welcome": "Benvenuto!",
@@ -283,6 +329,8 @@
       "cloudSupabase": "Supabase",
       "cloudSupabaseUrl": "URL di Supabase",
       "cloudSupabaseUrlCanNotBeEmpty": "L'url di supabase non può essere vuoto",
+      "cloudSupabaseAnonKey": "Chiave di Supabase anon",
+      "cloudSupabaseAnonKeyCanNotBeEmpty": "La chiave anon non può essere vuota",
       "cloudAppFlowy": "AppFlowy Cloud",
       "cloudAppFlowySelfHost": "AppFlowy Cloud Self-hosted (autogestito)",
       "appFlowyCloudUrlCanNotBeEmpty": "L'url del cloud non può essere vuoto",
@@ -332,12 +380,14 @@
         "dark": "Modalità Scura",
         "system": "Segui il sistema"
       },
+      "fontScaleFactor": "Fattore di scala del carattere",
       "documentSettings": {
         "cursorColor": "Colore del cursore del documento",
         "selectionColor": "Colore di selezione del documento",
         "hexEmptyError": "Il colore hex non può essere vuoto",
         "hexLengthError": "Il valore hex deve essere lungo 6 cifre",
         "hexInvalidError": "Valore hex non valido",
+        "opacityEmptyError": "L'opacità non può essere vuota",
         "opacityRangeError": "L'opacità deve essere compresa tra 1 e 100",
         "app": "App",
         "flowy": "Flowy",
@@ -384,7 +434,36 @@
         "twelveHour": "Dodici ore",
         "twentyFourHour": "Ventiquattro ore"
       },
-      "showNamingDialogWhenCreatingPage": "Mostra la finestra di dialogo per la denominazione durante la creazione di una pagina"
+      "showNamingDialogWhenCreatingPage": "Mostra la finestra di dialogo per la denominazione durante la creazione di una pagina",
+      "enableRTLToolbarItems": "Abilita gli elementi della barra degli strumenti RTL",
+      "members": {
+        "title": "Impostazioni dei membri",
+        "inviteMembers": "Invita membri",
+        "sendInvite": "Invia un invito",
+        "copyInviteLink": "Copia il collegamento di invito",
+        "label": "Membri",
+        "user": "Utente",
+        "role": "Ruolo",
+        "removeFromWorkspace": "Rimuovi dall'area di lavoro",
+        "owner": "Proprietario",
+        "guest": "Ospite",
+        "member": "Membro",
+        "memberHintText": "Un membro può leggere, commentare e modificare le pagine. Invita membri e ospiti.",
+        "guestHintText": "Un ospite può leggere, reagire, commentare e modificare determinate pagine con autorizzazione.",
+        "emailInvalidError": "Email non valida, controlla e riprova",
+        "emailSent": "Email inviata, controlla la casella di posta",
+        "members": "membri",
+        "membersCount": {
+          "zero": "{} membri",
+          "one": "{} membro",
+          "other": "{} membri"
+        },
+        "memberLimitExceeded": "Hai raggiunto il limite massimo di membri consentito per il tuo account. Se desideri aggiungere altri membri per continuare il tuo lavoro, richiedilo su Github",
+        "failedToAddMember": "Impossibile aggiungere membro",
+        "addMemberSuccess": "Membro aggiunto correttamente",
+        "removeMember": "Rimuovi membro",
+        "areYouSureToRemoveMember": "Sei sicuro di voler rimuovere questo membro?"
+      }
     },
     "files": {
       "copy": "copia",
@@ -420,7 +499,11 @@
       "recoverLocationTooltips": "Ripristina la directory dei dati predefinita di AppFlowy",
       "exportFileSuccess": "Esporta file con successo!",
       "exportFileFail": "File di esportazione non riuscito!",
-      "export": "Esportare"
+      "export": "Esportare",
+      "clearCache": "Svuota cache",
+      "clearCacheDesc": "Se riscontri problemi con le immagini che non vengono caricate o i caratteri non vengono visualizzati correttamente, prova a svuotare la cache. Questa azione non rimuoverà i tuoi dati utente.",
+      "areYouSureToClearCache": "Sei sicuro di svuotare la cache?",
+      "clearCacheSuccess": "La cache è stata svuotata con successo!"
     },
     "user": {
       "name": "Nome",
@@ -440,7 +523,17 @@
       "shortcutIsAlreadyUsed": "Questa scorciatoia è già usata per: {conflict}",
       "resetToDefault": "Ripristina le combinazioni di default",
       "couldNotLoadErrorMsg": "Impossibile caricare le scorciatoie, Riprova.",
-      "couldNotSaveErrorMsg": "Impossibile salvare le scorciatoie, Riprova."
+      "couldNotSaveErrorMsg": "Impossibile salvare le scorciatoie, Riprova.",
+      "commands": {
+        "codeBlockNewParagraph": "Inserisci un nuovo paragrafo accanto al blocco di codice",
+        "codeBlockAddTwoSpaces": "Inserisci due spazi all'inizio della riga nel blocco di codice",
+        "codeBlockDeleteTwoSpaces": "Elimina due spazi all'inizio della riga nel blocco di codice",
+        "codeBlockSelectAll": "Seleziona tutto il contenuto all'interno di un blocco di codice",
+        "codeBlockPasteText": "Incolla il testo nel blocco di codice",
+        "textAlignLeft": "Allinea il testo a sinistra",
+        "textAlignCenter": "Allinea il testo al centro",
+        "textAlignRight": "Allinea il testo a destra"
+      }
     },
     "mobile": {
       "personalInfo": "Informazione personale",
@@ -532,7 +625,15 @@
       "onOrAfter": "È in corrispondenza o dopo",
       "between": "È tra",
       "empty": "È vuoto",
-      "notEmpty": "Non è vuoto"
+      "notEmpty": "Non è vuoto",
+      "choicechipPrefix": {
+        "before": "Prima",
+        "after": "Dopo",
+        "onOrBefore": "Sopra o prima",
+        "onOrAfter": "Sopra o dopo",
+        "isEmpty": "È vuoto",
+        "isNotEmpty": "Non è vuoto"
+      }
     },
     "numberFilter": {
       "equal": "Uguale",
@@ -551,6 +652,8 @@
       "insertRight": "Inserisci a destra",
       "duplicate": "Duplicare",
       "delete": "Eliminare",
+      "wrap": "Avvolgere",
+      "clear": "Cancella celle",
       "textFieldName": "Testo",
       "checkboxFieldName": "Casella di controllo",
       "dateFieldName": "Data",
@@ -561,6 +664,7 @@
       "multiSelectFieldName": "Selezione multipla",
       "urlFieldName": "URL",
       "checklistFieldName": "Lista di controllo",
+      "relationFieldName": "Relazione",
       "numberFormat": "Formato numerico",
       "dateFormat": "Formato data",
       "includeTime": "Includi il tempo",
@@ -576,6 +680,8 @@
       "timeFormatTwentyFourHour": "24 ore",
       "clearDate": "Pulisci data",
       "dateTime": "Data e ora",
+      "startDateTime": "Data e ora di inizio",
+      "endDateTime": "Data e ora di fine",
       "failedToLoadDate": "Impossibile caricare il valore della data",
       "selectTime": "Seleziona l'ora",
       "selectDate": "Seleziona la data",
@@ -588,6 +694,7 @@
       "editProperty": "Modifica proprietà",
       "newProperty": "Nuova proprietà",
       "deleteFieldPromptMessage": "Sei sicuro? Questa proprietà verrà eliminata",
+      "clearFieldPromptMessage": "Sei sicuro? Tutte le celle di questa colonna verranno svuotate",
       "newColumn": "Nuova colonna",
       "format": "Formato",
       "reminderOnDateTooltip": "Questa cella ha un promemoria programmato",
@@ -610,10 +717,13 @@
     "sort": {
       "ascending": "Ascendente",
       "descending": "Discendente",
+      "by": "Di",
+      "empty": "Nessun ordinamento attivo",
       "cannotFindCreatableField": "Impossibile trovare un campo adatto per l'ordinamento",
       "deleteAllSorts": "Elimina tutti gli ordinamenti",
       "addSort": "Aggiungi ordinamento",
       "removeSorting": "Si desidera rimuovere l'ordinamento?",
+      "fieldInUse": "Stai già ordinando in base a questo campo",
       "deleteSort": "Elimina ordinamento"
     },
     "row": {
@@ -661,17 +771,35 @@
     },
     "url": {
       "launch": "Apri nel browser",
-      "copy": "Copia l'URL"
+      "copy": "Copia l'URL",
+      "textFieldHint": "Inserisci un URL",
+      "copiedNotification": "Copiato negli appunti!"
+    },
+    "relation": {
+      "relatedDatabasePlaceLabel": "Database correlato",
+      "relatedDatabasePlaceholder": "Nessuno",
+      "inRelatedDatabase": "In",
+      "rowSearchTextFieldPlaceholder": "Ricerca",
+      "noDatabaseSelected": "Nessun database selezionato, selezionane prima uno dall'elenco seguente:",
+      "emptySearchResult": "Nessun record trovato",
+      "linkedRowListLabel": "{count} righe collegate",
+      "unlinkedRowListLabel": "Collega un'altra riga"
     },
     "menuName": "Griglia",
     "referencedGridPrefix": "Vista di",
     "calculate": "Calcolare",
     "calculationTypeLabel": {
+      "none": "Nessuno",
       "average": "Media",
       "max": "Massimo",
       "median": "Medio",
       "min": "Minimo",
-      "sum": "Somma"
+      "sum": "Somma",
+      "count": "Contare",
+      "countEmpty": "Conta vuoto",
+      "countEmptyShort": "VUOTO",
+      "countNonEmpty": "Contare non vuoto",
+      "countNonEmptyShort": "RIEMPITO"
     }
   },
   "document": {
@@ -726,12 +854,14 @@
       "discardResponse": "Vuoi scartare le risposte AI?",
       "createInlineMathEquation": "Crea un'equazione",
       "fonts": "Caratteri",
+      "insertDate": "Inserisci la data",
       "emoji": "Emoji",
       "toggleList": "Elenco alternato",
       "quoteList": "Elenco citazioni",
       "numberedList": "Elenco numerato",
       "bulletedList": "Elenco puntato",
       "todoList": "Lista di cose da fare",
+      "callout": "Chiamare",
       "cover": {
         "changeCover": "Cambia copertina",
         "colors": "Colori",
@@ -775,7 +905,8 @@
         "left": "Sinistra",
         "center": "Centro",
         "right": "Giusto",
-        "defaultColor": "Predefinito"
+        "defaultColor": "Predefinito",
+        "depth": "Profondità"
       },
       "image": {
         "copiedToPasteBoard": "Il link dell'immagine è stato copiato negli appunti",
@@ -814,6 +945,9 @@
       },
       "date": "Data"
     },
+    "outlineBlock": {
+      "placeholder": "Sommario"
+    },
     "textBlock": {
       "placeholder": "Digita '/' per i comandi"
     },
@@ -843,7 +977,8 @@
         "invalidImage": "Immagine non valida",
         "invalidImageSize": "La dimensione dell'immagine deve essere inferiore a 5 MB",
         "invalidImageFormat": "Il formato dell'immagine non è supportato. Formati supportati: JPEG, PNG, GIF, SVG",
-        "invalidImageUrl": "URL dell'immagine non valido"
+        "invalidImageUrl": "URL dell'immagine non valido",
+        "noImage": "Nessun file o directory con questo nome"
       },
       "embedLink": {
         "label": "Incorpora link",
@@ -866,8 +1001,12 @@
     "codeBlock": {
       "language": {
         "label": "Lingua",
-        "placeholder": "Seleziona la lingua"
-      }
+        "placeholder": "Seleziona la lingua",
+        "auto": "Auto"
+      },
+      "copyTooltip": "Copia il contenuto del blocco di codice",
+      "searchLanguageHint": "Cerca una lingua",
+      "codeCopiedSnackbar": "Codice copiato negli appunti!"
     },
     "inlineLink": {
       "placeholder": "Incolla o digita un link",
@@ -919,6 +1058,7 @@
       "expandTooltip": "Visualizza i gruppi nascosti"
     },
     "cardDetail": "Dettagli della carta",
+    "cardActions": "Azioni delle carte",
     "cardDuplicated": "La carta è stata duplicata",
     "cardDeleted": "La carta è stata eliminata",
     "showOnCard": "Mostra sui dettagli della carta",
@@ -966,7 +1106,8 @@
       "noDateHint": "Gli eventi non programmati verranno visualizzati qui"
     },
     "referencedCalendarPrefix": "Vista di",
-    "quickJumpYear": "Salta a"
+    "quickJumpYear": "Salta a",
+    "duplicateEvent": "Evento duplicato"
   },
   "errorDialog": {
     "title": "Errore AppFlow",
@@ -1013,6 +1154,7 @@
     "selectSkinTone": "Seleziona la tonalità della pelle",
     "remove": "Rimuovi emoji",
     "categories": {
+      "smileys": "Faccine ed emozioni",
       "people": "Persone e corpo",
       "animals": "Animali e natura",
       "food": "Cibo e bevande",
@@ -1037,6 +1179,7 @@
     "noResults": "Nessun risultato",
     "pageReference": "Riferimento della pagina",
     "docReference": "Riferimento al documento",
+    "boardReference": "Riferimento del consiglio",
     "calReference": "Calendario di riferimento",
     "gridReference": "Riferimento griglia",
     "date": "Data",
@@ -1055,6 +1198,7 @@
     "reminderLabel": "Promemoria",
     "selectReminder": "Seleziona il promemoria",
     "reminderOptions": {
+      "none": "Nessuno",
       "atTimeOfEvent": "Ora dell'evento",
       "fiveMinsBefore": "5 minuti prima",
       "tenMinsBefore": "10 minuti prima",
@@ -1114,7 +1258,8 @@
     "replace": "Sostituisci",
     "replaceAll": "Sostituisci tutto",
     "noResult": "Nessun risultato",
-    "caseSensitive": "Distinzione tra maiuscole e minuscole"
+    "caseSensitive": "Distinzione tra maiuscole e minuscole",
+    "searchMore": "Cerca per trovare più risultati"
   },
   "error": {
     "weAreSorry": "Ci dispiace",
@@ -1123,6 +1268,7 @@
   "editor": {
     "bold": "Grassetto",
     "bulletedList": "Elenco puntato",
+    "bulletedListShortForm": "Puntato",
     "checkbox": "Casella di controllo",
     "embedCode": "Incorpora codice",
     "heading1": "H1",
@@ -1135,6 +1281,7 @@
     "italic": "Corsivo",
     "link": "Link",
     "numberedList": "Elenco numerato",
+    "numberedListShortForm": "Numerato",
     "quote": "Citazione",
     "strikethrough": "Barrato",
     "text": "Testo",
@@ -1159,6 +1306,8 @@
     "backgroundColorPurple": "Sfondo viola",
     "backgroundColorPink": "Sfondo rosa",
     "backgroundColorRed": "Sfondo rosso",
+    "backgroundColorLime": "Sfondo di calce",
+    "backgroundColorAqua": "Sfondo acqua",
     "done": "Fatto",
     "cancel": "Annulla",
     "tint1": "Tinta 1",
@@ -1206,6 +1355,8 @@
     "copy": "Copia",
     "paste": "Incolla",
     "find": "Cerca",
+    "select": "Selezionare",
+    "selectAll": "Seleziona tutto",
     "previousMatch": "Corrispondenza precedente",
     "nextMatch": "Corrispondenza seguente",
     "closeFind": "Chiudi",
@@ -1234,6 +1385,7 @@
     "rowClear": "Rimuovi contenuto",
     "slashPlaceHolder": "Digita \"/\" per inserire un blocco o inizia a digitare",
     "typeSomething": "Scrivi qualcosa...",
+    "toggleListShortForm": "Attiva/disattiva",
     "quoteListShortForm": "Citazione",
     "mathEquationShortForm": "Formula",
     "codeBlockShortForm": "Codice"
@@ -1261,5 +1413,46 @@
     "addField": "Aggiungi campo",
     "userIcon": "Icona utente"
   },
-  "noLogFiles": "Non ci sono file di log"
+  "noLogFiles": "Non ci sono file di log",
+  "newSettings": {
+    "myAccount": {
+      "title": "Il mio conto",
+      "profileNamePlaceholder": "Inserisci il tuo nome",
+      "accountSecurity": "Sicurezza dell 'Account",
+      "2FA": "Autenticazione in due passaggi",
+      "aiKeys": "Tasti IA",
+      "accountLogin": "Account login",
+      "deleteAccount": {
+        "title": "Eliminare l'account",
+        "deleteMyAccount": "Cancella il mio account",
+        "dialogTitle": "Eliminare l'account",
+        "dialogContent1": "Sei sicuro di voler eliminare definitivamente il tuo account?"
+      }
+    },
+    "workplace": {
+      "name": "Posto di lavoro",
+      "subtitle": "Personalizza l'aspetto, il tema, il carattere, il layout del testo, la data, l'ora e la lingua dell'area di lavoro.",
+      "workplaceNamePlaceholder": "Inserisci il nome del posto di lavoro",
+      "workplaceIcon": "Icona del posto di lavoro",
+      "updateIconError": "Impossibile aggiornare l'icona",
+      "appearance": {
+        "name": "Aspetto",
+        "themeMode": {
+          "auto": "Auto",
+          "light": "Leggero",
+          "dark": "Buio"
+        },
+        "language": "Lingua"
+      }
+    },
+    "syncState": {
+      "syncing": "Sincronizzazione",
+      "synced": "Sincronizzato"
+    }
+  },
+  "commandPalette": {
+    "navigateHint": "navigare",
+    "betaLabel": "BETA",
+    "fromTrashHint": "Dalla spazzatura"
+  }
 }

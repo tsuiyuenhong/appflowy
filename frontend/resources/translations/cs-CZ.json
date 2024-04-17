@@ -2,12 +2,14 @@
   "appName": "AppFlowy",
   "defaultUsername": "Já",
   "welcomeText": "Vítej",
+  "welcomeTo": "Vítejte v",
   "githubStarText": "Ohvě",
   "subscribeNewsletterText": "Přihlásit k odběru newsletteru",
   "letsGoButtonText": "Rychlá",
   "title": "Název",
   "youCanAlso": "Můžete také",
   "and": "a",
+  "failedToOpenUrl": "Nepodařilo se otevřít adresu URL: {}",
   "blockActions": {
     "addBelowTooltip": "Kliknutím přidat pod",
     "addAboveCmd": "Alt+kliknutí",
@@ -35,6 +37,7 @@
     "loginStartWithAnonymous": "Začít anonymní sezení",
     "continueAnonymousUser": "Pokra",
     "buttonText": "Přihlásit se",
+    "signingInText": "Přihlašování...",
     "forgotPassword": "Zapomenuté heslo?",
     "emailHint": "E-mail",
     "passwordHint": "Heslo",
@@ -46,7 +49,12 @@
     "LogInWithGoogle": "Přihlásit přes Google",
     "LogInWithGithub": "Přihlásit přes GitHub",
     "LogInWithDiscord": "Přihlásit přes Discord",
-    "signInWith": "Přihlásit přes:"
+    "signInWith": "Přihlásit přes:",
+    "signInWithEmail": "Přihlaste se pomocí e-mailu",
+    "logInWithMagicLink": "Přihlaste se pomocí Magic Link",
+    "pleaseInputYourEmail": "prosím zadejte svou e-mailovou adresu",
+    "magicLinkSent": "Magický odkaz byl zaslán na váš e-mail, zkontrolujte svou doručenou poštu",
+    "invalidEmail": "Prosím zadejte platnou emailovou adresu"
   },
   "workspace": {
     "chooseWorkspace": "Vyberte pracovní ůplochu",
@@ -58,13 +66,34 @@
     "failedToLoad": "Něco se pokazilo! Nepodařilo se načíst pracovní prostor. Zkuste zavřít a znovu otevřít AppFlowy a zkuste to znovu.",
     "errorActions": {
       "reportIssue": "Nahlásit problém",
+      "reportIssueOnGithub": "Nahlásit problém na Github",
+      "exportLogFiles": "Exportujte soubory protokolu",
       "reachOut": "Ozvat se na Discordu"
-    }
+    },
+    "menuTitle": "Pracovní prostory",
+    "deleteWorkspaceHintText": "Opravdu chcete smazat pracovní prostor? Tuto akci nelze vrátit zpět.",
+    "createSuccess": "Pracovní prostor byl úspěšně vytvořen",
+    "createFailed": "Vytvoření pracovního prostoru se nezdařilo",
+    "createLimitExceeded": "Dosáhli jste maximálního limitu pracovního prostoru povoleného pro váš účet. Pokud potřebujete další pracovní prostory, abyste mohli pokračovat ve své práci, požádejte o to na Github",
+    "deleteSuccess": "Pracovní prostor byl úspěšně smazán",
+    "deleteFailed": "Smazání pracovního prostoru se nezdařilo",
+    "openSuccess": "Úspěšně otevřete pracovní prostor",
+    "openFailed": "Otevření pracovního prostoru se nezdařilo",
+    "renameSuccess": "Pracovní prostor byl úspěšně přejmenován",
+    "renameFailed": "Přejmenování pracovního prostoru se nezdařilo",
+    "updateIconSuccess": "Ikona pracovního prostoru byla úspěšně aktualizována",
+    "updateIconFailed": "Aktualizovaná ikona pracovního prostoru se nezdařila",
+    "cannotDeleteTheOnlyWorkspace": "Nelze odstranit jediný pracovní prostor",
+    "fetchWorkspacesFailed": "Načtení pracovních prostorů se nezdařilo",
+    "leaveCurrentWorkspace": "Opusťte pracovní prostor",
+    "leaveCurrentWorkspacePrompt": "Opravdu chcete opustit aktuální pracovní prostor?"
   },
   "shareAction": {
     "buttonText": "Sdílet",
     "workInProgress": "Ji brzy",
     "markdown": "Markdown",
+    "html": "HTML",
+    "clipboard": "Zkopírovat do schránky",
     "csv": "CSV",
     "copyLink": "Kopírovat odkaz"
   },
@@ -74,7 +103,12 @@
     "large": "velké",
     "fontSize": "Velikost písma",
     "import": "Importovat",
-    "moreOptions": "Ví"
+    "moreOptions": "Ví",
+    "wordCount": "Počet slov: {}",
+    "charCount": "Počet znaků: {}",
+    "createdAt": "Vytvořeno: {}",
+    "deleteView": "Vymazat",
+    "duplicateView": "Duplikát"
   },
   "importPanel": {
     "textAndMarkdown": "Text a Markdown",
@@ -123,7 +157,8 @@
       "emptyDescription": "Nemáte žádný smazaný soubor",
       "isDeleted": "je smazaný",
       "isRestored": "je "
-    }
+    },
+    "confirmDeleteTitle": "Opravdu chcete tuto stránku trvale smazat?"
   },
   "deletePagePrompt": {
     "text": "Tato stránka je v Koši",
@@ -183,10 +218,16 @@
     "closeSidebar": "Zavřít postranní panel",
     "openSidebar": "Otevřít postranní panel",
     "personal": "Osobní",
+    "private": "Soukromé",
+    "workspace": "Pracovní prostor",
     "favorites": "Oblíbené",
+    "clickToHidePrivate": "Kliknutím skryjete soukromý prostor\nStránky, které jste zde vytvořili, jsou viditelné pouze pro vás",
+    "clickToHideWorkspace": "Kliknutím skryjete pracovní prostor\nStránky, které jste zde vytvořili, jsou viditelné pro každého člena",
     "clickToHidePersonal": "Kliknutím schováte sekci Osobní",
     "clickToHideFavorites": "Kliknutím schováte sekci Oblíbené",
     "addAPage": "Přidat stránku",
+    "addAPageToPrivate": "Přidejte stránku do soukromého prostoru",
+    "addAPageToWorkspace": "Přidejte stránku do pracovního prostoru",
     "recent": "Nedávné"
   },
   "notifications": {
@@ -227,7 +268,21 @@
     "removeFromFavorites": "Odstranit z oblíbených",
     "addToFavorites": "Přidat do oblíbených",
     "rename": "Přejmenovat",
-    "helpCenter": "Centrum pomoci"
+    "helpCenter": "Centrum pomoci",
+    "add": "Přidat",
+    "yes": "Ano",
+    "clear": "Průhledná",
+    "remove": "Odstranit",
+    "dontRemove": "Neodstraňujte",
+    "copyLink": "Kopírovat odkaz",
+    "align": "Zarovnat",
+    "login": "Přihlásit se",
+    "logout": "Odhlásit se",
+    "deleteAccount": "smazat účet",
+    "back": "Zadní",
+    "signInGoogle": "Přihlaste se pomocí Google",
+    "signInGithub": "Přihlaste se pomocí Github",
+    "signInDiscord": "Přihlaste se pomocí Discordu"
   },
   "label": {
     "welcome": "Vítejte!",
@@ -262,18 +317,48 @@
       "logoutPrompt": "Opravdu se chcete odhlásit?",
       "selfEncryptionLogoutPrompt": "Opravdu se chcete odhlásit? Ujistěte se prosím, že jste si zkopírovali šifrovací klíč",
       "syncSetting": "Synchronizovat nastavení",
+      "cloudSettings": "Nastavení cloudu",
       "enableSync": "Zapnout synchronizaci",
       "enableEncrypt": "Šifrovat data",
       "cloudURL": "URL adresa serveru",
+      "invalidCloudURLScheme": "Neplatné schéma",
+      "cloudServerType": "Cloudový server",
+      "cloudServerTypeTip": "Upozorňujeme, že po přepnutí cloudového serveru se může odhlásit z vašeho aktuálního účtu",
+      "cloudLocal": "Místní",
+      "cloudSupabase": "Supabase",
+      "cloudSupabaseUrl": "Supabase URL",
+      "cloudSupabaseUrlCanNotBeEmpty": "Adresa URL supabase nemůže být prázdná",
+      "cloudSupabaseAnonKey": "Supabase anon klíč",
+      "cloudSupabaseAnonKeyCanNotBeEmpty": "Anon klíč nemůže být prázdný",
       "cloudAppFlowy": "AppFlowy Cloud Beta",
+      "cloudAppFlowySelfHost": "AppFlowy Cloud Self-hosted",
+      "appFlowyCloudUrlCanNotBeEmpty": "Adresa URL cloudu nemůže být prázdná",
+      "clickToCopy": "Kliknutím zkopírujete",
+      "selfHostStart": "Pokud nemáte server, podívejte se na",
+      "selfHostContent": "dokument",
+      "selfHostEnd": "návod, jak samostatně hostovat svůj vlastní server",
+      "cloudURLHint": "Zadejte základní adresu URL vašeho serveru",
+      "cloudWSURL": "Websocket URL",
+      "cloudWSURLHint": "Zadejte webovou adresu vašeho serveru",
+      "restartApp": "Restartujte",
+      "restartAppTip": "Restartujte aplikaci, aby se změny projevily. Upozorňujeme, že tím může dojít k odhlášení z vašeho aktuálního účtu",
+      "changeServerTip": "Po změně serveru musíte kliknout na tlačítko restart, aby se změny projevily",
       "enableEncryptPrompt": "Zapněte šifrování a zabezpečte svá ",
       "inputEncryptPrompt": "Vložte prosím Váš šifrovací klíč k",
       "clickToCopySecret": "Kliknutím zkopírujete šifrovací klíč",
+      "configServerSetting": "Nakonfigurujte nastavení serveru",
+      "configServerGuide": "Po výběru „Rychlý start“ přejděte na „Nastavení“ a poté na „Nastavení cloudu“ a nakonfigurujte svůj hostovaný server.",
       "inputTextFieldHint": "Váš klíč",
       "historicalUserList": "Historie přihlášení uživatele",
       "historicalUserListTooltip": "V tomto seznamu vidíte anonymní účty. Kliknutím na účet zobrazíte jeho detaily. Anonymní účty vznikají kliknutím na tlačítko \"Začínáme\"",
       "openHistoricalUser": "Kliknutím založíte anonymní účet",
       "customPathPrompt": "Uložením složky s daty AppFlowy ve složce synchronizovanéí jako např. Google Drive může nést rizika. Pokud se databáze v  složce navštíví nebo změní ",
+      "importAppFlowyData": "Importujte data z externí složky AppFlowy",
+      "importingAppFlowyDataTip": "Probíhá import dat. Aplikaci prosím nezavírejte",
+      "importAppFlowyDataDescription": "Zkopírujte data z externí datové složky AppFlowy a importujte je do aktuální datové složky AppFlowy",
+      "importSuccess": "Složka dat AppFlowy byla úspěšně importována",
+      "importFailed": "Import datové složky AppFlowy se nezdařil",
+      "importGuide": "Další podrobnosti naleznete v odkazovaném dokumentu",
       "cloudSetting": "Nastavení cloudu"
     },
     "notifications": {
@@ -293,6 +378,19 @@
         "light": "Světlý vzhled",
         "dark": "Tmavý vzhled",
         "system": "Přizpůsobit systému"
+      },
+      "fontScaleFactor": "Faktor měřítka písma",
+      "documentSettings": {
+        "cursorColor": "Barva kurzoru dokumentu",
+        "selectionColor": "Barva výběru dokumentu",
+        "hexEmptyError": "Hexadecimální barva nemůže být prázdná",
+        "hexLengthError": "Hexadecimální hodnota musí mít 6 číslic",
+        "hexInvalidError": "Neplatná hexadecimální hodnota",
+        "opacityEmptyError": "Neprůhlednost nemůže být prázdná",
+        "opacityRangeError": "Neprůhlednost musí být mezi 1 a 100",
+        "app": "Aplikace",
+        "flowy": "Splývavý",
+        "apply": "Aplikovat"
       },
       "layoutDirection": {
         "label": "Směr zobrazení",
@@ -335,7 +433,36 @@
         "twelveHour": "12hodinový",
         "twentyFourHour": "24hodinový"
       },
-      "showNamingDialogWhenCreatingPage": "Zobrazit d"
+      "showNamingDialogWhenCreatingPage": "Zobrazit d",
+      "enableRTLToolbarItems": "Povolit položky panelu nástrojů RTL",
+      "members": {
+        "title": "Nastavení členů",
+        "inviteMembers": "Pozvat členy",
+        "sendInvite": "Poslat pozvánku",
+        "copyInviteLink": "Zkopírovat odkaz na pozvánku",
+        "label": "členové",
+        "user": "Uživatel",
+        "role": "Role",
+        "removeFromWorkspace": "Odebrat z pracovního prostoru",
+        "owner": "Majitel",
+        "guest": "Host",
+        "member": "Člen",
+        "memberHintText": "Člen může číst, komentovat a upravovat stránky. Pozvěte členy a hosty.",
+        "guestHintText": "Host může číst, reagovat, komentovat a upravovat určité stránky se svolením.",
+        "emailInvalidError": "Neplatný e-mail, zkontrolujte a zkuste to znovu",
+        "emailSent": "E-mail odeslán, zkontrolujte doručenou poštu",
+        "members": "členů",
+        "membersCount": {
+          "zero": "Počet členů: {}",
+          "one": "{} člen",
+          "other": "Počet členů: {}"
+        },
+        "memberLimitExceeded": "Dosáhli jste maximálního počtu členů povoleného pro váš účet. Pokud chcete přidat další další členy, abyste mohli pokračovat ve své práci, požádejte o to na Github",
+        "failedToAddMember": "Přidání člena se nezdařilo",
+        "addMemberSuccess": "Člen úspěšně přidán",
+        "removeMember": "Odebrat člena",
+        "areYouSureToRemoveMember": "Opravdu chcete tohoto člena odebrat?"
+      }
     },
     "files": {
       "copy": "Kopíá",
@@ -371,7 +498,11 @@
       "recoverLocationTooltips": "Obnovit výchozí složku s daty ",
       "exportFileSuccess": "Soubor byl úspěšně exportován!",
       "exportFileFail": "Soubor se nepodařilo exportovat!",
-      "export": "Exportovat"
+      "export": "Exportovat",
+      "clearCache": "Vyčistit mezipaměť",
+      "clearCacheDesc": "Pokud narazíte na problémy s nenačítáním obrázků nebo nesprávným zobrazením písem, zkuste vymazat mezipaměť. Tato akce neodstraní vaše uživatelská data.",
+      "areYouSureToClearCache": "Opravdu chcete vymazat mezipaměť?",
+      "clearCacheSuccess": "Mezipaměť byla úspěšně vymazána!"
     },
     "user": {
       "name": "Jméno",
@@ -391,7 +522,17 @@
       "shortcutIsAlreadyUsed": "Tato zkratka je již použita pro: @@",
       "resetToDefault": "Obnovit výchozí klávesové zkratky",
       "couldNotLoadErrorMsg": "Nepodařilo se načíst klávesové zkratky, zkuste to znovu",
-      "couldNotSaveErrorMsg": "Nepodařilo seuložit klávesové zkta"
+      "couldNotSaveErrorMsg": "Nepodařilo seuložit klávesové zkta",
+      "commands": {
+        "codeBlockNewParagraph": "Vložte nový odstavec vedle bloku kódu",
+        "codeBlockAddTwoSpaces": "Vložte dvě mezery na začátek řádku v bloku kódu",
+        "codeBlockDeleteTwoSpaces": "Odstraňte dvě mezery na začátku řádku v bloku kódu",
+        "codeBlockSelectAll": "Vyberte veškerý obsah uvnitř bloku kódu",
+        "codeBlockPasteText": "Vložte text do bloku kódu",
+        "textAlignLeft": "Zarovnejte text doleva",
+        "textAlignCenter": "Zarovnat text na střed",
+        "textAlignRight": "Zarovnejte text doprava"
+      }
     },
     "mobile": {
       "personalInfo": "Osobní informace",
@@ -403,8 +544,12 @@
       "joinDiscord": "Přidejte se k nám na Discordu",
       "privacyPolicy": "Podmínky použití osobních údajů",
       "userAgreement": "Uživatels",
+      "termsAndConditions": "Pravidla a podmínky",
       "userprofileError": "Nepodařilo se načíst uživatelský profil",
-      "userprofileErrorDescription": "Prosím zkuste se odhlásit a znovu přihlásit a zkontrolujte, zda problém přetrvává"
+      "userprofileErrorDescription": "Prosím zkuste se odhlásit a znovu přihlásit a zkontrolujte, zda problém přetrvává",
+      "selectLayout": "Vyberte rozvržení",
+      "selectStartingDay": "Vyberte počáteční den",
+      "version": "Verze"
     }
   },
   "grid": {
@@ -425,7 +570,19 @@
       "filterBy": "Filtrovat podle...",
       "typeAValue": "Napište hodnotu...",
       "layout": "Rozložení",
-      "databaseLayout": "Rozložení"
+      "databaseLayout": "Rozložení",
+      "viewList": {
+        "zero": "0 zobrazení",
+        "one": "{count} zobrazení",
+        "other": "{count} zobrazení"
+      },
+      "editView": "Upravit pohled",
+      "boardSettings": "Nastavení desky",
+      "calendarSettings": "Nastavení kalendáře",
+      "createView": "Nový pohled",
+      "duplicateView": "Duplicitní zobrazení",
+      "deleteView": "Smazat pohled",
+      "numberOfVisibleFields": "zobrazeno {}"
     },
     "textFilter": {
       "contains": "Obsahuje",
@@ -463,6 +620,34 @@
       "isEmpty": "Je prázdné",
       "isNotEmpty": "Není prázdný"
     },
+    "dateFilter": {
+      "is": "Je",
+      "before": "Je dříve",
+      "after": "Je po",
+      "onOrBefore": "Je zapnuto nebo dříve",
+      "onOrAfter": "Je zapnuto nebo po něm",
+      "between": "Je mezi",
+      "empty": "Je prázdný",
+      "notEmpty": "Není prázdný",
+      "choicechipPrefix": {
+        "before": "Před",
+        "after": "Po",
+        "onOrBefore": "Dne nebo dříve",
+        "onOrAfter": "Na nebo po",
+        "isEmpty": "Je prázdný",
+        "isNotEmpty": "Není prázdný"
+      }
+    },
+    "numberFilter": {
+      "equal": "Rovná se",
+      "notEqual": "Nerovná se",
+      "lessThan": "Je méně než",
+      "greaterThan": "Je větší než",
+      "lessThanOrEqualTo": "Je menší nebo rovno",
+      "greaterThanOrEqualTo": "Je větší nebo rovno",
+      "isEmpty": "Je prázdný",
+      "isNotEmpty": "Není prázdný"
+    },
     "field": {
       "hide": "Schovat",
       "show": "Ukázat",
@@ -470,6 +655,8 @@
       "insertRight": "Vložit vpravo",
       "duplicate": "Duplikovat",
       "delete": "Smazat",
+      "wrap": "Zabalit",
+      "clear": "Vyčistěte buňky",
       "textFieldName": "Text",
       "checkboxFieldName": "Zaškrtávací políčko",
       "dateFieldName": "Datum",
@@ -480,6 +667,7 @@
       "multiSelectFieldName": "Multivýběr",
       "urlFieldName": "URL adresa",
       "checklistFieldName": "Zaškrtávací seznam",
+      "relationFieldName": "Vztah",
       "numberFormat": "Formát čásel",
       "dateFormat": "Formát data",
       "includeTime": "Včetně času",
@@ -503,12 +691,17 @@
       "visibility": "Viditelnost",
       "propertyType": "Typ vlastnosti",
       "addSelectOption": "Přidat možnost",
+      "typeANewOption": "Zadejte novou možnost",
       "optionTitle": "Možnosti",
       "addOption": "Přidat možnost",
       "editProperty": "Upravit vlastnost",
       "newProperty": "Nová vlastnost",
       "deleteFieldPromptMessage": "Jste si jistí? Tato vlastnost bude smazána",
-      "newColumn": "Nový sloupeček"
+      "clearFieldPromptMessage": "Jsi si jistá? Všechny buňky v tomto sloupci budou prázdné",
+      "newColumn": "Nový sloupeček",
+      "format": "Formát",
+      "reminderOnDateTooltip": "Tato buňka má naplánované připomenutí",
+      "optionAlreadyExist": "Možnost již existuje"
     },
     "rowPage": {
       "newField": "Přidat nové pole",
@@ -527,8 +720,13 @@
     "sort": {
       "ascending": "Vzestupně",
       "descending": "Sestupně",
+      "by": "Podle",
+      "empty": "Žádné aktivní druhy",
+      "cannotFindCreatableField": "Nelze najít vhodné pole k řazení",
       "deleteAllSorts": "Smazat všechna řazení",
-      "addSort": "Přidat řazení"
+      "addSort": "Přidat řazení",
+      "removeSorting": "Chcete odstranit řazení?",
+      "fieldInUse": "Podle tohoto pole již řadíte"
     },
     "row": {
       "duplicate": "Duplikovat",
@@ -562,7 +760,9 @@
       "searchOption": "Hledat možnost",
       "searchOrCreateOption": "Hledat nebo vytvořit možnost...",
       "createNew": "Vytvořit novou",
-      "orSelectOne": "Nebo vybrat možnost"
+      "orSelectOne": "Nebo vybrat možnost",
+      "typeANewOption": "Zadejte novou možnost",
+      "tagName": "Název štítku"
     },
     "checklist": {
       "taskHint": "Popis úkolu",
@@ -571,8 +771,38 @@
       "hideComplete": "Skrýt dokončené úkoly",
       "showComplete": "Zobrazit všechny úkoly"
     },
+    "url": {
+      "launch": "Otevřít odkaz v prohlížeči",
+      "copy": "Zkopírujte odkaz do schránky",
+      "textFieldHint": "Zadejte adresu URL",
+      "copiedNotification": "Zkopírováno do schránky!"
+    },
+    "relation": {
+      "relatedDatabasePlaceLabel": "Související databáze",
+      "relatedDatabasePlaceholder": "Žádný",
+      "inRelatedDatabase": "v",
+      "rowSearchTextFieldPlaceholder": "Vyhledávání",
+      "noDatabaseSelected": "Nebyla vybrána žádná databáze, vyberte nejprve jednu ze seznamu níže:",
+      "emptySearchResult": "Nenalezeny žádné záznamy",
+      "linkedRowListLabel": "{count} propojených řádků",
+      "unlinkedRowListLabel": "Propojte další řádek"
+    },
     "menuName": "Mřížka",
-    "referencedGridPrefix": "Pohled na"
+    "referencedGridPrefix": "Pohled na",
+    "calculate": "Vypočítat",
+    "calculationTypeLabel": {
+      "none": "Žádný",
+      "average": "Průměrný",
+      "max": "Max",
+      "median": "Medián",
+      "min": "Min",
+      "sum": "Součet",
+      "count": "Počet",
+      "countEmpty": "Počítat prázdné",
+      "countEmptyShort": "PRÁZDNÝ",
+      "countNonEmpty": "Počet není prázdný",
+      "countNonEmptyShort": "NAPLNĚNÉ"
+    }
   },
   "document": {
     "menuName": "Dokument",
@@ -626,6 +856,8 @@
       "discardResponse": "Opravdu chcete zahodit odpovědi od AI?",
       "createInlineMathEquation": "Vytvořit rovnici",
       "fonts": "Písma",
+      "insertDate": "Vložte datum",
+      "emoji": "Emoji",
       "toggleList": "Rozbalovací seznam",
       "quoteList": "Seznam citátů",
       "numberedList": "Číslovaný seznam",
@@ -675,14 +907,21 @@
         "left": "Vlevo",
         "center": "Doprostřed",
         "right": "Vpravo",
-        "defaultColor": "Výchozí"
+        "defaultColor": "Výchozí",
+        "depth": "Hloubka"
       },
       "image": {
         "copiedToPasteBoard": "Odkaz na obrázek byl zkopírován do schránky",
-        "addAnImage": "Přidat obrázek"
+        "addAnImage": "Přidat obrázek",
+        "imageUploadFailed": "Nahrání obrázku se nezdařilo"
+      },
+      "urlPreview": {
+        "copiedToPasteBoard": "Odkaz byl zkopírován do schránky",
+        "convertToLink": "Převést na odkaz pro vložení"
       },
       "outline": {
-        "addHeadingToCreateOutline": "Přidáním nadpisů vytvoříte obsah dokumentu"
+        "addHeadingToCreateOutline": "Přidáním nadpisů vytvoříte obsah dokumentu",
+        "noMatchHeadings": "Nebyly nalezeny žádné odpovídající nadpisy."
       },
       "table": {
         "addAfter": "Přidat za",
@@ -697,7 +936,19 @@
         "cut": "Vyjmout",
         "paste": "Vložit"
       },
-      "action": "Příkazy"
+      "action": "Příkazy",
+      "database": {
+        "selectDataSource": "Vyberte zdroj dat",
+        "noDataSource": "Žádný zdroj dat",
+        "selectADataSource": "Vyberte zdroj dat",
+        "toContinue": "pokračovat",
+        "newDatabase": "Nová databáze",
+        "linkToDatabase": "Odkaz na databázi"
+      },
+      "date": "datum"
+    },
+    "outlineBlock": {
+      "placeholder": "Obsah"
     },
     "textBlock": {
       "placeholder": "Napište \"/\" pro zadání příkazu"
@@ -728,11 +979,15 @@
         "invalidImage": "Neplatný obrázek",
         "invalidImageSize": "Velikost obrázku musí být menší než 5MB",
         "invalidImageFormat": "Formát obrázku není podporovaný. Podporované formáty: JPEG, PNG, GIF, SVG",
-        "invalidImageUrl": "Neplatná URL adresa obrázku"
+        "invalidImageUrl": "Neplatná URL adresa obrázku",
+        "noImage": "Žádný takový soubor nebo adresář"
       },
       "embedLink": {
         "label": "Vložit odkaz (embed)",
         "placeholder": "Vložte nebo napište odkaz na obrázek"
+      },
+      "unsplash": {
+        "label": "Unsplash"
       },
       "searchForAnImage": "Hledat obrázek",
       "pleaseInputYourOpenAIKey": "zadejte prosím svůj OpenAI klíč v Nastavení",
@@ -740,13 +995,20 @@
       "saveImageToGallery": "Uložit obrázek",
       "failedToAddImageToGallery": "Nepodařilo se přidat obrázek do galerie",
       "successToAddImageToGallery": "Obrázek byl úspěšně přidán do galerie",
-      "unableToLoadImage": "Nepodařilo se nahrát obrázek"
+      "unableToLoadImage": "Nepodařilo se nahrát obrázek",
+      "maximumImageSize": "Maximální podporovaná velikost nahrávaného obrázku je 10 MB",
+      "uploadImageErrorImageSizeTooBig": "Velikost obrázku musí být menší než 10 MB",
+      "imageIsUploading": "Obrázek se nahrává"
     },
     "codeBlock": {
       "language": {
         "label": "Jazyk",
-        "placeholder": "Vyberte jazyk"
-      }
+        "placeholder": "Vyberte jazyk",
+        "auto": "Auto"
+      },
+      "copyTooltip": "Zkopírujte obsah bloku kódu",
+      "searchLanguageHint": "Vyhledejte jazyk",
+      "codeCopiedSnackbar": "Kód zkopírován do schránky!"
     },
     "inlineLink": {
       "placeholder": "Vložte nebo napište odkaz",
@@ -767,7 +1029,9 @@
       "page": {
         "label": "Odkaz na stránku",
         "tooltip": "Kliknutím otevřete stránku"
-      }
+      },
+      "deleted": "Smazáno",
+      "deletedContent": "Tento obsah neexistuje nebo byl smazán"
     },
     "toolbar": {
       "resetToDefaultFont": "Obnovit výchozí"
@@ -783,8 +1047,12 @@
       "renameGroupTooltip": "Zmáčknutím přejmenujete skupinu",
       "createNewColumn": "Přidat novou skupinu",
       "addToColumnTopTooltip": "Přidá novou kartičku nahoru",
+      "addToColumnBottomTooltip": "Dole přidejte novou kartu",
       "renameColumn": "Přejmenovat",
-      "hideColumn": "Skrýt"
+      "hideColumn": "Skrýt",
+      "newGroup": "Nová skupina",
+      "deleteColumn": "Vymazat",
+      "deleteColumnConfirmation": "Tím smažete tuto skupinu a všechny karty v ní.\nJste si jistý, že chcete pokračovat?"
     },
     "hiddenGroupSection": {
       "sectionTitle": "Skryté skupiny",
@@ -795,6 +1063,9 @@
     "cardActions": "Kartička - příkazy",
     "cardDuplicated": "Kartička byla duplikována",
     "cardDeleted": "Kartička smazána",
+    "showOnCard": "Zobrazit na detailu karty",
+    "setting": "Nastavení",
+    "propertyName": "Název vlastnosti",
     "menuName": "Nástěnka",
     "showUngrouped": "Zobrazit položky bez skupiny",
     "ungroupedButtonText": "Bez skupiny",
@@ -802,6 +1073,7 @@
     "ungroupedItemsTitle": "Kliknutím přidáte na nástěnku",
     "groupBy": "Seskupit podle",
     "referencedBoardPrefix": "Pohled",
+    "notesTooltip": "Poznámky uvnitř",
     "mobile": {
       "editURL": "Upravit URL adresu",
       "showGroup": "Zobrazit skupinu",
@@ -819,21 +1091,29 @@
       "previousMonth": "Předchozí měsíc",
       "nextMonth": "Následující měsíc"
     },
+    "mobileEventScreen": {
+      "emptyTitle": "Zatím žádné události",
+      "emptyBody": "Stisknutím tlačítka plus vytvoříte událost v tento den."
+    },
     "settings": {
       "showWeekNumbers": "Zobrazit číslo týdne",
       "showWeekends": "Zobrazit víkendy",
       "firstDayOfWeek": "Počátek týdne",
       "layoutDateField": "Rozložit kalendář podle",
+      "changeLayoutDateField": "Změnit pole rozložení",
       "noDateTitle": "Žádné datum",
       "noDateHint": {
         "zero": "Zde uvidíte nenaplánované události",
         "one": "{} nenaplánovaná událost",
         "other": "{} nenaplánovaných událostí"
       },
+      "unscheduledEventsTitle": "Neplánované akce",
       "clickToAdd": "Přidat do kalendáře",
       "name": "Rozložení kalendáře"
     },
-    "referencedCalendarPrefix": "Pohled na"
+    "referencedCalendarPrefix": "Pohled na",
+    "quickJumpYear": "Skočit do",
+    "duplicateEvent": "Duplicitní událost"
   },
   "errorDialog": {
     "title": "Chyba AppFlowy",
@@ -904,6 +1184,10 @@
   "inlineActions": {
     "noResults": "Žádné výsledky",
     "pageReference": "Odkazovaná stránka",
+    "docReference": "Odkaz na dokument",
+    "boardReference": "Odkaz na desku",
+    "calReference": "Odkaz na kalendář",
+    "gridReference": "Odkaz na mřížku",
     "date": "Datum",
     "reminder": {
       "groupTitle": "Připomenutí",
@@ -911,7 +1195,29 @@
     }
   },
   "datePicker": {
-    "dateTimeFormatTooltip": "Formát data a času změníte v Nastavení"
+    "dateTimeFormatTooltip": "Formát data a času změníte v Nastavení",
+    "dateFormat": "Datový formát",
+    "includeTime": "Zahrnout čas",
+    "isRange": "Datum ukončení",
+    "timeFormat": "Časový formát",
+    "clearDate": "Vymazat datum",
+    "reminderLabel": "Připomínka",
+    "selectReminder": "Vyberte připomenutí",
+    "reminderOptions": {
+      "none": "Žádný",
+      "atTimeOfEvent": "Čas události",
+      "fiveMinsBefore": "5 minut předem",
+      "tenMinsBefore": "10 minut předem",
+      "fifteenMinsBefore": "15 minut předem",
+      "thirtyMinsBefore": "30 minut předem",
+      "oneHourBefore": "1 hodinu předem",
+      "twoHoursBefore": "2 hodiny předem",
+      "onDayOfEvent": "V den akce",
+      "oneDayBefore": "1 den předem",
+      "twoDaysBefore": "2 dny předem",
+      "oneWeekBefore": "1 týden předem",
+      "custom": "Zvyk"
+    }
   },
   "relativeDates": {
     "yesterday": "Včera",
@@ -921,6 +1227,9 @@
   },
   "notificationHub": {
     "title": "Upozornění",
+    "mobile": {
+      "title": "Aktualizace"
+    },
     "emptyTitle": "Nic Vám neuteklo!",
     "emptyBody": "Žádné nevyřízené akce nebo upozornění. Užijte si klid.",
     "tabs": {
@@ -955,7 +1264,8 @@
     "replace": "Nahradit",
     "replaceAll": "Nahradit vše",
     "noResult": "Žádné výsledky",
-    "caseSensitive": "Citlivý na malá/velká písmena"
+    "caseSensitive": "Citlivý na malá/velká písmena",
+    "searchMore": "Hledejte a najděte další výsledky"
   },
   "error": {
     "weAreSorry": "Omluváme se",
@@ -964,6 +1274,7 @@
   "editor": {
     "bold": "Tučné",
     "bulletedList": "Odrážkový seznam",
+    "bulletedListShortForm": "S odrážkami",
     "checkbox": "Zaškrtávací políčko",
     "embedCode": "Vložit kód (embed)",
     "heading1": "Nadpis 1",
@@ -972,9 +1283,11 @@
     "highlight": "Zvýrazenění",
     "color": "Barva",
     "image": "Obrázek",
+    "date": "datum",
     "italic": "Kurzíva",
     "link": "Odkaz",
     "numberedList": "Číslovaný seznam",
+    "numberedListShortForm": "Číslovaný",
     "quote": "Citace",
     "strikethrough": "Přeškrtnutí",
     "text": "Text",
@@ -999,6 +1312,8 @@
     "backgroundColorPurple": "Fialové pozadí",
     "backgroundColorPink": "Růžové pozadí",
     "backgroundColorRed": "Červené pozadí",
+    "backgroundColorLime": "Vápno pozadí",
+    "backgroundColorAqua": "Aqua pozadí",
     "done": "Hotovo",
     "cancel": "Zrušit",
     "tint1": "Odstín 1",
@@ -1046,6 +1361,8 @@
     "copy": "Kopírovat",
     "paste": "Vložit",
     "find": "Najít",
+    "select": "Vybrat",
+    "selectAll": "Vybrat vše",
     "previousMatch": "Předchozí shoda",
     "nextMatch": "Další shoda",
     "closeFind": "Zavřít",
@@ -1072,7 +1389,12 @@
     "rowDuplicate": "Duplikovat",
     "colClear": "Vyčistit obsah",
     "rowClear": "Vyčistit obsah",
-    "slashPlaceHolder": "Zadejte \"/\" pro vložení bloku, nebo začněte psát"
+    "slashPlaceHolder": "Zadejte \"/\" pro vložení bloku, nebo začněte psát",
+    "typeSomething": "Napiš něco...",
+    "toggleListShortForm": "Přepnout",
+    "quoteListShortForm": "Citát",
+    "mathEquationShortForm": "Vzorec",
+    "codeBlockShortForm": "Kód"
   },
   "favorite": {
     "noFavorite": "Žádné oblíbené stránky",
@@ -1092,6 +1414,51 @@
     "pageIcon": "Ikona stránky",
     "language": "Jazyk",
     "font": "Písmo",
-    "actions": "Příkazy"
+    "actions": "Příkazy",
+    "date": "datum",
+    "addField": "Přidat pole",
+    "userIcon": "Ikona uživatele"
+  },
+  "noLogFiles": "Nejsou žádné soubory protokolu",
+  "newSettings": {
+    "myAccount": {
+      "title": "Můj účet",
+      "profileNamePlaceholder": "Zadejte své jméno",
+      "accountSecurity": "Zabezpečení účtu",
+      "2FA": "Dvoufázové ověření",
+      "aiKeys": "AI klíče",
+      "accountLogin": "Přihlášení k účtu",
+      "deleteAccount": {
+        "title": "Smazat účet",
+        "deleteMyAccount": "Smazat můj účet",
+        "dialogTitle": "smazat účet",
+        "dialogContent1": "Opravdu chcete trvale smazat svůj účet?"
+      }
+    },
+    "workplace": {
+      "name": "Pracoviště",
+      "subtitle": "Přizpůsobte si vzhled, motiv, písmo, rozložení textu, datum, čas a jazyk svého pracovního prostoru.",
+      "workplaceNamePlaceholder": "Zadejte název pracoviště",
+      "workplaceIcon": "Ikona pracoviště",
+      "updateIconError": "Ikonu se nepodařilo aktualizovat",
+      "appearance": {
+        "name": "Vzhled",
+        "themeMode": {
+          "auto": "Auto",
+          "light": "Světlo",
+          "dark": "Temný"
+        },
+        "language": "Jazyk"
+      }
+    },
+    "syncState": {
+      "syncing": "Probíhá synchronizace",
+      "synced": "Synchronizováno"
+    }
+  },
+  "commandPalette": {
+    "navigateHint": "navigovat",
+    "betaLabel": "BETA",
+    "fromTrashHint": "Z odpadků"
   }
 }

@@ -50,7 +50,11 @@
     "LogInWithGithub": "Github ile Giriş Yap",
     "LogInWithDiscord": "Discord ile Giriş Yap",
     "signInWith": "Şununla giriş yapın:",
-    "signInWithEmail": "E-posta ile giriş yap"
+    "signInWithEmail": "E-posta ile giriş yap",
+    "logInWithMagicLink": "Magic Link ile giriş yapın",
+    "pleaseInputYourEmail": "lütfen e-mail adresinizi giriniz",
+    "magicLinkSent": "Sihirli bağlantı e-postanıza gönderildi, lütfen gelen kutunuzu kontrol edin",
+    "invalidEmail": "Geçerli bir e"
   },
   "workspace": {
     "chooseWorkspace": "Çalışma Alanınızı Seçin",
@@ -88,6 +92,8 @@
     "buttonText": "Paylaş",
     "workInProgress": "Yakında geliyor",
     "markdown": "Markdown",
+    "html": "HTML",
+    "clipboard": "Panoya kopyala",
     "csv": "CSV",
     "copyLink": "Bağlantıyı Kopyala"
   },
@@ -595,7 +601,10 @@
     },
     "checkboxFilter": {
       "isChecked": "İşaretli",
-      "isUnchecked": "İşaretsiz"
+      "isUnchecked": "İşaretsiz",
+      "choicechipPrefix": {
+        "is": "dır-dir"
+      }
     },
     "checklistFilter": {
       "isComplete": "tamamlandı",
@@ -644,6 +653,7 @@
       "insertRight": "Sağa Ekle",
       "duplicate": "Kopyala",
       "delete": "Sil",
+      "wrap": "Dürüm",
       "clear": "Hücreleri temizle",
       "textFieldName": "Metin",
       "checkboxFieldName": "Onay Kutusu",
@@ -771,7 +781,9 @@
       "inRelatedDatabase": "İçinde",
       "rowSearchTextFieldPlaceholder": "Ara",
       "noDatabaseSelected": "Veritabanı seçilmedi, lütfen önce aşağıdaki listeden bir tane seçin:",
-      "emptySearchResult": "Kayıt bulunamadı"
+      "emptySearchResult": "Kayıt bulunamadı",
+      "linkedRowListLabel": "{count} bağlantılı satır",
+      "unlinkedRowListLabel": "Başka bir satırı bağla"
     },
     "menuName": "Tablo",
     "referencedGridPrefix": "Görünümü",
@@ -989,8 +1001,12 @@
     "codeBlock": {
       "language": {
         "label": "Dil",
-        "placeholder": "Dil seçin"
-      }
+        "placeholder": "Dil seçin",
+        "auto": "Oto"
+      },
+      "copyTooltip": "Kod bloğunun içeriğini kopyalayın",
+      "searchLanguageHint": "Dil arayın",
+      "codeCopiedSnackbar": "Kod panoya kopyalandı!"
     },
     "inlineLink": {
       "placeholder": "Bir bağlantıyı yapıştırın veya yazın",
@@ -1448,5 +1464,10 @@
       "synced": "Senkronize edildi",
       "noNetworkConnected": "Ağ bağlantısı yok"
     }
+  },
+  "commandPalette": {
+    "navigateHint": "yönlendirmek",
+    "betaLabel": "BETA",
+    "fromTrashHint": "Çöp kutusundan"
   }
 }

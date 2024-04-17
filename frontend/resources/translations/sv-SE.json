@@ -44,17 +44,58 @@
     "dontHaveAnAccount": "Har du inget konto?",
     "repeatPasswordEmptyError": "Upprepat lösenord kan inte vara tomt",
     "unmatchedPasswordError": "Upprepat lösenord är inte samma som det första",
+    "syncPromptMessage": "Att synkronisera data kan ta en stund. Vänligen stäng inte den här sidan",
+    "or": "ELLER",
+    "LogInWithGoogle": "Logga in med Google",
+    "LogInWithGithub": "Logga in med Github",
+    "LogInWithDiscord": "Logga in med Discord",
+    "signInWith": "Logga in med:",
+    "signInWithEmail": "Logga in med e-post",
+    "logInWithMagicLink": "Logga in med Magic Link",
+    "pleaseInputYourEmail": "Var god skriv in din e-postadress",
+    "magicLinkSent": "Magisk länk skickas till din e-post, kontrollera din inkorg",
+    "invalidEmail": "Vänligen ange en giltig e-postadress",
     "loginAsGuestButtonText": "Komma igång"
   },
   "workspace": {
+    "chooseWorkspace": "Välj din arbetsyta",
     "create": "Skapa arbetsyta",
+    "reset": "Återställ arbetsytan",
+    "resetWorkspacePrompt": "Om du återställer arbetsytan raderas alla sidor och data i den. Är du säker på att du vill återställa arbetsytan? Alternativt kan du kontakta supportteamet för att återställa arbetsytan",
     "hint": "Arbetsyta",
-    "notFoundError": "Hittade ingen arbetsyta"
+    "notFoundError": "Hittade ingen arbetsyta",
+    "failedToLoad": "Något gick fel! Det gick inte att läsa in arbetsytan. Försök att stänga en öppen instans av AppFlowy och försök igen.",
+    "errorActions": {
+      "reportIssue": "Rapportera ett problem",
+      "reportIssueOnGithub": "Rapportera ett problem på Github",
+      "exportLogFiles": "Exportera loggfiler",
+      "reachOut": "Nå ut på Discord"
+    },
+    "menuTitle": "Arbetsytor",
+    "deleteWorkspaceHintText": "Är du säker på att du vill ta bort arbetsytan? Denna åtgärd kan inte ångras.",
+    "createSuccess": "Arbetsytan har skapats",
+    "createFailed": "Det gick inte att skapa arbetsyta",
+    "createLimitExceeded": "Du har nått den högsta tillåtna arbetsytan för ditt konto. Om du behöver ytterligare arbetsytor för att fortsätta ditt arbete, vänligen begär på Github",
+    "deleteSuccess": "Arbetsytan har raderats",
+    "deleteFailed": "Det gick inte att ta bort arbetsytan",
+    "openSuccess": "Öppna arbetsytan framgångsrikt",
+    "openFailed": "Det gick inte att öppna arbetsytan",
+    "renameSuccess": "Arbetsytan har bytt namn",
+    "renameFailed": "Det gick inte att byta namn på arbetsytan",
+    "updateIconSuccess": "Arbetsytans ikon har uppdaterats",
+    "updateIconFailed": "Det gick inte att uppdatera arbetsytans ikon",
+    "cannotDeleteTheOnlyWorkspace": "Det går inte att ta bort den enda arbetsytan",
+    "fetchWorkspacesFailed": "Det gick inte att hämta arbetsytor",
+    "leaveCurrentWorkspace": "Lämna arbetsytan",
+    "leaveCurrentWorkspacePrompt": "Är du säker på att du vill lämna den nuvarande arbetsytan?"
   },
   "shareAction": {
     "buttonText": "Dela",
     "workInProgress": "Kommer snart",
     "markdown": "Markdown",
+    "html": "HTML",
+    "clipboard": "Kopiera till urklipp",
+    "csv": "CSV",
     "copyLink": "Kopiera länk"
   },
   "moreAction": {
@@ -63,7 +104,12 @@
     "large": "stor",
     "fontSize": "Textstorlek",
     "import": "Importera",
-    "moreOptions": "Fler alternativ"
+    "moreOptions": "Fler alternativ",
+    "wordCount": "Antal ord: {}",
+    "charCount": "Antal tecken: {}",
+    "createdAt": "Skapad: {}",
+    "deleteView": "Radera",
+    "duplicateView": "Duplicera"
   },
   "importPanel": {
     "textAndMarkdown": "Text & Markdown",
@@ -76,10 +122,19 @@
     "rename": "Byt namn",
     "delete": "Ta bort",
     "duplicate": "Klona",
-    "openNewTab": "Öppna i en ny flik"
+    "unfavorite": "Ta bort från favoriter",
+    "favorite": "Lägg till i favoriter",
+    "openNewTab": "Öppna i en ny flik",
+    "moveTo": "Flytta till",
+    "addToFavorites": "Lägg till i favoriter",
+    "copyLink": "Kopiera länk"
   },
   "blankPageTitle": "Tom sida",
   "newPageText": "Ny sida",
+  "newDocumentText": "Nytt dokument",
+  "newGridText": "Nytt rutnät",
+  "newCalendarText": "Ny kalender",
+  "newBoardText": "Ny styrelse",
   "trash": {
     "text": "Skräp",
     "restoreAll": "Återställ alla",
@@ -96,7 +151,15 @@
     "confirmRestoreAll": {
       "title": "Är du säker på att återställa alla sidor i papperskorgen?",
       "caption": "Denna åtgärd kan inte ångras."
-    }
+    },
+    "mobile": {
+      "actions": "Trash Actions",
+      "empty": "Papperskorgen är tom",
+      "emptyDescription": "Du har ingen raderad fil",
+      "isDeleted": "är raderad",
+      "isRestored": "är återställd"
+    },
+    "confirmDeleteTitle": "Är du säker på att du vill ta bort den här sidan permanent?"
   },
   "deletePagePrompt": {
     "text": "Denna sida är i skräpmappen",
@@ -117,10 +180,12 @@
     "feedback": "Återkoppling"
   },
   "menuAppHeader": {
+    "moreButtonToolTip": "Ta bort, byt namn och mer...",
     "addPageTooltip": "Lägg till en underliggande sida",
     "defaultNewPageName": "Namnlös",
     "renameDialog": "Byt namn"
   },
+  "noPagesInside": "Inga sidor inne",
   "toolbar": {
     "undo": "Ångra",
     "redo": "Upprepa",
@@ -152,7 +217,19 @@
   },
   "sideBar": {
     "closeSidebar": "Stäng sidofältet",
-    "openSidebar": "Öppna sidofältet"
+    "openSidebar": "Öppna sidofältet",
+    "personal": "Personlig",
+    "private": "Privat",
+    "workspace": "Arbetsyta",
+    "favorites": "Favoriter",
+    "clickToHidePrivate": "Klicka för att dölja privat utrymme\nSidor du skapat här är bara synliga för dig",
+    "clickToHideWorkspace": "Klicka för att dölja arbetsytan\nSidor du skapat här är synliga för alla medlemmar",
+    "clickToHidePersonal": "Klicka för att dölja personligt utrymme",
+    "clickToHideFavorites": "Klicka för att dölja favoritutrymme",
+    "addAPage": "Lägg till en sida",
+    "addAPageToPrivate": "Lägg till en sida i privat utrymme",
+    "addAPageToWorkspace": "Lägg till en sida i arbetsytan",
+    "recent": "Nyligen"
   },
   "notifications": {
     "export": {
@@ -181,6 +258,7 @@
     "discard": "Kassera",
     "replace": "Byta ut",
     "insertBelow": "Infoga nedan",
+    "insertAbove": "Sätt in ovan",
     "upload": "Ladda upp",
     "edit": "Redigera",
     "delete": "Radera",
@@ -201,6 +279,7 @@
     "align": "Jämka",
     "login": "Logga in",
     "logout": "Logga ut",
+    "deleteAccount": "Radera konto",
     "back": "Tillbaka",
     "signInGoogle": "Logga in med Google",
     "signInGithub": "Logga in med Github",
@@ -252,6 +331,8 @@
       "cloudSupabaseUrlCanNotBeEmpty": "Webbadressen för supabase kan inte vara tom",
       "cloudSupabaseAnonKey": "Supabase anonym nyckel",
       "cloudSupabaseAnonKeyCanNotBeEmpty": "Anon-nyckeln kan inte vara tom",
+      "cloudAppFlowy": "AppFlowy Cloud Beta",
+      "cloudAppFlowySelfHost": "AppFlowy Cloud är självvärd",
       "appFlowyCloudUrlCanNotBeEmpty": "Molnets webbadress får inte vara tom",
       "clickToCopy": "Klicka för att kopiera",
       "selfHostStart": "Om du inte har en server, vänligen se",
@@ -281,7 +362,14 @@
       "importGuide": "För ytterligare information, snälla se det refererade dokumentet",
       "supabaseSetting": "Supabase-inställning"
     },
+    "notifications": {
+      "enableNotifications": {
+        "label": "Aktivera aviseringar",
+        "hint": "Stäng av för att förhindra att lokala aviseringar visas."
+      }
+    },
     "appearance": {
+      "resetSetting": "Återställa",
       "fontFamily": {
         "label": "Typsnittsfamilj",
         "search": "Sök"
@@ -292,8 +380,36 @@
         "dark": "Mörkt läge",
         "system": "Samma som system"
       },
+      "fontScaleFactor": "Teckensnittsskalafaktor",
+      "documentSettings": {
+        "cursorColor": "Dokumentmarkörens färg",
+        "selectionColor": "Dokumentvalsfärg",
+        "hexEmptyError": "Hexfärgen får inte vara tom",
+        "hexLengthError": "Hexvärdet måste vara 6 siffror långt",
+        "hexInvalidError": "Ogiltigt hexadecimalt värde",
+        "opacityEmptyError": "Opaciteten får inte vara tom",
+        "opacityRangeError": "Opaciteten måste vara mellan 1 och 100",
+        "app": "App",
+        "flowy": "Flödande",
+        "apply": "Tillämpa"
+      },
+      "layoutDirection": {
+        "label": "Layout Riktning",
+        "hint": "Styr flödet av innehåll på skärmen, från vänster till höger eller höger till vänster.",
+        "ltr": "LTR",
+        "rtl": "RTL"
+      },
+      "textDirection": {
+        "label": "Standardtextriktning",
+        "hint": "Ange om text ska börja från vänster eller höger som standard.",
+        "ltr": "LTR",
+        "rtl": "RTL",
+        "auto": "BIL",
+        "fallback": "Samma som layoutriktning"
+      },
       "themeUpload": {
         "button": "Ladda upp",
+        "uploadTheme": "Ladda upp tema",
         "description": "Ladda upp ditt eget AppFlowy-tema med knappen nedan.",
         "loading": "Vänta medan vi validerar och laddar upp ditt tema...",
         "uploadSuccess": "Ditt tema laddades upp",
@@ -304,7 +420,50 @@
       },
       "theme": "Tema",
       "builtInsLabel": "Inbyggda teman",
-      "pluginsLabel": "Plugin"
+      "pluginsLabel": "Plugin",
+      "dateFormat": {
+        "label": "Datumformat",
+        "local": "Lokal",
+        "us": "USA",
+        "iso": "ISO",
+        "friendly": "Vänlig",
+        "dmy": "D/M/Y"
+      },
+      "timeFormat": {
+        "label": "Tidsformat",
+        "twelveHour": "Tolv timmar",
+        "twentyFourHour": "Tjugofyra timmar"
+      },
+      "showNamingDialogWhenCreatingPage": "Visa namndialog när du skapar en sida",
+      "enableRTLToolbarItems": "Aktivera RTL-verktygsfältsobjekt",
+      "members": {
+        "title": "Medlemsinställningar",
+        "inviteMembers": "Bjud in medlemmar",
+        "sendInvite": "Skicka inbjudan",
+        "copyInviteLink": "Kopiera inbjudningslänk",
+        "label": "Medlemmar",
+        "user": "Användare",
+        "role": "Roll",
+        "removeFromWorkspace": "Ta bort från arbetsytan",
+        "owner": "Ägare",
+        "guest": "Gäst",
+        "member": "Medlem",
+        "memberHintText": "En medlem kan läsa, kommentera och redigera sidor. Bjud in medlemmar och gäster.",
+        "guestHintText": "En gäst kan läsa, reagera, kommentera och kan redigera vissa sidor med tillstånd.",
+        "emailInvalidError": "Ogiltig e-post, kontrollera och försök igen",
+        "emailSent": "E-post skickat, kolla inkorgen",
+        "members": "medlemmar",
+        "membersCount": {
+          "zero": "{} medlemmar",
+          "one": "{} medlem",
+          "other": "{} medlemmar"
+        },
+        "memberLimitExceeded": "Du har nått den högsta tillåtna medlemsgränsen för ditt konto. Om du vill lägga till fler medlemmar för att fortsätta ditt arbete, vänligen begär på Github",
+        "failedToAddMember": "Det gick inte att lägga till medlem",
+        "addMemberSuccess": "Medlem har lagts till",
+        "removeMember": "Ta bort medlem",
+        "areYouSureToRemoveMember": "Är du säker på att du vill ta bort den här medlemmen?"
+      }
     },
     "files": {
       "copy": "Kopiera",
@@ -340,17 +499,66 @@
       "recoverLocationTooltips": "Återställ till AppFlowys standarddatakatalog",
       "exportFileSuccess": "Exporterade filen framgångsrikt!",
       "exportFileFail": "Export av fil misslyckades!",
-      "export": "Exportera"
+      "export": "Exportera",
+      "clearCache": "Rensa cache",
+      "clearCacheDesc": "Om du stöter på problem med bilder som inte laddas eller teckensnitt som inte visas korrekt, försök att rensa cacheminnet. Denna åtgärd kommer inte att ta bort din användardata.",
+      "areYouSureToClearCache": "Är du säker på att rensa cacheminnet?",
+      "clearCacheSuccess": "Cache rensades framgångsrikt!"
     },
     "user": {
       "name": "namn",
+      "email": "E-post",
+      "tooltipSelectIcon": "Välj ikon",
       "selectAnIcon": "Välj en ikon",
-      "pleaseInputYourOpenAIKey": "vänligen ange din OpenAI-nyckel"
+      "pleaseInputYourOpenAIKey": "vänligen ange din OpenAI-nyckel",
+      "pleaseInputYourStabilityAIKey": "vänligen ange din Stability AI-nyckel",
+      "clickToLogout": "Klicka för att logga ut den aktuella användaren"
+    },
+    "shortcuts": {
+      "shortcutsLabel": "Genvägar",
+      "command": "Kommando",
+      "keyBinding": "Nyckelbindning",
+      "addNewCommand": "Lägg till nytt kommando",
+      "updateShortcutStep": "Tryck på önskad tangentkombination och tryck på ENTER",
+      "shortcutIsAlreadyUsed": "Den här genvägen används redan för: {conflict}",
+      "resetToDefault": "Återställ till förinställda tangentbindningar",
+      "couldNotLoadErrorMsg": "Det gick inte att läsa in genvägar. Försök igen",
+      "couldNotSaveErrorMsg": "Det gick inte att spara genvägar. Försök igen",
+      "commands": {
+        "codeBlockNewParagraph": "Infoga ett nytt stycke bredvid kodblocket",
+        "codeBlockAddTwoSpaces": "Infoga två blanksteg vid radstarten i kodblocket",
+        "codeBlockDeleteTwoSpaces": "Ta bort två blanksteg vid radstarten i kodblocket",
+        "codeBlockSelectAll": "Välj allt innehåll i ett kodblock",
+        "codeBlockPasteText": "Klistra in text i kodblock",
+        "textAlignLeft": "Justera texten till vänster",
+        "textAlignCenter": "Justera texten i mitten",
+        "textAlignRight": "Justera texten till höger"
+      }
+    },
+    "mobile": {
+      "personalInfo": "Personlig information",
+      "username": "Användarnamn",
+      "usernameEmptyError": "Användarnamnet får inte vara tomt",
+      "about": "Handla om",
+      "pushNotifications": "Pushmeddelanden",
+      "support": "Stöd",
+      "joinDiscord": "Häng med oss i Discord",
+      "privacyPolicy": "Integritetspolicy",
+      "userAgreement": "Användaravtal",
+      "termsAndConditions": "Villkor",
+      "userprofileError": "Det gick inte att läsa in användarprofilen",
+      "userprofileErrorDescription": "Försök att logga ut och logga in igen för att kontrollera om problemet kvarstår.",
+      "selectLayout": "Välj layout",
+      "selectStartingDay": "Välj startdag",
+      "version": "Version"
     }
   },
   "grid": {
     "deleteView": "Är du säker på att du vill ta bort den här vyn?",
     "createView": "Ny",
+    "title": {
+      "placeholder": "Ofrälse"
+    },
     "settings": {
       "filter": "Filter",
       "sort": "Sortera",
@@ -364,6 +572,18 @@
       "typeAValue": "Skriv ett värde...",
       "layout": "Layout",
       "databaseLayout": "Layout",
+      "viewList": {
+        "zero": "0 visningar",
+        "one": "{count} visning",
+        "other": "{count} visningar"
+      },
+      "editView": "Redigera vy",
+      "boardSettings": "Styrelseinställningar",
+      "calendarSettings": "Kalenderinställningar",
+      "createView": "Ny vy",
+      "duplicateView": "Duplicerad vy",
+      "deleteView": "Ta bort vy",
+      "numberOfVisibleFields": "{} visad",
       "Properties": "Egenskaper"
     },
     "textFilter": {
@@ -402,12 +622,43 @@
       "isEmpty": "Är tom",
       "isNotEmpty": "Är inte tom"
     },
+    "dateFilter": {
+      "is": "Är",
+      "before": "Är innan",
+      "after": "Är efter",
+      "onOrBefore": "Är på eller innan",
+      "onOrAfter": "Är på eller efter",
+      "between": "Är mellan",
+      "empty": "Är tom",
+      "notEmpty": "Är inte tom",
+      "choicechipPrefix": {
+        "before": "Innan",
+        "after": "Efter",
+        "onOrBefore": "På eller innan",
+        "onOrAfter": "På eller efter",
+        "isEmpty": "Är tom",
+        "isNotEmpty": "Är inte tom"
+      }
+    },
+    "numberFilter": {
+      "equal": "Lika",
+      "notEqual": "Är inte lika med",
+      "lessThan": "Är mindre än",
+      "greaterThan": "Är större än",
+      "lessThanOrEqualTo": "Är mindre än eller lika med",
+      "greaterThanOrEqualTo": "Är större än eller lika med",
+      "isEmpty": "Är tom",
+      "isNotEmpty": "Är inte tom"
+    },
     "field": {
       "hide": "Dölj",
+      "show": "Show",
       "insertLeft": "Infoga till vänster",
       "insertRight": "Infoga till höger",
       "duplicate": "Klona",
       "delete": "Ta bort",
+      "wrap": "Slå in",
+      "clear": "Rensa celler",
       "textFieldName": "Text",
       "checkboxFieldName": "Checkruta",
       "dateFieldName": "Datum",
@@ -418,9 +669,11 @@
       "multiSelectFieldName": "Välj flera",
       "urlFieldName": "URL",
       "checklistFieldName": "Checklista",
+      "relationFieldName": "Relation",
       "numberFormat": "Sifferformat",
       "dateFormat": "Datumformat",
       "includeTime": "Inkludera tid",
+      "isRange": "Slutdatum",
       "dateFormatFriendly": "Månad Dag, År",
       "dateFormatISO": "År-Månad-Dag",
       "dateFormatLocal": "Månad/Dag/År",
@@ -430,27 +683,68 @@
       "invalidTimeFormat": "Ogiltigt format",
       "timeFormatTwelveHour": "12-timmars",
       "timeFormatTwentyFourHour": "24-timmars",
+      "clearDate": "Klart datum",
+      "dateTime": "Datum Tid",
+      "startDateTime": "Startdatum tid",
+      "endDateTime": "Slutdatum tid",
+      "failedToLoadDate": "Det gick inte att läsa in datumvärdet",
+      "selectTime": "Välj tid",
+      "selectDate": "Välj datum",
+      "visibility": "Synlighet",
+      "propertyType": "Fastighetstyp",
       "addSelectOption": "Lägg till ett alternativ",
+      "typeANewOption": "Skriv ett nytt alternativ",
       "optionTitle": "Alternativ",
       "addOption": "Lägg till alternativ",
       "editProperty": "Redigera egenskap",
       "newProperty": "Ny kolumn",
-      "deleteFieldPromptMessage": "Är du säker? Denna egenskap kommer att raderas."
+      "deleteFieldPromptMessage": "Är du säker? Denna egenskap kommer att raderas.",
+      "clearFieldPromptMessage": "Är du säker? Alla celler i den här kolumnen kommer att tömmas",
+      "newColumn": "Ny kolumn",
+      "format": "Formatera",
+      "reminderOnDateTooltip": "Den här cellen har en schemalagd påminnelse",
+      "optionAlreadyExist": "Alternativet finns redan"
+    },
+    "rowPage": {
+      "newField": "Lägg till ett nytt fält",
+      "fieldDragElementTooltip": "Klicka för att öppna menyn",
+      "showHiddenFields": {
+        "one": "Visa {count} dolt fält",
+        "many": "Visa {count} dolda fält",
+        "other": "Visa {count} dolda fält"
+      },
+      "hideHiddenFields": {
+        "one": "Dölj {count} dolt fält",
+        "many": "Dölj {count} dolda fält",
+        "other": "Dölj {count} dolda fält"
+      }
     },
     "sort": {
       "ascending": "Stigande",
       "descending": "Fallande",
+      "by": "Förbi",
+      "empty": "Inga aktiva sorter",
+      "cannotFindCreatableField": "Kan inte hitta ett lämpligt fält att sortera efter",
+      "deleteAllSorts": "Ta bort alla sorters",
       "addSort": "Lägg till sortering",
+      "removeSorting": "Vill du ta bort sorteringen?",
+      "fieldInUse": "Du sorterar redan efter det här fältet",
       "deleteSort": "Ta bort sortering"
     },
     "row": {
       "duplicate": "Klona",
       "delete": "Ta bort",
+      "titlePlaceholder": "Ofrälse",
       "textPlaceholder": "Tom",
       "copyProperty": "Kopierade egenskap till urklipp",
       "count": "Antal",
       "newRow": "Ny rad",
-      "action": "Handling"
+      "action": "Handling",
+      "add": "Klicka på lägg till nedan",
+      "drag": "Dra för att flytta",
+      "dragAndClick": "Dra för att flytta, klicka för att öppna menyn",
+      "insertRecordAbove": "Infoga posten ovan",
+      "insertRecordBelow": "Infoga posten nedan"
     },
     "selectOption": {
       "create": "Skapa",
@@ -466,13 +760,52 @@
       "deleteTag": "Ta bort tagg",
       "colorPanelTitle": "Färger",
       "panelTitle": "Välj ett alternativ eller skapa ett",
-      "searchOption": "Sök efter ett alternativ"
+      "searchOption": "Sök efter ett alternativ",
+      "searchOrCreateOption": "Sök efter ett alternativ eller skapa ett",
+      "createNew": "Skapa en ny",
+      "orSelectOne": "Eller välj ett alternativ",
+      "typeANewOption": "Skriv ett nytt alternativ",
+      "tagName": "Taggnamn"
     },
     "checklist": {
-      "addNew": "Lägg till ett objekt"
+      "taskHint": "Uppgifts beskrivning",
+      "addNew": "Lägg till ett objekt",
+      "submitNewTask": "Skapa",
+      "hideComplete": "Dölj slutförda uppgifter",
+      "showComplete": "Visa alla uppgifter"
+    },
+    "url": {
+      "launch": "Öppna länken i webbläsaren",
+      "copy": "Kopiera länken till urklipp",
+      "textFieldHint": "Ange en URL",
+      "copiedNotification": "Kopierat till urklipp!"
+    },
+    "relation": {
+      "relatedDatabasePlaceLabel": "Relaterad databas",
+      "relatedDatabasePlaceholder": "Ingen",
+      "inRelatedDatabase": "I",
+      "rowSearchTextFieldPlaceholder": "Sök",
+      "noDatabaseSelected": "Ingen databas har valts, välj först en från listan nedan:",
+      "emptySearchResult": "Inga uppgifter funna",
+      "linkedRowListLabel": "{count} länkade rader",
+      "unlinkedRowListLabel": "Länka en annan rad"
     },
     "menuName": "Tabell",
-    "referencedGridPrefix": "Utsikt över"
+    "referencedGridPrefix": "Utsikt över",
+    "calculate": "Beräkna",
+    "calculationTypeLabel": {
+      "none": "Ingen",
+      "average": "Genomsnitt",
+      "max": "Max",
+      "median": "Median",
+      "min": "Min",
+      "sum": "Belopp",
+      "count": "Räkna",
+      "countEmpty": "Räkna tomt",
+      "countEmptyShort": "TÖMMA",
+      "countNonEmpty": "Räkna inte tomt",
+      "countNonEmptyShort": "FYLLD"
+    }
   },
   "document": {
     "menuName": "Dokument",
@@ -492,15 +825,20 @@
       "calendar": {
         "selectACalendarToLinkTo": "Välj en kalender att länka till",
         "createANewCalendar": "Skapa en ny kalender"
+      },
+      "document": {
+        "selectADocumentToLinkTo": "Välj ett dokument att länka till"
       }
     },
     "selectionMenu": {
-      "outline": "Skissera"
+      "outline": "Skissera",
+      "codeBlock": "Kodblock"
     },
     "plugins": {
       "referencedBoard": "Refererad tavla",
       "referencedGrid": "Refererade tabell",
       "referencedCalendar": "Refererad kalender",
+      "referencedDocument": "Refererat dokument",
       "autoGeneratorMenuItemName": "OpenAI Writer",
       "autoGeneratorTitleName": "OpenAI: Be AI skriva vad som helst...",
       "autoGeneratorLearnMore": "Läs mer",
@@ -520,7 +858,15 @@
       "smartEditDisabled": "Anslut OpenAI i Inställningar",
       "discardResponse": "Vill du kassera AI-svaren?",
       "createInlineMathEquation": "Skapa ekvation",
+      "fonts": "Teckensnitt",
+      "insertDate": "Infoga datum",
+      "emoji": "Emoji",
       "toggleList": "Växla lista",
+      "quoteList": "Citatlista",
+      "numberedList": "Numrerad lista",
+      "bulletedList": "Punktlista",
+      "todoList": "Att göra lista",
+      "callout": "Ropa ut",
       "cover": {
         "changeCover": "Byt omslag",
         "colors": "Färger",
@@ -542,10 +888,12 @@
         "couldNotFetchImage": "Det gick inte att hämta bilden",
         "imageSavingFailed": "Det gick inte att spara bild",
         "addIcon": "Lägg till ikon",
+        "changeIcon": "Byta ikon",
         "coverRemoveAlert": "Den kommer att tas bort från omslaget efter att den har raderats.",
         "alertDialogConfirmation": "Är du säker på att du vill fortsätta?"
       },
       "mathEquation": {
+        "name": "Matematisk ekvation",
         "addMathEquation": "Lägg till matematikekvation",
         "editMathEquation": "Redigera matematisk ekvation"
       },
@@ -562,14 +910,48 @@
         "left": "Vänster",
         "center": "Centrum",
         "right": "Höger",
-        "defaultColor": "Standard"
+        "defaultColor": "Standard",
+        "depth": "Djup"
       },
       "image": {
-        "copiedToPasteBoard": "Bildlänken har kopierats till urklipp"
+        "copiedToPasteBoard": "Bildlänken har kopierats till urklipp",
+        "addAnImage": "Lägg till en bild",
+        "imageUploadFailed": "Det gick inte att ladda upp bilden"
+      },
+      "urlPreview": {
+        "copiedToPasteBoard": "Länken har kopierats till urklipp",
+        "convertToLink": "Konvertera till inbäddningslänk"
       },
       "outline": {
-        "addHeadingToCreateOutline": "Lägg till rubriker för att skapa en innehållsförteckning."
-      }
+        "addHeadingToCreateOutline": "Lägg till rubriker för att skapa en innehållsförteckning.",
+        "noMatchHeadings": "Inga matchande rubriker hittades."
+      },
+      "table": {
+        "addAfter": "Lägg till efter",
+        "addBefore": "Lägg till innan",
+        "delete": "Radera",
+        "clear": "Tydligt innehåll",
+        "duplicate": "Duplicera",
+        "bgColor": "Bakgrundsfärg"
+      },
+      "contextMenu": {
+        "copy": "Kopiera",
+        "cut": "Skära",
+        "paste": "Klistra"
+      },
+      "action": "Handlingar",
+      "database": {
+        "selectDataSource": "Välj datakälla",
+        "noDataSource": "Ingen datakälla",
+        "selectADataSource": "Välj en datakälla",
+        "toContinue": "att fortsätta",
+        "newDatabase": "Ny databas",
+        "linkToDatabase": "Länk till databas"
+      },
+      "date": "Datum"
+    },
+    "outlineBlock": {
+      "placeholder": "Innehållsförteckning"
     },
     "textBlock": {
       "placeholder": "Skriv '/' för kommandon"
@@ -587,22 +969,55 @@
         "label": "bild URL",
         "placeholder": "Ange bildens URL"
       },
+      "ai": {
+        "label": "Generera bild från OpenAI",
+        "placeholder": "Vänligen ange uppmaningen för OpenAI att generera bild"
+      },
+      "stability_ai": {
+        "label": "Generera bild från Stability AI",
+        "placeholder": "Vänligen ange uppmaningen till Stability AI för att generera bild"
+      },
       "support": "Bildstorleksgränsen är 5 MB. Format som stöds: JPEG, PNG, GIF, SVG",
       "error": {
         "invalidImage": "Ogiltig bild",
         "invalidImageSize": "Bildstorleken måste vara mindre än 5 MB",
         "invalidImageFormat": "Bildformat stöds inte. Format som stöds: JPEG, PNG, GIF, SVG",
-        "invalidImageUrl": "Ogiltig bildadress"
-      }
+        "invalidImageUrl": "Ogiltig bildadress",
+        "noImage": "Ingen sådan fil eller katalog"
+      },
+      "embedLink": {
+        "label": "Bädda in länk",
+        "placeholder": "Klistra in eller skriv en bildlänk"
+      },
+      "unsplash": {
+        "label": "Unsplash"
+      },
+      "searchForAnImage": "Sök efter en bild",
+      "pleaseInputYourOpenAIKey": "vänligen ange din OpenAI-nyckel på sidan Inställningar",
+      "pleaseInputYourStabilityAIKey": "vänligen ange din Stability AI-nyckel på sidan Inställningar",
+      "saveImageToGallery": "Spara bild",
+      "failedToAddImageToGallery": "Det gick inte att lägga till bild i galleriet",
+      "successToAddImageToGallery": "Bilden har lagts till i galleriet",
+      "unableToLoadImage": "Det gick inte att ladda bilden",
+      "maximumImageSize": "Den maximala uppladdningsbilden som stöds är 10 MB",
+      "uploadImageErrorImageSizeTooBig": "Bildstorleken måste vara mindre än 10 MB",
+      "imageIsUploading": "Bild laddas upp"
     },
     "codeBlock": {
       "language": {
         "label": "Språk",
-        "placeholder": "Välj språk"
-      }
+        "placeholder": "Välj språk",
+        "auto": "Bil"
+      },
+      "copyTooltip": "Kopiera innehållet i kodblocket",
+      "searchLanguageHint": "Sök efter ett språk",
+      "codeCopiedSnackbar": "Koden kopierad till urklipp!"
     },
     "inlineLink": {
       "placeholder": "Klistra in eller skriv en länk",
+      "openInNewTab": "Öppna i ny flik",
+      "copyLink": "Kopiera länk",
+      "removeLink": "Ta bort länken",
       "url": {
         "label": "Länk-URL",
         "placeholder": "Ange länkens URL"
@@ -611,15 +1026,59 @@
         "label": "Länktitel",
         "placeholder": "Ange länkens titel"
       }
+    },
+    "mention": {
+      "placeholder": "Nämn en person eller en sida eller ett datum...",
+      "page": {
+        "label": "Länk till sidan",
+        "tooltip": "Klicka för att öppna sidan"
+      },
+      "deleted": "raderade",
+      "deletedContent": "Detta innehåll finns inte eller har tagits bort"
+    },
+    "toolbar": {
+      "resetToDefaultFont": "Återställ till standard"
+    },
+    "errorBlock": {
+      "theBlockIsNotSupported": "Den aktuella versionen stöder inte detta block.",
+      "blockContentHasBeenCopied": "Blockinnehållet har kopierats."
     }
   },
   "board": {
     "column": {
-      "createNewCard": "Nytt"
+      "createNewCard": "Nytt",
+      "renameGroupTooltip": "Tryck för att byta namn på gruppen",
+      "createNewColumn": "Lägg till en ny grupp",
+      "addToColumnTopTooltip": "Lägg till ett nytt kort överst",
+      "addToColumnBottomTooltip": "Lägg till ett nytt kort längst ner",
+      "renameColumn": "Döp om",
+      "hideColumn": "Dölj",
+      "newGroup": "Ny grupp",
+      "deleteColumn": "Radera",
+      "deleteColumnConfirmation": "Detta tar bort den här gruppen och alla kort i den.\nÄr du säker på att du vill fortsätta?"
     },
+    "hiddenGroupSection": {
+      "sectionTitle": "Dolda grupper",
+      "collapseTooltip": "Göm de dolda grupperna",
+      "expandTooltip": "Visa de dolda grupperna"
+    },
+    "cardDetail": "Kort detalj",
+    "cardActions": "Kortåtgärder",
+    "cardDuplicated": "Kortet har duplicerats",
+    "cardDeleted": "Kortet har raderats",
+    "showOnCard": "Visa på kortets detalj",
+    "setting": "Miljö",
+    "propertyName": "Egendomsnamn",
     "menuName": "Tavla",
+    "showUngrouped": "Visa ogrupperade objekt",
+    "ungroupedButtonText": "Ogrupperad",
+    "ungroupedButtonTooltip": "Innehåller kort som inte hör hemma i någon grupp",
+    "ungroupedItemsTitle": "Klicka för att lägga till på tavlan",
+    "groupBy": "Grupp av",
     "referencedBoardPrefix": "Utsikt över",
+    "notesTooltip": "Anteckningar inuti",
     "mobile": {
+      "editURL": "Redigera URL",
       "showGroup": "Visa grupp",
       "showGroupContent": "Är du säker på att du vill visa den här gruppen på tavlan?",
       "failedToLoad": "Det gick inte att ladda tavlan"
@@ -628,23 +1087,32 @@
   "calendar": {
     "menuName": "Kalender",
     "defaultNewCalendarTitle": "Ofrälse",
+    "newEventButtonTooltip": "Lägg till en ny händelse",
     "navigation": {
       "today": "I dag",
       "jumpToday": "Hoppa till Idag",
       "previousMonth": "Förra månaden",
       "nextMonth": "Nästa månad"
     },
+    "mobileEventScreen": {
+      "emptyTitle": "Inga evenemang ännu",
+      "emptyBody": "Tryck på plusknappen för att skapa en händelse denna dag."
+    },
     "settings": {
       "showWeekNumbers": "Visa veckonummer",
       "showWeekends": "Visa helger",
       "firstDayOfWeek": "Börja veckan på",
       "layoutDateField": "Layoutkalender av",
+      "changeLayoutDateField": "Ändra layoutfält",
       "noDateTitle": "Inget datum",
+      "unscheduledEventsTitle": "Oschemalagda händelser",
       "clickToAdd": "Klicka för att lägga till i kalendern",
       "name": "Kalenderlayout",
       "noDateHint": "Icke schemalagda händelser kommer att dyka upp här"
     },
-    "referencedCalendarPrefix": "Utsikt över"
+    "referencedCalendarPrefix": "Utsikt över",
+    "quickJumpYear": "Hoppa till",
+    "duplicateEvent": "Dubblett händelse"
   },
   "errorDialog": {
     "title": "AppFlowy-fel",
@@ -667,5 +1135,329 @@
   "views": {
     "deleteContentTitle": "Är du säker på att du vill ta bort {pageType}?",
     "deleteContentCaption": "om du tar bort denna {pageType} kan du återställa den från papperskorgen."
+  },
+  "colors": {
+    "custom": "Beställnings",
+    "default": "Standard",
+    "red": "Röd",
+    "orange": "Orange",
+    "yellow": "Gul",
+    "green": "Grön",
+    "blue": "Blå",
+    "purple": "Lila",
+    "pink": "Rosa",
+    "brown": "Brun",
+    "gray": "grå"
+  },
+  "emoji": {
+    "emojiTab": "Emoji",
+    "search": "Sök emoji",
+    "noRecent": "Ingen ny emoji",
+    "noEmojiFound": "Ingen emoji hittades",
+    "filter": "Filtrera",
+    "random": "Slumpmässig",
+    "selectSkinTone": "Välj Hudton",
+    "remove": "Ta bort emoji",
+    "categories": {
+      "smileys": "Smileys och känslor",
+      "people": "Människor &amp; Kropp",
+      "animals": "Djur &amp; Natur",
+      "food": "Mat &amp; Dryck",
+      "activities": "Aktiviteter",
+      "places": "Resor &amp; platser",
+      "objects": "Föremål",
+      "symbols": "Symboler",
+      "flags": "Flaggor",
+      "nature": "Natur",
+      "frequentlyUsed": "Ofta använd"
+    },
+    "skinTone": {
+      "default": "Standard",
+      "light": "Ljus",
+      "mediumLight": "Medium-Lätt",
+      "medium": "Medium",
+      "mediumDark": "Medium-mörk",
+      "dark": "Mörk"
+    }
+  },
+  "inlineActions": {
+    "noResults": "Inga resultat",
+    "pageReference": "Sidhänvisning",
+    "docReference": "Dokumentreferens",
+    "boardReference": "Styrelsens referens",
+    "calReference": "Kalenderreferens",
+    "gridReference": "Rutnätsreferens",
+    "date": "Datum",
+    "reminder": {
+      "groupTitle": "Påminnelse",
+      "shortKeyword": "påminna"
+    }
+  },
+  "datePicker": {
+    "dateTimeFormatTooltip": "Ändra datum- och tidsformat i inställningarna",
+    "dateFormat": "Datumformat",
+    "includeTime": "Inkludera tid",
+    "isRange": "Slutdatum",
+    "timeFormat": "Tidsformat",
+    "clearDate": "Klart datum",
+    "reminderLabel": "Påminnelse",
+    "selectReminder": "Välj påminnelse",
+    "reminderOptions": {
+      "none": "Ingen",
+      "atTimeOfEvent": "Tidpunkt för händelsen",
+      "fiveMinsBefore": "5 min innan",
+      "tenMinsBefore": "10 minuter innan",
+      "fifteenMinsBefore": "15 minuter innan",
+      "thirtyMinsBefore": "30 minuter innan",
+      "oneHourBefore": "1 timme innan",
+      "twoHoursBefore": "2 timmar innan",
+      "onDayOfEvent": "På händelsedagen",
+      "oneDayBefore": "1 dag innan",
+      "twoDaysBefore": "2 dagar innan",
+      "oneWeekBefore": "1 vecka innan",
+      "custom": "Beställnings"
+    }
+  },
+  "relativeDates": {
+    "yesterday": "I går",
+    "today": "I dag",
+    "tomorrow": "I morgon",
+    "oneWeek": "1 vecka"
+  },
+  "notificationHub": {
+    "title": "Aviseringar",
+    "mobile": {
+      "title": "Uppdateringar"
+    },
+    "emptyTitle": "Alla kom ikapp!",
+    "emptyBody": "Inga väntande meddelanden eller åtgärder. Njut av lugnet.",
+    "tabs": {
+      "inbox": "Inkorg",
+      "upcoming": "Kommande"
+    },
+    "actions": {
+      "markAllRead": "Markera allt som läst",
+      "showAll": "Allt",
+      "showUnreads": "Oläst"
+    },
+    "filters": {
+      "ascending": "Stigande",
+      "descending": "Nedåtgående",
+      "groupByDate": "Gruppera efter datum",
+      "showUnreadsOnly": "Visa endast olästa",
+      "resetToDefault": "Återställ till standard"
+    }
+  },
+  "reminderNotification": {
+    "title": "Påminnelse",
+    "message": "Kom ihåg att kontrollera detta innan du glömmer!",
+    "tooltipDelete": "Radera",
+    "tooltipMarkRead": "markera som läst",
+    "tooltipMarkUnread": "markera som oläst"
+  },
+  "findAndReplace": {
+    "find": "Hitta",
+    "previousMatch": "Föregående match",
+    "nextMatch": "Nästa match",
+    "close": "Stänga",
+    "replace": "Byta ut",
+    "replaceAll": "Ersätt alla",
+    "noResult": "Inga resultat",
+    "caseSensitive": "Skiftlägeskänsliga",
+    "searchMore": "Sök för att hitta fler resultat"
+  },
+  "error": {
+    "weAreSorry": "Vi ber om ursäkt",
+    "loadingViewError": "Vi har problem med att ladda den här vyn. Kontrollera din internetanslutning, uppdatera appen och tveka inte att kontakta teamet om problemet kvarstår."
+  },
+  "editor": {
+    "bold": "Djärv",
+    "bulletedList": "Punktlista",
+    "bulletedListShortForm": "Punktlista",
+    "checkbox": "Kryssruta",
+    "embedCode": "Inbäddade koden",
+    "heading1": "H1",
+    "heading2": "H2",
+    "heading3": "H3",
+    "highlight": "Markera",
+    "color": "Färg",
+    "image": "Bild",
+    "date": "Datum",
+    "italic": "Kursiv",
+    "link": "Länk",
+    "numberedList": "Numrerad lista",
+    "numberedListShortForm": "Numrerad",
+    "quote": "Citat",
+    "strikethrough": "Genomstruken",
+    "text": "Text",
+    "underline": "Understrykning",
+    "fontColorDefault": "Standard",
+    "fontColorGray": "grå",
+    "fontColorBrown": "Brun",
+    "fontColorOrange": "Orange",
+    "fontColorYellow": "Gul",
+    "fontColorGreen": "Grön",
+    "fontColorBlue": "Blå",
+    "fontColorPurple": "Lila",
+    "fontColorPink": "Rosa",
+    "fontColorRed": "Röd",
+    "backgroundColorDefault": "Standardbakgrund",
+    "backgroundColorGray": "Grå bakgrund",
+    "backgroundColorBrown": "Brun bakgrund",
+    "backgroundColorOrange": "Orange bakgrund",
+    "backgroundColorYellow": "Gul bakgrund",
+    "backgroundColorGreen": "Grön bakgrund",
+    "backgroundColorBlue": "Blå bakgrund",
+    "backgroundColorPurple": "Lila bakgrund",
+    "backgroundColorPink": "Rosa bakgrund",
+    "backgroundColorRed": "Röd bakgrund",
+    "backgroundColorLime": "Lime bakgrund",
+    "backgroundColorAqua": "Aqua bakgrund",
+    "done": "Gjort",
+    "cancel": "Annullera",
+    "tint1": "Nyans 1",
+    "tint2": "Nyans 2",
+    "tint3": "Nyans 3",
+    "tint4": "Nyans 4",
+    "tint5": "Nyans 5",
+    "tint6": "Nyans 6",
+    "tint7": "Nyans 7",
+    "tint8": "Nyans 8",
+    "tint9": "Nyans 9",
+    "lightLightTint1": "Lila",
+    "lightLightTint2": "Rosa",
+    "lightLightTint3": "Ljusrosa",
+    "lightLightTint4": "Orange",
+    "lightLightTint5": "Gul",
+    "lightLightTint6": "Kalk",
+    "lightLightTint7": "Grön",
+    "lightLightTint8": "Aqua",
+    "lightLightTint9": "Blå",
+    "urlHint": "URL",
+    "mobileHeading1": "Rubrik 1",
+    "mobileHeading2": "Rubrik 2",
+    "mobileHeading3": "Rubrik 3",
+    "textColor": "Text färg",
+    "backgroundColor": "Bakgrundsfärg",
+    "addYourLink": "Lägg till din länk",
+    "openLink": "Öppen länk",
+    "copyLink": "Kopiera länk",
+    "removeLink": "Ta bort länken",
+    "editLink": "Redigera länk",
+    "linkText": "Text",
+    "linkTextHint": "Vänligen ange text",
+    "linkAddressHint": "Ange URL",
+    "highlightColor": "Markeringsfärg",
+    "clearHighlightColor": "Tydlig höjdpunktsfärg",
+    "customColor": "Anpassad färg",
+    "hexValue": "Hexvärde",
+    "opacity": "Opacitet",
+    "resetToDefaultColor": "Återställ till standardfärg",
+    "ltr": "LTR",
+    "rtl": "RTL",
+    "auto": "Bil",
+    "cut": "Skära",
+    "copy": "Kopiera",
+    "paste": "Klistra",
+    "find": "Hitta",
+    "select": "Välj",
+    "selectAll": "Välj alla",
+    "previousMatch": "Föregående match",
+    "nextMatch": "Nästa match",
+    "closeFind": "Stänga",
+    "replace": "Byta ut",
+    "replaceAll": "Ersätt alla",
+    "regex": "Regex",
+    "caseSensitive": "Skiftlägeskänsliga",
+    "uploadImage": "Ladda upp bild",
+    "urlImage": "URL-bild",
+    "incorrectLink": "Felaktig länk",
+    "upload": "Ladda upp",
+    "chooseImage": "Välj en bild",
+    "loading": "Läser in",
+    "imageLoadFailed": "Det gick inte att ladda bilden",
+    "divider": "Delare",
+    "table": "Tabell",
+    "colAddBefore": "Lägg till innan",
+    "rowAddBefore": "Lägg till innan",
+    "colAddAfter": "Lägg till efter",
+    "rowAddAfter": "Lägg till efter",
+    "colRemove": "Avlägsna",
+    "rowRemove": "Avlägsna",
+    "colDuplicate": "Duplicera",
+    "rowDuplicate": "Duplicera",
+    "colClear": "Rensa innehåll",
+    "rowClear": "Rensa innehåll",
+    "slashPlaceHolder": "Skriv '/' för att infoga ett block, eller börja skriva",
+    "typeSomething": "Skriv något...",
+    "toggleListShortForm": "Växla",
+    "quoteListShortForm": "Citat",
+    "mathEquationShortForm": "Formel",
+    "codeBlockShortForm": "Koda"
+  },
+  "favorite": {
+    "noFavorite": "Ingen favoritsida",
+    "noFavoriteHintText": "Svep sidan till vänster för att lägga till den i dina favoriter"
+  },
+  "cardDetails": {
+    "notesPlaceholder": "Ange en / för att infoga ett block, eller börja skriva"
+  },
+  "blockPlaceholders": {
+    "todoList": "Att göra",
+    "bulletList": "Lista",
+    "numberList": "Lista",
+    "quote": "Citat",
+    "heading": "Rubrik {}"
+  },
+  "titleBar": {
+    "pageIcon": "Sidikon",
+    "language": "Språk",
+    "font": "Font",
+    "actions": "Handlingar",
+    "date": "Datum",
+    "addField": "Lägg till fält",
+    "userIcon": "Användarikon"
+  },
+  "noLogFiles": "Det finns inga loggfiler",
+  "newSettings": {
+    "myAccount": {
+      "title": "Mitt konto",
+      "profileNamePlaceholder": "Ange ditt namn",
+      "accountSecurity": "Konto säkerhet",
+      "2FA": "2-stegsautentisering",
+      "aiKeys": "AI-nycklar",
+      "accountLogin": "Kontoinloggning",
+      "deleteAccount": {
+        "title": "Radera konto",
+        "deleteMyAccount": "Ta bort mitt konto",
+        "dialogTitle": "Radera konto",
+        "dialogContent1": "Är du säker på att du vill ta bort ditt konto permanent?"
+      }
+    },
+    "workplace": {
+      "name": "Arbetsplats",
+      "subtitle": "Anpassa arbetsytans utseende, tema, teckensnitt, textlayout, datum, tid och språk.",
+      "workplaceNamePlaceholder": "Ange arbetsplatsens namn",
+      "workplaceIcon": "Arbetsplats ikon",
+      "updateIconError": "Det gick inte att uppdatera ikonen",
+      "appearance": {
+        "name": "Utseende",
+        "themeMode": {
+          "auto": "Bil",
+          "light": "Ljus",
+          "dark": "Mörk"
+        },
+        "language": "Språk"
+      }
+    },
+    "syncState": {
+      "syncing": "Synkroniseras",
+      "synced": "Synkroniserad"
+    }
+  },
+  "commandPalette": {
+    "navigateHint": "att navigera",
+    "betaLabel": "BETA",
+    "fromTrashHint": "Från papperskorgen"
   }
 }

@@ -9,6 +9,7 @@
   "title": "Título",
   "youCanAlso": "Você também pode",
   "and": "e",
+  "failedToOpenUrl": "Falha ao abrir o URL: {}",
   "blockActions": {
     "addBelowTooltip": "Clique para adicionar abaixo",
     "addAboveCmd": "Alt+clique",
@@ -49,6 +50,11 @@
     "LogInWithGithub": "Entrar com o Github",
     "LogInWithDiscord": "Entrar com o Discord",
     "signInWith": "Entrar com:",
+    "signInWithEmail": "Faça login com e-mail",
+    "logInWithMagicLink": "Faça login com MagicLink",
+    "pleaseInputYourEmail": "Por favor, indique o seu endereço de e-mail",
+    "magicLinkSent": "Link mágico enviado para seu e-mail, verifique sua caixa de entrada",
+    "invalidEmail": "Por favor insira um endereço de e-mail válido",
     "loginAsGuestButtonText": "Iniciar"
   },
   "workspace": {
@@ -61,13 +67,34 @@
     "failedToLoad": "Algo deu errado! Falha ao carregar o espaço de trabalho. Tente fechar qualquer instância aberta do AppFlowy e tente novamente.",
     "errorActions": {
       "reportIssue": "Reporte um problema",
+      "reportIssueOnGithub": "Relate um problema no Github",
+      "exportLogFiles": "Exportar arquivos de log",
       "reachOut": "Entre em contato no Discord"
-    }
+    },
+    "menuTitle": "Espaços de trabalho",
+    "deleteWorkspaceHintText": "Tem certeza de que deseja excluir o espaço de trabalho? Essa ação não pode ser desfeita.",
+    "createSuccess": "Espaço de trabalho criado com sucesso",
+    "createFailed": "Falha ao criar espaço de trabalho",
+    "createLimitExceeded": "Você atingiu o limite máximo de espaço de trabalho permitido para sua conta. Se você precisar de espaços de trabalho adicionais para continuar seu trabalho, solicite no Github",
+    "deleteSuccess": "Espaço de trabalho excluído com sucesso",
+    "deleteFailed": "Falha ao excluir o espaço de trabalho",
+    "openSuccess": "Abra o espaço de trabalho com sucesso",
+    "openFailed": "Falha ao abrir o espaço de trabalho",
+    "renameSuccess": "Espaço de trabalho renomeado com sucesso",
+    "renameFailed": "Falha ao renomear o espaço de trabalho",
+    "updateIconSuccess": "Ícone do espaço de trabalho atualizado com sucesso",
+    "updateIconFailed": "Falha no ícone do espaço de trabalho atualizado",
+    "cannotDeleteTheOnlyWorkspace": "Não é possível excluir o único espaço de trabalho",
+    "fetchWorkspacesFailed": "Falha ao buscar espaços de trabalho",
+    "leaveCurrentWorkspace": "Sair do espaço de trabalho",
+    "leaveCurrentWorkspacePrompt": "Tem certeza de que deseja sair do espaço de trabalho atual?"
   },
   "shareAction": {
     "buttonText": "Compartilhar",
     "workInProgress": "Em breve",
     "markdown": "Marcador",
+    "html": "HTML",
+    "clipboard": "Copiar para área de transferência",
     "csv": "CSV",
     "copyLink": "Copiar link"
   },
@@ -77,7 +104,12 @@
     "large": "grande",
     "fontSize": "Tamanho da fonte",
     "import": "Importar",
-    "moreOptions": "Mais opções"
+    "moreOptions": "Mais opções",
+    "wordCount": "Contagem de palavras: {}",
+    "charCount": "Contador de caracteres: {}",
+    "createdAt": "Criada: {}",
+    "deleteView": "Excluir",
+    "duplicateView": "Duplicado"
   },
   "importPanel": {
     "textAndMarkdown": "Texto e Remarcação",
@@ -126,7 +158,8 @@
       "emptyDescription": "Você não tem nenhum arquivo excluído",
       "isDeleted": "foi deletado",
       "isRestored": "foi restaurado"
-    }
+    },
+    "confirmDeleteTitle": "Tem certeza de que deseja excluir esta página permanentemente?"
   },
   "deletePagePrompt": {
     "text": "Está página está na lixeira",
@@ -186,10 +219,16 @@
     "closeSidebar": "Fechar barra lateral",
     "openSidebar": "Abrir barra lateral",
     "personal": "Pessoal",
+    "private": "Privado",
+    "workspace": "Área de trabalho",
     "favorites": "Favoritos",
+    "clickToHidePrivate": "Clique para ocultar o espaço privado\nAs páginas que você criou aqui só ficam visíveis para você",
+    "clickToHideWorkspace": "Clique para ocultar o espaço de trabalho\nAs páginas que você criou aqui são visíveis para todos os membros",
     "clickToHidePersonal": "Clique para ocultar a seção pessoal",
     "clickToHideFavorites": "Clique para ocultar a seção favorita",
     "addAPage": "Adicionar uma página",
+    "addAPageToPrivate": "Adicione uma página ao espaço privado",
+    "addAPageToWorkspace": "Adicionar uma página ao espaço de trabalho",
     "recent": "Recentes"
   },
   "notifications": {
@@ -233,6 +272,18 @@
     "helpCenter": "Central de Ajuda",
     "add": "Adicionar",
     "yes": "Sim",
+    "clear": "Claro",
+    "remove": "Remover",
+    "dontRemove": "Não remova",
+    "copyLink": "Link de cópia",
+    "align": "Alinhar",
+    "login": "Conecte-se",
+    "logout": "Sair",
+    "deleteAccount": "Deletar conta",
+    "back": "Voltar",
+    "signInGoogle": "Faça login no Google",
+    "signInGithub": "Faça login com o Github",
+    "signInDiscord": "Faça login com Discord",
     "tryAGain": "Tentar novamente"
   },
   "label": {
@@ -278,9 +329,12 @@
       "cloudLocal": "Local",
       "cloudSupabase": "Supabase",
       "cloudSupabaseUrl": "URL da Supabase",
+      "cloudSupabaseUrlCanNotBeEmpty": "O URL da supabase não pode estar vazio",
       "cloudSupabaseAnonKey": "Chave anônima Supabase",
       "cloudSupabaseAnonKeyCanNotBeEmpty": "A chave anon não pode estar vazia se o URL da supabase não estiver vazio",
       "cloudAppFlowy": "AppFlowy Cloud",
+      "cloudAppFlowySelfHost": "AppFlowy Cloud auto-hospedado",
+      "appFlowyCloudUrlCanNotBeEmpty": "O URL da nuvem não pode estar vazio",
       "clickToCopy": "Clique para copiar",
       "selfHostStart": "Se você não possui um servidor, consulte o",
       "selfHostContent": "documento",
@@ -290,6 +344,7 @@
       "cloudWSURLHint": "Insira o endereço do websocket do seu servidor",
       "restartApp": "Reiniciar",
       "restartAppTip": "Reinicie o aplicativo para que as alterações tenham efeito. Observe que isso pode desconectar sua conta atual",
+      "changeServerTip": "Após alterar o servidor, você deve clicar no botão reiniciar para que as alterações tenham efeito",
       "enableEncryptPrompt": "Ative a criptografia para proteger seus dados com este segredo. Armazene-o com segurança; uma vez ativado, não pode ser desativado. Se perdidos, seus dados se tornarão irrecuperáveis. Clique para copiar",
       "inputEncryptPrompt": "Por favor, insira seu segredo de criptografia para",
       "clickToCopySecret": "Clique para copiar o segredo",
@@ -301,6 +356,7 @@
       "openHistoricalUser": "Clique para abrir a conta anônima",
       "customPathPrompt": "Armazenar a pasta de dados do AppFlowy em uma pasta sincronizada na nuvem, como o Google Drive, pode representar riscos. Se o banco de dados nesta pasta for acessado ou modificado de vários locais ao mesmo tempo, isso poderá resultar em conflitos de sincronização e possível corrupção de dados",
       "importAppFlowyData": "Importar dados da pasta AppFlowy externa",
+      "importingAppFlowyDataTip": "A importação de dados está em andamento. Por favor, não feche o aplicativo",
       "importAppFlowyDataDescription": "Copie dados de uma pasta de dados externa do AppFlowy e importe-os para a pasta de dados atual do AppFlowy",
       "importSuccess": "Importou com sucesso a pasta de dados do AppFlowy",
       "importFailed": "Falha ao importar a pasta de dados do AppFlowy",
@@ -325,6 +381,7 @@
         "dark": "Modo escuro",
         "system": "Adaptar-se ao sistema"
       },
+      "fontScaleFactor": "Fator de escala de fonte",
       "documentSettings": {
         "cursorColor": "Cor do cursor do documento",
         "selectionColor": "Cor de seleção do documento",
@@ -378,7 +435,36 @@
         "twelveHour": "Doze horas",
         "twentyFourHour": "Vinte e quatro horas"
       },
-      "showNamingDialogWhenCreatingPage": "Mostrar caixa de diálogo de nomenclatura ao criar uma página"
+      "showNamingDialogWhenCreatingPage": "Mostrar caixa de diálogo de nomenclatura ao criar uma página",
+      "enableRTLToolbarItems": "Habilitar itens da barra de ferramentas RTL",
+      "members": {
+        "title": "Configurações de membros",
+        "inviteMembers": "Convidar membros",
+        "sendInvite": "Mandar convite",
+        "copyInviteLink": "Copiar link de convite",
+        "label": "Membros",
+        "user": "Do utilizador",
+        "role": "Papel",
+        "removeFromWorkspace": "Remover do espaço de trabalho",
+        "owner": "Proprietário",
+        "guest": "Convidado",
+        "member": "Membro",
+        "memberHintText": "Um membro pode ler, comentar e editar páginas. Convide membros e convidados.",
+        "guestHintText": "Um convidado pode ler, reagir, comentar e editar determinadas páginas com permissão.",
+        "emailInvalidError": "E-mail inválido, verifique e tente novamente",
+        "emailSent": "E-mail enviado, verifique a caixa de entrada",
+        "members": "membros",
+        "membersCount": {
+          "zero": "{} membros",
+          "one": "{} membro",
+          "other": "{} membros"
+        },
+        "memberLimitExceeded": "Você atingiu o limite máximo de membros permitido para sua conta. Se você quiser adicionar mais membros para continuar seu trabalho, solicite no Github",
+        "failedToAddMember": "Falha ao adicionar membro",
+        "addMemberSuccess": "Membro adicionado com sucesso",
+        "removeMember": "Remover membro",
+        "areYouSureToRemoveMember": "Tem certeza de que deseja remover este membro?"
+      }
     },
     "files": {
       "copy": "cópia de",
@@ -414,7 +500,11 @@
       "recoverLocationTooltips": "Redefinir para o diretório de dados padrão do AppFlowy",
       "exportFileSuccess": "Exportar arquivo com sucesso!",
       "exportFileFail": "Falha na exportação do arquivo!",
-      "export": "Exportar"
+      "export": "Exportar",
+      "clearCache": "Limpar cache",
+      "clearCacheDesc": "Se você encontrar problemas com imagens que não carregam ou fontes que não são exibidas corretamente, tente limpar o cache. Esta ação não removerá seus dados de usuário.",
+      "areYouSureToClearCache": "Tem certeza de que deseja limpar o cache?",
+      "clearCacheSuccess": "Cache limpo com sucesso!"
     },
     "user": {
       "name": "Nome",
@@ -490,8 +580,8 @@
       "duplicateView": "Visualização duplicada",
       "deleteView": "Excluir visualização",
       "numberOfVisibleFields": "{} mostrando",
-      "Properties": "Propriedades",
-      "viewList": "Visualizações de banco de dados"
+      "viewList": "Visualizações de banco de dados",
+      "Properties": "Propriedades"
     },
     "textFilter": {
       "contains": "Contém",
@@ -533,9 +623,29 @@
       "is": "É",
       "before": "É antes",
       "after": "é depois",
+      "onOrBefore": "Está ligado ou antes",
+      "onOrAfter": "Está ligado ou depois",
       "between": "Está entre",
       "empty": "Está vazia",
-      "notEmpty": "Não está vazio"
+      "notEmpty": "Não está vazio",
+      "choicechipPrefix": {
+        "before": "Antes",
+        "after": "Depois",
+        "onOrBefore": "Em ou antes",
+        "onOrAfter": "Em ou depois",
+        "isEmpty": "Está vazia",
+        "isNotEmpty": "Não está vazio"
+      }
+    },
+    "numberFilter": {
+      "equal": "É igual a",
+      "notEqual": "Não é igual",
+      "lessThan": "É menos do que",
+      "greaterThan": "É melhor que",
+      "lessThanOrEqualTo": "É menor ou igual a",
+      "greaterThanOrEqualTo": "É maior que ou igual a",
+      "isEmpty": "Está vazia",
+      "isNotEmpty": "Não está vazio"
     },
     "field": {
       "hide": "Ocultar",
@@ -544,6 +654,8 @@
       "insertRight": "Inserir a direita",
       "duplicate": "Duplicar",
       "delete": "Apagar",
+      "wrap": "Enrolar",
+      "clear": "Limpar células",
       "textFieldName": "Texto",
       "checkboxFieldName": "Caixa de seleção",
       "dateFieldName": "Data",
@@ -554,6 +666,7 @@
       "multiSelectFieldName": "Multi seleção",
       "urlFieldName": "URL",
       "checklistFieldName": "Lista",
+      "relationFieldName": "Relação",
       "numberFormat": "Formato numérico",
       "dateFormat": "Formato de data",
       "includeTime": "Incluir hora",
@@ -583,8 +696,11 @@
       "editProperty": "Editar propriedade",
       "newProperty": "Nova coluna",
       "deleteFieldPromptMessage": "Tem certeza? Esta propriedade será excluída",
+      "clearFieldPromptMessage": "Tem certeza? Todas as células nesta coluna serão esvaziadas",
       "newColumn": "Nova Coluna",
-      "format": "Formato"
+      "format": "Formato",
+      "reminderOnDateTooltip": "Esta célula tem um lembrete programado",
+      "optionAlreadyExist": "A opção já existe"
     },
     "rowPage": {
       "newField": "Adicione um novo campo",
@@ -603,8 +719,13 @@
     "sort": {
       "ascending": "Crescente",
       "descending": "Decrescente",
+      "by": "Por",
+      "empty": "Nenhuma classificação ativa",
+      "cannotFindCreatableField": "Não é possível encontrar um campo adequado para classificar",
       "deleteAllSorts": "Apagar todas as ordenações",
       "addSort": "Adicionar ordenação",
+      "removeSorting": "Deseja remover a classificação?",
+      "fieldInUse": "Você já está classificando por este campo",
       "deleteSort": "Apagar ordenação"
     },
     "row": {
@@ -654,10 +775,36 @@
     },
     "url": {
       "launch": "Abrir com o navegador",
-      "copy": "Copiar URL"
+      "copy": "Copiar URL",
+      "textFieldHint": "Insira um URL",
+      "copiedNotification": "Copiado para a área de transferência!"
+    },
+    "relation": {
+      "relatedDatabasePlaceLabel": "Banco de dados relacionado",
+      "relatedDatabasePlaceholder": "Nenhum",
+      "inRelatedDatabase": "Em",
+      "rowSearchTextFieldPlaceholder": "Procurar",
+      "noDatabaseSelected": "Nenhum banco de dados selecionado, selecione um primeiro na lista abaixo:",
+      "emptySearchResult": "Nenhum registro foi encontrado",
+      "linkedRowListLabel": "{count} linhas vinculadas",
+      "unlinkedRowListLabel": "Vincular outra linha"
     },
     "menuName": "Grade",
-    "referencedGridPrefix": "Vista de"
+    "referencedGridPrefix": "Vista de",
+    "calculate": "Calcular",
+    "calculationTypeLabel": {
+      "none": "Nenhum",
+      "average": "Média",
+      "max": "Máx.",
+      "median": "Mediana",
+      "min": "Mínimo",
+      "sum": "Soma",
+      "count": "Contar",
+      "countEmpty": "Contagem vazia",
+      "countEmptyShort": "VAZIO",
+      "countNonEmpty": "Contagem não vazia",
+      "countNonEmptyShort": "PREENCHIDO"
+    }
   },
   "document": {
     "menuName": "Documento",
@@ -762,17 +909,21 @@
         "left": "Esquerda",
         "center": "Centro",
         "right": "Certo",
-        "defaultColor": "Padrão"
+        "defaultColor": "Padrão",
+        "depth": "Profundidade"
       },
       "image": {
         "copiedToPasteBoard": "O link da imagem foi copiado para a área de transferência",
-        "addAnImage": "Adicione uma imagem"
+        "addAnImage": "Adicione uma imagem",
+        "imageUploadFailed": "Falha no upload da imagem"
       },
       "urlPreview": {
-        "copiedToPasteBoard": "O link foi copiado para a área de transferência"
+        "copiedToPasteBoard": "O link foi copiado para a área de transferência",
+        "convertToLink": "Converter para link incorporado"
       },
       "outline": {
-        "addHeadingToCreateOutline": "Adicione títulos para criar um sumário."
+        "addHeadingToCreateOutline": "Adicione títulos para criar um sumário.",
+        "noMatchHeadings": "Nenhum título correspondente encontrado."
       },
       "table": {
         "addAfter": "Adicionar depois",
@@ -796,7 +947,11 @@
         "newDatabase": "Novo banco de dados",
         "linkToDatabase": "Link para banco de dados"
       },
+      "date": "Data",
       "autoCompletionMenuItemName": "Preenchimento Automático"
+    },
+    "outlineBlock": {
+      "placeholder": "Índice"
     },
     "textBlock": {
       "placeholder": "Digite '/' para comandos"
@@ -827,7 +982,8 @@
         "invalidImage": "imagem inválida",
         "invalidImageSize": "O tamanho da imagem deve ser inferior a 5 MB",
         "invalidImageFormat": "O formato da imagem não é suportado. Formatos suportados: JPEG, PNG, GIF, SVG",
-        "invalidImageUrl": "URL de imagem inválido"
+        "invalidImageUrl": "URL de imagem inválido",
+        "noImage": "Não existe tal arquivo ou diretório"
       },
       "embedLink": {
         "label": "Incorporar link",
@@ -842,13 +998,20 @@
       "saveImageToGallery": "Salvar imagem",
       "failedToAddImageToGallery": "Falha ao adicionar imagem à galeria",
       "successToAddImageToGallery": "Imagem adicionada à galeria com sucesso",
-      "unableToLoadImage": "Não foi possível carregar a imagem"
+      "unableToLoadImage": "Não foi possível carregar a imagem",
+      "maximumImageSize": "O tamanho máximo de imagem de upload suportado é 10 MB",
+      "uploadImageErrorImageSizeTooBig": "O tamanho da imagem deve ser inferior a 10 MB",
+      "imageIsUploading": "A imagem está sendo carregada"
     },
     "codeBlock": {
       "language": {
         "label": "Linguagem",
-        "placeholder": "Selecione o idioma"
-      }
+        "placeholder": "Selecione o idioma",
+        "auto": "Auto"
+      },
+      "copyTooltip": "Copie o conteúdo do bloco de código",
+      "searchLanguageHint": "Procure um idioma",
+      "codeCopiedSnackbar": "Código copiado para a área de transferência!"
     },
     "inlineLink": {
       "placeholder": "Cole ou digite um link",
@@ -869,7 +1032,9 @@
       "page": {
         "label": "Link para a página",
         "tooltip": "Clique para abrir a página"
-      }
+      },
+      "deleted": "Excluído",
+      "deletedContent": "Este conteúdo não existe ou foi excluído"
     },
     "toolbar": {
       "resetToDefaultFont": "Restaurar ao padrão"
@@ -929,6 +1094,10 @@
       "previousMonth": "Mês anterior",
       "nextMonth": "Próximo mês"
     },
+    "mobileEventScreen": {
+      "emptyTitle": "Nenhum evento ainda",
+      "emptyBody": "Pressione o botão de adição para criar um evento neste dia."
+    },
     "settings": {
       "showWeekNumbers": "Mostrar números da semana",
       "showWeekends": "Mostrar fins de semana",
@@ -942,7 +1111,8 @@
       "noDateHint": "Eventos não agendados aparecerão aqui"
     },
     "referencedCalendarPrefix": "Vista de",
-    "quickJumpYear": "Ir para"
+    "quickJumpYear": "Ir para",
+    "duplicateEvent": "Evento duplicado"
   },
   "errorDialog": {
     "title": "Erro do AppFlowy",
@@ -1029,7 +1199,24 @@
     "includeTime": "Incluir tempo",
     "isRange": "Data final",
     "timeFormat": "Formato de hora",
-    "clearDate": "Limpar data"
+    "clearDate": "Limpar data",
+    "reminderLabel": "Lembrete",
+    "selectReminder": "Selecione lembrete",
+    "reminderOptions": {
+      "none": "Nenhum",
+      "atTimeOfEvent": "Hora do evento",
+      "fiveMinsBefore": "5 minutos antes",
+      "tenMinsBefore": "10 minutos antes",
+      "fifteenMinsBefore": "15 minutos antes",
+      "thirtyMinsBefore": "30 minutos antes",
+      "oneHourBefore": "1 hora antes",
+      "twoHoursBefore": "2 horas antes",
+      "onDayOfEvent": "No dia do evento",
+      "oneDayBefore": "1 dia antes",
+      "twoDaysBefore": "2 dias antes",
+      "oneWeekBefore": "1 semana antes",
+      "custom": "Personalizado"
+    }
   },
   "relativeDates": {
     "yesterday": "Ontem",
@@ -1076,7 +1263,8 @@
     "replace": "Substituir",
     "replaceAll": "Substituir tudo",
     "noResult": "Nenhum resultado",
-    "caseSensitive": "Sensível a maiúsculas e minúsculas"
+    "caseSensitive": "Sensível a maiúsculas e minúsculas",
+    "searchMore": "Pesquise para encontrar mais resultados"
   },
   "error": {
     "weAreSorry": "Nós lamentamos",
@@ -1085,6 +1273,7 @@
   "editor": {
     "bold": "Negrito",
     "bulletedList": "Lista com marcadores",
+    "bulletedListShortForm": "Marcado",
     "checkbox": "Caixa de seleção",
     "embedCode": "Incorporar Código",
     "heading1": "H1",
@@ -1093,9 +1282,11 @@
     "highlight": "Destacar",
     "color": "Cor",
     "image": "Imagem",
+    "date": "Data",
     "italic": "Itálico",
     "link": "Link",
     "numberedList": "Lista Numerada",
+    "numberedListShortForm": "Numerado",
     "quote": "Citar",
     "strikethrough": "Tachado",
     "text": "Texto",
@@ -1120,6 +1311,8 @@
     "backgroundColorPurple": "Fundo roxo",
     "backgroundColorPink": "Fundo rosa",
     "backgroundColorRed": "Fundo vermelho",
+    "backgroundColorLime": "Fundo limão",
+    "backgroundColorAqua": "Fundo água",
     "done": "Feito",
     "cancel": "Cancelar",
     "tint1": "Matiz 1",
@@ -1167,6 +1360,8 @@
     "copy": "Copiar",
     "paste": "Colar",
     "find": "Encontrar",
+    "select": "Selecione",
+    "selectAll": "Selecionar tudo",
     "previousMatch": "Localizar anterior",
     "nextMatch": "Localizar próxima",
     "closeFind": "Fechar",
@@ -1194,7 +1389,11 @@
     "colClear": "Limpar conteúdo",
     "rowClear": "Limpar conteúdo",
     "slashPlaceHolder": "Digite '/' para inserir um bloco ou comece a digitar",
-    "typeSomething": "Digite algo..."
+    "typeSomething": "Digite algo...",
+    "toggleListShortForm": "Alternar",
+    "quoteListShortForm": "Citar",
+    "mathEquationShortForm": "Fórmula",
+    "codeBlockShortForm": "Código"
   },
   "favorite": {
     "noFavorite": "Nenhuma página favorita",
@@ -1218,5 +1417,47 @@
     "date": "Data",
     "addField": "Adicionar campo",
     "userIcon": "Ícone do usuário"
+  },
+  "noLogFiles": "Não há arquivos de log",
+  "newSettings": {
+    "myAccount": {
+      "title": "Minha conta",
+      "profileNamePlaceholder": "Digite seu nome",
+      "accountSecurity": "Segurança da conta",
+      "2FA": "Autenticação em duas etapas",
+      "aiKeys": "Chaves de IA",
+      "accountLogin": "Login da conta",
+      "deleteAccount": {
+        "title": "Deletar conta",
+        "deleteMyAccount": "Deletar minha conta",
+        "dialogTitle": "Deletar conta",
+        "dialogContent1": "Tem certeza de que deseja excluir permanentemente sua conta?"
+      }
+    },
+    "workplace": {
+      "name": "Ambiente de trabalho",
+      "subtitle": "Personalize a aparência, o tema, a fonte, o layout do texto, a data, a hora e o idioma do seu espaço de trabalho.",
+      "workplaceNamePlaceholder": "Insira o nome do local de trabalho",
+      "workplaceIcon": "Ícone do local de trabalho",
+      "updateIconError": "Falha ao atualizar o ícone",
+      "appearance": {
+        "name": "Aparência",
+        "themeMode": {
+          "auto": "Auto",
+          "light": "Luz",
+          "dark": "Escuro"
+        },
+        "language": "Linguagem"
+      }
+    },
+    "syncState": {
+      "syncing": "Sincronizando",
+      "synced": "Sincronizado"
+    }
+  },
+  "commandPalette": {
+    "navigateHint": "navegar",
+    "betaLabel": "BETA",
+    "fromTrashHint": "Do lixo"
   }
 }

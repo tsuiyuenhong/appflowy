@@ -2,17 +2,21 @@
   "appName": "AppFlowy",
   "defaultUsername": "Ni",
   "welcomeText": "Ongietorri @:appName -ra",
+  "welcomeTo": "Ongi etorria",
   "githubStarText": "Izarra GitHub-en",
   "subscribeNewsletterText": "Harpidetu buletinera",
   "letsGoButtonText": "Hasi",
   "title": "Izenburua",
   "youCanAlso": "Zuk ere egin dezakezu",
   "and": "eta",
+  "failedToOpenUrl": "Ezin izan da ireki URLa: {}",
   "blockActions": {
     "addBelowTooltip": "Egin klik behean gehitzeko",
     "addAboveCmd": "Alt+klik",
     "addAboveMacCmd": "Aukera+klik",
-    "addAboveTooltip": "goian gehitzeko"
+    "addAboveTooltip": "goian gehitzeko",
+    "dragTooltip": "Arrastatu mugitzeko",
+    "openMenuTooltip": "Egin klik menua irekitzeko"
   },
   "signUp": {
     "buttonText": "Izena eman",
@@ -24,29 +28,74 @@
     "alreadyHaveAnAccount": "Kontu bat duzu jada?",
     "emailHint": "Emaila",
     "passwordHint": "Pasahitza",
-    "repeatPasswordHint": "Pasahitza errepikatu"
+    "repeatPasswordHint": "Pasahitza errepikatu",
+    "signUpWith": "Izena eman honekin:"
   },
   "signIn": {
     "loginTitle": "Hasi saioa @:appName -n",
     "loginButtonText": "Hasi saioa",
+    "loginStartWithAnonymous": "Hasi saio anonimo batekin",
+    "continueAnonymousUser": "Jarraitu saio anonimo batekin",
     "buttonText": "Sartu",
+    "signingInText": "Saioa hasten...",
     "forgotPassword": "Pasahitza ahaztu duzu?",
     "emailHint": "Emaila",
     "passwordHint": "Pasahitza",
     "dontHaveAnAccount": "Ez daukazu konturik?",
     "repeatPasswordEmptyError": "Pasahitz errepikapenak ezin du hutsik egon",
     "unmatchedPasswordError": "Pasahitz errepikapena ez da berdina",
+    "syncPromptMessage": "Baliteke datuak sinkronizatzeak pixka bat behar izatea. Mesedez, ez itxi orri hau",
+    "or": "EDO",
+    "LogInWithGoogle": "Hasi saioa Google-rekin",
+    "LogInWithGithub": "Hasi saioa Github-ekin",
+    "LogInWithDiscord": "Hasi saioa Discord-ekin",
+    "signInWith": "Hasi saioa honekin:",
+    "signInWithEmail": "Hasi saioa posta elektroniko bidez",
+    "logInWithMagicLink": "Hasi saioa Magic Link-ekin",
+    "pleaseInputYourEmail": "Mesedez, sartu zure helbide elektronikoa",
+    "magicLinkSent": "Esteka magikoa zure posta elektronikora bidali da, egiaztatu sarrera-ontzia",
+    "invalidEmail": "Mesedez, sar ezazu helbide elektroniko egokia",
     "loginAsGuestButtonText": "Hasi"
   },
   "workspace": {
+    "chooseWorkspace": "Aukeratu zure lan-eremua",
     "create": "Lan-eremua",
+    "reset": "Berrezarri laneko eremua",
+    "resetWorkspacePrompt": "Laneko eremua berrezartzeak bertako orrialde eta datu guztiak ezabatuko ditu. Ziur laneko eremua berrezarri nahi duzula? Bestela, laguntza-taldearekin jar zaitezke harremanetan lan-eremua leheneratzeko",
     "hint": "lan-eremua",
-    "notFoundError": "Lan-eremurik ez da aurkitu"
+    "notFoundError": "Lan-eremurik ez da aurkitu",
+    "failedToLoad": "Zerbait gaizki joan da! Ezin izan da laneko eremua kargatu. Saiatu AppFlowy-ren irekita dagoen edozein instantzia ixten eta saiatu berriro.",
+    "errorActions": {
+      "reportIssue": "Arazo baten berri eman",
+      "reportIssueOnGithub": "Eman arazo bat Github-en",
+      "exportLogFiles": "Esportatu erregistro-fitxategiak",
+      "reachOut": "Jarri harremanetan Discord-en"
+    },
+    "menuTitle": "Lan-eremuak",
+    "deleteWorkspaceHintText": "Ziur laneko eremua ezabatu nahi duzula? Ekintza hau ezin da desegin.",
+    "createSuccess": "Lan-eremua behar bezala sortu da",
+    "createFailed": "Ezin izan da sortu lan-eremua",
+    "createLimitExceeded": "Zure konturako baimendutako laneko gehienezko mugara iritsi zara. Lanean jarraitzeko lan-eremu gehiago behar badituzu, eskatu Github-en",
+    "deleteSuccess": "Lan-eremua behar bezala ezabatu da",
+    "deleteFailed": "Ezin izan da laneko eremua ezabatu",
+    "openSuccess": "Ireki lan-eremua behar bezala",
+    "openFailed": "Ezin izan da ireki laneko eremua",
+    "renameSuccess": "Lan-eremua behar bezala aldatu da",
+    "renameFailed": "Ezin izan da lan-eremuaren izena aldatu",
+    "updateIconSuccess": "Lan-eremuaren ikonoa behar bezala eguneratu da",
+    "updateIconFailed": "Lan-eremuaren ikono eguneratuak huts egin du",
+    "cannotDeleteTheOnlyWorkspace": "Ezin da ezabatu lan-eremu bakarra",
+    "fetchWorkspacesFailed": "Ezin izan dira lan-eremuak eskuratu",
+    "leaveCurrentWorkspace": "Utzi lan-eremua",
+    "leaveCurrentWorkspacePrompt": "Ziur uneko lan-eremutik irten nahi duzula?"
   },
   "shareAction": {
     "buttonText": "Konpartitu",
     "workInProgress": "Laister",
     "markdown": "Markdown",
+    "html": "HTML",
+    "clipboard": "Kopiatu arbelean",
+    "csv": "CSV",
     "copyLink": "Esteka kopiatu"
   },
   "moreAction": {
@@ -55,7 +104,12 @@
     "large": "handia",
     "fontSize": "Letra tamaina",
     "import": "Inportatu",
-    "moreOptions": "Aukera gehiago"
+    "moreOptions": "Aukera gehiago",
+    "wordCount": "Hitz kopurua: {}",
+    "charCount": "Karaktere kopurua: {}",
+    "createdAt": "Sortu: {}",
+    "deleteView": "Ezabatu",
+    "duplicateView": "Bikoiztu"
   },
   "importPanel": {
     "textAndMarkdown": "Testua eta Markdown",
@@ -68,10 +122,19 @@
     "rename": "Izena aldatu",
     "delete": "Ezabatu",
     "duplicate": "Duplikatu",
-    "openNewTab": "Ireki fitxa berri batean"
+    "unfavorite": "Kendu gogokoetatik",
+    "favorite": "Gehitu gogokoetara",
+    "openNewTab": "Ireki fitxa berri batean",
+    "moveTo": "Mugitu",
+    "addToFavorites": "Gehitu gogokoetara",
+    "copyLink": "Kopiatu Esteka"
   },
   "blankPageTitle": "Orri zuria",
   "newPageText": "Orri berria",
+  "newDocumentText": "Dokumentu berria",
+  "newGridText": "Sare berria",
+  "newCalendarText": "Egutegi berria",
+  "newBoardText": "Taula berria",
   "trash": {
     "text": "Zaborrontzia",
     "restoreAll": "Guztia berreskuratu",
@@ -88,7 +151,15 @@
     "confirmRestoreAll": {
       "title": "Ziur zaborrontziko orrialde guztiak leheneratuko dituzula?",
       "caption": "Ekintza hau ezin da desegin."
-    }
+    },
+    "mobile": {
+      "actions": "Zaborrontzien ekintzak",
+      "empty": "Zaborrontzia hutsik dago",
+      "emptyDescription": "Ez duzu ezabatutako fitxategirik",
+      "isDeleted": "ezabatuta dago",
+      "isRestored": "zaharberritu egiten da"
+    },
+    "confirmDeleteTitle": "Ziur orri hau betiko ezabatu nahi duzula?"
   },
   "deletePagePrompt": {
     "text": "Orri hau zaborrontzian dago",
@@ -109,10 +180,12 @@
     "feedback": "Iritzia"
   },
   "menuAppHeader": {
+    "moreButtonToolTip": "Kendu, izena aldatu eta gehiago...",
     "addPageTooltip": "Gehitu orri bat",
     "defaultNewPageName": "Izenbururik ez",
     "renameDialog": "Izena aldatu"
   },
+  "noPagesInside": "Barruan orrialderik ez",
   "toolbar": {
     "undo": "Desegin",
     "redo": "Berregin",
@@ -144,7 +217,19 @@
   },
   "sideBar": {
     "closeSidebar": "Alboko barra itxi",
-    "openSidebar": "Alboko barra ireki"
+    "openSidebar": "Alboko barra ireki",
+    "personal": "Pertsonalak",
+    "private": "Pribatua",
+    "workspace": "Langunea",
+    "favorites": "Gogokoak",
+    "clickToHidePrivate": "Egin klik espazio pribatua ezkutatzeko\nHemen sortu dituzun orriak zuk bakarrik ikus ditzakezu",
+    "clickToHideWorkspace": "Egin klik lan-eremua ezkutatzeko\nHemen sortu dituzun orriak kide guztientzat ikusgai daude",
+    "clickToHidePersonal": "Egin klik espazio pertsonala ezkutatzeko",
+    "clickToHideFavorites": "Egin klik gogoko espazioa ezkutatzeko",
+    "addAPage": "Gehitu orrialde bat",
+    "addAPageToPrivate": "Gehitu orri bat espazio pribatura",
+    "addAPageToWorkspace": "Gehitu orri bat lan-eremuan",
+    "recent": "Duela gutxi"
   },
   "notifications": {
     "export": {
@@ -173,11 +258,32 @@
     "discard": "Baztertu",
     "replace": "Ordezkatu",
     "insertBelow": "Txertatu behean",
+    "insertAbove": "Txertatu goian",
     "upload": "Kargatu",
     "edit": "Editatu",
     "delete": "Ezabatu",
     "duplicate": "Bikoiztu",
-    "putback": "Jarri Atzera"
+    "putback": "Jarri Atzera",
+    "update": "Eguneratu",
+    "share": "Partekatu",
+    "removeFromFavorites": "Kendu gogokoetatik",
+    "addToFavorites": "Gehitu gogokoetara",
+    "rename": "Aldatu izena",
+    "helpCenter": "Laguntza Zentroa",
+    "add": "Gehitu",
+    "yes": "Bai",
+    "clear": "Garbi",
+    "remove": "Kendu",
+    "dontRemove": "Ez kendu",
+    "copyLink": "Kopiatu Esteka",
+    "align": "Lerrokatu",
+    "login": "Saioa hasi",
+    "logout": "Saioa amaitu",
+    "deleteAccount": "Ezabatu kontua",
+    "back": "Itzuli",
+    "signInGoogle": "Hasi saioa Google-rekin",
+    "signInGithub": "Hasi saioa Github-ekin",
+    "signInDiscord": "Hasi saioa Discord-ekin"
   },
   "label": {
     "welcome": "Ongi etorri!",
@@ -206,10 +312,64 @@
       "language": "Hizkuntza",
       "user": "Erabiltzailea",
       "files": "Fitxategiak",
+      "notifications": "Jakinarazpenak",
       "open": "Ezarpenak ireki",
+      "logout": "Saioa amaitu",
+      "logoutPrompt": "Ziur saioa amaitzen duzula?",
+      "selfEncryptionLogoutPrompt": "Ziur saioa amaitu nahi duzula? Mesedez, ziurtatu enkriptatutako sekretua kopiatu duzula",
+      "syncSetting": "Sinkronizazio ezarpena",
+      "cloudSettings": "Hodeiaren ezarpenak",
+      "enableSync": "Gaitu sinkronizazioa",
+      "enableEncrypt": "Datuak enkriptatu",
+      "cloudURL": "Oinarrizko URLa",
+      "invalidCloudURLScheme": "Eskema baliogabea",
+      "cloudServerType": "Hodeiko zerbitzaria",
+      "cloudServerTypeTip": "Kontuan izan hodeiko zerbitzaria aldatu ondoren zure uneko kontua amai daitekeela",
+      "cloudLocal": "Tokikoa",
+      "cloudSupabase": "Supabase",
+      "cloudSupabaseUrl": "Supabase URLa",
+      "cloudSupabaseUrlCanNotBeEmpty": "Supabasearen URLa ezin da hutsik egon",
+      "cloudSupabaseAnonKey": "Supabase anon tekla",
+      "cloudSupabaseAnonKeyCanNotBeEmpty": "Anon tekla ezin da hutsik egon",
+      "cloudAppFlowy": "AppFlowy Cloud Beta",
+      "cloudAppFlowySelfHost": "AppFlowy Cloud Auto-ostatatua",
+      "appFlowyCloudUrlCanNotBeEmpty": "Hodeiko URLa ezin da hutsik egon",
+      "clickToCopy": "Egin klik kopiatzeko",
+      "selfHostStart": "Zerbitzaririk ez baduzu, mesedez, jo",
+      "selfHostContent": "dokumentua",
+      "selfHostEnd": "zure zerbitzaria auto-ostalari nola egin jakiteko",
+      "cloudURLHint": "Sartu zure zerbitzariaren oinarrizko URLa",
+      "cloudWSURL": "Websocket URLa",
+      "cloudWSURLHint": "Sartu zure zerbitzariaren websocket helbidea",
+      "restartApp": "Berriro hasi",
+      "restartAppTip": "Berrabiarazi aplikazioa aldaketak indarrean egon daitezen. Kontuan izan zure uneko kontua saioa amai dezakeela",
+      "changeServerTip": "Zerbitzaria aldatu ondoren, berrabiarazi botoia sakatu behar duzu aldaketak eragina izan dezan",
+      "enableEncryptPrompt": "Aktibatu enkriptatzea sekretu honekin zure datuak babesteko. Gorde ezazu segurtasunez; behin gaituta, ezin da itzali. Galtzen bada, zure datuak berreskuraezinak izango dira. Egin klik kopiatzeko",
+      "inputEncryptPrompt": "Mesedez, idatzi zure enkriptatzeko sekretua",
+      "clickToCopySecret": "Egin klik sekretua kopiatzeko",
+      "configServerSetting": "Konfiguratu zure zerbitzariaren ezarpenak",
+      "configServerGuide": "`Hasi azkarra` hautatu ondoren, nabigatu `Ezarpenak` eta gero \"Hodeiaren ezarpenak\" atalera zure auto-ostatatutako zerbitzaria konfiguratzeko.",
+      "inputTextFieldHint": "Zure sekretua",
+      "historicalUserList": "Erabiltzaileen saioaren historia",
+      "historicalUserListTooltip": "Zerrenda honek zure kontu anonimoak erakusten ditu. Kontu batean klik egin dezakezu haren xehetasunak ikusteko. Kontu anonimoak 'Hasi' botoian klik eginez sortzen dira",
+      "openHistoricalUser": "Egin klik kontu anonimoa irekitzeko",
+      "customPathPrompt": "AppFlowy datuen karpeta hodeiarekin sinkronizatutako karpeta batean gordetzeak, esaterako, Google Drive-n, arriskuak sor ditzake. Karpeta honetako datu-basea kokapen anitzetatik atzitzen edo aldatzen bada aldi berean, sinkronizazio-gatazkak sor ditzake eta datuak honda daitezke.",
+      "importAppFlowyData": "Inportatu datuak kanpoko AppFlowy karpetatik",
+      "importingAppFlowyDataTip": "Datuen inportazioa abian da. Mesedez, ez itxi aplikazioa",
+      "importAppFlowyDataDescription": "Kopiatu datuak kanpoko AppFlowy datu-karpeta batetik eta inporta itzazu uneko AppFlowy-ren datuen karpetara",
+      "importSuccess": "Behar bezala inportatu da AppFlowy datuen karpeta",
+      "importFailed": "Ezin izan da AppFlowy datuen karpeta inportatzean",
+      "importGuide": "Xehetasun gehiagorako, mesedez begiratu erreferentziako dokumentua",
       "supabaseSetting": "Supabase ezarpena"
     },
+    "notifications": {
+      "enableNotifications": {
+        "label": "Gaitu jakinarazpenak",
+        "hint": "Desaktibatu tokiko jakinarazpenak ager ez daitezen."
+      }
+    },
     "appearance": {
+      "resetSetting": "Berrezarri",
       "fontFamily": {
         "label": "Letra-tipoen familia",
         "search": "Bilatu"
@@ -220,8 +380,36 @@
         "dark": "Modu iluna",
         "system": "Zure sistemara moldatu"
       },
+      "fontScaleFactor": "Letra-tipoaren eskala-faktorea",
+      "documentSettings": {
+        "cursorColor": "Dokumentuaren kurtsorearen kolorea",
+        "selectionColor": "Dokumentu hautatzeko kolorea",
+        "hexEmptyError": "Hex kolorea ezin da hutsik egon",
+        "hexLengthError": "Hex balioak 6 digitu izan behar ditu",
+        "hexInvalidError": "Balio hex baliogabea",
+        "opacityEmptyError": "Opakitatea ezin da hutsik egon",
+        "opacityRangeError": "Opakotasunak 1 eta 100 artekoa izan behar du",
+        "app": "Aplikazioa",
+        "flowy": "Fluxutsua",
+        "apply": "Aplikatu"
+      },
+      "layoutDirection": {
+        "label": "Diseinuaren norabidea",
+        "hint": "Kontrolatu pantailako edukiaren fluxua, ezkerretik eskuinera edo eskuinera ezkerrera.",
+        "ltr": "LTR",
+        "rtl": "RTL"
+      },
+      "textDirection": {
+        "label": "Testuaren norabide lehenetsia",
+        "hint": "Zehaztu testua ezkerretik edo eskuinetik hasi behar den lehenespen gisa.",
+        "ltr": "LTR",
+        "rtl": "RTL",
+        "auto": "AUTO",
+        "fallback": "Diseinuaren norabide berdina"
+      },
       "themeUpload": {
         "button": "Kargatu",
+        "uploadTheme": "Kargatu gaia",
         "description": "Kargatu zure AppFlowy gaia beheko botoia erabiliz.",
         "loading": "Mesedez, itxaron zure gaia balioztatzen eta kargatzen dugun bitartean...",
         "uploadSuccess": "Zure gaia behar bezala kargatu da",
@@ -232,7 +420,50 @@
       },
       "theme": "Itxura",
       "builtInsLabel": "Eraikitako gaiak",
-      "pluginsLabel": "Pluginak"
+      "pluginsLabel": "Pluginak",
+      "dateFormat": {
+        "label": "Data-formatua",
+        "local": "Tokikoa",
+        "us": "AEB",
+        "iso": "ISO",
+        "friendly": "Lagunartekoa",
+        "dmy": "D/H/Y"
+      },
+      "timeFormat": {
+        "label": "Denbora-formatua",
+        "twelveHour": "Hamabi ordu",
+        "twentyFourHour": "Hogeita lau ordu"
+      },
+      "showNamingDialogWhenCreatingPage": "Erakutsi izendatzeko elkarrizketa-koadroa orri bat sortzean",
+      "enableRTLToolbarItems": "Gaitu RTL tresna-barrako elementuak",
+      "members": {
+        "title": "Kideen ezarpenak",
+        "inviteMembers": "Gonbidatu Kideak",
+        "sendInvite": "Bidali Gonbidapena",
+        "copyInviteLink": "Kopiatu Gonbidapen Esteka",
+        "label": "Kideak",
+        "user": "Erabiltzailea",
+        "role": "Rola",
+        "removeFromWorkspace": "Kendu laneko gunetik",
+        "owner": "Jabea",
+        "guest": "Gonbidatua",
+        "member": "Kide",
+        "memberHintText": "Kide batek orriak irakurri, iruzkinak eta edita ditzake. Gonbidatu kideak eta gonbidatuak.",
+        "guestHintText": "Gonbidatu batek orrialde batzuk irakurri, erreakzionatu, iruzkin ditzake eta edita ditzake baimenarekin.",
+        "emailInvalidError": "Helbide elektroniko baliogabea, egiaztatu eta saiatu berriro",
+        "emailSent": "Mezu elektronikoa bidali da, mesedez begiratu sarrera-ontzia",
+        "members": "kideak",
+        "membersCount": {
+          "zero": "{} kide",
+          "one": "{} kide",
+          "other": "{} kide"
+        },
+        "memberLimitExceeded": "Zure konturako baimendutako kideen gehienezko mugara iritsi zara. Kide gehiago gehitu nahi badituzu zure lanean jarraitzeko, eskatu Github-en",
+        "failedToAddMember": "Ezin izan da kidea gehitu",
+        "addMemberSuccess": "Kideak ondo gehitu du",
+        "removeMember": "Kendu kidea",
+        "areYouSureToRemoveMember": "Ziur kide hau kendu nahi duzula?"
+      }
     },
     "files": {
       "copy": "Kopiatu",
@@ -268,17 +499,66 @@
       "recoverLocationTooltips": "Berrezarri AppFlowyren datu-direktorio lehenetsira",
       "exportFileSuccess": "Esportatu fitxategia behar bezala!",
       "exportFileFail": "Ezin izan da esportatu fitxategia!",
-      "export": "Esportatu"
+      "export": "Esportatu",
+      "clearCache": "Garbitu cachea",
+      "clearCacheDesc": "Irudiak ez kargatzen edo letra-tipoak behar bezala bistaratzen ez badira arazoak aurkitzen badituzu, saiatu cachea garbitzen. Ekintza honek ez ditu zure erabiltzaile-datuak kenduko.",
+      "areYouSureToClearCache": "Ziur cachea garbituko duzula?",
+      "clearCacheSuccess": "Cachea ondo garbitu da!"
     },
     "user": {
       "name": "Izena",
+      "email": "Posta elektronikoa",
+      "tooltipSelectIcon": "Hautatu ikonoa",
       "selectAnIcon": "Hautatu ikono bat",
-      "pleaseInputYourOpenAIKey": "mesedez sartu zure OpenAI gakoa"
+      "pleaseInputYourOpenAIKey": "mesedez sartu zure OpenAI gakoa",
+      "pleaseInputYourStabilityAIKey": "mesedez sartu zure Egonkortasun AI tekla",
+      "clickToLogout": "Egin klik uneko erabiltzailearen saioa amaitzeko"
+    },
+    "shortcuts": {
+      "shortcutsLabel": "Lasterbideak",
+      "command": "Agindua",
+      "keyBinding": "Teklak lotzea",
+      "addNewCommand": "Gehitu Komando Berria",
+      "updateShortcutStep": "Sakatu nahi duzun tekla-konbinazioa eta sakatu ENTER",
+      "shortcutIsAlreadyUsed": "Lasterbide hau dagoeneko erabiltzen da: {gatazka}",
+      "resetToDefault": "Berrezarri teklatu-loketa lehenetsietara",
+      "couldNotLoadErrorMsg": "Ezin izan dira lasterbideak kargatu. Saiatu berriro",
+      "couldNotSaveErrorMsg": "Ezin izan dira lasterbideak gorde. Saiatu berriro",
+      "commands": {
+        "codeBlockNewParagraph": "Txertatu paragrafo berri bat kode blokearen ondoan",
+        "codeBlockAddTwoSpaces": "Sartu bi zuriune lerroaren hasierako kode blokean",
+        "codeBlockDeleteTwoSpaces": "Ezabatu bi zuriune kode blokeko lerroaren hasierako lerroan",
+        "codeBlockSelectAll": "Hautatu kode bloke baten barruan dagoen eduki guztia",
+        "codeBlockPasteText": "Itsatsi testua codeblock-en",
+        "textAlignLeft": "Lerrokatu testua ezkerrera",
+        "textAlignCenter": "Lerrokatu testua erdian",
+        "textAlignRight": "Lerrokatu testua eskuinera"
+      }
+    },
+    "mobile": {
+      "personalInfo": "Informazio pertsonala",
+      "username": "Erabiltzaile izena",
+      "usernameEmptyError": "Erabiltzaile-izena ezin da hutsik egon",
+      "about": "Buruz",
+      "pushNotifications": "Push jakinarazpenak",
+      "support": "Laguntza",
+      "joinDiscord": "Bat egin gurekin Discord-en",
+      "privacyPolicy": "Pribatutasun politika",
+      "userAgreement": "Erabiltzaile-kontratua",
+      "termsAndConditions": "Baldintzak",
+      "userprofileError": "Ezin izan da erabiltzailearen profila kargatu",
+      "userprofileErrorDescription": "Mesedez, saiatu saioa amaitzen eta berriro saioa hasten arazoak oraindik jarraitzen duen egiaztatzeko.",
+      "selectLayout": "Hautatu diseinua",
+      "selectStartingDay": "Hautatu hasierako eguna",
+      "version": "Bertsioa"
     }
   },
   "grid": {
     "deleteView": "Ziur ikuspegi hau ezabatu nahi duzula?",
     "createView": "Berria",
+    "title": {
+      "placeholder": "Izenbururik gabe"
+    },
     "settings": {
       "filter": "Filtroa",
       "sort": "Ordenatu",
@@ -292,6 +572,18 @@
       "typeAValue": "Idatzi balio bat...",
       "layout": "Diseinua",
       "databaseLayout": "Diseinua",
+      "viewList": {
+        "zero": "0 ikustaldi",
+        "one": "{count} ikuspegia",
+        "other": "{count} ikustaldi"
+      },
+      "editView": "Editatu ikuspegia",
+      "boardSettings": "Taularen ezarpenak",
+      "calendarSettings": "Egutegiaren ezarpenak",
+      "createView": "Ikuspegi berria",
+      "duplicateView": "Ikuspegi bikoiztua",
+      "deleteView": "Ezabatu ikuspegia",
+      "numberOfVisibleFields": "{} erakusten",
       "Properties": "Propietateak"
     },
     "textFilter": {
@@ -331,12 +623,43 @@
       "isEmpty": "Hutsa dago",
       "isNotEmpty": "Ez dago hutsik"
     },
+    "dateFilter": {
+      "is": "Da",
+      "before": "Aurretik dago",
+      "after": "atzetik dago",
+      "onOrBefore": "On edo aurretik dago",
+      "onOrAfter": "On edo ondoren dago",
+      "between": "artean dago",
+      "empty": "Hutsik dago",
+      "notEmpty": "Ez dago hutsik",
+      "choicechipPrefix": {
+        "before": "Aurretik",
+        "after": "Ondoren",
+        "onOrBefore": "On edo aurretik",
+        "onOrAfter": "On edo ondoren",
+        "isEmpty": "Hutsik dago",
+        "isNotEmpty": "Ez dago hutsik"
+      }
+    },
+    "numberFilter": {
+      "equal": "Berdin",
+      "notEqual": "Ez du berdin",
+      "lessThan": "baino gutxiago da",
+      "greaterThan": "baino handiagoa da",
+      "lessThanOrEqualTo": "baino txikiagoa edo berdina da",
+      "greaterThanOrEqualTo": "baino handiagoa edo berdina da",
+      "isEmpty": "Hutsik dago",
+      "isNotEmpty": "Ez dago hutsik"
+    },
     "field": {
       "hide": "Ezkutatu",
+      "show": "Erakutsi",
       "insertLeft": "Txertatu ezkerrera",
       "insertRight": "Txertatu eskuinera",
       "duplicate": "Bikoiztu",
       "delete": "Ezabatu",
+      "wrap": "Itzulbiratu",
+      "clear": "Garbitu zelulak",
       "textFieldName": "Testua",
       "checkboxFieldName": "Markatu laukia",
       "dateFieldName": "Data",
@@ -347,9 +670,11 @@
       "multiSelectFieldName": "Multi-hautaketa",
       "urlFieldName": "URL",
       "checklistFieldName": "Kontrol zerrenda",
+      "relationFieldName": "Erlazio",
       "numberFormat": "Zenbaki formatua",
       "dateFormat": "Data formatua",
       "includeTime": "Sartu ordua",
+      "isRange": "Amaiera data",
       "dateFormatFriendly": "Hilabete Eguna, Urtea",
       "dateFormatISO": "Urtea-Hilabetea-Eguna",
       "dateFormatLocal": "Hilabetea/Eguna/Urtea",
@@ -359,27 +684,68 @@
       "invalidTimeFormat": "Formatu baliogabea",
       "timeFormatTwelveHour": "12 ordu",
       "timeFormatTwentyFourHour": "24 ordu",
+      "clearDate": "Garbitu data",
+      "dateTime": "Data ordua",
+      "startDateTime": "Hasiera data-ordua",
+      "endDateTime": "Amaiera data-ordua",
+      "failedToLoadDate": "Ezin izan da data-balioa kargatu",
+      "selectTime": "Aukeratu ordua",
+      "selectDate": "Hautatu data",
+      "visibility": "Ikusgarritasuna",
+      "propertyType": "Jabetza mota",
       "addSelectOption": "Gehitu aukera bat",
+      "typeANewOption": "Idatzi aukera berri bat",
       "optionTitle": "Aukerak",
       "addOption": "Gehitu aukera",
       "editProperty": "Editatu propietatea",
       "newProperty": "Zutabe berria",
-      "deleteFieldPromptMessage": "Ziur al zaude? Propietate hau ezabatu egingo da"
+      "deleteFieldPromptMessage": "Ziur al zaude? Propietate hau ezabatu egingo da",
+      "clearFieldPromptMessage": "Ziur zaude? Zutabe honetako gelaxka guztiak hustuko dira",
+      "newColumn": "Zutabe berria",
+      "format": "Formatua",
+      "reminderOnDateTooltip": "Gelaxka honek abisu bat du programatuta",
+      "optionAlreadyExist": "Aukera badago jada"
+    },
+    "rowPage": {
+      "newField": "Gehitu eremu berri bat",
+      "fieldDragElementTooltip": "Egin klik menua irekitzeko",
+      "showHiddenFields": {
+        "one": "Erakutsi {count} ezkutuko eremua",
+        "many": "Erakutsi ezkutuko {count} eremu",
+        "other": "Erakutsi ezkutuko {count} eremu"
+      },
+      "hideHiddenFields": {
+        "one": "Ezkutatu {count} ezkutuko eremua",
+        "many": "Ezkutatu ezkutuko {count} eremu",
+        "other": "Ezkutatu ezkutuko {count} eremu"
+      }
     },
     "sort": {
       "ascending": "Gorarantz",
       "descending": "Jaisten",
+      "by": "Nork",
+      "empty": "Ez dago mota aktiborik",
+      "cannotFindCreatableField": "Ezin da aurkitu eremu egokirik ordenatzeko",
+      "deleteAllSorts": "Ezabatu mota guztiak",
       "addSort": "Gehitu ordenatu",
+      "removeSorting": "Sailkapena kendu nahi duzu?",
+      "fieldInUse": "Eremu honen arabera ordenatzen ari zara dagoeneko",
       "deleteSort": "Ezabatu ordena"
     },
     "row": {
       "duplicate": "Bikoiztu",
       "delete": "Ezabatu",
+      "titlePlaceholder": "Izenbururik gabe",
       "textPlaceholder": "Hutsik",
       "copyProperty": "Propietatea arbelean kopiatu da",
       "count": "Kontatu",
       "newRow": "Errenkada berria",
-      "action": "Ekintza"
+      "action": "Ekintza",
+      "add": "Egin klik behean gehitu",
+      "drag": "Arrastatu mugitzeko",
+      "dragAndClick": "Arrastatu mugitzeko, egin klik menua irekitzeko",
+      "insertRecordAbove": "Txertatu erregistroa goian",
+      "insertRecordBelow": "Txertatu erregistroa behean"
     },
     "selectOption": {
       "create": "Sortu",
@@ -395,13 +761,52 @@
       "deleteTag": "Ezabatu etiketa",
       "colorPanelTitle": "Koloreak",
       "panelTitle": "Hautatu aukera bat edo sortu bat",
-      "searchOption": "Aukera bat bilatu"
+      "searchOption": "Aukera bat bilatu",
+      "searchOrCreateOption": "Bilatu aukera bat edo sortu bat",
+      "createNew": "Sortu berri bat",
+      "orSelectOne": "Edo hautatu aukera bat",
+      "typeANewOption": "Idatzi aukera berri bat",
+      "tagName": "Etiketa izena"
     },
     "checklist": {
-      "addNew": "Gehitu elementu bat"
+      "taskHint": "Zereginaren deskribapena",
+      "addNew": "Gehitu elementu bat",
+      "submitNewTask": "Sortu",
+      "hideComplete": "Ezkutatu amaitutako zereginak",
+      "showComplete": "Erakutsi zeregin guztiak"
+    },
+    "url": {
+      "launch": "Ireki esteka arakatzailean",
+      "copy": "Kopiatu esteka arbelera",
+      "textFieldHint": "Sartu URL bat",
+      "copiedNotification": "Kopiatu da arbelean!"
+    },
+    "relation": {
+      "relatedDatabasePlaceLabel": "Erlazionatutako datu-basea",
+      "relatedDatabasePlaceholder": "Bat ere ez",
+      "inRelatedDatabase": "In",
+      "rowSearchTextFieldPlaceholder": "Bilatu",
+      "noDatabaseSelected": "Ez da datu-baserik hautatu, mesedez hautatu bat lehenik beheko zerrendatik:",
+      "emptySearchResult": "Ez da erregistrorik aurkitu",
+      "linkedRowListLabel": "Lotutako {count} errenkada",
+      "unlinkedRowListLabel": "Lotu beste errenkada bat"
     },
     "menuName": "Sareta",
-    "referencedGridPrefix": "-ren ikuspegia"
+    "referencedGridPrefix": "-ren ikuspegia",
+    "calculate": "Kalkulatu",
+    "calculationTypeLabel": {
+      "none": "Bat ere ez",
+      "average": "Batez bestekoa",
+      "max": "Max",
+      "median": "Mediana",
+      "min": "Min",
+      "sum": "Batura",
+      "count": "zenbaketa",
+      "countEmpty": "Kontatu hutsik",
+      "countEmptyShort": "HUTSIK",
+      "countNonEmpty": "Kontatu ez hutsik",
+      "countNonEmptyShort": "BETEA"
+    }
   },
   "document": {
     "menuName": "Dokumentua",
@@ -421,15 +826,20 @@
       "calendar": {
         "selectACalendarToLinkTo": "Hautatu estekatzeko egutegia",
         "createANewCalendar": "Sortu egutegi berri bat"
+      },
+      "document": {
+        "selectADocumentToLinkTo": "Hautatu estekatzeko dokumentu bat"
       }
     },
     "selectionMenu": {
-      "outline": "Eskema"
+      "outline": "Eskema",
+      "codeBlock": "Kode blokea"
     },
     "plugins": {
       "referencedBoard": "Erreferentziazko Batzordea",
       "referencedGrid": "Erreferentziazko Sarea",
       "referencedCalendar": "Erreferentziazko Egutegia",
+      "referencedDocument": "Erreferentziazko dokumentua",
       "autoGeneratorMenuItemName": "OpenAI Writer",
       "autoGeneratorTitleName": "OpenAI: Eskatu AIri edozer idazteko...",
       "autoGeneratorLearnMore": "Gehiago ikasi",
@@ -449,7 +859,15 @@
       "smartEditDisabled": "Konektatu OpenAI Ezarpenetan",
       "discardResponse": "AI erantzunak baztertu nahi dituzu?",
       "createInlineMathEquation": "Sortu ekuazioa",
+      "fonts": "Letra-tipoak",
+      "insertDate": "Sartu data",
+      "emoji": "Emojia",
       "toggleList": "Aldatu zerrenda",
+      "quoteList": "Aurrekontuen zerrenda",
+      "numberedList": "Zenbakitutako zerrenda",
+      "bulletedList": "Buletaren zerrenda",
+      "todoList": "Guztien zerrenda",
+      "callout": "Oihu egin",
       "cover": {
         "changeCover": "Aldatu Azala",
         "colors": "Koloreak",
@@ -471,10 +889,12 @@
         "couldNotFetchImage": "Ezin izan da irudia eskuratu",
         "imageSavingFailed": "Irudiak gordetzean huts egin du",
         "addIcon": "Gehitu ikonoa",
+        "changeIcon": "Aldatu ikonoa",
         "coverRemoveAlert": "Ezabatu ondoren estalkitik kenduko da.",
         "alertDialogConfirmation": "Ziur al zaude, jarraitu nahi duzula?"
       },
       "mathEquation": {
+        "name": "Matematikako ekuazioa",
         "addMathEquation": "Gehitu Matematika Ekuazioa",
         "editMathEquation": "Editatu Matematika Ekuazioa"
       },
@@ -491,14 +911,48 @@
         "left": "Ezkerra",
         "center": "Zentroa",
         "right": "Eskuin",
-        "defaultColor": "Lehenetsia"
+        "defaultColor": "Lehenetsia",
+        "depth": "Sakonera"
       },
       "image": {
-        "copiedToPasteBoard": "Irudiaren esteka arbelean kopiatu da"
+        "copiedToPasteBoard": "Irudiaren esteka arbelean kopiatu da",
+        "addAnImage": "Gehitu irudi bat",
+        "imageUploadFailed": "Ezin izan da irudia kargatu"
+      },
+      "urlPreview": {
+        "copiedToPasteBoard": "Esteka arbelean kopiatu da",
+        "convertToLink": "Bihurtu kapsulatzeko esteka"
       },
       "outline": {
-        "addHeadingToCreateOutline": "Gehitu goiburuak aurkibidea sortzeko."
-      }
+        "addHeadingToCreateOutline": "Gehitu goiburuak aurkibidea sortzeko.",
+        "noMatchHeadings": "Ez da bat datorren goibururik aurkitu."
+      },
+      "table": {
+        "addAfter": "Gehitu ondoren",
+        "addBefore": "Gehitu aurretik",
+        "delete": "Ezabatu",
+        "clear": "Garbitu edukia",
+        "duplicate": "Bikoiztu",
+        "bgColor": "Atzeko planoaren kolorea"
+      },
+      "contextMenu": {
+        "copy": "Kopiatu",
+        "cut": "Moztu",
+        "paste": "Itsatsi"
+      },
+      "action": "Ekintzak",
+      "database": {
+        "selectDataSource": "Hautatu datu-iturria",
+        "noDataSource": "Ez dago datu-iturririk",
+        "selectADataSource": "Hautatu datu-iturburu bat",
+        "toContinue": "jarraitzeko",
+        "newDatabase": "Datu-base berria",
+        "linkToDatabase": "Datu basera esteka"
+      },
+      "date": "Data"
+    },
+    "outlineBlock": {
+      "placeholder": "Edukien taula"
     },
     "textBlock": {
       "placeholder": "Idatzi '/' komandoetarako"
@@ -516,22 +970,55 @@
         "label": "Irudiaren URLa",
         "placeholder": "Sartu irudiaren URLa"
       },
+      "ai": {
+        "label": "Sortu irudia OpenAI-tik",
+        "placeholder": "Mesedez, idatzi OpenAI-ren gonbita irudia sortzeko"
+      },
+      "stability_ai": {
+        "label": "Sortu irudia Stability AI-tik",
+        "placeholder": "Mesedez, sartu Stability AI-ren gonbita irudia sortzeko"
+      },
       "support": "Irudiaren tamainaren muga 5 MB da. Onartutako formatuak: JPEG, PNG, GIF, SVG",
       "error": {
         "invalidImage": "Irudi baliogabea",
         "invalidImageSize": "Irudiaren tamaina 5 MB baino txikiagoa izan behar da",
         "invalidImageFormat": "Irudi formatua ez da onartzen. Onartutako formatuak: JPEG, PNG, GIF, SVG",
-        "invalidImageUrl": "Irudiaren URL baliogabea"
-      }
+        "invalidImageUrl": "Irudiaren URL baliogabea",
+        "noImage": "Ez dago horrelako fitxategi edo direktoriorik"
+      },
+      "embedLink": {
+        "label": "Kapsulatu esteka",
+        "placeholder": "Itsatsi edo idatzi irudiaren esteka"
+      },
+      "unsplash": {
+        "label": "Zipriztindu"
+      },
+      "searchForAnImage": "Bilatu irudi bat",
+      "pleaseInputYourOpenAIKey": "mesedez sartu zure OpenAI gakoa Ezarpenak orrian",
+      "pleaseInputYourStabilityAIKey": "Mesedez, sartu zure Egonkortasun AI gakoa Ezarpenak orrian",
+      "saveImageToGallery": "Gorde irudia",
+      "failedToAddImageToGallery": "Ezin izan da irudia galerian gehitu",
+      "successToAddImageToGallery": "Irudia behar bezala gehitu da galerian",
+      "unableToLoadImage": "Ezin da irudia kargatu",
+      "maximumImageSize": "Onartutako gehienezko irudiaren tamaina 10 MB da",
+      "uploadImageErrorImageSizeTooBig": "Irudiaren tamaina 10 MB baino txikiagoa izan behar da",
+      "imageIsUploading": "Irudia kargatzen ari da"
     },
     "codeBlock": {
       "language": {
         "label": "Hizkuntza",
-        "placeholder": "Hautatu hizkuntza"
-      }
+        "placeholder": "Hautatu hizkuntza",
+        "auto": "Autoa"
+      },
+      "copyTooltip": "Kopiatu kode blokearen edukia",
+      "searchLanguageHint": "Bilatu hizkuntza bat",
+      "codeCopiedSnackbar": "Kopiatu da kodea arbelean!"
     },
     "inlineLink": {
       "placeholder": "Itsatsi edo idatzi esteka bat",
+      "openInNewTab": "Ireki fitxa berri batean",
+      "copyLink": "Kopiatu esteka",
+      "removeLink": "Kendu esteka",
       "url": {
         "label": "Estekaren URLa",
         "placeholder": "Sartu estekaren URLa"
@@ -541,6 +1028,22 @@
         "placeholder": "Sartu estekaren izenburua"
       }
     },
+    "mention": {
+      "placeholder": "Aipatu pertsona bat edo orri edo data bat...",
+      "page": {
+        "label": "Orrirako esteka",
+        "tooltip": "Egin klik orria irekitzeko"
+      },
+      "deleted": "Ezabatu da",
+      "deletedContent": "Eduki hau ez dago edo ezabatu egin da"
+    },
+    "toolbar": {
+      "resetToDefaultFont": "Berrezarri lehenespenera"
+    },
+    "errorBlock": {
+      "theBlockIsNotSupported": "Uneko bertsioak ez du bloke hau onartzen.",
+      "blockContentHasBeenCopied": "Blokearen edukia kopiatu da."
+    },
     "data": {
       "timeHintTextInTwelveHour": "01:00 PM",
       "timeHintTextInTwentyFourHour": "13:00"
@@ -548,11 +1051,39 @@
   },
   "board": {
     "column": {
-      "createNewCard": "Berria"
+      "createNewCard": "Berria",
+      "renameGroupTooltip": "Sakatu taldea izena aldatzeko",
+      "createNewColumn": "Gehitu talde berri bat",
+      "addToColumnTopTooltip": "Gehitu txartel berri bat goialdean",
+      "addToColumnBottomTooltip": "Gehitu txartel berri bat behealdean",
+      "renameColumn": "Aldatu izena",
+      "hideColumn": "Ezkutatu",
+      "newGroup": "Talde Berria",
+      "deleteColumn": "Ezabatu",
+      "deleteColumnConfirmation": "Honek talde hau eta bertan dauden karta guztiak ezabatuko ditu.\nZiur jarraitu nahi duzula?"
     },
+    "hiddenGroupSection": {
+      "sectionTitle": "Ezkutuko Taldeak",
+      "collapseTooltip": "Ezkutatu ezkutuko taldeak",
+      "expandTooltip": "Ikusi ezkutuko taldeak"
+    },
+    "cardDetail": "Txartelaren xehetasuna",
+    "cardActions": "Txartelaren Ekintzak",
+    "cardDuplicated": "Txartela bikoiztu egin da",
+    "cardDeleted": "Txartela ezabatu da",
+    "showOnCard": "Erakutsi txartelaren xehetasuna",
+    "setting": "Ezarpena",
+    "propertyName": "Jabetza izena",
     "menuName": "Kontseilua",
+    "showUngrouped": "Erakutsi taldekatu gabeko elementuak",
+    "ungroupedButtonText": "Taldekatua",
+    "ungroupedButtonTooltip": "Inongo taldetakoak ez diren txartelak ditu",
+    "ungroupedItemsTitle": "Egin klik taulara gehitzeko",
+    "groupBy": "Taldeka",
     "referencedBoardPrefix": "-ren ikuspegia",
+    "notesTooltip": "Barruan oharrak",
     "mobile": {
+      "editURL": "Editatu URLa",
       "showGroup": "Erakutsi taldea",
       "showGroupContent": "Ziur talde hau arbelean erakutsi nahi duzula?",
       "failedToLoad": "Ezin izan da kargatu arbelaren ikuspegia"
@@ -561,23 +1092,32 @@
   "calendar": {
     "menuName": "Egutegia",
     "defaultNewCalendarTitle": "Izenbururik gabe",
+    "newEventButtonTooltip": "Gehitu gertaera berri bat",
     "navigation": {
       "today": "Gaur",
       "jumpToday": "Gaurko egunera salto egin",
       "previousMonth": "Aurreko hilabetea",
       "nextMonth": "Hurrengo hilabetea"
     },
+    "mobileEventScreen": {
+      "emptyTitle": "Oraindik ez dago ekitaldirik",
+      "emptyBody": "Sakatu plus botoia egun honetan gertaera bat sortzeko."
+    },
     "settings": {
       "showWeekNumbers": "Erakutsi asteko zenbakiak",
       "showWeekends": "Asteburuetan erakutsi",
       "firstDayOfWeek": "Hasi astea",
       "layoutDateField": "Egutegiaren diseinua arabera",
+      "changeLayoutDateField": "Aldatu diseinuaren eremua",
       "noDateTitle": "Datarik ez",
+      "unscheduledEventsTitle": "Antolatu gabeko gertaerak",
       "clickToAdd": "Egin klik egutegian gehitzeko",
       "name": "Egutegiaren diseinua",
       "noDateHint": "Programatu gabeko gertaerak hemen agertuko dira"
     },
-    "referencedCalendarPrefix": "-ren ikuspegia"
+    "referencedCalendarPrefix": "-ren ikuspegia",
+    "quickJumpYear": "Hona jo",
+    "duplicateEvent": "Gertaera bikoiztua"
   },
   "errorDialog": {
     "title": "AppFlowy errorea",
@@ -600,5 +1140,329 @@
   "views": {
     "deleteContentTitle": "Ziur {pageType} ezabatu nahi duzula?",
     "deleteContentCaption": "{pageType} hau ezabatzen baduzu, zaborrontzitik leheneratu dezakezu."
+  },
+  "colors": {
+    "custom": "Pertsonalizatua",
+    "default": "Lehenetsia",
+    "red": "Gorria",
+    "orange": "Laranja",
+    "yellow": "Horia",
+    "green": "Berdea",
+    "blue": "Urdina",
+    "purple": "Morea",
+    "pink": "Arrosa",
+    "brown": "Marroia",
+    "gray": "grisa"
+  },
+  "emoji": {
+    "emojiTab": "Emojia",
+    "search": "Bilatu emojiak",
+    "noRecent": "Ez dago azken emojirik",
+    "noEmojiFound": "Ez da emojirik aurkitu",
+    "filter": "Iragazkia",
+    "random": "Ausazko",
+    "selectSkinTone": "Hautatu azal-tonua",
+    "remove": "Kendu emojia",
+    "categories": {
+      "smileys": "Irribarreak eta emozioak",
+      "people": "Pertsonak eta Gorputza",
+      "animals": "Animaliak eta Natura",
+      "food": "Janaria eta edaria",
+      "activities": "Jarduerak",
+      "places": "Bidaiak eta Lekuak",
+      "objects": "Objektuak",
+      "symbols": "Sinboloak",
+      "flags": "Banderak",
+      "nature": "Natura",
+      "frequentlyUsed": "Maiz erabiltzen da"
+    },
+    "skinTone": {
+      "default": "Lehenetsia",
+      "light": "Argia",
+      "mediumLight": "Ertaina-Arina",
+      "medium": "Ertaina",
+      "mediumDark": "Ertain-Iluna",
+      "dark": "Iluna"
+    }
+  },
+  "inlineActions": {
+    "noResults": "Ez dago emaitzarik",
+    "pageReference": "Orriaren erreferentzia",
+    "docReference": "Dokumentuaren erreferentzia",
+    "boardReference": "Kontseiluko erreferentzia",
+    "calReference": "Egutegiaren erreferentzia",
+    "gridReference": "Sarearen erreferentzia",
+    "date": "Data",
+    "reminder": {
+      "groupTitle": "Oroigarria",
+      "shortKeyword": "gogorarazi"
+    }
+  },
+  "datePicker": {
+    "dateTimeFormatTooltip": "Aldatu data eta orduaren formatua ezarpenetan",
+    "dateFormat": "Data-formatua",
+    "includeTime": "Sartu denbora",
+    "isRange": "Amaiera data",
+    "timeFormat": "Denbora-formatua",
+    "clearDate": "Garbitu data",
+    "reminderLabel": "Oroigarria",
+    "selectReminder": "Hautatu abisua",
+    "reminderOptions": {
+      "none": "Bat ere ez",
+      "atTimeOfEvent": "Gertaeraren ordua",
+      "fiveMinsBefore": "5 minutu lehenago",
+      "tenMinsBefore": "10 minutu lehenago",
+      "fifteenMinsBefore": "15 minutu lehenago",
+      "thirtyMinsBefore": "30 minutu lehenago",
+      "oneHourBefore": "1 ordu lehenago",
+      "twoHoursBefore": "2 ordu lehenago",
+      "onDayOfEvent": "Ekitaldiaren egunean",
+      "oneDayBefore": "1 egun lehenago",
+      "twoDaysBefore": "2 egun lehenago",
+      "oneWeekBefore": "Astebete lehenago",
+      "custom": "Pertsonalizatua"
+    }
+  },
+  "relativeDates": {
+    "yesterday": "Atzo",
+    "today": "Gaur",
+    "tomorrow": "Bihar",
+    "oneWeek": "1 aste"
+  },
+  "notificationHub": {
+    "title": "Jakinarazpenak",
+    "mobile": {
+      "title": "Eguneraketak"
+    },
+    "emptyTitle": "Guztiak harrapatuta!",
+    "emptyBody": "Ez dago jakinarazpenik edo ekintzarik zain. Gozatu lasaitasunaz.",
+    "tabs": {
+      "inbox": "Sarrera-ontzia",
+      "upcoming": "Datorren"
+    },
+    "actions": {
+      "markAllRead": "Markatu dena irakurrita bezala",
+      "showAll": "Denak",
+      "showUnreads": "Irakurri gabe"
+    },
+    "filters": {
+      "ascending": "Igokorra",
+      "descending": "Jaitsiera",
+      "groupByDate": "Taldekatu dataka",
+      "showUnreadsOnly": "Erakutsi irakurri gabekoak soilik",
+      "resetToDefault": "Berrezarri lehenespenera"
+    }
+  },
+  "reminderNotification": {
+    "title": "Oroigarria",
+    "message": "Gogoratu hau egiaztatzea ahaztu baino lehen!",
+    "tooltipDelete": "Ezabatu",
+    "tooltipMarkRead": "Markatu irakurritako gisa",
+    "tooltipMarkUnread": "Markatu irakurri gabeko gisa"
+  },
+  "findAndReplace": {
+    "find": "Aurkitu",
+    "previousMatch": "Aurreko partida",
+    "nextMatch": "Hurrengo partida",
+    "close": "Itxi",
+    "replace": "Ordezkatu",
+    "replaceAll": "Ordezkatu guztiak",
+    "noResult": "Ez dago emaitzarik",
+    "caseSensitive": "Maiuskulak eta minuskulak bereizten dira",
+    "searchMore": "Bilatu emaitza gehiago aurkitzeko"
+  },
+  "error": {
+    "weAreSorry": "Sentitzen dugu",
+    "loadingViewError": "Arazoak ditugu ikuspegi hau kargatzeko. Mesedez, egiaztatu zure Interneteko konexioa, freskatu aplikazioa eta ez izan zalantzarik taldearekin harremanetan jartzeko arazoak jarraitzen badu."
+  },
+  "editor": {
+    "bold": "Lodia",
+    "bulletedList": "Buletaren zerrenda",
+    "bulletedListShortForm": "Buletak",
+    "checkbox": "Kontrol-laukia",
+    "embedCode": "Kapsulatu kodea",
+    "heading1": "H1",
+    "heading2": "H2",
+    "heading3": "H3",
+    "highlight": "Nabarmendu",
+    "color": "Kolore",
+    "image": "Irudia",
+    "date": "Data",
+    "italic": "Etzana",
+    "link": "Esteka",
+    "numberedList": "Zenbakidun Zerrenda",
+    "numberedListShortForm": "Zenbakituta",
+    "quote": "Aipatu",
+    "strikethrough": "Markatua",
+    "text": "Testua",
+    "underline": "Azpimarratu",
+    "fontColorDefault": "Lehenetsia",
+    "fontColorGray": "grisa",
+    "fontColorBrown": "Marroia",
+    "fontColorOrange": "Laranja",
+    "fontColorYellow": "Horia",
+    "fontColorGreen": "Berdea",
+    "fontColorBlue": "Urdina",
+    "fontColorPurple": "Morea",
+    "fontColorPink": "Arrosa",
+    "fontColorRed": "Gorria",
+    "backgroundColorDefault": "Atzeko plano lehenetsia",
+    "backgroundColorGray": "Hondo grisa",
+    "backgroundColorBrown": "Hondo marroia",
+    "backgroundColorOrange": "Hondo laranja",
+    "backgroundColorYellow": "Hondo horia",
+    "backgroundColorGreen": "Hondo berdea",
+    "backgroundColorBlue": "Hondo urdina",
+    "backgroundColorPurple": "Hondo morea",
+    "backgroundColorPink": "Hondo arrosa",
+    "backgroundColorRed": "Hondo gorria",
+    "backgroundColorLime": "Kare hondoa",
+    "backgroundColorAqua": "Aqua atzeko planoa",
+    "done": "Eginda",
+    "cancel": "Utzi",
+    "tint1": "Tinta 1",
+    "tint2": "2. kolorea",
+    "tint3": "Tinta 3",
+    "tint4": "Tinta 4",
+    "tint5": "Tinta 5",
+    "tint6": "Tinta 6",
+    "tint7": "Tinta 7",
+    "tint8": "8. kolorea",
+    "tint9": "Tinta 9",
+    "lightLightTint1": "Morea",
+    "lightLightTint2": "Arrosa",
+    "lightLightTint3": "Arrosa Argia",
+    "lightLightTint4": "Laranja",
+    "lightLightTint5": "Horia",
+    "lightLightTint6": "Karea",
+    "lightLightTint7": "Berdea",
+    "lightLightTint8": "Aqua",
+    "lightLightTint9": "Urdina",
+    "urlHint": "URLa",
+    "mobileHeading1": "1. goiburua",
+    "mobileHeading2": "2. goiburua",
+    "mobileHeading3": "3. goiburua",
+    "textColor": "Testuaren kolorea",
+    "backgroundColor": "Atzeko planoaren kolorea",
+    "addYourLink": "Gehitu zure esteka",
+    "openLink": "Ireki esteka",
+    "copyLink": "Kopiatu esteka",
+    "removeLink": "Kendu esteka",
+    "editLink": "Editatu esteka",
+    "linkText": "Testua",
+    "linkTextHint": "Mesedez, idatzi testua",
+    "linkAddressHint": "Mesedez, sartu URLa",
+    "highlightColor": "Nabarmendu kolorea",
+    "clearHighlightColor": "Garbitu nabarmentzeko kolorea",
+    "customColor": "Kolore pertsonalizatua",
+    "hexValue": "Balio hex",
+    "opacity": "Opakotasuna",
+    "resetToDefaultColor": "Berrezarri kolore lehenetsira",
+    "ltr": "LTR",
+    "rtl": "RTL",
+    "auto": "Autoa",
+    "cut": "Moztu",
+    "copy": "Kopiatu",
+    "paste": "Itsatsi",
+    "find": "Aurkitu",
+    "select": "Hautatu",
+    "selectAll": "Hautatu guztiak",
+    "previousMatch": "Aurreko partida",
+    "nextMatch": "Hurrengo partida",
+    "closeFind": "Itxi",
+    "replace": "Ordezkatu",
+    "replaceAll": "Ordezkatu guztiak",
+    "regex": "Regex",
+    "caseSensitive": "Maiuskulak eta minuskulak bereizten dira",
+    "uploadImage": "Igo irudia",
+    "urlImage": "URL Irudia",
+    "incorrectLink": "Esteka okerra",
+    "upload": "Kargatu",
+    "chooseImage": "Aukeratu irudi bat",
+    "loading": "Kargatzen",
+    "imageLoadFailed": "Ezin izan da irudia kargatu",
+    "divider": "Banatzailea",
+    "table": "Taula",
+    "colAddBefore": "Gehitu aurretik",
+    "rowAddBefore": "Gehitu aurretik",
+    "colAddAfter": "Gehitu ondoren",
+    "rowAddAfter": "Gehitu ondoren",
+    "colRemove": "Kendu",
+    "rowRemove": "Kendu",
+    "colDuplicate": "Bikoiztu",
+    "rowDuplicate": "Bikoiztu",
+    "colClear": "Garbitu edukia",
+    "rowClear": "Garbitu edukia",
+    "slashPlaceHolder": "Idatzi '/' bloke bat txertatzeko, edo hasi idazten",
+    "typeSomething": "Idatzi zerbait...",
+    "toggleListShortForm": "Txandakatu",
+    "quoteListShortForm": "Aipatu",
+    "mathEquationShortForm": "Formula",
+    "codeBlockShortForm": "Kodea"
+  },
+  "favorite": {
+    "noFavorite": "Ez dago gogoko orrialderik",
+    "noFavoriteHintText": "Irristatu orria ezkerrera gogokoetara gehitzeko"
+  },
+  "cardDetails": {
+    "notesPlaceholder": "Idatzi / bat bloke bat txertatzeko, edo hasi idazten"
+  },
+  "blockPlaceholders": {
+    "todoList": "Egin",
+    "bulletList": "Zerrenda",
+    "numberList": "Zerrenda",
+    "quote": "Aipatu",
+    "heading": "{} goiburua"
+  },
+  "titleBar": {
+    "pageIcon": "Orriaren ikonoa",
+    "language": "Hizkuntza",
+    "font": "Letra-tipoa",
+    "actions": "Ekintzak",
+    "date": "Data",
+    "addField": "Gehitu eremua",
+    "userIcon": "Erabiltzailearen ikonoa"
+  },
+  "noLogFiles": "Ez dago erregistro fitxategirik",
+  "newSettings": {
+    "myAccount": {
+      "title": "Nire kontua",
+      "profileNamePlaceholder": "Sartu zure izena",
+      "accountSecurity": "Kontuaren segurtasuna",
+      "2FA": "2 urratseko autentifikazioa",
+      "aiKeys": "AI teklak",
+      "accountLogin": "Kontuaren saioa",
+      "deleteAccount": {
+        "title": "Ezabatu kontua",
+        "deleteMyAccount": "Ezabatu nire kontua",
+        "dialogTitle": "Ezabatu kontua",
+        "dialogContent1": "Ziur zure kontua betiko ezabatu nahi duzula?"
+      }
+    },
+    "workplace": {
+      "name": "Lantokia",
+      "subtitle": "Pertsonalizatu zure lan-eremuaren itxura, gaia, letra-tipoa, testu-diseinua, data, ordua eta hizkuntza.",
+      "workplaceNamePlaceholder": "Idatzi lantokiaren izena",
+      "workplaceIcon": "Lantokiaren ikonoa",
+      "updateIconError": "Ezin izan da eguneratu ikonoa",
+      "appearance": {
+        "name": "Itxura",
+        "themeMode": {
+          "auto": "Autoa",
+          "light": "Argia",
+          "dark": "Iluna"
+        },
+        "language": "Hizkuntza"
+      }
+    },
+    "syncState": {
+      "syncing": "Sinkronizatzea",
+      "synced": "Sinkronizatuta"
+    }
+  },
+  "commandPalette": {
+    "navigateHint": "nabigatzeko",
+    "betaLabel": "BETA",
+    "fromTrashHint": "Zaborretatik"
   }
 }

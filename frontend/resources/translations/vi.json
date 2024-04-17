@@ -1,9 +1,1462 @@
 {
-  "board": {
+  "appName": "AppFlowy",
+  "defaultUsername": "Tôi",
+  "welcomeText": "Chào mừng bạn đến với @:appName",
+  "welcomeTo": "Chào mừng bạn đến",
+  "githubStarText": "Sao trên GitHub",
+  "subscribeNewsletterText": "Đăng ký tin",
+  "letsGoButtonText": "Bắt đầu nhanh",
+  "title": "Tiêu đề",
+  "youCanAlso": "Bạn cũng có thể",
+  "and": "Và",
+  "failedToOpenUrl": "Không mở được url: {}",
+  "blockActions": {
+    "addBelowTooltip": "Nhấn vào đây để thêm vào bên dưới",
+    "addAboveCmd": "Alt+nhấp chuột",
+    "addAboveMacCmd": "Tùy chọn+nhấp chuột",
+    "addAboveTooltip": "để thêm ở trên",
+    "dragTooltip": "Kéo để di chuyển",
+    "openMenuTooltip": "Bấm để mở menu"
+  },
+  "signUp": {
+    "buttonText": "Đăng ký",
+    "title": "Đăng ký @:appName",
+    "getStartedText": "Bắt đầu",
+    "emptyPasswordError": "Mật khẩu không thể trống",
+    "repeatPasswordEmptyError": "Mật khẩu nhắc lại không được để trống",
+    "unmatchedPasswordError": "Lặp lại mật khẩu không giống như mật khẩu",
+    "alreadyHaveAnAccount": "Bạn co săn san để tạo một tai khoản?",
+    "emailHint": "E-mail",
+    "passwordHint": "Mật khẩu",
+    "repeatPasswordHint": "lặp lại mật khẩu",
+    "signUpWith": "Đăng ký với:"
+  },
+  "signIn": {
+    "loginTitle": "Đăng nhập vào @:appName",
+    "loginButtonText": "Đăng nhập",
+    "loginStartWithAnonymous": "Bắt đầu với một phiên ẩn danh",
+    "continueAnonymousUser": "Tiếp tục với một phiên ẩn danh",
+    "buttonText": "Đăng nhập",
+    "signingInText": "Đang đăng nhập...",
+    "forgotPassword": "Quên mật khẩu?",
+    "emailHint": "E-mail",
+    "passwordHint": "Mật khẩu",
+    "dontHaveAnAccount": "Bạn chưa có tài khoản?",
+    "repeatPasswordEmptyError": "Lặp lại mật khẩu không được để trống",
+    "unmatchedPasswordError": "Lặp lại mật khẩu không giống như mật khẩu",
+    "syncPromptMessage": "Việc đồng bộ hóa dữ liệu có thể mất một lúc. Xin đừng đóng trang này",
+    "or": "HOẶC",
+    "LogInWithGoogle": "Đăng nhập bằng Google",
+    "LogInWithGithub": "Đăng nhập bằng Github",
+    "LogInWithDiscord": "Đăng nhập bằng Discord",
+    "signInWith": "Đăng nhập với:",
+    "signInWithEmail": "Đăng nhập bằng Email",
+    "logInWithMagicLink": "Đăng nhập bằng Magic Link",
+    "pleaseInputYourEmail": "Hãy điền địa chỉ email của bạn",
+    "magicLinkSent": "Magic link đã gửi tới email của bạn, vui lòng kiểm tra hộp thư đến",
+    "invalidEmail": "Vui lòng nhập địa chỉ email hợp lệ"
+  },
+  "workspace": {
+    "chooseWorkspace": "Chọn không gian làm việc của bạn",
+    "create": "Tạo không gian làm việc",
+    "reset": "Đặt lại không gian làm việc",
+    "resetWorkspacePrompt": "Đặt lại không gian làm việc sẽ xóa tất cả các trang và dữ liệu trong đó. Bạn có chắc chắn muốn đặt lại không gian làm việc không? Ngoài ra, bạn có thể liên hệ với nhóm hỗ trợ để khôi phục không gian làm việc",
+    "hint": "không gian làm việc",
+    "notFoundError": "Không tìm thấy không gian làm việc",
+    "failedToLoad": "Đã xảy ra lỗi! Không tải được không gian làm việc. Hãy thử đóng mọi phiên bản đang mở của AppFlowy và thử lại.",
+    "errorActions": {
+      "reportIssue": "Báo cáo một vấn đề",
+      "reportIssueOnGithub": "Báo cáo sự cố trên Github",
+      "exportLogFiles": "Xuất tệp nhật ký",
+      "reachOut": "Tiếp cận trên Discord"
+    },
+    "menuTitle": "Không gian làm việc",
+    "deleteWorkspaceHintText": "Bạn có chắc chắn muốn xóa không gian làm việc không? Hành động này không thể được hoàn tác.",
+    "createSuccess": "Không gian làm việc được tạo thành công",
+    "createFailed": "Không tạo được không gian làm việc",
+    "createLimitExceeded": "Bạn đã đạt đến giới hạn không gian làm việc tối đa được phép cho tài khoản của mình. Nếu bạn cần thêm không gian làm việc để tiếp tục công việc của mình, vui lòng yêu cầu trên Github",
+    "deleteSuccess": "Đã xóa thành công không gian làm việc",
+    "deleteFailed": "Không xóa được không gian làm việc",
+    "openSuccess": "Mở không gian làm việc thành công",
+    "openFailed": "Không thể mở không gian làm việc",
+    "renameSuccess": "Đã đổi tên thành công không gian làm việc",
+    "renameFailed": "Không đổi tên được không gian làm việc",
+    "updateIconSuccess": "Đã cập nhật biểu tượng không gian làm việc thành công",
+    "updateIconFailed": "Biểu tượng không gian làm việc được cập nhật không thành công",
+    "cannotDeleteTheOnlyWorkspace": "Không thể xóa không gian làm việc duy nhất",
+    "fetchWorkspacesFailed": "Không tìm nạp được không gian làm việc",
+    "leaveCurrentWorkspace": "Rời khỏi không gian làm việc",
+    "leaveCurrentWorkspacePrompt": "Bạn có chắc chắn muốn rời khỏi không gian làm việc hiện tại không?"
+  },
+  "shareAction": {
+    "buttonText": "Chia sẻ",
+    "workInProgress": "Sắp ra mắt",
+    "markdown": "Giảm giá",
+    "html": "HTML",
+    "clipboard": "Sao chép vào clipboard",
+    "csv": "CSV",
+    "copyLink": "Sao chép đường dẫn"
+  },
+  "moreAction": {
+    "small": "bé nhỏ",
+    "medium": "trung bình",
+    "large": "lớn",
+    "fontSize": "Cỡ chữ",
+    "import": "Nhập khẩu",
+    "moreOptions": "Lựa chọn khác",
+    "wordCount": "Số từ: {}",
+    "charCount": "Số ký tự: {}",
+    "createdAt": "Tạo: {}",
+    "deleteView": "Xóa bỏ",
+    "duplicateView": "Nhân bản"
+  },
+  "importPanel": {
+    "textAndMarkdown": "Văn bản &amp; Đánh dấu",
+    "documentFromV010": "Tài liệu từ v0.1.0",
+    "databaseFromV010": "Cơ sở dữ liệu từ v0.1.0",
+    "csv": "CSV",
+    "database": "Cơ sở dữ liệu"
+  },
+  "disclosureAction": {
+    "rename": "Đổi tên",
+    "delete": "Xóa bỏ",
+    "duplicate": "Nhân bản",
+    "unfavorite": "Loại bỏ khỏi mục ưa thích",
+    "favorite": "Thêm vào mục yêu thích",
+    "openNewTab": "Mở trong tab mới",
+    "moveTo": "Chuyển tới",
+    "addToFavorites": "Thêm vào mục yêu thích",
+    "copyLink": "Sao chép đường dẫn"
+  },
+  "blankPageTitle": "Trang trống",
+  "newPageText": "Trang mới",
+  "newDocumentText": "Tài liệu mới",
+  "newGridText": "Lưới mới",
+  "newCalendarText": "Lịch mới",
+  "newBoardText": "Bảng mới",
+  "trash": {
+    "text": "Rác",
+    "restoreAll": "Khôi phục lại tất cả",
+    "deleteAll": "Xóa hết",
+    "pageHeader": {
+      "fileName": "Tên tập tin",
+      "lastModified": "Sửa đổi lần cuối",
+      "created": "Tạo"
+    },
+    "confirmDeleteAll": {
+      "title": "Bạn có chắc chắn xóa tất cả các trang trong Thùng rác không?",
+      "caption": "Hành động này không thể được hoàn tác."
+    },
+    "confirmRestoreAll": {
+      "title": "Bạn có chắc chắn khôi phục tất cả các trang trong Thùng rác không?",
+      "caption": "Hành động này không thể được hoàn tác."
+    },
     "mobile": {
+      "actions": "Hành động rác",
+      "empty": "Thùng rác trống rỗng",
+      "emptyDescription": "Bạn không có tập tin nào bị xóa",
+      "isDeleted": "bị xóa",
+      "isRestored": "được phục hồi"
+    },
+    "confirmDeleteTitle": "Bạn có chắc chắn muốn xóa trang này vĩnh viễn không?"
+  },
+  "deletePagePrompt": {
+    "text": "Trang này nằm trong Thùng rác",
+    "restore": "Khôi phục trang",
+    "deletePermanent": "Xóa vĩnh viễn"
+  },
+  "dialogCreatePageNameHint": "Tên trang",
+  "questionBubble": {
+    "shortcuts": "Phím tắt",
+    "whatsNew": "Có gì mới?",
+    "help": "Trợ giúp &amp; Hỗ trợ",
+    "markdown": "Giảm giá",
+    "debug": {
+      "name": "Thông tin gỡ lỗi",
+      "success": "Đã sao chép thông tin gỡ lỗi vào khay nhớ tạm!",
+      "fail": "Không thể sao chép thông tin gỡ lỗi vào bảng nhớ tạm"
+    },
+    "feedback": "Nhận xét"
+  },
+  "menuAppHeader": {
+    "moreButtonToolTip": "Xóa, đổi tên và hơn thế nữa...",
+    "addPageTooltip": "Nhanh chóng thêm một trang bên trong",
+    "defaultNewPageName": "Không có tiêu đề",
+    "renameDialog": "Đổi tên"
+  },
+  "noPagesInside": "Không có trang nào bên trong",
+  "toolbar": {
+    "undo": "Hoàn tác",
+    "redo": "Làm lại",
+    "bold": "In đậm",
+    "italic": "Nghiêng",
+    "underline": "gạch chân",
+    "strike": "Gạch ngang",
+    "numList": "Danh sách đánh số",
+    "bulletList": "Danh sách có dấu đầu dòng",
+    "checkList": "Danh mục",
+    "inlineCode": "Mã nội tuyến",
+    "quote": "Khối trích dẫn",
+    "header": "tiêu đề",
+    "highlight": "Điểm nổi bật",
+    "color": "Màu sắc",
+    "addLink": "Thêm liên kết",
+    "link": "liên kết"
+  },
+  "tooltip": {
+    "lightMode": "Chuyển sang chế độ Ánh sáng",
+    "darkMode": "Chuyển sang chế độ tối",
+    "openAsPage": "Mở dưới dạng Trang",
+    "addNewRow": "Thêm một hàng mới",
+    "openMenu": "Bấm để mở menu",
+    "dragRow": "Nhấn và giữ để sắp xếp lại hàng",
+    "viewDataBase": "Xem cơ sở dữ liệu",
+    "referencePage": "{name} này được tham chiếu",
+    "addBlockBelow": "Thêm một khối bên dưới"
+  },
+  "sideBar": {
+    "closeSidebar": "Đóng thanh bên",
+    "openSidebar": "Thanh bên mở",
+    "personal": "Riêng tư",
+    "private": "Riêng tư",
+    "workspace": "Không gian làm việc",
+    "favorites": "Yêu thích",
+    "clickToHidePrivate": "Bấm để ẩn không gian riêng tư\nCác trang bạn đã tạo ở đây chỉ hiển thị với bạn",
+    "clickToHideWorkspace": "Bấm để ẩn không gian làm việc\nCác trang bạn đã tạo ở đây được hiển thị cho mọi thành viên",
+    "clickToHidePersonal": "Bấm để ẩn không gian cá nhân",
+    "clickToHideFavorites": "Bấm để ẩn không gian yêu thích",
+    "addAPage": "Thêm một trang",
+    "addAPageToPrivate": "Thêm một trang vào không gian riêng tư",
+    "addAPageToWorkspace": "Thêm trang vào không gian làm việc",
+    "recent": "Gần đây"
+  },
+  "notifications": {
+    "export": {
+      "markdown": "Đã xuất ghi chú sang Markdown",
+      "path": "Tài liệu/dòng chảy"
+    }
+  },
+  "contactsPage": {
+    "title": "Liên lạc",
+    "whatsHappening": "Điều gì đang xảy ra trong tuần này?",
+    "addContact": "Thêm liên hệ",
+    "editContact": "Chỉnh sửa liên hệ"
+  },
+  "button": {
+    "ok": "ĐƯỢC RỒI",
+    "done": "Xong",
+    "cancel": "Hủy bỏ",
+    "signIn": "Đăng nhập",
+    "signOut": "Đăng xuất",
+    "complete": "Hoàn thành",
+    "save": "Cứu",
+    "generate": "Phát ra",
+    "esc": "THOÁT",
+    "keep": "Giữ",
+    "tryAgain": "Thử lại",
+    "discard": "Loại bỏ",
+    "replace": "Thay thế",
+    "insertBelow": "Chèn bên dưới",
+    "insertAbove": "Chèn ở trên",
+    "upload": "Tải lên",
+    "edit": "Biên tập",
+    "delete": "Xóa bỏ",
+    "duplicate": "Nhân bản",
+    "putback": "Để lại chỗ cũ",
+    "update": "Cập nhật",
+    "share": "Chia sẻ",
+    "removeFromFavorites": "Loại bỏ khỏi mục ưa thích",
+    "addToFavorites": "Thêm vào mục yêu thích",
+    "rename": "Đổi tên",
+    "helpCenter": "Trung tâm trợ giúp",
+    "add": "Thêm vào",
+    "yes": "Đúng",
+    "clear": "Thông thoáng",
+    "remove": "Di dời",
+    "dontRemove": "Đừng xóa",
+    "copyLink": "Sao chép đường dẫn",
+    "align": "Căn chỉnh",
+    "login": "Đăng nhập",
+    "logout": "Đăng xuất",
+    "deleteAccount": "Xóa tài khoản",
+    "back": "Mặt sau",
+    "signInGoogle": "Đăng nhập bằng Google",
+    "signInGithub": "Đăng nhập bằng Github",
+    "signInDiscord": "Đăng nhập bằng Discord"
+  },
+  "label": {
+    "welcome": "Chào mừng!",
+    "firstName": "Tên đầu tiên",
+    "middleName": "Tên đệm",
+    "lastName": "Họ",
+    "stepX": "Bước {X}"
+  },
+  "oAuth": {
+    "err": {
+      "failedTitle": "Không thể kết nối với tài khoản của bạn.",
+      "failedMsg": "Vui lòng đảm bảo bạn đã hoàn tất quá trình đăng nhập trong trình duyệt của mình."
+    },
+    "google": {
+      "title": "ĐĂNG NHẬP GOOGLE",
+      "instruction1": "Để nhập Danh bạ Google của bạn, bạn cần cấp quyền cho ứng dụng này bằng trình duyệt web của mình.",
+      "instruction2": "Sao chép mã này vào khay nhớ tạm của bạn bằng cách nhấp vào biểu tượng hoặc chọn văn bản:",
+      "instruction3": "Điều hướng đến liên kết sau trong trình duyệt web của bạn và nhập mã ở trên:",
+      "instruction4": "Nhấn nút bên dưới khi bạn hoàn tất đăng ký:"
+    }
+  },
+  "settings": {
+    "title": "Cài đặt",
+    "menu": {
+      "appearance": "Vẻ bề ngoài",
+      "language": "Ngôn ngữ",
+      "user": "Người dùng",
+      "files": "Các tập tin",
+      "notifications": "Thông báo",
+      "open": "Mở cài đặt",
+      "logout": "Đăng xuất",
+      "logoutPrompt": "Bạn có chắc chắn đăng xuất không?",
+      "selfEncryptionLogoutPrompt": "Bạn có chắc chắn bạn muốn thoát? Hãy đảm bảo bạn đã sao chép bí mật mã hóa",
+      "syncSetting": "Cài đặt đồng bộ hóa",
+      "cloudSettings": "Cài đặt đám mây",
+      "enableSync": "Bật đồng bộ hóa",
+      "enableEncrypt": "Mã hóa dữ liệu",
+      "cloudURL": "URL cơ sở",
+      "invalidCloudURLScheme": "Lược đồ không hợp lệ",
+      "cloudServerType": "Máy chủ đám mây",
+      "cloudServerTypeTip": "Xin lưu ý rằng nó có thể đăng xuất tài khoản hiện tại của bạn sau khi chuyển đổi máy chủ đám mây",
+      "cloudLocal": "Địa phương",
+      "cloudSupabase": "Supabase",
+      "cloudSupabaseUrl": "URL siêu cơ sở",
+      "cloudSupabaseUrlCanNotBeEmpty": "Url supabase không được để trống",
+      "cloudSupabaseAnonKey": "Khóa anon Supabase",
+      "cloudSupabaseAnonKeyCanNotBeEmpty": "Khóa anon không được để trống",
+      "cloudAppFlowy": "AppFlowy Cloud Beta",
+      "cloudAppFlowySelfHost": "Đám mây AppFlowy Tự lưu trữ",
+      "appFlowyCloudUrlCanNotBeEmpty": "Url đám mây không được để trống",
+      "clickToCopy": "Bấm để sao chép",
+      "selfHostStart": "Nếu bạn không có máy chủ, vui lòng tham khảo",
+      "selfHostContent": "tài liệu",
+      "selfHostEnd": "để được hướng dẫn cách tự lưu trữ máy chủ của riêng bạn",
+      "cloudURLHint": "Nhập URL cơ sở của máy chủ của bạn",
+      "cloudWSURL": "URL ổ cắm web",
+      "cloudWSURLHint": "Nhập địa chỉ websocket của máy chủ của bạn",
+      "restartApp": "Khởi động lại",
+      "restartAppTip": "Khởi động lại ứng dụng để những thay đổi có hiệu lực. Xin lưu ý rằng điều này có thể đăng xuất tài khoản hiện tại của bạn",
+      "changeServerTip": "Sau khi thay đổi máy chủ, bạn phải nhấp vào nút khởi động lại để thay đổi có hiệu lực",
+      "enableEncryptPrompt": "Kích hoạt mã hóa để bảo mật dữ liệu của bạn với bí mật này. Lưu trữ nó một cách an toàn; một khi đã bật thì không thể tắt được. Nếu bị mất, dữ liệu của bạn sẽ không thể phục hồi được. Bấm để sao chép",
+      "inputEncryptPrompt": "Vui lòng nhập bí mật mã hóa của bạn cho",
+      "clickToCopySecret": "Bấm để sao chép bí mật",
+      "configServerSetting": "Định cấu hình cài đặt máy chủ của bạn",
+      "configServerGuide": "Sau khi chọn `Bắt đầu nhanh`, hãy điều hướng đến `Cài đặt` rồi đến \"Cài đặt đám mây\" để định cấu hình máy chủ tự lưu trữ của bạn.",
+      "inputTextFieldHint": "Bí mật của bạn",
+      "historicalUserList": "Lịch sử đăng nhập của người dùng",
+      "historicalUserListTooltip": "Danh sách này hiển thị các tài khoản ẩn danh của bạn. Bạn có thể nhấp vào một tài khoản để xem chi tiết của nó. Tài khoản ẩn danh được tạo bằng cách nhấp vào nút 'Bắt đầu'",
+      "openHistoricalUser": "Bấm để mở tài khoản ẩn danh",
+      "customPathPrompt": "Việc lưu trữ thư mục dữ liệu AppFlowy trong thư mục được đồng bộ hóa trên đám mây như Google Drive có thể gây ra rủi ro. Nếu cơ sở dữ liệu trong thư mục này được truy cập hoặc sửa đổi từ nhiều vị trí cùng một lúc, điều đó có thể dẫn đến xung đột đồng bộ hóa và nguy cơ hỏng dữ liệu",
+      "importAppFlowyData": "Nhập dữ liệu từ thư mục AppFlowy bên ngoài",
+      "importingAppFlowyDataTip": "Quá trình nhập dữ liệu đang diễn ra. Vui lòng không đóng ứng dụng",
+      "importAppFlowyDataDescription": "Sao chép dữ liệu từ thư mục dữ liệu AppFlowy bên ngoài và nhập dữ liệu đó vào thư mục dữ liệu AppFlowy hiện tại",
+      "importSuccess": "Đã nhập thành công thư mục dữ liệu AppFlowy",
+      "importFailed": "Nhập thư mục dữ liệu AppFlowy không thành công",
+      "importGuide": "Để biết thêm chi tiết, vui lòng kiểm tra tài liệu được tham chiếu"
+    },
+    "notifications": {
+      "enableNotifications": {
+        "label": "Bật thông báo",
+        "hint": "Tắt để ngăn thông báo cục bộ xuất hiện."
+      }
+    },
+    "appearance": {
+      "resetSetting": "Cài lại",
+      "fontFamily": {
+        "label": "Họ phông chữ",
+        "search": "Tìm kiếm"
+      },
+      "themeMode": {
+        "label": "Chế độ chủ đề",
+        "light": "Chế độ sáng",
+        "dark": "Chế độ tối",
+        "system": "Thích ứng với hệ thống"
+      },
+      "fontScaleFactor": "Hệ số tỷ lệ phông chữ",
+      "documentSettings": {
+        "cursorColor": "Màu con trỏ tài liệu",
+        "selectionColor": "Màu lựa chọn tài liệu",
+        "hexEmptyError": "Màu hex không được để trống",
+        "hexLengthError": "Giá trị hex phải dài 6 chữ số",
+        "hexInvalidError": "Giá trị hex không hợp lệ",
+        "opacityEmptyError": "Độ mờ không được để trống",
+        "opacityRangeError": "Độ mờ phải nằm trong khoảng từ 1 đến 100",
+        "app": "Ứng dụng",
+        "flowy": "chảy nước",
+        "apply": "Áp dụng"
+      },
+      "layoutDirection": {
+        "label": "Hướng bố cục",
+        "hint": "Kiểm soát luồng nội dung trên màn hình của bạn, từ trái sang phải hoặc phải sang trái.",
+        "ltr": "LTR",
+        "rtl": "RTL"
+      },
+      "textDirection": {
+        "label": "Hướng văn bản mặc định",
+        "hint": "Chỉ định xem văn bản nên bắt đầu từ trái hay phải làm mặc định.",
+        "ltr": "LTR",
+        "rtl": "RTL",
+        "auto": "TỰ ĐỘNG",
+        "fallback": "Tương tự như hướng bố cục"
+      },
+      "themeUpload": {
+        "button": "Tải lên",
+        "uploadTheme": "Tải chủ đề lên",
+        "description": "Tải lên chủ đề AppFlowy của riêng bạn bằng nút bên dưới.",
+        "loading": "Vui lòng đợi trong khi chúng tôi xác thực và tải chủ đề của bạn lên...",
+        "uploadSuccess": "Chủ đề của bạn đã được tải lên thành công",
+        "deletionFailure": "Không xóa được chủ đề. Hãy thử xóa nó bằng tay.",
+        "filePickerDialogTitle": "Chọn tệp .flowy_plugin",
+        "urlUploadFailure": "Không mở được url: {}"
+      },
+      "theme": "chủ đề",
+      "builtInsLabel": "Chủ đề tích hợp",
+      "pluginsLabel": "bổ sung",
+      "dateFormat": {
+        "label": "Định dạng ngày tháng",
+        "local": "Địa phương",
+        "us": "CHÚNG TA",
+        "iso": "ISO",
+        "friendly": "Thân thiện",
+        "dmy": "D/M/Y"
+      },
+      "timeFormat": {
+        "label": "Định dạng thời gian",
+        "twelveHour": "Mười hai giờ",
+        "twentyFourHour": "Hai mươi bốn giờ"
+      },
+      "showNamingDialogWhenCreatingPage": "Hiển thị hộp thoại đặt tên khi tạo trang",
+      "enableRTLToolbarItems": "Kích hoạt các mục thanh công cụ RTL",
+      "members": {
+        "title": "Cài đặt thành viên",
+        "inviteMembers": "Mời thành viên",
+        "sendInvite": "Gửi lời mời",
+        "copyInviteLink": "Sao chép liên kết mời",
+        "label": "Các thành viên",
+        "user": "Người dùng",
+        "role": "Vai trò",
+        "removeFromWorkspace": "Xóa khỏi Workspace",
+        "owner": "Người sở hữu",
+        "guest": "Khách mời",
+        "member": "Thành viên",
+        "memberHintText": "Một thành viên có thể đọc, bình luận và chỉnh sửa trang. Mời các thành viên và khách mời.",
+        "guestHintText": "Khách có thể đọc, phản hồi, nhận xét và có thể chỉnh sửa một số trang nhất định khi được phép.",
+        "emailInvalidError": "Email không hợp lệ, vui lòng kiểm tra và thử lại",
+        "emailSent": "Đã gửi email, vui lòng kiểm tra hộp thư",
+        "members": "các thành viên",
+        "membersCount": {
+          "zero": "{} các thành viên",
+          "one": "{} thành viên",
+          "other": "{} các thành viên"
+        },
+        "memberLimitExceeded": "Bạn đã đạt đến giới hạn thành viên tối đa được phép cho tài khoản của mình. Nếu bạn muốn thêm nhiều thành viên hơn để tiếp tục công việc của mình, vui lòng yêu cầu trên Github",
+        "failedToAddMember": "Không thể thêm thành viên",
+        "addMemberSuccess": "Đã thêm thành viên thành công",
+        "removeMember": "Xóa thành viên",
+        "areYouSureToRemoveMember": "Bạn có chắc chắn muốn xóa thành viên này?"
+      }
+    },
+    "files": {
+      "copy": "Sao chép",
+      "defaultLocation": "Đọc tập tin và vị trí lưu trữ dữ liệu",
+      "exportData": "Xuất dữ liệu của bạn",
+      "doubleTapToCopy": "Nhấn đúp để sao chép đường dẫn",
+      "restoreLocation": "Khôi phục về đường dẫn mặc định của AppFlowy",
+      "customizeLocation": "Mở thư mục khác",
+      "restartApp": "Vui lòng khởi động lại ứng dụng để những thay đổi có hiệu lực.",
+      "exportDatabase": "Xuất cơ sở dữ liệu",
+      "selectFiles": "Chọn các file cần xuất",
+      "selectAll": "Chọn tất cả",
+      "deselectAll": "Bỏ chọn tất cả",
+      "createNewFolder": "Tạo một thư mục mới",
+      "createNewFolderDesc": "Hãy cho chúng tôi biết nơi bạn muốn lưu trữ dữ liệu của mình",
+      "defineWhereYourDataIsStored": "Xác định nơi dữ liệu của bạn được lưu trữ",
+      "open": "Mở",
+      "openFolder": "Mở một thư mục hiện có",
+      "openFolderDesc": "Đọc và ghi nó vào thư mục AppFlowy hiện có của bạn",
+      "folderHintText": "tên thư mục",
+      "location": "Tạo một thư mục mới",
+      "locationDesc": "Chọn tên cho thư mục dữ liệu AppFlowy của bạn",
+      "browser": "Duyệt qua",
+      "create": "Tạo nên",
+      "set": "Bộ",
+      "folderPath": "Đường dẫn lưu trữ thư mục của bạn",
+      "locationCannotBeEmpty": "Đường dẫn không thể trống",
+      "pathCopiedSnackbar": "Đã sao chép đường dẫn lưu trữ tệp vào clipboard!",
+      "changeLocationTooltips": "Thay đổi thư mục dữ liệu",
+      "change": "Thay đổi",
+      "openLocationTooltips": "Mở thư mục dữ liệu khác",
+      "openCurrentDataFolder": "Mở thư mục dữ liệu hiện tại",
+      "recoverLocationTooltips": "Đặt lại về thư mục dữ liệu mặc định của AppFlowy",
+      "exportFileSuccess": "Xuất tập tin thành công!",
+      "exportFileFail": "Xuất tập tin không thành công!",
+      "export": "Xuất khẩu",
+      "clearCache": "Xóa bộ nhớ đệm",
+      "clearCacheDesc": "Nếu bạn gặp sự cố với hình ảnh không tải được hoặc phông chữ không hiển thị chính xác, hãy thử xóa bộ nhớ đệm. Hành động này sẽ không xóa dữ liệu người dùng của bạn.",
+      "areYouSureToClearCache": "Bạn có chắc chắn xóa bộ nhớ đệm không?",
+      "clearCacheSuccess": "Xóa bộ nhớ đệm thành công!"
+    },
+    "user": {
+      "name": "Tên",
+      "email": "E-mail",
+      "tooltipSelectIcon": "Chọn biểu tượng",
+      "selectAnIcon": "Chọn một biểu tượng",
+      "pleaseInputYourOpenAIKey": "vui lòng nhập khóa OpenAI của bạn",
+      "pleaseInputYourStabilityAIKey": "vui lòng nhập khóa AI ổn định của bạn",
+      "clickToLogout": "Nhấp để đăng xuất người dùng hiện tại"
+    },
+    "shortcuts": {
+      "shortcutsLabel": "Phím tắt",
+      "command": "Yêu cầu",
+      "keyBinding": "Ràng buộc chính",
+      "addNewCommand": "Thêm lệnh mới",
+      "updateShortcutStep": "Nhấn tổ hợp phím mong muốn và nhấn ENTER",
+      "shortcutIsAlreadyUsed": "Phím tắt này đã được sử dụng cho: {conflict}",
+      "resetToDefault": "Đặt lại về tổ hợp phím mặc định",
+      "couldNotLoadErrorMsg": "Không thể tải phím tắt. Hãy thử lại",
+      "couldNotSaveErrorMsg": "Không thể lưu lối tắt, Hãy thử lại",
+      "commands": {
+        "codeBlockNewParagraph": "Chèn một đoạn mới bên cạnh khối mã",
+        "codeBlockAddTwoSpaces": "Chèn hai khoảng trắng ở đầu dòng trong khối mã",
+        "codeBlockDeleteTwoSpaces": "Xóa hai khoảng trắng ở đầu dòng trong khối mã",
+        "codeBlockSelectAll": "Chọn tất cả nội dung bên trong khối mã",
+        "codeBlockPasteText": "Dán văn bản vào khối mã",
+        "textAlignLeft": "Căn chỉnh văn bản sang trái",
+        "textAlignCenter": "Căn chỉnh văn bản vào giữa",
+        "textAlignRight": "Căn chỉnh văn bản sang phải"
+      }
+    },
+    "mobile": {
+      "personalInfo": "Thông tin cá nhân",
+      "username": "Tên tài khoản",
+      "usernameEmptyError": "Tên ngươi dung không được để trông",
+      "about": "Về",
+      "pushNotifications": "Thông báo đẩy",
+      "support": "Ủng hộ",
+      "joinDiscord": "Tham gia cùng chúng tôi trong Discord",
+      "privacyPolicy": "Chính sách bảo mật",
+      "userAgreement": "sự thỏa thuận của người dùng",
+      "termsAndConditions": "Các điều khoản và điều kiện",
+      "userprofileError": "Không tải được hồ sơ người dùng",
+      "userprofileErrorDescription": "Vui lòng thử đăng xuất và đăng nhập lại để kiểm tra xem sự cố vẫn còn.",
+      "selectLayout": "Chọn bố cục",
+      "selectStartingDay": "Chọn ngày bắt đầu",
+      "version": "Phiên bản"
+    }
+  },
+  "grid": {
+    "deleteView": "Bạn có chắc chắn muốn xóa chế độ xem này không?",
+    "createView": "Mới",
+    "title": {
+      "placeholder": "Không có tiêu đề"
+    },
+    "settings": {
+      "filter": "Lọc",
+      "sort": "Loại",
+      "sortBy": "Sắp xếp theo",
+      "properties": "Của cải",
+      "reorderPropertiesTooltip": "Kéo để sắp xếp lại thuộc tính",
+      "group": "Nhóm",
+      "addFilter": "Thêm bộ lọc",
+      "deleteFilter": "Xóa bộ lọc",
+      "filterBy": "Lọc bởi...",
+      "typeAValue": "Nhập một giá trị...",
+      "layout": "Cách trình bày",
+      "databaseLayout": "Cách trình bày",
+      "viewList": {
+        "zero": "0 lượt xem",
+        "one": "{đếm} lượt xem",
+        "other": "{count} lượt xem"
+      },
+      "editView": "Chỉnh sửa chế độ xem",
+      "boardSettings": "Cài đặt bảng",
+      "calendarSettings": "Cài đặt lịch",
+      "createView": "Xem mới",
+      "duplicateView": "Chế độ xem trùng lặp",
+      "deleteView": "Xóa chế độ xem",
+      "numberOfVisibleFields": "{} cho xem"
+    },
+    "textFilter": {
+      "contains": "Chứa",
+      "doesNotContain": "Không chứa",
+      "endsWith": "Kết thúc bằng",
+      "startWith": "Bắt đầu với",
+      "is": "Là",
+      "isNot": "Không phải",
+      "isEmpty": "trống",
+      "isNotEmpty": "Không có sản phẩm nào",
+      "choicechipPrefix": {
+        "isNot": "Không",
+        "startWith": "Bắt đầu với",
+        "endWith": "Kết thúc bằng",
+        "isEmpty": "trống rỗng",
+        "isNotEmpty": "không có sản phẩm nào"
+      }
+    },
+    "checkboxFilter": {
+      "isChecked": "Đã kiểm tra",
+      "isUnchecked": "Đã bỏ chọn",
+      "choicechipPrefix": {
+        "is": "là"
+      }
+    },
+    "checklistFilter": {
+      "isComplete": "hoàn tất",
+      "isIncomplted": "không đầy đủ"
+    },
+    "selectOptionFilter": {
+      "is": "Là",
+      "isNot": "Không phải",
+      "contains": "Chứa",
+      "doesNotContain": "Không chứa",
+      "isEmpty": "trống",
+      "isNotEmpty": "Không có sản phẩm nào"
+    },
+    "dateFilter": {
+      "is": "Là",
+      "before": "Là trước đây",
+      "after": "là sau",
+      "onOrBefore": "Đang bật hoặc trước đó",
+      "onOrAfter": "Đang hoặc sau",
+      "between": "Ở giữa",
+      "empty": "trống",
+      "notEmpty": "Không có sản phẩm nào",
+      "choicechipPrefix": {
+        "before": "Trước",
+        "after": "Sau đó",
+        "onOrBefore": "Vào hoặc trước",
+        "onOrAfter": "Ở trên hoặc ở phía sau",
+        "isEmpty": "trống",
+        "isNotEmpty": "Không có sản phẩm nào"
+      }
+    },
+    "numberFilter": {
+      "equal": "Bằng",
+      "notEqual": "Không bằng",
+      "lessThan": "Ít hơn",
+      "greaterThan": "Lớn hơn",
+      "lessThanOrEqualTo": "Nhỏ hơn hoặc bằng",
+      "greaterThanOrEqualTo": "Là lớn hơn hoặc bằng",
+      "isEmpty": "trống",
+      "isNotEmpty": "Không có sản phẩm nào"
+    },
+    "field": {
+      "hide": "Trốn",
+      "show": "Trình diễn",
+      "insertLeft": "Chèn trái",
+      "insertRight": "Chèn phải",
+      "duplicate": "Nhân bản",
+      "delete": "Xóa bỏ",
+      "wrap": "Bọc",
+      "clear": "Xóa ô",
+      "textFieldName": "Chữ",
+      "checkboxFieldName": "Hộp kiểm",
+      "dateFieldName": "Ngày",
+      "updatedAtFieldName": "Sửa đổi lần cuối",
+      "createdAtFieldName": "Được tạo vào lúc",
+      "numberFieldName": "số",
+      "singleSelectFieldName": "Lựa chọn",
+      "multiSelectFieldName": "Chọn nhiều lần",
+      "urlFieldName": "URL",
+      "checklistFieldName": "Danh mục",
+      "relationFieldName": "Mối quan hệ",
+      "numberFormat": "Định dạng số",
+      "dateFormat": "Định dạng ngày tháng",
+      "includeTime": "Bao gồm thời gian",
+      "isRange": "Ngày cuối",
+      "dateFormatFriendly": "Tháng ngày năm",
+      "dateFormatISO": "Năm tháng ngày",
+      "dateFormatLocal": "Tháng ngày năm",
+      "dateFormatUS": "Năm tháng ngày",
+      "dateFormatDayMonthYear": "Ngày tháng năm",
+      "timeFormat": "Định dạng thời gian",
+      "invalidTimeFormat": "Định dạng không hợp lệ",
+      "timeFormatTwelveHour": "12Giờ",
+      "timeFormatTwentyFourHour": "24 giờ",
+      "clearDate": "Xóa ngày",
+      "dateTime": "Ngày giờ",
+      "startDateTime": "Ngày giờ bắt đầu",
+      "endDateTime": "Thời gian ngày kết thúc",
+      "failedToLoadDate": "Không thể tải giá trị ngày",
+      "selectTime": "Chọn thời gian",
+      "selectDate": "Chọn ngày",
+      "visibility": "Hiển thị",
+      "propertyType": "Loại tài sản",
+      "addSelectOption": "Thêm một tùy chọn",
+      "typeANewOption": "Nhập một tùy chọn mới",
+      "optionTitle": "Tùy chọn",
+      "addOption": "Thêm tùy chọn",
+      "editProperty": "Chỉnh sửa thuộc tính",
+      "newProperty": "Tài sản mới",
+      "deleteFieldPromptMessage": "Bạn có chắc không? Thuộc tính này sẽ bị xóa",
+      "clearFieldPromptMessage": "Bạn có chắc không? Tất cả các ô trong cột này sẽ bị làm trống",
+      "newColumn": "Cột mới",
+      "format": "Định dạng",
+      "reminderOnDateTooltip": "Ô này có lời nhắc được lên lịch",
+      "optionAlreadyExist": "Tùy chọn đã tồn tại"
+    },
+    "rowPage": {
+      "newField": "Thêm một trường mới",
+      "fieldDragElementTooltip": "Bấm để mở menu",
+      "showHiddenFields": {
+        "one": "Hiển thị trường ẩn {count}",
+        "many": "Hiển thị {count} trường ẩn",
+        "other": "Hiển thị {count} trường ẩn"
+      },
+      "hideHiddenFields": {
+        "one": "Ẩn trường ẩn {count}",
+        "many": "Ẩn {count} trường ẩn",
+        "other": "Ẩn {count} trường ẩn"
+      }
+    },
+    "sort": {
+      "ascending": "Tăng dần",
+      "descending": "Giảm dần",
+      "by": "Qua",
+      "empty": "Không có loại hoạt động",
+      "cannotFindCreatableField": "Không thể tìm thấy trường phù hợp để sắp xếp theo",
+      "deleteAllSorts": "Xóa đủ loại",
+      "addSort": "Thêm sắp xếp mới",
+      "removeSorting": "Bạn có muốn loại bỏ việc sắp xếp?",
+      "fieldInUse": "Bạn đã sắp xếp theo trường này"
+    },
+    "row": {
+      "duplicate": "Nhân bản",
+      "delete": "Xóa bỏ",
+      "titlePlaceholder": "Không có tiêu đề",
+      "textPlaceholder": "Trống",
+      "copyProperty": "Đã sao chép thuộc tính vào bảng nhớ tạm",
+      "count": "Đếm",
+      "newRow": "Hàng mới",
+      "action": "Hoạt động",
+      "add": "Bấm thêm vào bên dưới",
+      "drag": "Kéo để di chuyển",
+      "dragAndClick": "Kéo để di chuyển, nhấp để mở menu",
+      "insertRecordAbove": "Chèn bản ghi ở trên",
+      "insertRecordBelow": "Chèn bản ghi bên dưới"
+    },
+    "selectOption": {
+      "create": "Tạo nên",
+      "purpleColor": "Màu tím",
+      "pinkColor": "Hồng",
+      "lightPinkColor": "Màu hồng nhạt",
+      "orangeColor": "Quả cam",
+      "yellowColor": "Màu vàng",
+      "limeColor": "Chanh xanh",
+      "greenColor": "Màu xanh lá",
+      "aquaColor": "Thủy",
+      "blueColor": "Màu xanh da trời",
+      "deleteTag": "Xóa thẻ",
+      "colorPanelTitle": "Màu sắc",
+      "panelTitle": "Chọn một tùy chọn hoặc tạo một tùy chọn",
+      "searchOption": "Tìm kiếm một lựa chọn",
+      "searchOrCreateOption": "Tìm kiếm một tùy chọn hoặc tạo một tùy chọn",
+      "createNew": "Tạo một cái mới",
+      "orSelectOne": "Hoặc chọn một tùy chọn",
+      "typeANewOption": "Nhập một tùy chọn mới",
+      "tagName": "Tên thẻ"
+    },
+    "checklist": {
+      "taskHint": "Mô tả công việc",
+      "addNew": "Thêm nhiệm vụ mới",
+      "submitNewTask": "Tạo nên",
+      "hideComplete": "Ẩn nhiệm vụ đã hoàn thành",
+      "showComplete": "Hiển thị tất cả nhiệm vụ"
+    },
+    "url": {
+      "launch": "Mở liên kết trong trình duyệt",
+      "copy": "Sao chép liên kết vào clipboard",
+      "textFieldHint": "Nhập một URL",
+      "copiedNotification": "Sao chép vào clipboard!"
+    },
+    "relation": {
+      "relatedDatabasePlaceLabel": "Cơ sở dữ liệu liên quan",
+      "relatedDatabasePlaceholder": "Không có",
+      "inRelatedDatabase": "TRONG",
+      "rowSearchTextFieldPlaceholder": "Tìm kiếm",
+      "noDatabaseSelected": "Không có cơ sở dữ liệu nào được chọn, vui lòng chọn một cơ sở dữ liệu đầu tiên từ danh sách bên dưới:",
+      "emptySearchResult": "Không có dữ liệu được tìm thấy",
+      "linkedRowListLabel": "{count} hàng được liên kết",
+      "unlinkedRowListLabel": "Liên kết một hàng khác"
+    },
+    "menuName": "Lưới",
+    "referencedGridPrefix": "Xem của",
+    "calculate": "Tính toán",
+    "calculationTypeLabel": {
+      "none": "Không có",
+      "average": "Trung bình",
+      "max": "Tối đa",
+      "median": "Trung bình",
+      "min": "tối thiểu",
+      "sum": "Tổng",
+      "count": "Đếm",
+      "countEmpty": "Đếm trống",
+      "countEmptyShort": "TRỐNG",
+      "countNonEmpty": "Đếm không trống",
+      "countNonEmptyShort": "ĐIỀN"
+    }
+  },
+  "document": {
+    "menuName": "Tài liệu",
+    "date": {
+      "timeHintTextInTwelveHour": "01:00 chiều",
+      "timeHintTextInTwentyFourHour": "13:00"
+    },
+    "slashMenu": {
+      "board": {
+        "selectABoardToLinkTo": "Chọn một bảng để liên kết đến",
+        "createANewBoard": "Tạo một bảng mới"
+      },
+      "grid": {
+        "selectAGridToLinkTo": "Chọn một lưới để liên kết tới",
+        "createANewGrid": "Tạo một lưới mới"
+      },
+      "calendar": {
+        "selectACalendarToLinkTo": "Chọn một Lịch để liên kết tới",
+        "createANewCalendar": "Tạo Lịch mới"
+      },
+      "document": {
+        "selectADocumentToLinkTo": "Chọn một tài liệu để liên kết đến"
+      }
+    },
+    "selectionMenu": {
+      "outline": "Đề cương",
+      "codeBlock": "Khối mã"
+    },
+    "plugins": {
+      "referencedBoard": "Bảng tham khảo",
+      "referencedGrid": "Lưới tham chiếu",
+      "referencedCalendar": "Lịch tham khảo",
+      "referencedDocument": "Tài liệu tham khảo",
+      "autoGeneratorMenuItemName": "Nhà văn OpenAI",
+      "autoGeneratorTitleName": "OpenAI: Yêu cầu AI viết bất cứ điều gì...",
+      "autoGeneratorLearnMore": "Tìm hiểu thêm",
+      "autoGeneratorGenerate": "Phát ra",
+      "autoGeneratorHintText": "Hãy hỏi OpenAI ...",
+      "autoGeneratorCantGetOpenAIKey": "Không thể lấy khóa OpenAI",
+      "autoGeneratorRewrite": "Viết lại",
+      "smartEdit": "Trợ lý AI",
+      "openAI": "OpenAI",
+      "smartEditFixSpelling": "Sửa lỗi chính tả",
+      "warning": "⚠️ Phản hồi của AI có thể không chính xác hoặc gây hiểu nhầm.",
+      "smartEditSummarize": "Tóm tắt",
+      "smartEditImproveWriting": "Cải thiện khả năng viết",
+      "smartEditMakeLonger": "Làm lâu hơn",
+      "smartEditCouldNotFetchResult": "Không thể tìm nạp kết quả từ OpenAI",
+      "smartEditCouldNotFetchKey": "Không thể tìm nạp khóa OpenAI",
+      "smartEditDisabled": "Kết nối OpenAI trong Cài đặt",
+      "discardResponse": "Bạn có muốn loại bỏ các phản hồi AI không?",
+      "createInlineMathEquation": "Tạo phương trình",
+      "fonts": "Phông chữ",
+      "insertDate": "Chèn ngày",
+      "emoji": "Biểu tượng cảm xúc",
+      "toggleList": "Chuyển đổi danh sách",
+      "quoteList": "Danh sách trích dẫn",
+      "numberedList": "Danh sách đánh số",
+      "bulletedList": "Danh sách có dấu đầu dòng",
+      "todoList": "Những việc cần làm",
+      "callout": "Gọi ra",
+      "cover": {
+        "changeCover": "Thay đổi bìa",
+        "colors": "Màu sắc",
+        "images": "Hình ảnh",
+        "clearAll": "Làm sạch tất cả",
+        "abstract": "trừu tượng",
+        "addCover": "Thêm bìa",
+        "addLocalImage": "Thêm hình ảnh địa phương",
+        "invalidImageUrl": "URL hình ảnh không hợp lệ",
+        "failedToAddImageToGallery": "Không thể thêm hình ảnh vào thư viện",
+        "enterImageUrl": "Nhập URL hình ảnh",
+        "add": "Thêm vào",
+        "back": "Mặt sau",
+        "saveToGallery": "Lưu vào bộ sưu tập",
+        "removeIcon": "Xóa biểu tượng",
+        "pasteImageUrl": "Dán URL hình ảnh",
+        "or": "HOẶC",
+        "pickFromFiles": "Chọn từ tập tin",
+        "couldNotFetchImage": "Không thể tìm nạp hình ảnh",
+        "imageSavingFailed": "Lưu hình ảnh không thành công",
+        "addIcon": "Thêm biểu tượng",
+        "changeIcon": "Thay đổi biểu tượng",
+        "coverRemoveAlert": "Nó sẽ được gỡ bỏ khỏi trang bìa sau khi bị xóa.",
+        "alertDialogConfirmation": "Bạn có chắc chắn, bạn muốn tiếp tục?"
+      },
+      "mathEquation": {
+        "name": "Phương trình toán học",
+        "addMathEquation": "Thêm phương trình TeX",
+        "editMathEquation": "Chỉnh sửa phương trình toán học"
+      },
+      "optionAction": {
+        "click": "Nhấp chuột",
+        "toOpenMenu": " để mở thực đơn",
+        "delete": "Xóa bỏ",
+        "duplicate": "Nhân bản",
+        "turnInto": "Trở thành",
+        "moveUp": "Đi lên",
+        "moveDown": "Đi xuống",
+        "color": "Màu sắc",
+        "align": "Căn chỉnh",
+        "left": "Bên trái",
+        "center": "Trung tâm",
+        "right": "Phải",
+        "defaultColor": "Mặc định",
+        "depth": "Chiều sâu"
+      },
+      "image": {
+        "copiedToPasteBoard": "Link ảnh đã được copy vào clipboard",
+        "addAnImage": "Thêm một hình ảnh",
+        "imageUploadFailed": "Tải hình ảnh lên không thành công"
+      },
+      "urlPreview": {
+        "copiedToPasteBoard": "Liên kết đã được sao chép vào clipboard",
+        "convertToLink": "Chuyển đổi sang liên kết nhúng"
+      },
+      "outline": {
+        "addHeadingToCreateOutline": "Thêm tiêu đề để tạo mục lục.",
+        "noMatchHeadings": "Không tìm thấy tiêu đề phù hợp."
+      },
+      "table": {
+        "addAfter": "Thêm vào sau",
+        "addBefore": "Thêm trước",
+        "delete": "Xóa bỏ",
+        "clear": "Xóa nội dung",
+        "duplicate": "Nhân bản",
+        "bgColor": "Màu nền"
+      },
+      "contextMenu": {
+        "copy": "Sao chép",
+        "cut": "Cắt",
+        "paste": "Dán"
+      },
+      "action": "hành động",
+      "database": {
+        "selectDataSource": "Chọn nguồn dữ liệu",
+        "noDataSource": "Không có nguồn dữ liệu",
+        "selectADataSource": "Chọn nguồn dữ liệu",
+        "toContinue": "tiếp tục",
+        "newDatabase": "Cơ sở dữ liệu mới",
+        "linkToDatabase": "Liên kết tới cơ sở dữ liệu"
+      },
+      "date": "Ngày"
+    },
+    "outlineBlock": {
+      "placeholder": "Mục lục"
+    },
+    "textBlock": {
+      "placeholder": "Nhập '/' cho các lệnh"
+    },
+    "title": {
+      "placeholder": "Không có tiêu đề"
+    },
+    "imageBlock": {
+      "placeholder": "Nhấn vào đây để thêm hình ảnh",
+      "upload": {
+        "label": "Tải lên",
+        "placeholder": "Bấm để tải hình ảnh lên"
+      },
+      "url": {
+        "label": "URL hình ảnh",
+        "placeholder": "Nhập URL hình ảnh"
+      },
+      "ai": {
+        "label": "Tạo hình ảnh từ OpenAI",
+        "placeholder": "Vui lòng nhập lời nhắc để OpenAI tạo hình ảnh"
+      },
+      "stability_ai": {
+        "label": "Tạo hình ảnh từ AI ổn định",
+        "placeholder": "Vui lòng nhập lời nhắc để Stability AI tạo hình ảnh"
+      },
+      "support": "Giới hạn kích thước hình ảnh là 5 MB. Các định dạng được hỗ trợ: JPEG, PNG, GIF, SVG",
+      "error": {
+        "invalidImage": "Hình ảnh không hợp lệ",
+        "invalidImageSize": "Kích thước hình ảnh phải nhỏ hơn 5MB",
+        "invalidImageFormat": "Định dạng hình ảnh không được hỗ trợ. Các định dạng được hỗ trợ: JPEG, PNG, JPG, GIF, SVG, WEBP",
+        "invalidImageUrl": "URL hình ảnh không hợp lệ",
+        "noImage": "Không có tập tin hoặc thư mục"
+      },
+      "embedLink": {
+        "label": "Nhúng liên kết",
+        "placeholder": "Dán hoặc nhập liên kết hình ảnh"
+      },
+      "unsplash": {
+        "label": "Bapt"
+      },
+      "searchForAnImage": "Tìm kiếm hình ảnh",
+      "pleaseInputYourOpenAIKey": "vui lòng nhập khóa OpenAI của bạn vào trang Cài đặt",
+      "pleaseInputYourStabilityAIKey": "vui lòng nhập khóa AI ổn định của bạn vào trang Cài đặt",
+      "saveImageToGallery": "Lưu hình ảnh",
+      "failedToAddImageToGallery": "Không thể thêm hình ảnh vào thư viện",
+      "successToAddImageToGallery": "Đã thêm hình ảnh vào thư viện thành công",
+      "unableToLoadImage": "Không thể tải hình ảnh",
+      "maximumImageSize": "Kích thước hình ảnh tải lên được hỗ trợ tối đa là 10MB",
+      "uploadImageErrorImageSizeTooBig": "Kích thước hình ảnh phải nhỏ hơn 10 MB",
+      "imageIsUploading": "Hình ảnh đang được tải lên"
+    },
+    "codeBlock": {
+      "language": {
+        "label": "Ngôn ngữ",
+        "placeholder": "Chọn ngôn ngữ",
+        "auto": "Tự động"
+      },
+      "copyTooltip": "Sao chép nội dung của khối mã",
+      "searchLanguageHint": "Tìm kiếm một ngôn ngữ",
+      "codeCopiedSnackbar": "Đã sao chép mã vào clipboard!"
+    },
+    "inlineLink": {
+      "placeholder": "Dán hoặc nhập một liên kết",
+      "openInNewTab": "Mở ra trong trang mới",
+      "copyLink": "Sao chép đường dẫn",
+      "removeLink": "Xóa liên kết",
+      "url": {
+        "label": "URL liên kết",
+        "placeholder": "Nhập URL liên kết"
+      },
+      "title": {
+        "label": "Tiêu đề liên kết",
+        "placeholder": "Nhập tiêu đề liên kết"
+      }
+    },
+    "mention": {
+      "placeholder": "Đề cập đến một người hoặc một trang hoặc ngày...",
+      "page": {
+        "label": "Liên kết đến trang",
+        "tooltip": "Bấm để mở trang"
+      },
+      "deleted": "Đã xóa",
+      "deletedContent": "Nội dung này không tồn tại hoặc đã bị xóa"
+    },
+    "toolbar": {
+      "resetToDefaultFont": "Đặt lại về mặc định"
+    },
+    "errorBlock": {
+      "theBlockIsNotSupported": "Phiên bản hiện tại không hỗ trợ khối này.",
+      "blockContentHasBeenCopied": "Nội dung khối đã được sao chép."
+    }
+  },
+  "board": {
+    "column": {
+      "createNewCard": "Mới",
+      "renameGroupTooltip": "Nhấn để đổi tên nhóm",
+      "createNewColumn": "Thêm một nhóm mới",
+      "addToColumnTopTooltip": "Thêm thẻ mới ở trên cùng",
+      "addToColumnBottomTooltip": "Thêm thẻ mới ở phía dưới",
+      "renameColumn": "Đổi tên",
+      "hideColumn": "Trốn",
+      "newGroup": "Nhóm mới",
+      "deleteColumn": "Xóa bỏ",
+      "deleteColumnConfirmation": "Thao tác này sẽ xóa nhóm này và tất cả các thẻ trong đó.\nBạn có chắc chắn muốn tiếp tục không?"
+    },
+    "hiddenGroupSection": {
+      "sectionTitle": "Nhóm ẩn",
+      "collapseTooltip": "Ẩn các nhóm ẩn",
+      "expandTooltip": "Xem các nhóm ẩn"
+    },
+    "cardDetail": "Chi tiết thẻ",
+    "cardActions": "Hành động thẻ",
+    "cardDuplicated": "Thẻ đã được nhân đôi",
+    "cardDeleted": "Thẻ đã bị xóa",
+    "showOnCard": "Hiển thị chi tiết trên thẻ",
+    "setting": "Cài đặt",
+    "propertyName": "Tên tài sản",
+    "menuName": "Bảng",
+    "showUngrouped": "Hiển thị các mục chưa được nhóm",
+    "ungroupedButtonText": "Đã tách nhóm",
+    "ungroupedButtonTooltip": "Chứa các thẻ không thuộc bất kỳ nhóm nào",
+    "ungroupedItemsTitle": "Bấm để thêm vào bảng",
+    "groupBy": "Nhóm theo",
+    "referencedBoardPrefix": "Xem của",
+    "notesTooltip": "Ghi chú bên trong",
+    "mobile": {
+      "editURL": "Chỉnh sửa URL",
       "showGroup": "Hiển thị nhóm",
       "showGroupContent": "Bạn có chắc chắn muốn hiển thị nhóm này trên bảng không?",
       "failedToLoad": "Không tải được chế độ xem bảng"
     }
+  },
+  "calendar": {
+    "menuName": "Lịch",
+    "defaultNewCalendarTitle": "Không có tiêu đề",
+    "newEventButtonTooltip": "Thêm một sự kiện mới",
+    "navigation": {
+      "today": "Hôm nay",
+      "jumpToday": "Chuyển tới hôm nay",
+      "previousMonth": "Tháng trước",
+      "nextMonth": "Tháng tiếp theo"
+    },
+    "mobileEventScreen": {
+      "emptyTitle": "Chưa có sự kiện nào",
+      "emptyBody": "Nhấn nút dấu cộng để tạo sự kiện vào ngày này."
+    },
+    "settings": {
+      "showWeekNumbers": "Hiển thị số tuần",
+      "showWeekends": "Hiển thị cuối tuần",
+      "firstDayOfWeek": "Bắt đầu tuần vào",
+      "layoutDateField": "Bố trí lịch theo",
+      "changeLayoutDateField": "Thay đổi trường bố cục",
+      "noDateTitle": "Không hẹn hò",
+      "noDateHint": {
+        "zero": "Các sự kiện không được lên lịch sẽ hiển thị ở đây",
+        "one": "{count} sự kiện chưa được lên lịch",
+        "other": "{count} sự kiện chưa được lên lịch"
+      },
+      "unscheduledEventsTitle": "Sự kiện đột xuất",
+      "clickToAdd": "Bấm để thêm vào lịch",
+      "name": "Cài đặt lịch"
+    },
+    "referencedCalendarPrefix": "Xem của",
+    "quickJumpYear": "Chuyển tới",
+    "duplicateEvent": "Sự kiện trùng lặp"
+  },
+  "errorDialog": {
+    "title": "Lỗi AppFlowy",
+    "howToFixFallback": "Chúng tôi xin lỗi vì sự bất tiện này! Gửi sự cố trên trang GitHub của chúng tôi mô tả lỗi của bạn.",
+    "github": "Xem trên GitHub"
+  },
+  "search": {
+    "label": "Tìm kiếm",
+    "placeholder": {
+      "actions": "Hành động tìm kiếm..."
+    }
+  },
+  "message": {
+    "copy": {
+      "success": "Đã sao chép!",
+      "fail": "Không thể sao chép"
+    }
+  },
+  "unSupportBlock": "Phiên bản hiện tại không hỗ trợ Khối này.",
+  "views": {
+    "deleteContentTitle": "Bạn có chắc chắn muốn xóa {pageType} không?",
+    "deleteContentCaption": "nếu xóa {pageType} này, bạn có thể khôi phục nó từ thùng rác."
+  },
+  "colors": {
+    "custom": "Phong tục",
+    "default": "Mặc định",
+    "red": "Màu đỏ",
+    "orange": "Quả cam",
+    "yellow": "Màu vàng",
+    "green": "Màu xanh lá",
+    "blue": "Màu xanh da trời",
+    "purple": "Màu tím",
+    "pink": "Hồng",
+    "brown": "Màu nâu",
+    "gray": "Xám"
+  },
+  "emoji": {
+    "emojiTab": "Biểu tượng cảm xúc",
+    "search": "Tìm kiếm biểu tượng cảm xúc",
+    "noRecent": "Không có biểu tượng cảm xúc gần đây",
+    "noEmojiFound": "Không tìm thấy biểu tượng cảm xúc nào",
+    "filter": "Lọc",
+    "random": "Ngẫu nhiên",
+    "selectSkinTone": "Chọn tông màu da",
+    "remove": "Xóa biểu tượng cảm xúc",
+    "categories": {
+      "smileys": "Mặt cười &amp; Cảm xúc",
+      "people": "Con người &amp; Cơ thể",
+      "animals": "Động vật &amp; Thiên nhiên",
+      "food": "Đồ ăn thức uống",
+      "activities": "Các hoạt động",
+      "places": "Du lịch &amp; Địa điểm",
+      "objects": "Các đối tượng",
+      "symbols": "Biểu tượng",
+      "flags": "Cờ",
+      "nature": "Thiên nhiên",
+      "frequentlyUsed": "Thường xuyên sử dụng"
+    },
+    "skinTone": {
+      "default": "Mặc định",
+      "light": "Ánh sáng",
+      "mediumLight": "Ánh sáng trung bình",
+      "medium": "Trung bình",
+      "mediumDark": "Trung bình tối",
+      "dark": "Tối tăm"
+    }
+  },
+  "inlineActions": {
+    "noResults": "Ko có kết quả",
+    "pageReference": "Tham khảo trang",
+    "docReference": "Tài liệu tham khảo",
+    "boardReference": "Tham khảo bảng",
+    "calReference": "Tham khảo lịch",
+    "gridReference": "Tham chiếu lưới",
+    "date": "Ngày",
+    "reminder": {
+      "groupTitle": "Lời nhắc nhở",
+      "shortKeyword": "nhắc lại"
+    }
+  },
+  "datePicker": {
+    "dateTimeFormatTooltip": "Thay đổi định dạng ngày giờ trong cài đặt",
+    "dateFormat": "Định dạng ngày tháng",
+    "includeTime": "Bao gồm thời gian",
+    "isRange": "Ngày cuối",
+    "timeFormat": "Định dạng thời gian",
+    "clearDate": "Xóa ngày",
+    "reminderLabel": "Lời nhắc nhở",
+    "selectReminder": "Chọn lời nhắc",
+    "reminderOptions": {
+      "none": "Không có",
+      "atTimeOfEvent": "Thời gian diễn ra sự kiện",
+      "fiveMinsBefore": "5 phút trước",
+      "tenMinsBefore": "10 phút trước",
+      "fifteenMinsBefore": "15 phút trước",
+      "thirtyMinsBefore": "30 phút trước",
+      "oneHourBefore": "1 giờ trước",
+      "twoHoursBefore": "2 giờ trước",
+      "onDayOfEvent": "Vào ngày diễn ra sự kiện",
+      "oneDayBefore": "1 ngày trước",
+      "twoDaysBefore": "2 ngày trước",
+      "oneWeekBefore": "1 tuần trước",
+      "custom": "Phong tục"
+    }
+  },
+  "relativeDates": {
+    "yesterday": "Hôm qua",
+    "today": "Hôm nay",
+    "tomorrow": "Ngày mai",
+    "oneWeek": "1 tuần"
+  },
+  "notificationHub": {
+    "title": "Thông báo",
+    "mobile": {
+      "title": "Cập nhật"
+    },
+    "emptyTitle": "Tất cả đã bắt kịp!",
+    "emptyBody": "Không có thông báo hoặc hành động đang chờ xử lý. Tận hưởng sự bình tĩnh.",
+    "tabs": {
+      "inbox": "Hộp thư đến",
+      "upcoming": "Sắp tới"
+    },
+    "actions": {
+      "markAllRead": "đánh dấu tất cả như đã đọc",
+      "showAll": "Tất cả",
+      "showUnreads": "Chưa đọc"
+    },
+    "filters": {
+      "ascending": "Tăng dần",
+      "descending": "Giảm dần",
+      "groupByDate": "Nhóm theo ngày",
+      "showUnreadsOnly": "Chỉ hiển thị các bài chưa đọc",
+      "resetToDefault": "Đặt lại về mặc định"
+    }
+  },
+  "reminderNotification": {
+    "title": "Lời nhắc nhở",
+    "message": "Hãy nhớ kiểm tra điều này trước khi bạn quên!",
+    "tooltipDelete": "Xóa bỏ",
+    "tooltipMarkRead": "đánh dấu là đã đọc",
+    "tooltipMarkUnread": "đánh dấu là chưa đọc"
+  },
+  "findAndReplace": {
+    "find": "Tìm thấy",
+    "previousMatch": "Trận đấu trước",
+    "nextMatch": "Trận đấu tiếp theo",
+    "close": "Đóng",
+    "replace": "Thay thế",
+    "replaceAll": "Thay thế tất cả",
+    "noResult": "Ko có kết quả",
+    "caseSensitive": "Trường hợp nhạy cảm",
+    "searchMore": "Tìm kiếm để tìm thêm kết quả"
+  },
+  "error": {
+    "weAreSorry": "Chúng tôi xin lỗi",
+    "loadingViewError": "Chúng tôi đang gặp sự cố khi tải chế độ xem này. Vui lòng kiểm tra kết nối Internet của bạn, làm mới ứng dụng và đừng ngần ngại liên hệ với nhóm nếu sự cố vẫn tiếp diễn."
+  },
+  "editor": {
+    "bold": "In đậm",
+    "bulletedList": "Danh sách có dấu đầu dòng",
+    "bulletedListShortForm": "Gạch đầu dòng",
+    "checkbox": "Hộp kiểm",
+    "embedCode": "Mã nhúng",
+    "heading1": "H1",
+    "heading2": "H2",
+    "heading3": "H3",
+    "highlight": "Điểm nổi bật",
+    "color": "Màu sắc",
+    "image": "Hình ảnh",
+    "date": "Ngày",
+    "italic": "Nghiêng",
+    "link": "liên kết",
+    "numberedList": "Danh sách đánh số",
+    "numberedListShortForm": "Đánh số",
+    "quote": "Trích dẫn",
+    "strikethrough": "Gạch ngang",
+    "text": "Chữ",
+    "underline": "gạch chân",
+    "fontColorDefault": "Mặc định",
+    "fontColorGray": "Xám",
+    "fontColorBrown": "Màu nâu",
+    "fontColorOrange": "Quả cam",
+    "fontColorYellow": "Màu vàng",
+    "fontColorGreen": "Màu xanh lá",
+    "fontColorBlue": "Màu xanh da trời",
+    "fontColorPurple": "Màu tím",
+    "fontColorPink": "Hồng",
+    "fontColorRed": "Màu đỏ",
+    "backgroundColorDefault": "Nền mặc định",
+    "backgroundColorGray": "Nền màu xám",
+    "backgroundColorBrown": "Nền màu nâu",
+    "backgroundColorOrange": "Nền màu cam",
+    "backgroundColorYellow": "Nền màu vàng",
+    "backgroundColorGreen": "Nền xanh",
+    "backgroundColorBlue": "Nền xanh",
+    "backgroundColorPurple": "Nền màu tím",
+    "backgroundColorPink": "Nền màu hồng",
+    "backgroundColorRed": "Nền đỏ",
+    "backgroundColorLime": "Nền vôi",
+    "backgroundColorAqua": "Nền nước",
+    "done": "Xong",
+    "cancel": "Hủy bỏ",
+    "tint1": "tông màu 1",
+    "tint2": "Tint 2",
+    "tint3": "Tint 3",
+    "tint4": "Tint 4",
+    "tint5": "tông màu 5",
+    "tint6": "tông màu 6",
+    "tint7": "Tint 7",
+    "tint8": "tông màu 8",
+    "tint9": "Tint 9",
+    "lightLightTint1": "Màu tím",
+    "lightLightTint2": "Hồng",
+    "lightLightTint3": "Màu hồng nhạt",
+    "lightLightTint4": "Quả cam",
+    "lightLightTint5": "Màu vàng",
+    "lightLightTint6": "Chanh xanh",
+    "lightLightTint7": "Màu xanh lá",
+    "lightLightTint8": "Thủy",
+    "lightLightTint9": "Màu xanh da trời",
+    "urlHint": "URL",
+    "mobileHeading1": "Tiêu đề 1",
+    "mobileHeading2": "Tiêu đề 2",
+    "mobileHeading3": "Tiêu đề 3",
+    "textColor": "Văn bản màu",
+    "backgroundColor": "Màu nền",
+    "addYourLink": "Thêm liên kết của bạn",
+    "openLink": "Mở liên kết",
+    "copyLink": "Sao chép đường dẫn",
+    "removeLink": "Xóa liên kết",
+    "editLink": "Chỉnh sửa liên kết",
+    "linkText": "Chữ",
+    "linkTextHint": "Vui lòng nhập văn bản",
+    "linkAddressHint": "Vui lòng nhập URL",
+    "highlightColor": "Màu nổi bật",
+    "clearHighlightColor": "Màu sắc nổi bật rõ ràng",
+    "customColor": "Tự phối màu",
+    "hexValue": "Giá trị thập lục phân",
+    "opacity": "Độ mờ",
+    "resetToDefaultColor": "Đặt lại về màu mặc định",
+    "ltr": "LTR",
+    "rtl": "RTL",
+    "auto": "Tự động",
+    "cut": "Cắt",
+    "copy": "Sao chép",
+    "paste": "Dán",
+    "find": "Tìm thấy",
+    "select": "Lựa chọn",
+    "selectAll": "Chọn tất cả",
+    "previousMatch": "Trận đấu trước",
+    "nextMatch": "Trận đấu tiếp theo",
+    "closeFind": "Đóng",
+    "replace": "Thay thế",
+    "replaceAll": "Thay thế tất cả",
+    "regex": "Biểu thức chính quy",
+    "caseSensitive": "Trường hợp nhạy cảm",
+    "uploadImage": "Tải hình ảnh lên",
+    "urlImage": "Hình ảnh URL",
+    "incorrectLink": "Liên kết sai",
+    "upload": "Tải lên",
+    "chooseImage": "Chọn một hình ảnh",
+    "loading": "Đang tải",
+    "imageLoadFailed": "Không thể tải hình ảnh",
+    "divider": "Dải phân cách",
+    "table": "Bàn",
+    "colAddBefore": "Thêm trước",
+    "rowAddBefore": "Thêm trước",
+    "colAddAfter": "Thêm vào sau",
+    "rowAddAfter": "Thêm vào sau",
+    "colRemove": "Di dời",
+    "rowRemove": "Di dời",
+    "colDuplicate": "Nhân bản",
+    "rowDuplicate": "Nhân bản",
+    "colClear": "Xóa nội dung",
+    "rowClear": "Xóa nội dung",
+    "slashPlaceHolder": "Nhập '/' để chèn một khối hoặc bắt đầu nhập",
+    "typeSomething": "Nhập nội dung nào đó...",
+    "toggleListShortForm": "Chuyển đổi",
+    "quoteListShortForm": "Trích dẫn",
+    "mathEquationShortForm": "Công thức",
+    "codeBlockShortForm": "Mã số"
+  },
+  "favorite": {
+    "noFavorite": "Không có trang yêu thích",
+    "noFavoriteHintText": "Vuốt trang sang trái để thêm nó vào mục yêu thích của bạn"
+  },
+  "cardDetails": {
+    "notesPlaceholder": "Nhập / để chèn khối hoặc bắt đầu nhập"
+  },
+  "blockPlaceholders": {
+    "todoList": "Làm",
+    "bulletList": "Danh sách",
+    "numberList": "Danh sách",
+    "quote": "Trích dẫn",
+    "heading": "Phần mở đầu {}"
+  },
+  "titleBar": {
+    "pageIcon": "Biểu tượng trang",
+    "language": "Ngôn ngữ",
+    "font": "Nét chữ",
+    "actions": "hành động",
+    "date": "Ngày",
+    "addField": "Thêm các lĩnh vực",
+    "userIcon": "Biểu tượng người dùng"
+  },
+  "noLogFiles": "Không có tệp nhật ký",
+  "newSettings": {
+    "myAccount": {
+      "title": "Tài khoản của tôi",
+      "profileNamePlaceholder": "Nhập tên của bạn",
+      "accountSecurity": "Bảo mật tài khoản",
+      "2FA": "Xác thực 2 bước",
+      "aiKeys": "Phím AI",
+      "accountLogin": "Đăng nhập tài khoản",
+      "deleteAccount": {
+        "title": "Xóa tài khoản",
+        "deleteMyAccount": "Xóa tài khoản của tôi đi",
+        "dialogTitle": "Xóa tài khoản",
+        "dialogContent1": "Bạn có chắc chắn muốn xóa vĩnh viễn tài khoản của mình không?"
+      }
+    },
+    "workplace": {
+      "name": "Nơi làm việc",
+      "subtitle": "Tùy chỉnh giao diện không gian làm việc, chủ đề, phông chữ, bố cục văn bản, ngày, giờ và ngôn ngữ của bạn.",
+      "workplaceNamePlaceholder": "Nhập tên nơi làm việc",
+      "workplaceIcon": "Biểu tượng nơi làm việc",
+      "updateIconError": "Không thể cập nhật biểu tượng",
+      "appearance": {
+        "name": "Vẻ bề ngoài",
+        "themeMode": {
+          "auto": "Tự động",
+          "light": "Ánh sáng",
+          "dark": "Tối tăm"
+        },
+        "language": "Ngôn ngữ"
+      }
+    },
+    "syncState": {
+      "syncing": "Đang đồng bộ hóa",
+      "synced": "Đã đồng bộ hóa"
+    }
+  },
+  "commandPalette": {
+    "navigateHint": "để điều hướng",
+    "betaLabel": "THỬ NGHIỆM",
+    "fromTrashHint": "Từ thùng rác"
   }
 }

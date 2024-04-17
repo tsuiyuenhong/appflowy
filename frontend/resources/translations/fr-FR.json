@@ -93,6 +93,7 @@
     "buttonText": "Partager",
     "workInProgress": "Bientôt disponible",
     "markdown": "Markdown",
+    "html": "HTML",
     "clipboard": "Copier dans le presse-papier",
     "csv": "CSV",
     "copyLink": "Copier le lien"
@@ -582,8 +583,8 @@
       "duplicateView": "Dupliquer la vue",
       "deleteView": "Supprimer la vue",
       "numberOfVisibleFields": "{} affiché(s)",
-      "Properties": "Propriétés",
-      "viewList": "Vues de base de données"
+      "viewList": "Vues de base de données",
+      "Properties": "Propriétés"
     },
     "textFilter": {
       "contains": "Contient",
@@ -656,6 +657,7 @@
       "insertRight": "Insérer à droite",
       "duplicate": "Dupliquer",
       "delete": "Supprimer",
+      "wrap": "Envelopper",
       "clear": "Effacer les cellules",
       "textFieldName": "Texte",
       "checkboxFieldName": "Case à cocher",
@@ -1004,7 +1006,8 @@
     "codeBlock": {
       "language": {
         "label": "Langue",
-        "placeholder": "Choisir la langue"
+        "placeholder": "Choisir la langue",
+        "auto": "Auto"
       },
       "copyTooltip": "Copier le contenu du bloc de code",
       "searchLanguageHint": "Rechercher une langue",
@@ -1451,7 +1454,9 @@
       "appearance": {
         "name": "Apparence",
         "themeMode": {
-          "auto": "Auto"
+          "auto": "Auto",
+          "light": "Lumière",
+          "dark": "Sombre"
         },
         "language": "Langue"
       }
@@ -1466,6 +1471,8 @@
     "placeholder": "Tapez pour rechercher des vues...",
     "navigateHint": "naviguer",
     "loadingTooltip": "Nous recherchons des résultats...",
-    "betaTooltip": "Nous ne prenons actuellement en charge que la recherche de pages"
+    "betaLabel": "BÊTA",
+    "betaTooltip": "Nous ne prenons actuellement en charge que la recherche de pages",
+    "fromTrashHint": "De la poubelle"
   }
 }

@@ -49,7 +49,12 @@
     "LogInWithGoogle": "Mit Google-Account anmelden",
     "LogInWithGithub": "Mit GitHub-Account anmelden",
     "LogInWithDiscord": "Mit Discord-Account anmelden",
-    "signInWith": "Anmeldeoptionen:"
+    "signInWith": "Anmeldeoptionen:",
+    "signInWithEmail": "Mit E-Mail anmelden",
+    "logInWithMagicLink": "Mit Magic Link anmelden",
+    "pleaseInputYourEmail": "Geben Sie bitte Ihre Email-Adresse ein",
+    "magicLinkSent": "Der magische Link wurde an Ihre E-Mail-Adresse gesendet. Bitte überprüfen Sie Ihren Posteingang.",
+    "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein"
   },
   "workspace": {
     "chooseWorkspace": "Workspace wählen",
@@ -79,12 +84,16 @@
     "updateIconSuccess": "Workspace erfolgreich zurückgesetzt",
     "updateIconFailed": "Der Workspace konnte nicht zurückgesetzt werden",
     "cannotDeleteTheOnlyWorkspace": "Der einzig vorhandene Arbeitsbereich kann nicht gelöscht werden",
-    "fetchWorkspacesFailed": "Arbeitsbereiche konnten nicht abgerufen werden!"
+    "fetchWorkspacesFailed": "Arbeitsbereiche konnten nicht abgerufen werden!",
+    "leaveCurrentWorkspace": "Arbeitsbereich verlassen",
+    "leaveCurrentWorkspacePrompt": "Möchten Sie den aktuellen Arbeitsbereich wirklich verlassen?"
   },
   "shareAction": {
     "buttonText": "Teilen",
     "workInProgress": "Demnächst verfügbar",
     "markdown": "Markdown",
+    "html": "HTML",
+    "clipboard": "In die Zwischenablage kopieren",
     "csv": "CSV",
     "copyLink": "Link kopieren"
   },
@@ -212,12 +221,15 @@
     "openSidebar": "Seitenleiste öffnen",
     "personal": "Persönlich",
     "private": "Privat",
+    "workspace": "Arbeitsplatz",
     "favorites": "Favoriten",
     "clickToHidePrivate": "Hier klicken, um den privaten Bereich auszublenden.\nVon dir hier erstellte Seiten sind nur für dich sichtbar.",
+    "clickToHideWorkspace": "Klicken, um Arbeitsbereich auszublenden\nDie hier erstellten Seiten sind für jedes Mitglied sichtbar",
     "clickToHidePersonal": "Klicken, um den persönlichen Abschnitt zu verbergen",
     "clickToHideFavorites": "Klicken, um Favoriten zu verbergen",
     "addAPage": "Seite hinzufügen",
     "addAPageToPrivate": "Eine Seite zum privaten Bereich hinzufügen.",
+    "addAPageToWorkspace": "Eine Seite zum Arbeitsbereich hinzufügen",
     "recent": "Zuletzt",
     "public": "Öffentlich",
     "clickToHidePublic": "Hier klicken, um den öffentlichen Raum auszublenden.\nVon dir hier erstellte Seiten sind für jedes Mitglied sichtbar.",
@@ -514,7 +526,17 @@
       "shortcutIsAlreadyUsed": "Diese Verknüpfung wird bereits verwendet für: {conflict}",
       "resetToDefault": "Zurücksetzen",
       "couldNotLoadErrorMsg": "Tastenkürzel konnten nicht geladen werden. Bitte nochmal versuchen.",
-      "couldNotSaveErrorMsg": "Tastenkürzel konnten nicht gespeichert werden. Bitte nochmal versuchen."
+      "couldNotSaveErrorMsg": "Tastenkürzel konnten nicht gespeichert werden. Bitte nochmal versuchen.",
+      "commands": {
+        "codeBlockNewParagraph": "Füge einen neuen Absatz neben dem Codeblock ein",
+        "codeBlockAddTwoSpaces": "Fügen Sie am Zeilenanfang im Codeblock zwei Leerzeichen ein",
+        "codeBlockDeleteTwoSpaces": "Löschen Sie zwei Leerzeichen am Zeilenanfang im Codeblock",
+        "codeBlockSelectAll": "Wählen Sie den gesamten Inhalt innerhalb eines Codeblocks aus",
+        "codeBlockPasteText": "Text in Codeblock einfügen",
+        "textAlignLeft": "Text linksbündig ausrichten",
+        "textAlignCenter": "Text zentriert ausrichten",
+        "textAlignRight": "Text rechtsbündig ausrichten"
+      }
     },
     "mobile": {
       "personalInfo": "Persönliche Informationen",
@@ -633,6 +655,7 @@
       "insertRight": "Rechts einfügen",
       "duplicate": "Duplikat",
       "delete": "Löschen",
+      "wrap": "Wickeln",
       "clear": " Zelleninhalte löschen",
       "textFieldName": "Text",
       "checkboxFieldName": "Kontrollkästchen",
@@ -760,7 +783,9 @@
       "inRelatedDatabase": "in",
       "rowSearchTextFieldPlaceholder": "Suchen",
       "noDatabaseSelected": "Keine Datenbank ausgewählt! Bitte wähle zuerst eine Datenbank aus der nachfolgenden Liste aus:",
-      "emptySearchResult": "Nichts gefunden"
+      "emptySearchResult": "Nichts gefunden",
+      "linkedRowListLabel": "{count} verknüpfte Zeilen",
+      "unlinkedRowListLabel": "Eine weitere Zeile verknüpfen"
     },
     "menuName": "Raster",
     "referencedGridPrefix": "Sicht von",
@@ -831,6 +856,7 @@
       "discardResponse": "Möchten Sie die KI-Antworten verwerfen?",
       "createInlineMathEquation": "Formel erstellen",
       "fonts": "Schriftarten",
+      "insertDate": "Datum einfügen",
       "emoji": "Emoji",
       "toggleList": "Liste umschalten",
       "quoteList": "Kursblatt",
@@ -977,8 +1003,12 @@
     "codeBlock": {
       "language": {
         "label": "Sprache",
-        "placeholder": "Sprache auswählen"
-      }
+        "placeholder": "Sprache auswählen",
+        "auto": "Auto"
+      },
+      "copyTooltip": "Inhalt des Codeblocks kopieren",
+      "searchLanguageHint": "Suche nach einer Sprache",
+      "codeCopiedSnackbar": "Code in die Zwischenablage kopiert!"
     },
     "inlineLink": {
       "placeholder": "Link einfügen oder eintippen",
@@ -1414,7 +1444,29 @@
     },
     "workplace": {
       "name": "Arbeitsbereich",
-      "title": "Arbeitsbereichseinstellungen"
+      "title": "Arbeitsbereichseinstellungen",
+      "subtitle": "Passen Sie das Erscheinungsbild, das Design, die Schriftart, das Textlayout, das Datum, die Uhrzeit und die Sprache Ihres Arbeitsbereichs an.",
+      "workplaceNamePlaceholder": "Geben Sie den Namen des Arbeitsplatzes ein",
+      "workplaceIcon": "Arbeitsplatzsymbol",
+      "updateIconError": "Symbol konnte nicht aktualisiert werden",
+      "appearance": {
+        "name": "Aussehen",
+        "themeMode": {
+          "auto": "Auto",
+          "light": "Licht",
+          "dark": "Dunkel"
+        },
+        "language": "Sprache"
+      }
+    },
+    "syncState": {
+      "syncing": "Synchronisieren",
+      "synced": "Synchronisiert"
     }
+  },
+  "commandPalette": {
+    "navigateHint": "navigieren",
+    "betaLabel": "BETA",
+    "fromTrashHint": "Aus Müll"
   }
 }

@@ -9,6 +9,7 @@
   "title": "Titre",
   "youCanAlso": "Vous pouvez aussi",
   "and": "et",
+  "failedToOpenUrl": "Échec de l'ouverture de l'URL : {}",
   "blockActions": {
     "addBelowTooltip": "Cliquez pour ajouter ci-dessous",
     "addAboveCmd": "Alt+clic",
@@ -49,6 +50,11 @@
     "LogInWithGithub": "Se connecter avec Github",
     "LogInWithDiscord": "Se connecter avec Discord",
     "signInWith": "Se connecter avec:",
+    "signInWithEmail": "Connectez-vous avec e-mail",
+    "logInWithMagicLink": "Connectez-vous avec Magic Link",
+    "pleaseInputYourEmail": "Veuillez entrer votre adresse e-mail",
+    "magicLinkSent": "Lien magique envoyé à votre email, veuillez vérifier votre boîte de réception",
+    "invalidEmail": "S'il vous plaît, mettez une adresse email valide",
     "loginAsGuestButtonText": "Commencer"
   },
   "workspace": {
@@ -64,12 +70,31 @@
       "reportIssueOnGithub": "Signaler un bug sur Github",
       "exportLogFiles": "Exporter les logs",
       "reachOut": "Contactez-nous sur Discord"
-    }
+    },
+    "menuTitle": "Espaces de travail",
+    "deleteWorkspaceHintText": "Êtes-vous sûr de vouloir supprimer l'espace de travail ? Cette action ne peut pas être annulée.",
+    "createSuccess": "Espace de travail créé avec succès",
+    "createFailed": "Échec de la création de l'espace de travail",
+    "createLimitExceeded": "Vous avez atteint la limite maximale d'espace de travail autorisée pour votre compte. Si vous avez besoin d'espaces de travail supplémentaires pour continuer votre travail, veuillez en faire la demande sur Github.",
+    "deleteSuccess": "Espace de travail supprimé avec succès",
+    "deleteFailed": "Échec de la suppression de l'espace de travail",
+    "openSuccess": "Ouvrir l'espace de travail avec succès",
+    "openFailed": "Échec de l'ouverture de l'espace de travail",
+    "renameSuccess": "Espace de travail renommé avec succès",
+    "renameFailed": "Échec du renommage de l'espace de travail",
+    "updateIconSuccess": "L'icône de l'espace de travail a été mise à jour avec succès",
+    "updateIconFailed": "L'icône de l'espace de travail mise à jour a échoué",
+    "cannotDeleteTheOnlyWorkspace": "Impossible de supprimer le seul espace de travail",
+    "fetchWorkspacesFailed": "Échec de la récupération des espaces de travail",
+    "leaveCurrentWorkspace": "Quitter l'espace de travail",
+    "leaveCurrentWorkspacePrompt": "Êtes-vous sûr de vouloir quitter l'espace de travail actuel ?"
   },
   "shareAction": {
     "buttonText": "Partager",
     "workInProgress": "Bientôt disponible",
     "markdown": "Markdown",
+    "html": "HTML",
+    "clipboard": "Copier dans le presse-papier",
     "csv": "CSV",
     "copyLink": "Copier le lien"
   },
@@ -79,7 +104,12 @@
     "large": "grand",
     "fontSize": "Taille de police",
     "import": "Importer",
-    "moreOptions": "Plus d'options"
+    "moreOptions": "Plus d'options",
+    "wordCount": "Nombre de mots : {}",
+    "charCount": "Nombre de caractères: {}",
+    "createdAt": "Créé: {}",
+    "deleteView": "Supprimer",
+    "duplicateView": "Dupliquer"
   },
   "importPanel": {
     "textAndMarkdown": "Texte et Markdown",
@@ -128,7 +158,8 @@
       "emptyDescription": "Vous n'avez aucun fichier supprimé",
       "isDeleted": "a été supprimé",
       "isRestored": "a été restauré"
-    }
+    },
+    "confirmDeleteTitle": "Etes-vous sûr de vouloir supprimer définitivement cette page ?"
   },
   "deletePagePrompt": {
     "text": "Cette page se trouve dans la corbeille",
@@ -188,10 +219,16 @@
     "closeSidebar": "Fermer le menu latéral",
     "openSidebar": "Ouvrir le menu latéral",
     "personal": "Personnel",
+    "private": "Privé",
+    "workspace": "Espace de travail",
     "favorites": "Favoris",
+    "clickToHidePrivate": "Cliquez pour masquer l'espace privé\nLes pages que vous avez créées ici ne sont visibles que par vous",
+    "clickToHideWorkspace": "Cliquez pour masquer l'espace de travail\nLes pages que vous avez créées ici sont visibles par tous les membres",
     "clickToHidePersonal": "Cliquez pour cacher la section personnelle",
     "clickToHideFavorites": "Cliquez pour cacher la section favorite",
     "addAPage": "Ajouter une page",
+    "addAPageToPrivate": "Ajouter une page à l'espace privé",
+    "addAPageToWorkspace": "Ajouter une page à l'espace de travail",
     "recent": "Récent"
   },
   "notifications": {
@@ -235,6 +272,18 @@
     "helpCenter": "Centre d'aide",
     "add": "Ajouter",
     "yes": "Oui",
+    "clear": "Clair",
+    "remove": "Retirer",
+    "dontRemove": "Ne supprimez pas",
+    "copyLink": "Copier le lien",
+    "align": "Aligner",
+    "login": "Se connecter",
+    "logout": "Se déconnecter",
+    "deleteAccount": "Supprimer le compte",
+    "back": "Dos",
+    "signInGoogle": "Connectez-vous avec Google",
+    "signInGithub": "Connectez-vous avec Github",
+    "signInDiscord": "Connectez-vous avec Discord",
     "tryAGain": "Réessayer"
   },
   "label": {
@@ -332,6 +381,7 @@
         "dark": "Mode sombre",
         "system": "S'adapter au système"
       },
+      "fontScaleFactor": "Facteur d'échelle de police",
       "documentSettings": {
         "cursorColor": "Couleur du curseur du document",
         "selectionColor": "Couleur de sélection du document",
@@ -385,7 +435,36 @@
         "twelveHour": "Douze heures",
         "twentyFourHour": "Vingt-quatre heures"
       },
-      "showNamingDialogWhenCreatingPage": "Afficher la boîte de dialogue de nommage lors de la création d'une page"
+      "showNamingDialogWhenCreatingPage": "Afficher la boîte de dialogue de nommage lors de la création d'une page",
+      "enableRTLToolbarItems": "Activer les éléments de la barre d'outils RTL",
+      "members": {
+        "title": "Paramètres des membres",
+        "inviteMembers": "Inviter des membres",
+        "sendInvite": "Envoyer une invitation",
+        "copyInviteLink": "Copier le lien d'invitation",
+        "label": "Membres",
+        "user": "Utilisateur",
+        "role": "Rôle",
+        "removeFromWorkspace": "Supprimer de l'espace de travail",
+        "owner": "Propriétaire",
+        "guest": "Invité",
+        "member": "Membre",
+        "memberHintText": "Un membre peut lire, commenter et modifier des pages. Invitez des membres et des invités.",
+        "guestHintText": "Un invité peut lire, réagir, commenter et modifier certaines pages avec autorisation.",
+        "emailInvalidError": "E-mail invalide, veuillez vérifier et réessayer",
+        "emailSent": "Email envoyé, veuillez vérifier la boîte de réception",
+        "members": "membres",
+        "membersCount": {
+          "zero": "{} membres",
+          "one": "{} membre",
+          "other": "{} membres"
+        },
+        "memberLimitExceeded": "Vous avez atteint la limite maximale de membres autorisée pour votre compte. Si vous souhaitez ajouter d'autres membres pour continuer votre travail, veuillez en faire la demande sur Github.",
+        "failedToAddMember": "Échec de l'ajout d'un membre",
+        "addMemberSuccess": "Membre ajouté avec succès",
+        "removeMember": "Supprimer un membre",
+        "areYouSureToRemoveMember": "Êtes-vous sûr de vouloir supprimer ce membre ?"
+      }
     },
     "files": {
       "copy": "Copie",
@@ -421,7 +500,11 @@
       "recoverLocationTooltips": "Réinitialiser au répertoire de données par défaut d'AppFlowy",
       "exportFileSuccess": "Exporter le fichier avec succès !",
       "exportFileFail": "Échec de l'export du fichier !",
-      "export": "Exporter"
+      "export": "Exporter",
+      "clearCache": "Vider le cache",
+      "clearCacheDesc": "Si vous rencontrez des problèmes avec des images qui ne se chargent pas ou des polices qui ne s'affichent pas correctement, essayez de vider votre cache. Cette action ne supprimera pas vos données utilisateur.",
+      "areYouSureToClearCache": "Êtes-vous sûr de vider le cache ?",
+      "clearCacheSuccess": "Cache vidé avec succès !"
     },
     "user": {
       "name": "Nom",
@@ -441,7 +524,17 @@
       "shortcutIsAlreadyUsed": "Ce raccourci est déjà utilisé pour : {conflict}",
       "resetToDefault": "Réinitialiser les raccourcis clavier par défaut",
       "couldNotLoadErrorMsg": "Impossible de charger les raccourcis, réessayez",
-      "couldNotSaveErrorMsg": "Impossible d'enregistrer les raccourcis. Réessayez"
+      "couldNotSaveErrorMsg": "Impossible d'enregistrer les raccourcis. Réessayez",
+      "commands": {
+        "codeBlockNewParagraph": "Insérez un nouveau paragraphe à côté du bloc de code",
+        "codeBlockAddTwoSpaces": "Insérez deux espaces au début de la ligne dans le bloc de code",
+        "codeBlockDeleteTwoSpaces": "Supprimez deux espaces au début de la ligne dans le bloc de code",
+        "codeBlockSelectAll": "Sélectionnez tout le contenu à l'intérieur d'un bloc de code",
+        "codeBlockPasteText": "Coller le texte dans le bloc de code",
+        "textAlignLeft": "Aligner le texte à gauche",
+        "textAlignCenter": "Aligner le texte au centre",
+        "textAlignRight": "Aligner le texte à droite"
+      }
     },
     "mobile": {
       "personalInfo": "Informations personnelles",
@@ -537,7 +630,25 @@
       "onOrAfter": "Est le ou après",
       "between": "Est entre",
       "empty": "Est vide",
-      "notEmpty": "N'est pas vide"
+      "notEmpty": "N'est pas vide",
+      "choicechipPrefix": {
+        "before": "Avant",
+        "after": "Après",
+        "onOrBefore": "Le ou avant",
+        "onOrAfter": "Le ou après",
+        "isEmpty": "Est vide",
+        "isNotEmpty": "N'est pas vide"
+      }
+    },
+    "numberFilter": {
+      "equal": "Équivaut à",
+      "notEqual": "N'est pas égal",
+      "lessThan": "Est inférieur à",
+      "greaterThan": "Est supérieur à",
+      "lessThanOrEqualTo": "Est inférieur ou égal à",
+      "greaterThanOrEqualTo": "Est supérieur ou égal à",
+      "isEmpty": "Est vide",
+      "isNotEmpty": "N'est pas vide"
     },
     "field": {
       "hide": "Cacher",
@@ -546,6 +657,8 @@
       "insertRight": "Insérer à droite",
       "duplicate": "Dupliquer",
       "delete": "Supprimer",
+      "wrap": "Envelopper",
+      "clear": "Effacer les cellules",
       "textFieldName": "Texte",
       "checkboxFieldName": "Case à cocher",
       "dateFieldName": "Date",
@@ -556,6 +669,7 @@
       "multiSelectFieldName": "Sélection multiple",
       "urlFieldName": "URL",
       "checklistFieldName": "Liste de contrôle",
+      "relationFieldName": "Relation",
       "numberFormat": "Format de nombre",
       "dateFormat": "Format de la date",
       "includeTime": "Inclure l'heure",
@@ -585,9 +699,11 @@
       "editProperty": "Modifier la propriété",
       "newProperty": "Nouvelle propriété",
       "deleteFieldPromptMessage": "Vous voulez supprimer cette propriété ?",
+      "clearFieldPromptMessage": "Es-tu sûr? Toutes les cellules de cette colonne seront vidées",
       "newColumn": "Nouvelle colonne",
       "format": "Format",
-      "reminderOnDateTooltip": "Cette cellule a un rappel programmé"
+      "reminderOnDateTooltip": "Cette cellule a un rappel programmé",
+      "optionAlreadyExist": "L'option existe déjà"
     },
     "rowPage": {
       "newField": "Ajouter un nouveau champ",
@@ -606,8 +722,13 @@
     "sort": {
       "ascending": "Ascendant",
       "descending": "Descendant",
+      "by": "Par",
+      "empty": "Aucun tri actif",
+      "cannotFindCreatableField": "Impossible de trouver un champ approprié pour trier",
       "deleteAllSorts": "Supprimer tous les tris",
       "addSort": "Ajouter un tri",
+      "removeSorting": "Souhaitez-vous supprimer le tri ?",
+      "fieldInUse": "Vous êtes déjà en train de trier par ce champ",
       "deleteSort": "Supprimer le tri"
     },
     "row": {
@@ -655,7 +776,19 @@
     },
     "url": {
       "launch": "Ouvrir dans le navigateur",
-      "copy": "Copier l'URL"
+      "copy": "Copier l'URL",
+      "textFieldHint": "Entrez une URL",
+      "copiedNotification": "Copié dans le presse-papier!"
+    },
+    "relation": {
+      "relatedDatabasePlaceLabel": "Base de données associée",
+      "relatedDatabasePlaceholder": "Aucun",
+      "inRelatedDatabase": "Dans",
+      "rowSearchTextFieldPlaceholder": "Recherche",
+      "noDatabaseSelected": "Aucune base de données sélectionnée, veuillez d'abord en sélectionner une dans la liste ci-dessous :",
+      "emptySearchResult": "Aucun enregistrement trouvé",
+      "linkedRowListLabel": "{count} lignes liées",
+      "unlinkedRowListLabel": "Lier une autre ligne"
     },
     "menuName": "Grille",
     "referencedGridPrefix": "Vue",
@@ -666,7 +799,12 @@
       "max": "Maximum",
       "median": "Médiane",
       "min": "Minimum",
-      "sum": "Somme"
+      "sum": "Somme",
+      "count": "Compter",
+      "countEmpty": "Compter vide",
+      "countEmptyShort": "VIDE",
+      "countNonEmpty": "Le compte n'est pas vide",
+      "countNonEmptyShort": "REMPLI"
     }
   },
   "document": {
@@ -721,6 +859,7 @@
       "discardResponse": "Voulez-vous supprimer les réponses de l'IA ?",
       "createInlineMathEquation": "Créer une équation",
       "fonts": "Polices",
+      "insertDate": "Insérer la date",
       "emoji": "Emoji",
       "toggleList": "Liste pliable",
       "quoteList": "Liste de citations",
@@ -771,17 +910,21 @@
         "left": "Gauche",
         "center": "Centre",
         "right": "Droite",
-        "defaultColor": "Défaut"
+        "defaultColor": "Défaut",
+        "depth": "Profondeur"
       },
       "image": {
         "copiedToPasteBoard": "Le lien de l'image a été copié dans le presse-papiers",
-        "addAnImage": "Ajouter une image"
+        "addAnImage": "Ajouter une image",
+        "imageUploadFailed": "Échec du téléchargement de l'image"
       },
       "urlPreview": {
-        "copiedToPasteBoard": "Le lien a été copié dans le presse-papier"
+        "copiedToPasteBoard": "Le lien a été copié dans le presse-papier",
+        "convertToLink": "Convertir en lien intégré"
       },
       "outline": {
-        "addHeadingToCreateOutline": "Ajoutez des titres pour créer une table des matières."
+        "addHeadingToCreateOutline": "Ajoutez des titres pour créer une table des matières.",
+        "noMatchHeadings": "Aucune rubrique correspondante trouvée."
       },
       "table": {
         "addAfter": "Ajouter après",
@@ -806,6 +949,9 @@
         "linkToDatabase": "Lien vers la Base de données"
       },
       "date": "Date"
+    },
+    "outlineBlock": {
+      "placeholder": "Table des matières"
     },
     "textBlock": {
       "placeholder": "Tapez '/' pour les commandes"
@@ -836,7 +982,8 @@
         "invalidImage": "Image invalide",
         "invalidImageSize": "La taille de l'image doit être inférieure à 5 Mo",
         "invalidImageFormat": "Le format d'image n'est pas pris en charge. Formats pris en charge : JPEG, PNG, GIF, SVG",
-        "invalidImageUrl": "URL d'image non valide"
+        "invalidImageUrl": "URL d'image non valide",
+        "noImage": "Aucun fichier ou répertoire de ce nom"
       },
       "embedLink": {
         "label": "Lien intégré",
@@ -853,13 +1000,18 @@
       "successToAddImageToGallery": "Image ajoutée à la galerie avec succès",
       "unableToLoadImage": "Impossible de charger l'image",
       "maximumImageSize": "La taille d'image maximale est 10Mo",
-      "uploadImageErrorImageSizeTooBig": "L'image doit faire moins de 10Mo"
+      "uploadImageErrorImageSizeTooBig": "L'image doit faire moins de 10Mo",
+      "imageIsUploading": "L'image est en cours de téléchargement"
     },
     "codeBlock": {
       "language": {
         "label": "Langue",
-        "placeholder": "Choisir la langue"
-      }
+        "placeholder": "Choisir la langue",
+        "auto": "Auto"
+      },
+      "copyTooltip": "Copier le contenu du bloc de code",
+      "searchLanguageHint": "Rechercher une langue",
+      "codeCopiedSnackbar": "Code copié dans le presse-papier !"
     },
     "inlineLink": {
       "placeholder": "Coller ou saisir un lien",
@@ -960,7 +1112,8 @@
       "noDateHint": "Les événements non planifiés s'afficheront ici"
     },
     "referencedCalendarPrefix": "Vue",
-    "quickJumpYear": "Sauter à"
+    "quickJumpYear": "Sauter à",
+    "duplicateEvent": "Événement en double"
   },
   "errorDialog": {
     "title": "Erreur AppFlowy",
@@ -1111,7 +1264,8 @@
     "replace": "Remplacer",
     "replaceAll": "Tout remplacer",
     "noResult": "Aucun résultat",
-    "caseSensitive": "Sensible à la casse"
+    "caseSensitive": "Sensible à la casse",
+    "searchMore": "Rechercher pour trouver plus de résultats"
   },
   "error": {
     "weAreSorry": "Nous sommes désolés",
@@ -1158,6 +1312,8 @@
     "backgroundColorPurple": "Fond violet",
     "backgroundColorPink": "Fond rose",
     "backgroundColorRed": "Fond rouge",
+    "backgroundColorLime": "Fond de chaux",
+    "backgroundColorAqua": "Fond aquatique",
     "done": "Fait",
     "cancel": "Annuler",
     "tint1": "Teinte 1",
@@ -1205,6 +1361,8 @@
     "copy": "Copier",
     "paste": "Color",
     "find": "Chercher",
+    "select": "Sélectionner",
+    "selectAll": "Tout sélectionner",
     "previousMatch": "Occurence précédente",
     "nextMatch": "Occurence suivante",
     "closeFind": "Fermer",
@@ -1261,5 +1419,46 @@
     "addField": "Ajouter un champ",
     "userIcon": "Icône utilisateur"
   },
-  "noLogFiles": "Il n'y a pas de log"
+  "noLogFiles": "Il n'y a pas de log",
+  "newSettings": {
+    "myAccount": {
+      "title": "Mon compte",
+      "profileNamePlaceholder": "Entrez votre nom",
+      "accountSecurity": "Sécurité du compte",
+      "2FA": "Authentification en 2 étapes",
+      "aiKeys": "Clés IA",
+      "accountLogin": "Connexion au compte",
+      "deleteAccount": {
+        "title": "Supprimer le compte",
+        "deleteMyAccount": "Supprimer mon compte",
+        "dialogTitle": "Supprimer le compte",
+        "dialogContent1": "Êtes-vous sûr de vouloir supprimer définitivement votre compte ?"
+      }
+    },
+    "workplace": {
+      "name": "Lieu de travail",
+      "subtitle": "Personnalisez l'apparence, le thème, la police, la disposition du texte, la date, l'heure et la langue de votre espace de travail.",
+      "workplaceNamePlaceholder": "Entrez le nom du lieu de travail",
+      "workplaceIcon": "Icône du lieu de travail",
+      "updateIconError": "Échec de la mise à jour de l'icône",
+      "appearance": {
+        "name": "Apparence",
+        "themeMode": {
+          "auto": "Auto",
+          "light": "Lumière",
+          "dark": "Sombre"
+        },
+        "language": "Langue"
+      }
+    },
+    "syncState": {
+      "syncing": "Synchronisation",
+      "synced": "Synchronisé"
+    }
+  },
+  "commandPalette": {
+    "navigateHint": "naviguer",
+    "betaLabel": "BÊTA",
+    "fromTrashHint": "De la poubelle"
+  }
 }

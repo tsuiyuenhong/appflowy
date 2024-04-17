@@ -9,6 +9,7 @@
   "title": "標題",
   "youCanAlso": "你也可以",
   "and": "和",
+  "failedToOpenUrl": "無法開啟網址：{}",
   "blockActions": {
     "addBelowTooltip": "點選以在下方新增",
     "addAboveCmd": "Alt+點選",
@@ -48,7 +49,12 @@
     "LogInWithGoogle": "使用 Google 登入",
     "LogInWithGithub": "使用 Github 登入",
     "LogInWithDiscord": "使用 Discord 登入",
-    "signInWith": "透過以下方式登入："
+    "signInWith": "透過以下方式登入：",
+    "signInWithEmail": "使用電子郵件登入",
+    "logInWithMagicLink": "使用 Magic Link 登入",
+    "pleaseInputYourEmail": "請輸入您的電子郵件地址",
+    "magicLinkSent": "魔法連結已發送至您的郵箱，請檢查您的收件匣",
+    "invalidEmail": "請輸入有效的電子郵件地址"
   },
   "workspace": {
     "chooseWorkspace": "選擇你的工作區",
@@ -63,12 +69,31 @@
       "reportIssueOnGithub": "在 Github 提交 issue",
       "exportLogFiles": "匯出日誌記錄檔案",
       "reachOut": "在 Discord 上聯絡我們"
-    }
+    },
+    "menuTitle": "工作空間",
+    "deleteWorkspaceHintText": "您確定要刪除工作區嗎？此操作無法撤銷。",
+    "createSuccess": "工作區創建成功",
+    "createFailed": "建立工作區失敗",
+    "createLimitExceeded": "您已達到帳戶允許的最大工作區限制。如果您需要額外的工作空間來繼續工作，請在 Github 上請求",
+    "deleteSuccess": "工作區刪除成功",
+    "deleteFailed": "刪除工作區失敗",
+    "openSuccess": "成功開啟工作區",
+    "openFailed": "無法開啟工作區",
+    "renameSuccess": "工作區重命名成功",
+    "renameFailed": "無法重新命名工作區",
+    "updateIconSuccess": "成功更新工作區圖標",
+    "updateIconFailed": "更新工作區圖示失敗",
+    "cannotDeleteTheOnlyWorkspace": "無法刪除唯一的工作區",
+    "fetchWorkspacesFailed": "無法取得工作區",
+    "leaveCurrentWorkspace": "離開工作區",
+    "leaveCurrentWorkspacePrompt": "您確定要離開目前工作區嗎？"
   },
   "shareAction": {
     "buttonText": "分享",
     "workInProgress": "即將推出",
     "markdown": "Markdown",
+    "html": "超文本標記語言",
+    "clipboard": "複製到剪貼簿",
     "csv": "CSV",
     "copyLink": "複製連結"
   },
@@ -78,7 +103,12 @@
     "large": "大",
     "fontSize": "字型大小",
     "import": "匯入",
-    "moreOptions": "更多選項"
+    "moreOptions": "更多選項",
+    "wordCount": "字數： {}",
+    "charCount": "字元數：{}",
+    "createdAt": "創建：{}",
+    "deleteView": "刪除",
+    "duplicateView": "複製"
   },
   "importPanel": {
     "textAndMarkdown": "文字 & Markdown",
@@ -127,7 +157,8 @@
       "emptyDescription": "您沒有任何已刪除的檔案",
       "isDeleted": "已刪除",
       "isRestored": "已還原"
-    }
+    },
+    "confirmDeleteTitle": "您確定要永久刪除此頁面嗎？"
   },
   "deletePagePrompt": {
     "text": "此頁面在垃圾桶中",
@@ -187,10 +218,16 @@
     "closeSidebar": "關閉側欄",
     "openSidebar": "開啟側欄",
     "personal": "個人",
+    "private": "私人的",
+    "workspace": "工作空間",
     "favorites": "最愛",
+    "clickToHidePrivate": "點擊隱藏私人空間<inlang-LineFeed>您在此處建立的頁面只有您自己可見",
+    "clickToHideWorkspace": "點擊以隱藏工作區<inlang-LineFeed>您在此處建立的頁面對每個成員都可見",
     "clickToHidePersonal": "點選以隱藏個人區塊",
     "clickToHideFavorites": "點選以隱藏最愛區塊",
     "addAPage": "新增頁面",
+    "addAPageToPrivate": "新增頁面到私人空間",
+    "addAPageToWorkspace": "將頁面新增至工作區",
     "recent": "最近"
   },
   "notifications": {
@@ -233,7 +270,19 @@
     "rename": "重新命名",
     "helpCenter": "支援中心",
     "add": "新增",
-    "yes": "是"
+    "yes": "是",
+    "clear": "清除",
+    "remove": "消除",
+    "dontRemove": "不要刪除",
+    "copyLink": "複製連結",
+    "align": "對齊",
+    "login": "登入",
+    "logout": "登出",
+    "deleteAccount": "刪除帳戶",
+    "back": "後退",
+    "signInGoogle": "使用 Google 登入",
+    "signInGithub": "使用 Github 登入",
+    "signInDiscord": "使用 Discord 登入"
   },
   "label": {
     "welcome": "歡迎！",
@@ -329,6 +378,7 @@
         "dark": "深色模式",
         "system": "依照系統設定"
       },
+      "fontScaleFactor": "字體比例因子",
       "documentSettings": {
         "cursorColor": "文件游標顏色",
         "selectionColor": "文件選取顏色",
@@ -381,7 +431,36 @@
         "twelveHour": "12 小時制",
         "twentyFourHour": "24 小時制"
       },
-      "showNamingDialogWhenCreatingPage": "建立頁面時顯示命名對話框"
+      "showNamingDialogWhenCreatingPage": "建立頁面時顯示命名對話框",
+      "enableRTLToolbarItems": "啟用 RTL 工具列項",
+      "members": {
+        "title": "會員設定",
+        "inviteMembers": "邀請成員",
+        "sendInvite": "發送邀請",
+        "copyInviteLink": "複製邀請連結",
+        "label": "會員",
+        "user": "使用者",
+        "role": "角色",
+        "removeFromWorkspace": "從工作區中刪除",
+        "owner": "擁有者",
+        "guest": "客人",
+        "member": "成員",
+        "memberHintText": "成員可以閱讀、評論和編輯頁面。邀請會員和嘉賓。",
+        "guestHintText": "訪客可以閱讀、做出回應、發表評論，並可以在獲得許可的情況下編輯某些頁面。",
+        "emailInvalidError": "電子郵件無效，請檢查並重試",
+        "emailSent": "郵件已發送，請查看收件匣",
+        "members": "會員",
+        "membersCount": {
+          "zero": "{} 成員",
+          "one": "{} 成員",
+          "other": "{} 成員"
+        },
+        "memberLimitExceeded": "您已達到帳戶允許的最大會員限額。如果您想添加更多成員來繼續您的工作，請在 Github 上請求",
+        "failedToAddMember": "新增會員失敗",
+        "addMemberSuccess": "會員新增成功",
+        "removeMember": "刪除會員",
+        "areYouSureToRemoveMember": "您確定要刪除該成員嗎？"
+      }
     },
     "files": {
       "copy": "複製",
@@ -417,7 +496,11 @@
       "recoverLocationTooltips": "重設為 AppFlowy 的預設資料目錄",
       "exportFileSuccess": "匯出檔案成功！",
       "exportFileFail": "匯出檔案失敗！",
-      "export": "匯出"
+      "export": "匯出",
+      "clearCache": "清除快取",
+      "clearCacheDesc": "如果您遇到圖像無法載入或字體無法正確顯示的問題，請嘗試清除快取。此操作不會刪除您的使用者資料。",
+      "areYouSureToClearCache": "您確定清除快取嗎？",
+      "clearCacheSuccess": "快取清除成功！"
     },
     "user": {
       "name": "名稱",
@@ -437,7 +520,17 @@
       "shortcutIsAlreadyUsed": "此快捷鍵已被使用於：{conflict}",
       "resetToDefault": "重設為預設鍵盤綁定",
       "couldNotLoadErrorMsg": "無法載入快捷鍵，請再試一次",
-      "couldNotSaveErrorMsg": "無法儲存快捷鍵，請再試一次"
+      "couldNotSaveErrorMsg": "無法儲存快捷鍵，請再試一次",
+      "commands": {
+        "codeBlockNewParagraph": "在程式碼區塊旁邊插入一個新段落",
+        "codeBlockAddTwoSpaces": "在程式碼區塊的行開頭插入兩個空格",
+        "codeBlockDeleteTwoSpaces": "刪除程式碼區塊中行開頭的兩個空格",
+        "codeBlockSelectAll": "選擇程式碼區塊內的所有內容",
+        "codeBlockPasteText": "將文字貼到程式碼區塊中",
+        "textAlignLeft": "將文字左對齊",
+        "textAlignCenter": "將文字置中對齊",
+        "textAlignRight": "將文字右對齊"
+      }
     },
     "mobile": {
       "personalInfo": "個人資料",
@@ -529,7 +622,25 @@
       "onOrAfter": "在……之後或當天",
       "between": "在……之間",
       "empty": "為空",
-      "notEmpty": "不為空"
+      "notEmpty": "不為空",
+      "choicechipPrefix": {
+        "before": "前",
+        "after": "後",
+        "onOrBefore": "當天或之前",
+        "onOrAfter": "當天或之後",
+        "isEmpty": "是空的",
+        "isNotEmpty": "不為空"
+      }
+    },
+    "numberFilter": {
+      "equal": "等於",
+      "notEqual": "不相等",
+      "lessThan": "小於",
+      "greaterThan": "大於",
+      "lessThanOrEqualTo": "小於或等於",
+      "greaterThanOrEqualTo": "大於或等於",
+      "isEmpty": "是空的",
+      "isNotEmpty": "不為空"
     },
     "field": {
       "hide": "隱藏",
@@ -538,6 +649,8 @@
       "insertRight": "右方插入",
       "duplicate": "複製",
       "delete": "刪除",
+      "wrap": "裹",
+      "clear": "清除細胞",
       "textFieldName": "文字",
       "checkboxFieldName": "核取方塊",
       "dateFieldName": "日期",
@@ -548,6 +661,7 @@
       "multiSelectFieldName": "多選",
       "urlFieldName": "網址",
       "checklistFieldName": "核取清單",
+      "relationFieldName": "關係",
       "numberFormat": "數字格式",
       "dateFormat": "日期格式",
       "includeTime": "包含時間",
@@ -577,9 +691,11 @@
       "editProperty": "編輯屬性",
       "newProperty": "新增屬性",
       "deleteFieldPromptMessage": "您確定嗎？這個屬性將被刪除",
+      "clearFieldPromptMessage": "你確定嗎？該列中的所有單元格都將被清空",
       "newColumn": "新增欄位",
       "format": "格式",
-      "reminderOnDateTooltip": "此欄位設有預定提醒"
+      "reminderOnDateTooltip": "此欄位設有預定提醒",
+      "optionAlreadyExist": "選項已存在"
     },
     "rowPage": {
       "newField": "新增欄位",
@@ -598,8 +714,13 @@
     "sort": {
       "ascending": "升冪",
       "descending": "降冪",
+      "by": "經過",
+      "empty": "沒有主動排序",
+      "cannotFindCreatableField": "找不到合適的欄位進行排序",
       "deleteAllSorts": "刪除所有排序",
-      "addSort": "新增排序"
+      "addSort": "新增排序",
+      "removeSorting": "您想刪除排序嗎？",
+      "fieldInUse": "您已經按此欄位排序"
     },
     "row": {
       "duplicate": "複製",
@@ -646,7 +767,19 @@
     },
     "url": {
       "launch": "在瀏覽器中開啟",
-      "copy": "複製網址"
+      "copy": "複製網址",
+      "textFieldHint": "輸入網址",
+      "copiedNotification": "已複製到剪貼簿！"
+    },
+    "relation": {
+      "relatedDatabasePlaceLabel": "相關資料庫",
+      "relatedDatabasePlaceholder": "沒有任何",
+      "inRelatedDatabase": "在",
+      "rowSearchTextFieldPlaceholder": "搜尋",
+      "noDatabaseSelected": "未選擇資料庫，請先從下面的清單中選擇一個：",
+      "emptySearchResult": "沒有找到記錄",
+      "linkedRowListLabel": "{count} 行連結",
+      "unlinkedRowListLabel": "連結另一行"
     },
     "menuName": "網格",
     "referencedGridPrefix": "檢視",
@@ -657,7 +790,12 @@
       "max": "最大值",
       "median": "中間值",
       "min": "最小值",
-      "sum": "總和"
+      "sum": "總和",
+      "count": "數數",
+      "countEmpty": "數空",
+      "countEmptyShort": "空的",
+      "countNonEmpty": "計數不為空",
+      "countNonEmptyShort": "填充"
     }
   },
   "document": {
@@ -712,6 +850,7 @@
       "discardResponse": "確定捨棄 AI 的回覆？",
       "createInlineMathEquation": "建立公式",
       "fonts": "字型",
+      "insertDate": "插入日期",
       "emoji": "表情符號",
       "toggleList": "切換列表",
       "quoteList": "引述列表",
@@ -762,17 +901,21 @@
         "left": "左",
         "center": "中",
         "right": "右",
-        "defaultColor": "預設"
+        "defaultColor": "預設",
+        "depth": "深度"
       },
       "image": {
         "copiedToPasteBoard": "圖片連結已複製到剪貼簿",
-        "addAnImage": "新增圖片"
+        "addAnImage": "新增圖片",
+        "imageUploadFailed": "圖片上傳失敗"
       },
       "urlPreview": {
-        "copiedToPasteBoard": "連結已複製到剪貼簿"
+        "copiedToPasteBoard": "連結已複製到剪貼簿",
+        "convertToLink": "轉換為嵌入鏈接"
       },
       "outline": {
-        "addHeadingToCreateOutline": "新增標題以建立目錄。"
+        "addHeadingToCreateOutline": "新增標題以建立目錄。",
+        "noMatchHeadings": "未找到匹配的標題。"
       },
       "table": {
         "addAfter": "在後方新增",
@@ -797,6 +940,9 @@
         "linkToDatabase": "連結至資料庫"
       },
       "date": "日期"
+    },
+    "outlineBlock": {
+      "placeholder": "目錄"
     },
     "textBlock": {
       "placeholder": "輸入“/”作為命令"
@@ -827,7 +973,8 @@
         "invalidImage": "無效的圖片",
         "invalidImageSize": "圖片大小必須小於 5MB",
         "invalidImageFormat": "不支援的圖片格式。支援的格式：JPEG、PNG、GIF、SVG",
-        "invalidImageUrl": "無效的圖片網址"
+        "invalidImageUrl": "無效的圖片網址",
+        "noImage": "沒有這樣的檔案或目錄"
       },
       "embedLink": {
         "label": "嵌入連結",
@@ -844,13 +991,18 @@
       "successToAddImageToGallery": "圖片已成功新增到相簿",
       "unableToLoadImage": "無法載入圖片",
       "maximumImageSize": "支援的最大上傳圖片大小為 10MB",
-      "uploadImageErrorImageSizeTooBig": "圖片大小必須小於 10MB"
+      "uploadImageErrorImageSizeTooBig": "圖片大小必須小於 10MB",
+      "imageIsUploading": "圖片正在上傳中"
     },
     "codeBlock": {
       "language": {
         "label": "語言",
-        "placeholder": "選擇語言"
-      }
+        "placeholder": "選擇語言",
+        "auto": "汽車"
+      },
+      "copyTooltip": "複製程式碼區塊的內容",
+      "searchLanguageHint": "搜尋語言",
+      "codeCopiedSnackbar": "程式碼已複製到剪貼簿！"
     },
     "inlineLink": {
       "placeholder": "貼上或輸入連結",
@@ -955,7 +1107,8 @@
       "name": "日曆設定"
     },
     "referencedCalendarPrefix": "檢視",
-    "quickJumpYear": "跳到"
+    "quickJumpYear": "跳到",
+    "duplicateEvent": "重複事件"
   },
   "errorDialog": {
     "title": "AppFlowy 錯誤",
@@ -1106,7 +1259,8 @@
     "replace": "取代",
     "replaceAll": "全部取代",
     "noResult": "無結果",
-    "caseSensitive": "區分大小寫"
+    "caseSensitive": "區分大小寫",
+    "searchMore": "搜尋以查找更多結果"
   },
   "error": {
     "weAreSorry": "我們很抱歉",
@@ -1153,6 +1307,8 @@
     "backgroundColorPurple": "紫色背景",
     "backgroundColorPink": "粉紅色背景",
     "backgroundColorRed": "紅色背景",
+    "backgroundColorLime": "石灰背景",
+    "backgroundColorAqua": "淺綠色背景",
     "done": "完成",
     "cancel": "取消",
     "tint1": "色調 1",
@@ -1200,6 +1356,8 @@
     "copy": "複製",
     "paste": "貼上",
     "find": "尋找",
+    "select": "選擇",
+    "selectAll": "全選",
     "previousMatch": "上一個符合",
     "nextMatch": "下一個符合",
     "closeFind": "關閉",
@@ -1256,5 +1414,46 @@
     "addField": "新增欄位",
     "userIcon": "使用者圖示"
   },
-  "noLogFiles": "這裡沒有日誌記錄檔案"
+  "noLogFiles": "這裡沒有日誌記錄檔案",
+  "newSettings": {
+    "myAccount": {
+      "title": "我的帳戶",
+      "profileNamePlaceholder": "輸入你的名字",
+      "accountSecurity": "帳戶安全",
+      "2FA": "兩步驟驗證",
+      "aiKeys": "人工智慧按鍵",
+      "accountLogin": "帳號登入",
+      "deleteAccount": {
+        "title": "刪除帳戶",
+        "deleteMyAccount": "刪除我的帳戶",
+        "dialogTitle": "刪除帳戶",
+        "dialogContent1": "您確定要永久刪除您的帳戶嗎？"
+      }
+    },
+    "workplace": {
+      "name": "職場",
+      "subtitle": "自訂您的工作區外觀、主題、字體、文字佈局、日期、時間和語言。",
+      "workplaceNamePlaceholder": "輸入工作場所名稱",
+      "workplaceIcon": "工作場所圖標",
+      "updateIconError": "更新圖示失敗",
+      "appearance": {
+        "name": "外貌",
+        "themeMode": {
+          "auto": "汽車",
+          "light": "光",
+          "dark": "黑暗的"
+        },
+        "language": "語言"
+      }
+    },
+    "syncState": {
+      "syncing": "正在同步",
+      "synced": "已同步"
+    }
+  },
+  "commandPalette": {
+    "navigateHint": "導航",
+    "betaLabel": "測試版",
+    "fromTrashHint": "來自垃圾"
+  }
 }
