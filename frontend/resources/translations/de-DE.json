@@ -453,7 +453,9 @@
         "failedToAddMember": "Mitglied konnte nicht hinzugefügt werden!",
         "addMemberSuccess": "Mitglied erfolgreich hinzugefügt",
         "removeMember": "Mitglied entfernen",
-        "areYouSureToRemoveMember": "Möchten Sie dieses Mitglied wirklich entfernen?"
+        "areYouSureToRemoveMember": "Möchten Sie dieses Mitglied wirklich entfernen?",
+        "inviteMemberSuccess": "Die Einladung wurde erfolgreich versendet",
+        "failedToInviteMember": "Einladung fehlgeschlagen"
       }
     },
     "files": {
