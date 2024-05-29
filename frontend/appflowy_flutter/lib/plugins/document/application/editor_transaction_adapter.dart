@@ -37,10 +37,15 @@ class TransactionAdapter {
   final bool _enableDebug = false;
 
   Future<void> apply(Transaction transaction, EditorState editorState) async {
+    if (transaction.operations.isEmpty) {
+      return;
+    }
+
     final stopwatch = Stopwatch()..start();
     if (_enableDebug) {
       Log.debug('transaction => ${transaction.toJson()}');
     }
+
     final actions = transaction.operations
         .map((op) => op.toBlockAction(editorState, documentId))
         .whereNotNull()
@@ -161,6 +166,7 @@ extension on InsertOperation {
       // pass the external text id to the payload.
       if (textDeltaPayloadPB != null) {
         payload.textId = textDeltaPayloadPB.textId;
+        payload.delta = textDeltaPayloadPB.delta;
       }
 
       assert(payload.block.childrenId.isNotEmpty);
@@ -251,6 +257,9 @@ extension on UpdateOperation {
         externalType: 'text',
       );
 
+      blockActionPB.payload.textId = textId;
+      blockActionPB.payload.delta = jsonEncode(delta);
+
       actions.add(
         BlockActionWrapper(
           blockActionPB: blockActionPB,
@@ -266,6 +275,9 @@ extension on UpdateOperation {
               textId: textId,
               delta: jsonEncode(diff),
             );
+
+      blockActionPB.payload.textId = textId;
+      blockActionPB.payload.delta = jsonEncode(diff);
 
       actions.add(
         BlockActionWrapper(

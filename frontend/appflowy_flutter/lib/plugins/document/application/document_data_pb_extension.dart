@@ -192,10 +192,17 @@ extension NodeToBlock on Node {
     if (parentId != null && parentId.isNotEmpty) {
       block.parentId = parentId;
     }
+    if (externalValues != null && externalValues is ExternalValues) {
+      block.externalId = (externalValues as ExternalValues).externalId;
+      block.externalType = (externalValues as ExternalValues).externalType;
+    }
     return block;
   }
 
   String _dataAdapter(String type, Attributes attributes) {
+    if (attributes.containsKey(blockComponentDelta)) {
+      attributes.remove(blockComponentDelta);
+    }
     return jsonEncode(attributes);
   }
 }

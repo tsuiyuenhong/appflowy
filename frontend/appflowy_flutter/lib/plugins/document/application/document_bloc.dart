@@ -17,6 +17,7 @@ import 'package:appflowy/user/application/auth/auth_service.dart';
 import 'package:appflowy/util/color_generator/color_generator.dart';
 import 'package:appflowy/util/color_to_hex_string.dart';
 import 'package:appflowy/util/debounce.dart';
+import 'package:appflowy/util/json_print.dart';
 import 'package:appflowy/util/throttle.dart';
 import 'package:appflowy/workspace/application/view/view_listener.dart';
 import 'package:appflowy/workspace/application/view/view_service.dart';
@@ -304,6 +305,14 @@ class DocumentBloc extends Bloc<DocumentEvent, DocumentState> {
   }
 
   Future<void> _onDocumentStateUpdate(DocEventPB docEvent) async {
+    prettyPrintJson(docEvent.toProto3Json());
+
+    final result = await _documentService.getDocument(documentId: documentId);
+    final document = result.fold((s) => s, (f) => null);
+    if (document != null) {
+      prettyPrintJson(document.toProto3Json());
+    }
+
     if (!docEvent.isRemote || !FeatureFlag.syncDocument.isOn) {
       return;
     }
