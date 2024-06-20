@@ -257,6 +257,10 @@ class SpaceBloc extends Bloc<SpaceEvent, SpaceState> {
             );
           },
           reset: (userProfile, workspaceId) async {
+            if (workspaceId == _workspaceId) {
+              return;
+            }
+
             _reset(userProfile, workspaceId);
 
             add(
@@ -464,6 +468,7 @@ class SpaceBloc extends Bloc<SpaceEvent, SpaceState> {
       final service = UserBackendService(userId: user.id);
       final members =
           await service.getWorkspaceMembers(_workspaceId!).getOrThrow();
+
       final isOwner = members.items
           .any((e) => e.role == AFRolePB.Owner && e.email == user.email);
 
@@ -478,51 +483,54 @@ class SpaceBloc extends Bloc<SpaceEvent, SpaceState> {
         // move all the views in the workspace to the new public/private space
         final publicViews =
             await _workspaceService.getPublicViews().getOrThrow();
-        // only migrate the public space if there are any public views
-        if (publicViews.isNotEmpty) {
-          final publicSpace = await _createSpace(
-            name: 'Shared',
-            icon: builtInSpaceIcons.first,
-            iconColor: builtInSpaceColors.first,
-            permission: SpacePermission.publicToAll,
-          );
-
-          if (publicSpace != null) {
-            for (final view in publicViews.reversed) {
-              if (view.isSpace) {
-                continue;
-              }
-              await ViewBackendService.moveViewV2(
-                viewId: view.id,
-                newParentId: publicSpace.id,
-                prevViewId: view.parentViewId,
-              );
-            }
-          }
+        if (publicViews.isEmpty || publicViews.any((e) => e.isSpace)) {
+          return true;
         }
-      }
-      // create a new private space
-      final privateViews =
-          await _workspaceService.getPrivateViews().getOrThrow();
-      // only migrate the private space if there are any private views
-      if (privateViews.isNotEmpty) {
-        final privateSpace = await _createSpace(
-          name: 'Private',
-          icon: builtInSpaceIcons.last,
-          iconColor: builtInSpaceColors.last,
-          permission: SpacePermission.private,
+        // only migrate the public space if there are any public views
+        final publicSpace = await _createSpace(
+          name: 'Shared',
+          icon: builtInSpaceIcons.first,
+          iconColor: builtInSpaceColors.first,
+          permission: SpacePermission.publicToAll,
         );
-        if (privateSpace != null) {
-          for (final view in privateViews.reversed) {
+
+        if (publicSpace != null) {
+          for (final view in publicViews.reversed) {
             if (view.isSpace) {
               continue;
             }
             await ViewBackendService.moveViewV2(
               viewId: view.id,
-              newParentId: privateSpace.id,
+              newParentId: publicSpace.id,
               prevViewId: view.parentViewId,
             );
           }
+        }
+      }
+
+      // create a new private space
+      final privateViews =
+          await _workspaceService.getPrivateViews().getOrThrow();
+      if (privateViews.isEmpty || privateViews.any((e) => e.isSpace)) {
+        return true;
+      }
+      // only migrate the private space if there are any private views
+      final privateSpace = await _createSpace(
+        name: 'Private',
+        icon: builtInSpaceIcons.last,
+        iconColor: builtInSpaceColors.last,
+        permission: SpacePermission.private,
+      );
+      if (privateSpace != null) {
+        for (final view in privateViews.reversed) {
+          if (view.isSpace) {
+            continue;
+          }
+          await ViewBackendService.moveViewV2(
+            viewId: view.id,
+            newParentId: privateSpace.id,
+            prevViewId: view.parentViewId,
+          );
         }
       }
 
