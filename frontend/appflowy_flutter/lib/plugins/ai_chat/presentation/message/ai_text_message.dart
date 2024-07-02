@@ -2,6 +2,7 @@ import 'package:appflowy/generated/locale_keys.g.dart';
 import 'package:appflowy/plugins/ai_chat/application/chat_ai_message_bloc.dart';
 import 'package:appflowy/plugins/ai_chat/application/chat_bloc.dart';
 import 'package:appflowy/plugins/ai_chat/presentation/chat_loading.dart';
+import 'package:appflowy/plugins/ai_chat/presentation/message/ai_text_editor.dart';
 import 'package:appflowy/util/theme_extension.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fixnum/fixnum.dart';
@@ -14,7 +15,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart';
 import 'package:markdown_widget/markdown_widget.dart';
 
-import 'ai_text_editor.dart';
 import 'selectable_highlight.dart';
 
 class ChatAITextMessageWidget extends StatelessWidget {
@@ -60,10 +60,24 @@ class ChatAITextMessageWidget extends StatelessWidget {
           if (state.text.isEmpty) {
             return const ChatAILoading();
           } else {
+            // return _textWidgetBuilder(user, context, state.text);
             return AITextEditor(markdown: state.text);
           }
         },
       ),
+    );
+  }
+
+  Widget _textWidgetBuilder(
+    User user,
+    BuildContext context,
+    String text,
+  ) {
+    return MarkdownWidget(
+      data: text,
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      config: configFromContext(context),
     );
   }
 
