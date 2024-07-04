@@ -141,6 +141,7 @@ dependencies:
   shimmer: ^3.0.0
   isolates: ^3.0.3+8
   markdown_widget: ^2.3.2+6
+  markdown:
 
   # Window Manager for MacOS and Linux
   window_manager: ^0.3.9
@@ -183,10 +184,9 @@ dependency_overrides:
       commit: 77a8420
 
   appflowy_editor:
-    path: /Users/lucas.xu/Desktop/appflowy-editor
-    # git:
-    #   url: https://github.com/AppFlowy-IO/appflowy-editor.git
-    #   ref: "e8ee051"
+    git:
+      url: https://github.com/AppFlowy-IO/appflowy-editor.git
+      ref: "8b9ccf8"
 
   appflowy_editor_plugins:
     git:
