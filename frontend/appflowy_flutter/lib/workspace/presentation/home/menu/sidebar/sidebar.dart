@@ -371,7 +371,7 @@ class _SidebarState extends State<_Sidebar> {
     final containsSpace =
         sidebarSectionBloc.state.section.privateViews.any((e) => e.isSpace) ||
             sidebarSectionBloc.state.section.publicViews.any((e) => e.isSpace);
-    return containsSpace ||
+    return !containsSpace ||
             spaceState.spaces.isEmpty ||
             !workspaceState.isCollabWorkspaceOn
         ? Expanded(
