@@ -367,7 +367,13 @@ class _SidebarState extends State<_Sidebar> {
     // there's no space or the workspace is not collaborative,
     // show the folder section (Workspace, Private, Personal)
     // otherwise, show the space
-    return spaceState.spaces.isEmpty || !workspaceState.isCollabWorkspaceOn
+    final sidebarSectionBloc = context.read<SidebarSectionsBloc>();
+    final containsSpace =
+        sidebarSectionBloc.state.section.privateViews.any((e) => e.isSpace) ||
+            sidebarSectionBloc.state.section.publicViews.any((e) => e.isSpace);
+    return containsSpace ||
+            spaceState.spaces.isEmpty ||
+            !workspaceState.isCollabWorkspaceOn
         ? Expanded(
             child: Padding(
               padding: menuHorizontalInset - const EdgeInsets.only(right: 6),

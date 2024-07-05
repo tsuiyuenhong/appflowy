@@ -101,11 +101,6 @@ class SpaceBloc extends Bloc<SpaceEvent, SpaceState> {
                 add(SpaceEvent.open(currentSpace));
               }
             }
-
-            Future.delayed(const Duration(seconds: 10), () {
-              debugPrint('delay to fetch the space');
-              add(const SpaceEvent.didReceiveSpaceUpdate());
-            });
           },
           create: (
             name,
