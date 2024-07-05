@@ -372,6 +372,9 @@ class _SidebarState extends State<_Sidebar> {
         sidebarSectionBloc.state.section.privateViews.any((e) => e.isSpace) ||
             sidebarSectionBloc.state.section.publicViews.any((e) => e.isSpace);
     debugPrint('containsSpace: $containsSpace');
+    if (containsSpace) {
+      context.read<SpaceBloc>().add(const SpaceEvent.didReceiveSpaceUpdate());
+    }
     return !containsSpace ||
             spaceState.spaces.isEmpty ||
             !workspaceState.isCollabWorkspaceOn
