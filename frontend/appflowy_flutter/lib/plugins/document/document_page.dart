@@ -1,11 +1,10 @@
-import 'package:flutter/material.dart';
-
 import 'package:appflowy/generated/locale_keys.g.dart';
 import 'package:appflowy/mobile/application/page_style/document_page_style_bloc.dart';
 import 'package:appflowy/plugins/document/application/document_bloc.dart';
 import 'package:appflowy/plugins/document/presentation/banner.dart';
 import 'package:appflowy/plugins/document/presentation/editor_notification.dart';
 import 'package:appflowy/plugins/document/presentation/editor_page.dart';
+import 'package:appflowy/plugins/document/presentation/editor_plugins/copy_and_paste/paste_from_image.dart';
 import 'package:appflowy/plugins/document/presentation/editor_plugins/cover/document_immersive_cover.dart';
 import 'package:appflowy/plugins/document/presentation/editor_plugins/plugins.dart';
 import 'package:appflowy/plugins/document/presentation/editor_style.dart';
@@ -13,12 +12,15 @@ import 'package:appflowy/startup/startup.dart';
 import 'package:appflowy/workspace/application/action_navigation/action_navigation_bloc.dart';
 import 'package:appflowy/workspace/application/action_navigation/navigation_action.dart';
 import 'package:appflowy/workspace/application/view/prelude.dart';
+import 'package:appflowy/workspace/presentation/widgets/dialogs.dart';
 import 'package:appflowy_backend/log.dart';
 import 'package:appflowy_backend/protobuf/flowy-folder/view.pb.dart';
 import 'package:appflowy_editor/appflowy_editor.dart' hide Log;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flowy_infra_ui/widget/error_page.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:super_drag_and_drop/super_drag_and_drop.dart';
 
 class DocumentPage extends StatefulWidget {
   const DocumentPage({
@@ -112,28 +114,100 @@ class _DocumentPageState extends State<DocumentPage>
     if (PlatformExtension.isMobile) {
       child = BlocBuilder<DocumentPageStyleBloc, DocumentPageStyleState>(
         builder: (context, styleState) {
-          return AppFlowyEditorPage(
-            editorState: state.editorState!,
-            styleCustomizer: EditorStyleCustomizer(
-              context: context,
-              // the 44 is the width of the left action list
-              padding: EditorStyleCustomizer.documentPadding,
+          return DropRegion(
+            formats: const [Formats.png],
+            onDropEnter: (p0) {
+              showToastNotification(
+                context,
+                message: 'drop image to paste',
+              );
+            },
+            onDropOver: (event) {
+              final item = event.session.items.first;
+
+              if (item.canProvide(Formats.png)) {
+                return DropOperation.copy;
+              }
+
+              return DropOperation.none;
+            },
+            onPerformDrop: (event) async {
+              final item = event.session.items.first;
+
+              // data reader is available now
+              final reader = item.dataReader!;
+              if (reader.canProvide(Formats.png)) {
+                reader.getFile(Formats.png, (file) async {
+                  showToastNotification(
+                    context,
+                    message: 'pasting image: ${file.fileName} to editor',
+                  );
+
+                  final bytes = await file.readAll();
+                  await editorState?.pasteImage('png', bytes, widget.view.id);
+                });
+              }
+            },
+            hitTestBehavior: HitTestBehavior.opaque,
+            child: AppFlowyEditorPage(
+              editorState: state.editorState!,
+              styleCustomizer: EditorStyleCustomizer(
+                context: context,
+                // the 44 is the width of the left action list
+                padding: EditorStyleCustomizer.documentPadding,
+              ),
+              header: _buildCoverAndIcon(context, state),
+              initialSelection: widget.initialSelection,
             ),
-            header: _buildCoverAndIcon(context, state),
-            initialSelection: widget.initialSelection,
           );
         },
       );
     } else {
-      child = AppFlowyEditorPage(
-        editorState: state.editorState!,
-        styleCustomizer: EditorStyleCustomizer(
-          context: context,
-          // the 44 is the width of the left action list
-          padding: EditorStyleCustomizer.documentPadding,
+      child = DropRegion(
+        formats: Formats.standardFormats,
+        hitTestBehavior: HitTestBehavior.opaque,
+        onDropEnter: (p0) {
+          showToastNotification(
+            context,
+            message: 'drop image to paste',
+          );
+        },
+        onDropOver: (event) {
+          final item = event.session.items.first;
+
+          if (item.canProvide(Formats.png)) {
+            return DropOperation.copy;
+          }
+
+          return DropOperation.none;
+        },
+        onPerformDrop: (event) async {
+          final item = event.session.items.first;
+
+          // data reader is available now
+          final reader = item.dataReader!;
+          if (reader.canProvide(Formats.png)) {
+            reader.getFile(Formats.png, (file) async {
+              showToastNotification(
+                context,
+                message: 'pasting image: ${file.fileName} to editor',
+              );
+
+              final bytes = await file.readAll();
+              await editorState?.pasteImage('png', bytes, widget.view.id);
+            });
+          }
+        },
+        child: AppFlowyEditorPage(
+          editorState: state.editorState!,
+          styleCustomizer: EditorStyleCustomizer(
+            context: context,
+            // the 44 is the width of the left action list
+            padding: EditorStyleCustomizer.documentPadding,
+          ),
+          header: _buildCoverAndIcon(context, state),
+          initialSelection: widget.initialSelection,
         ),
-        header: _buildCoverAndIcon(context, state),
-        initialSelection: widget.initialSelection,
       );
     }
 
