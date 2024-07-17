@@ -1,7 +1,5 @@
 import 'dart:io';
 
-import 'package:flutter/material.dart';
-
 import 'package:appflowy/generated/flowy_svgs.g.dart';
 import 'package:appflowy/generated/locale_keys.g.dart';
 import 'package:appflowy/mobile/presentation/widgets/widgets.dart';
@@ -15,6 +13,7 @@ import 'package:appflowy/util/string_extension.dart';
 import 'package:appflowy/workspace/presentation/home/toast.dart';
 import 'package:appflowy_editor/appflowy_editor.dart' hide ResizableImage;
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:string_validator/string_validator.dart';
@@ -82,6 +81,25 @@ class CustomImageBlockKeys {
   ///
   /// The value is a CustomImageType enum.
   static const String imageType = 'image_type';
+}
+
+Node customImageNode({
+  required String url,
+  String align = 'center',
+  double? height,
+  double? width,
+  CustomImageType imageType = CustomImageType.external,
+}) {
+  return Node(
+    type: CustomImageBlockKeys.type,
+    attributes: {
+      CustomImageBlockKeys.url: url,
+      CustomImageBlockKeys.align: align,
+      CustomImageBlockKeys.height: height,
+      CustomImageBlockKeys.width: width,
+      CustomImageBlockKeys.imageType: imageType.toIntValue(),
+    },
+  );
 }
 
 typedef CustomImageBlockComponentMenuBuilder = Widget Function(
