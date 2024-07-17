@@ -47,6 +47,7 @@ pub fn init(folder: Weak<FolderManager>) -> AFPlugin {
     .event(FolderEvent::UnpublishViews, unpublish_views_handler)
     .event(FolderEvent::SetPublishNamespace, set_publish_namespace_handler)
     .event(FolderEvent::GetPublishNamespace, get_publish_namespace_handler)
+    .event(FolderEvent::GetFolder, get_folder)
 }
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug, Display, Hash, ProtoBuf_Enum, Flowy_Event)]
@@ -196,4 +197,7 @@ pub enum FolderEvent {
 
   #[event(input = "UnpublishViewsPayloadPB")]
   UnpublishViews = 47,
+
+  #[event(output = "FolderPB")]
+  GetFolder = 48,
 }

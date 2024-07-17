@@ -142,7 +142,7 @@ pub(crate) async fn get_all_views_handler(
   folder: AFPluginState<Weak<FolderManager>>,
 ) -> DataResult<RepeatedViewPB, FlowyError> {
   let folder = upgrade_folder(folder)?;
-  let view_pbs = folder.get_all_views_pb().await?;
+  let view_pbs = folder.get_all_views_pb(true).await?;
 
   data_result_ok(RepeatedViewPB::from(view_pbs))
 }
@@ -457,4 +457,36 @@ pub(crate) async fn get_publish_namespace_handler(
   let folder = upgrade_folder(folder)?;
   let namespace = folder.get_publish_namespace().await?;
   data_result_ok(PublishNamespacePB { namespace })
+}
+
+#[tracing::instrument(level = "debug", skip(folder), err)]
+pub(crate) async fn get_folder(
+  folder: AFPluginState<Weak<FolderManager>>,
+) -> DataResult<FolderPB, FlowyError> {
+  let folder = upgrade_folder(folder)?;
+  let all_views = folder.get_all_views_pb(false).await?;
+  let all_public_views = folder.get_workspace_public_views().await?;
+  let all_private_views = folder.get_all_private_views().await?;
+  let my_private_views = folder.get_my_private_views().await?;
+  let all_trash_views = folder.get_all_trash_views().await?;
+  let my_trash_views = folder.get_my_trash_views().await?;
+
+  data_result_ok(FolderPB {
+    all_views: RepeatedViewPB { items: all_views },
+    all_public_views: RepeatedViewPB {
+      items: all_public_views,
+    },
+    all_private_views: RepeatedViewPB {
+      items: all_private_views,
+    },
+    all_trash_views: RepeatedViewPB {
+      items: all_trash_views,
+    },
+    my_private_view: RepeatedViewPB {
+      items: my_private_views,
+    },
+    my_trash_views: RepeatedViewPB {
+      items: my_trash_views,
+    },
+  })
 }

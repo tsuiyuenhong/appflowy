@@ -1,3 +1,4 @@
+pub mod folder;
 pub mod icon;
 mod import;
 mod parser;
@@ -6,6 +7,7 @@ pub mod trash;
 pub mod view;
 pub mod workspace;
 
+pub use folder::*;
 pub use icon::*;
 pub use import::*;
 pub use publish::*;

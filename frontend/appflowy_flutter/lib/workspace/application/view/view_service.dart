@@ -365,4 +365,8 @@ class ViewBackendService {
 
     return (publishedPages.isNotEmpty, publishedPages);
   }
+
+  static Future<FlowyResult<FolderPB, FlowyError>> getFolder() async {
+    return FolderEventGetFolder().send();
+  }
 }

@@ -126,6 +126,50 @@ impl FolderManager {
     }))
   }
 
+  pub async fn get_all_private_views(&self) -> FlowyResult<Vec<ViewPB>> {
+    Ok(self.with_folder(Vec::new, |folder| {
+      let sections = folder.get_all_private_sections();
+      sections
+        .into_iter()
+        .flat_map(|section| folder.views.get_view(&section.id))
+        .map(view_pb_without_child_views_from_arc)
+        .collect::<Vec<_>>()
+    }))
+  }
+
+  pub async fn get_my_private_views(&self) -> FlowyResult<Vec<ViewPB>> {
+    Ok(self.with_folder(Vec::new, |folder| {
+      let sections = folder.get_my_private_sections();
+      sections
+        .into_iter()
+        .flat_map(|section| folder.views.get_view(&section.id))
+        .map(view_pb_without_child_views_from_arc)
+        .collect::<Vec<_>>()
+    }))
+  }
+
+  pub async fn get_all_trash_views(&self) -> FlowyResult<Vec<ViewPB>> {
+    Ok(self.with_folder(Vec::new, |folder| {
+      let ids = self.get_all_trash_ids(folder);
+      ids
+        .into_iter()
+        .flat_map(|id| folder.views.get_view(&id))
+        .map(view_pb_without_child_views_from_arc)
+        .collect::<Vec<_>>()
+    }))
+  }
+
+  pub async fn get_my_trash_views(&self) -> FlowyResult<Vec<ViewPB>> {
+    Ok(self.with_folder(Vec::new, |folder| {
+      let sections = folder.get_my_trash_sections();
+      sections
+        .into_iter()
+        .flat_map(|section| folder.views.get_view(&section.id))
+        .map(view_pb_without_child_views_from_arc)
+        .collect::<Vec<_>>()
+    }))
+  }
+
   #[instrument(level = "trace", skip_all, err)]
   pub(crate) async fn make_folder<T: Into<Option<FolderNotify>>>(
     &self,
@@ -543,21 +587,28 @@ impl FolderManager {
   /// map.
   ///
   #[tracing::instrument(level = "debug", skip(self))]
-  pub async fn get_all_views_pb(&self) -> FlowyResult<Vec<ViewPB>> {
+  pub async fn get_all_views_pb(&self, filter_views: bool) -> FlowyResult<Vec<ViewPB>> {
     let folder = self.mutex_folder.read();
     let folder = folder.as_ref().ok_or_else(folder_not_init_error)?;
 
-    // trash views and other private views should not be accessed
-    let view_ids_should_be_filtered = self.get_view_ids_should_be_filtered(folder);
-
     let all_views = folder.views.get_all_views();
-    let views = all_views
-      .into_iter()
-      .filter(|view| !view_ids_should_be_filtered.contains(&view.id))
-      .map(view_pb_without_child_views_from_arc)
-      .collect::<Vec<_>>();
 
-    Ok(views)
+    if filter_views {
+      // trash views and other private views should not be accessed
+      let view_ids_should_be_filtered = self.get_view_ids_should_be_filtered(folder);
+      let views = all_views
+        .into_iter()
+        .filter(|view| !view_ids_should_be_filtered.contains(&view.id))
+        .map(view_pb_without_child_views_from_arc)
+        .collect::<Vec<_>>();
+      Ok(views)
+    } else {
+      let views = all_views
+        .into_iter()
+        .map(view_pb_without_child_views_from_arc)
+        .collect::<Vec<_>>();
+      Ok(views)
+    }
   }
 
   /// Retrieves the ancestors of the view corresponding to the specified view ID, including the view itself.
@@ -1265,7 +1316,19 @@ impl FolderManager {
 
   #[tracing::instrument(level = "trace", skip(self))]
   pub(crate) async fn get_my_trash_info(&self) -> Vec<TrashInfo> {
-    self.with_folder(Vec::new, |folder| folder.get_my_trash_info())
+    self.with_folder(Vec::new, |folder| {
+      folder
+        .get_all_trash_sections()
+        .into_iter()
+        .flat_map(|section| {
+          folder.views.get_view(&section.id).map(|view| TrashInfo {
+            id: section.id,
+            name: view.name.clone(),
+            created_at: section.timestamp,
+          })
+        })
+        .collect()
+    })
   }
 
   #[tracing::instrument(level = "trace", skip(self))]

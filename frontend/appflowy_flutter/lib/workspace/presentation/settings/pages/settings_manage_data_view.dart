@@ -140,9 +140,11 @@ class SettingsManageDataView extends StatelessWidget {
                           await getIt<FlowyCacheManager>().clearAllCache();
 
                           // check the workspace and space health
-                          await WorkspaceDataManager.checkViewHealth(
-                            dryRun: false,
-                          );
+                          // await WorkspaceDataManager.checkViewHealth(
+                          //   dryRun: false,
+                          // );
+
+                          await WorkspaceDataManager.dumpFolder();
 
                           if (context.mounted) {
                             showToastNotification(

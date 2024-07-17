@@ -202,4 +202,38 @@ class WorkspaceDataManager {
       Log.info('$prefix $i: $view)');
     }
   }
+
+  static Future<void> dumpFolder() async {
+    final folder = await ViewBackendService.getFolder().getOrThrow();
+
+    for (var i = 0; i < folder.allViews.items.length; i++) {
+      final view = folder.allViews.items[i];
+      Log.info('[workspace] view $i: $view');
+    }
+
+    for (var i = 0; i < folder.allPublicViews.items.length; i++) {
+      final view = folder.allPublicViews.items[i];
+      Log.info('[workspace] public view $i: $view');
+    }
+
+    for (var i = 0; i < folder.allPrivateViews.items.length; i++) {
+      final view = folder.allPrivateViews.items[i];
+      Log.info('[workspace] private view $i: $view');
+    }
+
+    for (var i = 0; i < folder.allTrashViews.items.length; i++) {
+      final view = folder.allTrashViews.items[i];
+      Log.info('[workspace] trash view $i: $view');
+    }
+
+    for (var i = 0; i < folder.myPrivateView.items.length; i++) {
+      final view = folder.myPrivateView.items[i];
+      Log.info('[workspace] my private view $i: $view');
+    }
+
+    for (var i = 0; i < folder.myTrashViews.items.length; i++) {
+      final view = folder.myTrashViews.items[i];
+      Log.info('[workspace] my trash view $i: $view');
+    }
+  }
 }

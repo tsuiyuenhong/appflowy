@@ -501,6 +501,7 @@ class SpaceBloc extends Bloc<SpaceEvent, SpaceState> {
   }
 
   Future<bool> migrate({bool auto = true}) async {
+    return true;
     if (_workspaceId == null) {
       return false;
     }
