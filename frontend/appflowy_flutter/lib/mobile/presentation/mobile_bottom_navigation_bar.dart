@@ -7,7 +7,7 @@ import 'package:appflowy_editor/appflowy_editor.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-final PropertyValueNotifier<ViewLayoutPB?> createNewPageNotifier =
+final PropertyValueNotifier<ViewLayoutPB?> mobileCreateNewPageNotifier =
     PropertyValueNotifier(null);
 
 const _homeLabel = 'home';
@@ -91,7 +91,7 @@ class MobileBottomNavigationBar extends StatelessWidget {
   void _onTap(BuildContext context, int bottomBarIndex) {
     if (_items[bottomBarIndex].label == _addLabel) {
       // show an add dialog
-      createNewPageNotifier.value = ViewLayoutPB.Document;
+      mobileCreateNewPageNotifier.value = ViewLayoutPB.Document;
       return;
     }
     // When navigating to a new branch, it's recommended to use the goBranch

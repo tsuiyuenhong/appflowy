@@ -26,12 +26,12 @@ class _MobileSpaceState extends State<MobileSpace> {
   @override
   void initState() {
     super.initState();
-    createNewPageNotifier.addListener(_createNewPage);
+    mobileCreateNewPageNotifier.addListener(_createNewPage);
   }
 
   @override
   void dispose() {
-    createNewPageNotifier.removeListener(_createNewPage);
+    mobileCreateNewPageNotifier.removeListener(_createNewPage);
     super.dispose();
   }
 
