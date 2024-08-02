@@ -25,6 +25,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:toastification/toastification.dart';
 
 import 'prelude.dart';
@@ -58,46 +59,61 @@ class InitAppWidgetTask extends LaunchTask {
     );
 
     Bloc.observer = ApplicationBlocObserver();
-    runApp(
-      EasyLocalization(
-        supportedLocales: const [
-          // In alphabetical order
-          Locale('am', 'ET'),
-          Locale('ar', 'SA'),
-          Locale('ca', 'ES'),
-          Locale('cs', 'CZ'),
-          Locale('ckb', 'KU'),
-          Locale('de', 'DE'),
-          Locale('en'),
-          Locale('es', 'VE'),
-          Locale('eu', 'ES'),
-          Locale('el', 'GR'),
-          Locale('fr', 'FR'),
-          Locale('fr', 'CA'),
-          Locale('he'),
-          Locale('hu', 'HU'),
-          Locale('id', 'ID'),
-          Locale('it', 'IT'),
-          Locale('ja', 'JP'),
-          Locale('ko', 'KR'),
-          Locale('pl', 'PL'),
-          Locale('pt', 'BR'),
-          Locale('ru', 'RU'),
-          Locale('sv', 'SE'),
-          Locale('th', 'TH'),
-          Locale('tr', 'TR'),
-          Locale('uk', 'UA'),
-          Locale('ur'),
-          Locale('vi', 'VN'),
-          Locale('zh', 'CN'),
-          Locale('zh', 'TW'),
-          Locale('fa'),
-          Locale('hin'),
-        ],
-        path: 'assets/translations',
-        fallbackLocale: const Locale('en'),
-        useFallbackTranslations: true,
-        child: app,
+
+    await SentryFlutter.init(
+      (options) {
+        options.dsn =
+            'https://e3215addb7b56fc99837f4fa1127dc8c@o4507705303171072.ingest.de.sentry.io/4507706041172048';
+        // Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
+        // We recommend adjusting this value in production.
+        options.tracesSampleRate = 1.0;
+        // The sampling rate for profiling is relative to tracesSampleRate
+        // Setting to 1.0 will profile 100% of sampled transactions:
+        options.profilesSampleRate = 1.0;
+      },
+      appRunner: () => runApp(
+        SentryUserInteractionWidget(
+          child: EasyLocalization(
+            supportedLocales: const [
+              // In alphabetical order
+              Locale('am', 'ET'),
+              Locale('ar', 'SA'),
+              Locale('ca', 'ES'),
+              Locale('cs', 'CZ'),
+              Locale('ckb', 'KU'),
+              Locale('de', 'DE'),
+              Locale('en'),
+              Locale('es', 'VE'),
+              Locale('eu', 'ES'),
+              Locale('el', 'GR'),
+              Locale('fr', 'FR'),
+              Locale('fr', 'CA'),
+              Locale('he'),
+              Locale('hu', 'HU'),
+              Locale('id', 'ID'),
+              Locale('it', 'IT'),
+              Locale('ja', 'JP'),
+              Locale('ko', 'KR'),
+              Locale('pl', 'PL'),
+              Locale('pt', 'BR'),
+              Locale('ru', 'RU'),
+              Locale('sv', 'SE'),
+              Locale('th', 'TH'),
+              Locale('tr', 'TR'),
+              Locale('uk', 'UA'),
+              Locale('ur'),
+              Locale('vi', 'VN'),
+              Locale('zh', 'CN'),
+              Locale('zh', 'TW'),
+              Locale('fa'),
+              Locale('hin'),
+            ],
+            path: 'assets/translations',
+            fallbackLocale: const Locale('en'),
+            useFallbackTranslations: true,
+            child: app,
+          ),
+        ),
       ),
     );
 

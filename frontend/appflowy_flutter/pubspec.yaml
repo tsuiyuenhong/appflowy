@@ -160,6 +160,8 @@ dependencies:
   flutter_highlight: ^0.7.0
   custom_sliding_segmented_control: ^1.8.3
   toastification: ^2.0.0
+  sentry_flutter: ^8.6.0
+
 
 dev_dependencies:
   flutter_lints: ^3.0.1
