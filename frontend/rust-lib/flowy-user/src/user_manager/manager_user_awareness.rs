@@ -256,15 +256,32 @@ impl UserManager {
   where
     F: FnOnce(&UserAwareness) -> Output,
   {
+    // First, check if we need to initialize
+    let needs_init = {
+      let user_awareness = self.user_awareness.lock().await;
+      user_awareness.is_none()
+    };
+
+    // If we need to initialize, do so without holding the lock
+    if needs_init {
+      if let Ok(session) = self.get_session() {
+        self.initialize_user_awareness(&session).await;
+      }
+    }
+
+    // Now, acquire the lock again and proceed
     let user_awareness = self.user_awareness.lock().await;
     match &*user_awareness {
-      None => {
-        if let Ok(session) = self.get_session() {
-          self.initialize_user_awareness(&session).await;
-        }
-        default_value
+      None => default_value,
+      Some(inner_awareness) => {
+        // Clone the inner Arc to extend its lifetime
+        let inner_awareness_clone = inner_awareness.clone();
+        // Release the outer lock
+        drop(user_awareness);
+        // Now use the cloned Arc
+        let result = f(&inner_awareness_clone.lock());
+        result
       },
-      Some(user_awareness) => f(&user_awareness.lock()),
     }
   }
 }
