@@ -61,6 +61,7 @@ class _DesktopCoverState extends State<DesktopCover> {
         builder: (context, state) {
           final cover = state.cover;
           final type = state.cover.type;
+          final offset = state.offset;
           const height = kCoverHeight;
 
           if (type == PageStyleCoverImageType.customImage ||
@@ -70,9 +71,18 @@ class _DesktopCoverState extends State<DesktopCover> {
             return SizedBox(
               height: height,
               width: double.infinity,
-              child: FlowyNetworkImage(
-                url: cover.value,
-                userProfilePB: userProfilePB,
+              child: _Repositionable(
+                initialOffset: offset,
+                onPositionChanged: (offset) {
+                  context.read<DocumentImmersiveCoverBloc>().add(
+                        DocumentImmersiveCoverEvent.reposition(offset),
+                      );
+                },
+                child: FlowyNetworkImage(
+                  url: cover.value,
+                  userProfilePB: userProfilePB,
+                  fit: BoxFit.fill,
+                ),
               ),
             );
           }
@@ -164,5 +174,97 @@ class _DesktopCoverState extends State<DesktopCover> {
       case CoverType.none:
         return const SizedBox.shrink();
     }
+  }
+}
+
+class _Repositionable extends StatefulWidget {
+  const _Repositionable({
+    this.onPositionChanged,
+    this.initialOffset,
+    required this.child,
+  });
+
+  final Offset? initialOffset;
+  final Widget child;
+  final void Function(Offset)? onPositionChanged;
+
+  @override
+  State<_Repositionable> createState() => _RepositionableState();
+}
+
+class _RepositionableState extends State<_Repositionable> {
+  late Offset offset = widget.initialOffset ?? Offset.zero;
+  Size childSize = Size.zero;
+  Size containerSize = Size.zero;
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        containerSize = Size(constraints.maxWidth, constraints.maxHeight);
+        return GestureDetector(
+          onPanUpdate: (details) {
+            setState(() {
+              final newOffset = offset + details.delta;
+              // ensure the offset is within the bounds
+              offset = _limitOffset(newOffset);
+            });
+          },
+          onPanEnd: (_) => widget.onPositionChanged?.call(offset),
+          child: ClipRect(
+            child: OverflowBox(
+              maxWidth: double.infinity,
+              maxHeight: double.infinity,
+              child: Transform.translate(
+                offset: offset,
+                child: _MeasureSize(
+                  onChange: (size) {
+                    setState(() {
+                      childSize = size;
+                    });
+                  },
+                  child: widget.child,
+                ),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Offset _limitOffset(Offset newOffset) {
+    final maxX = (childSize.width - containerSize.width).abs() / 2;
+    final maxY = (childSize.height - containerSize.height).abs() / 2;
+    return Offset(
+      newOffset.dx.clamp(-maxX, maxX),
+      newOffset.dy.clamp(-maxY, maxY),
+    );
+  }
+}
+
+class _MeasureSize extends StatefulWidget {
+  const _MeasureSize({
+    required this.onChange,
+    required this.child,
+  });
+
+  final Function(Size) onChange;
+  final Widget child;
+
+  @override
+  State<_MeasureSize> createState() => _MeasureSizeState();
+}
+
+class _MeasureSizeState extends State<_MeasureSize> {
+  @override
+  Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final size = context.size;
+      if (size != null) {
+        widget.onChange(size);
+      }
+    });
+    return widget.child;
   }
 }

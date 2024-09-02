@@ -36,6 +36,8 @@ class ViewExtKeys {
   static String coverKey = 'cover';
   static String coverTypeKey = 'type';
   static String coverValueKey = 'value';
+  static String coverOffsetDxKey = 'offset_dx';
+  static String coverOffsetDyKey = 'offset_dy';
 
   // is pinned
   static String isPinnedKey = 'is_pinned';
@@ -237,6 +239,26 @@ extension ViewExtension on ViewPB {
         type: PageStyleCoverImageType.fromString(coverType),
         value: coverValue,
       );
+    } catch (e) {
+      return null;
+    }
+  }
+
+  Offset? get coverOffset {
+    if (layout != ViewLayoutPB.Document) {
+      return null;
+    }
+
+    if (extra.isEmpty) {
+      return null;
+    }
+
+    try {
+      final ext = jsonDecode(extra);
+      final cover = ext[ViewExtKeys.coverKey] ?? {};
+      final dx = cover[ViewExtKeys.coverOffsetDxKey] ?? 0.0;
+      final dy = cover[ViewExtKeys.coverOffsetDyKey] ?? 0.0;
+      return Offset(dx, dy);
     } catch (e) {
       return null;
     }
