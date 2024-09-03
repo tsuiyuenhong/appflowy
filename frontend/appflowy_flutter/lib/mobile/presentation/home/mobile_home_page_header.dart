@@ -154,6 +154,7 @@ class _MobileWorkspace extends StatelessWidget {
   void _showSwitchWorkspacesBottomSheet(
     BuildContext context,
   ) {
+    final userWorkspaceBloc = context.read<UserWorkspaceBloc>();
     showMobileBottomSheet(
       context,
       showDivider: false,
@@ -165,7 +166,7 @@ class _MobileWorkspace extends StatelessWidget {
       backgroundColor: Theme.of(context).colorScheme.surface,
       builder: (sheetContext) {
         return BlocProvider.value(
-          value: context.read<UserWorkspaceBloc>(),
+          value: userWorkspaceBloc,
           child: BlocBuilder<UserWorkspaceBloc, UserWorkspaceState>(
             builder: (context, state) {
               final currentWorkspace = state.currentWorkspace;
