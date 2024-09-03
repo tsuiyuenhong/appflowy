@@ -196,13 +196,11 @@ class _MobileSpaceTabState extends State<MobileSpaceTab>
       context.read<SidebarSectionsBloc>().add(
             SidebarSectionsEvent.createRootViewInSection(
               name: LocaleKeys.menuAppHeader_defaultNewPageName.tr(),
-              index: 0,
               viewSection: FolderSpaceType.public.toViewSectionPB,
             ),
           );
-      context.read<FolderBloc>().add(
-            const FolderEvent.expandOrUnExpand(isExpanded: true),
-          );
+    } else {
+      Log.error('unsupported layout in create new page: $layout');
     }
   }
 
