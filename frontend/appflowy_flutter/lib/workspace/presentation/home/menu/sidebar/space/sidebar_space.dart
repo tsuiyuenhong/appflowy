@@ -52,8 +52,9 @@ class SidebarSpace extends StatelessWidget {
                 },
               ),
               const VSpace(16.0),
-              // spaces
+              // space
               const _Space(),
+              // add padding to the bottom to avoid the last page too close to the bottom
               const VSpace(200),
             ],
           ),
@@ -83,6 +84,7 @@ class _SpaceState extends State<_Space> {
 
   @override
   void dispose() {
+    isHovered.dispose();
     switchToTheNextSpace.removeListener(_switchToNextSpace);
     super.dispose();
   }

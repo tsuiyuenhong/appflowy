@@ -10,9 +10,10 @@ import 'package:appflowy/workspace/presentation/home/menu/sidebar/space/_extensi
 import 'package:appflowy/workspace/presentation/home/menu/sidebar/space/sidebar_space_menu.dart';
 import 'package:appflowy/workspace/presentation/home/menu/sidebar/space/space_icon.dart';
 import 'package:appflowy/workspace/presentation/home/menu/view/view_item.dart';
+import 'package:appflowy_backend/log.dart';
 import 'package:appflowy_backend/protobuf/flowy-folder/protobuf.dart';
 import 'package:appflowy_backend/protobuf/flowy-folder/view.pb.dart';
-import 'package:appflowy_editor/appflowy_editor.dart';
+import 'package:appflowy_editor/appflowy_editor.dart' hide Log;
 import 'package:appflowy_popover/appflowy_popover.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flowy_infra_ui/flowy_infra_ui.dart';
@@ -561,9 +562,19 @@ class SpacePages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          ViewBloc(view: space)..add(const ViewEvent.initial()),
-      child: BlocBuilder<ViewBloc, ViewState>(
+      create: (context) => ViewBloc(view: space)
+        ..add(
+          const ViewEvent.initial(),
+        ),
+      child: BlocConsumer<ViewBloc, ViewState>(
+        listener: (context, state) {
+          final views = state.view.childViews;
+          final viewInfo =
+              views.map((view) => '${view.id} ${view.name}').toList();
+          Log.info(
+            'did receive view in space(${space.name}) update: $viewInfo',
+          );
+        },
         builder: (context, state) {
           // filter the child views that should be ignored
           var childViews = state.view.childViews;

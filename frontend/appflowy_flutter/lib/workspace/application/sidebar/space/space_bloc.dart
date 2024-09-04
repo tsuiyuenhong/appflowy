@@ -289,6 +289,11 @@ class SpaceBloc extends Bloc<SpaceEvent, SpaceState> {
           didReceiveSpaceUpdate: () async {
             final (spaces, _, _) = await _getSpaces();
             final currentSpace = await _getLastOpenedSpace(spaces);
+
+            final spaceInfo =
+                spaces.map((space) => '${space.id} ${space.name}').toList();
+            Log.info('did receive space update: $spaceInfo');
+
             emit(
               state.copyWith(
                 spaces: spaces,
@@ -451,7 +456,6 @@ class SpaceBloc extends Bloc<SpaceEvent, SpaceState> {
       workspaceId: workspaceId,
     )..start(
         sectionChanged: (result) async {
-          Log.info('did receive section views changed');
           if (isClosed) {
             return;
           }
