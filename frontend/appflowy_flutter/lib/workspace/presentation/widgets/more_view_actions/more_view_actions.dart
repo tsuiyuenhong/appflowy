@@ -1,8 +1,11 @@
 import 'package:appflowy/generated/flowy_svgs.g.dart';
 import 'package:appflowy/generated/locale_keys.g.dart';
 import 'package:appflowy/workspace/application/settings/appearance/appearance_cubit.dart';
+import 'package:appflowy/workspace/application/sidebar/space/space_bloc.dart';
+import 'package:appflowy/workspace/application/user/user_workspace_bloc.dart';
 import 'package:appflowy/workspace/application/view/view_bloc.dart';
 import 'package:appflowy/workspace/application/view_info/view_info_bloc.dart';
+import 'package:appflowy/workspace/presentation/home/menu/view/view_action_type.dart';
 import 'package:appflowy/workspace/presentation/widgets/more_view_actions/widgets/common_view_action.dart';
 import 'package:appflowy/workspace/presentation/widgets/more_view_actions/widgets/font_size_action.dart';
 import 'package:appflowy/workspace/presentation/widgets/more_view_actions/widgets/view_meta_info.dart';
@@ -33,6 +36,13 @@ class MoreViewActions extends StatefulWidget {
 
 class _MoreViewActionsState extends State<MoreViewActions> {
   final popoverMutex = PopoverMutex();
+  late final viewMoreActionTypes = [
+    if (widget.isDocument) ViewMoreActionType.divider,
+    ViewMoreActionType.duplicate,
+    ViewMoreActionType.moveTo,
+    ViewMoreActionType.delete,
+    ViewMoreActionType.divider,
+  ];
 
   @override
   void dispose() {
@@ -42,6 +52,7 @@ class _MoreViewActionsState extends State<MoreViewActions> {
 
   @override
   Widget build(BuildContext context) {
+    final userWorkspaceBloc = context.read<UserWorkspaceBloc>();
     final appearanceSettings = context.watch<AppearanceSettingsCubit>().state;
     final dateFormat = appearanceSettings.dateFormat;
     final timeFormat = appearanceSettings.timeFormat;
@@ -50,15 +61,14 @@ class _MoreViewActionsState extends State<MoreViewActions> {
       builder: (context, state) {
         return AppFlowyPopover(
           mutex: popoverMutex,
-          constraints: BoxConstraints.loose(const Size(215, 400)),
-          offset: const Offset(0, 30),
+          constraints: const BoxConstraints(maxWidth: 220),
+          offset: const Offset(0, 42),
           popupBuilder: (_) {
             final actions = [
               if (widget.isDocument) ...[
                 const FontSizeAction(),
-                const Divider(height: 4),
               ],
-              ...ViewActionType.values.map(
+              ...viewMoreActionTypes.map(
                 (type) => ViewAction(
                   type: type,
                   view: widget.view,
@@ -67,24 +77,39 @@ class _MoreViewActionsState extends State<MoreViewActions> {
               ),
               if (state.documentCounters != null ||
                   state.createdAt != null) ...[
-                const Divider(height: 4),
                 ViewMetaInfo(
                   dateFormat: dateFormat,
                   timeFormat: timeFormat,
                   documentCounters: state.documentCounters,
                   createdAt: state.createdAt,
                 ),
+                const VSpace(4.0),
               ],
             ];
 
-            return BlocProvider(
-              create: (_) =>
-                  ViewBloc(view: widget.view)..add(const ViewEvent.initial()),
-              child: ListView.separated(
+            return MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (_) => ViewBloc(view: widget.view)
+                    ..add(const ViewEvent.initial()),
+                ),
+                BlocProvider(
+                  create: (context) => SpaceBloc(
+                    userProfile: userWorkspaceBloc.userProfile,
+                    workspaceId:
+                        userWorkspaceBloc.state.currentWorkspace?.workspaceId ??
+                            '',
+                  )..add(
+                      const SpaceEvent.initial(
+                        openFirstPage: false,
+                      ),
+                    ),
+                ),
+              ],
+              child: ListView.builder(
                 shrinkWrap: true,
                 padding: EdgeInsets.zero,
                 itemCount: actions.length,
-                separatorBuilder: (_, __) => const VSpace(4),
                 physics: StyledScrollPhysics(),
                 itemBuilder: (_, index) => actions[index],
               ),

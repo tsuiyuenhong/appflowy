@@ -50,11 +50,11 @@ class _MovePageMenuState extends State<MovePageMenu> {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => SpaceBloc()
-            ..add(
+          create: (context) => SpaceBloc(
+            userProfile: widget.userProfile,
+            workspaceId: widget.workspaceId,
+          )..add(
               SpaceEvent.initial(
-                widget.userProfile,
-                widget.workspaceId,
                 openFirstPage: false,
               ),
             ),

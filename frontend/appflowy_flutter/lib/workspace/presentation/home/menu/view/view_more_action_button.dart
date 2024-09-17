@@ -122,12 +122,18 @@ class ViewMoreActionTypeWrapper extends CustomActionCell {
   ViewMoreActionTypeWrapper(
     this.inner,
     this.sourceView,
-    this.onTap,
-  );
+    this.onTap, {
+    this.moveActionDirection,
+    this.moveActionOffset,
+  });
 
   final ViewMoreActionType inner;
   final ViewPB sourceView;
   final void Function(PopoverController controller, dynamic data) onTap;
+
+  // custom the move to action button
+  final PopoverDirection? moveActionDirection;
+  final Offset? moveActionOffset;
 
   @override
   Widget buildWithContext(BuildContext context, PopoverController controller) {
@@ -188,6 +194,8 @@ class ViewMoreActionTypeWrapper extends CustomActionCell {
         vertical: 12.0,
       ),
       clickHandler: PopoverClickHandler.gestureDetector,
+      direction: moveActionDirection ?? PopoverDirection.rightWithTopAligned,
+      offset: moveActionOffset,
       popupBuilder: (_) {
         if (workspaceId == null) {
           return const SizedBox();
