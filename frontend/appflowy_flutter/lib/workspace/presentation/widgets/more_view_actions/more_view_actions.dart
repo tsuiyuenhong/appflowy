@@ -80,12 +80,21 @@ class _MoreViewActionsState extends State<MoreViewActions> {
             ),
         ),
       ],
-      child: ListView.builder(
-        shrinkWrap: true,
-        padding: EdgeInsets.zero,
-        itemCount: actions.length,
-        physics: StyledScrollPhysics(),
-        itemBuilder: (_, index) => actions[index],
+      child: BlocBuilder<SpaceBloc, SpaceState>(
+        builder: (context, state) {
+          if (state.spaces.isEmpty) {
+            return const SizedBox.shrink();
+          }
+
+          return ListView.builder(
+            key: ValueKey(state.spaces.hashCode),
+            shrinkWrap: true,
+            padding: EdgeInsets.zero,
+            itemCount: actions.length,
+            physics: StyledScrollPhysics(),
+            itemBuilder: (_, index) => actions[index],
+          );
+        },
       ),
     );
   }
