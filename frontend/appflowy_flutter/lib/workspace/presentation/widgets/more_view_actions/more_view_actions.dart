@@ -36,13 +36,6 @@ class MoreViewActions extends StatefulWidget {
 
 class _MoreViewActionsState extends State<MoreViewActions> {
   final popoverMutex = PopoverMutex();
-  late final viewMoreActionTypes = [
-    if (widget.isDocument) ViewMoreActionType.divider,
-    ViewMoreActionType.duplicate,
-    ViewMoreActionType.moveTo,
-    ViewMoreActionType.delete,
-    ViewMoreActionType.divider,
-  ];
 
   @override
   void dispose() {
@@ -52,89 +45,111 @@ class _MoreViewActionsState extends State<MoreViewActions> {
 
   @override
   Widget build(BuildContext context) {
-    final userWorkspaceBloc = context.read<UserWorkspaceBloc>();
-    final appearanceSettings = context.watch<AppearanceSettingsCubit>().state;
-    final dateFormat = appearanceSettings.dateFormat;
-    final timeFormat = appearanceSettings.timeFormat;
-
     return BlocBuilder<ViewInfoBloc, ViewInfoState>(
       builder: (context, state) {
         return AppFlowyPopover(
           mutex: popoverMutex,
           constraints: const BoxConstraints(maxWidth: 220),
           offset: const Offset(0, 42),
-          popupBuilder: (_) {
-            final actions = [
-              if (widget.isDocument) ...[
-                const FontSizeAction(),
-              ],
-              ...viewMoreActionTypes.map(
-                (type) => ViewAction(
-                  type: type,
-                  view: widget.view,
-                  mutex: popoverMutex,
-                ),
-              ),
-              if (state.documentCounters != null ||
-                  state.createdAt != null) ...[
-                ViewMetaInfo(
-                  dateFormat: dateFormat,
-                  timeFormat: timeFormat,
-                  documentCounters: state.documentCounters,
-                  createdAt: state.createdAt,
-                ),
-                const VSpace(4.0),
-              ],
-            ];
-
-            return MultiBlocProvider(
-              providers: [
-                BlocProvider(
-                  create: (_) => ViewBloc(view: widget.view)
-                    ..add(const ViewEvent.initial()),
-                ),
-                BlocProvider(
-                  create: (context) => SpaceBloc(
-                    userProfile: userWorkspaceBloc.userProfile,
-                    workspaceId:
-                        userWorkspaceBloc.state.currentWorkspace?.workspaceId ??
-                            '',
-                  )..add(
-                      const SpaceEvent.initial(
-                        openFirstPage: false,
-                      ),
-                    ),
-                ),
-              ],
-              child: ListView.builder(
-                shrinkWrap: true,
-                padding: EdgeInsets.zero,
-                itemCount: actions.length,
-                physics: StyledScrollPhysics(),
-                itemBuilder: (_, index) => actions[index],
-              ),
-            );
-          },
-          child: FlowyTooltip(
-            message: LocaleKeys.moreAction_moreOptions.tr(),
-            child: FlowyHover(
-              style: HoverStyle(
-                foregroundColorOnHover: Theme.of(context).colorScheme.onPrimary,
-              ),
-              builder: (context, isHovering) => Padding(
-                padding: const EdgeInsets.all(6),
-                child: FlowySvg(
-                  FlowySvgs.three_dots_s,
-                  size: const Size.square(18),
-                  color: isHovering
-                      ? Theme.of(context).colorScheme.onSurface
-                      : Theme.of(context).iconTheme.color,
-                ),
-              ),
-            ),
-          ),
+          popupBuilder: (_) => _buildPopup(state),
+          child: const _ThreeDots(),
         );
       },
+    );
+  }
+
+  Widget _buildPopup(ViewInfoState state) {
+    final userWorkspaceBloc = context.read<UserWorkspaceBloc>();
+    final userProfile = userWorkspaceBloc.userProfile;
+    final workspaceId =
+        userWorkspaceBloc.state.currentWorkspace?.workspaceId ?? '';
+    final actions = _buildActions(state);
+
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (_) =>
+              ViewBloc(view: widget.view)..add(const ViewEvent.initial()),
+        ),
+        BlocProvider(
+          create: (context) => SpaceBloc(
+            userProfile: userProfile,
+            workspaceId: workspaceId,
+          )..add(
+              const SpaceEvent.initial(openFirstPage: false),
+            ),
+        ),
+      ],
+      child: ListView.builder(
+        shrinkWrap: true,
+        padding: EdgeInsets.zero,
+        itemCount: actions.length,
+        physics: StyledScrollPhysics(),
+        itemBuilder: (_, index) => actions[index],
+      ),
+    );
+  }
+
+  List<Widget> _buildActions(ViewInfoState state) {
+    final appearanceSettings = context.watch<AppearanceSettingsCubit>().state;
+    final dateFormat = appearanceSettings.dateFormat;
+    final timeFormat = appearanceSettings.timeFormat;
+
+    final viewMoreActionTypes = [
+      if (widget.isDocument) ViewMoreActionType.divider,
+      ViewMoreActionType.duplicate,
+      ViewMoreActionType.moveTo,
+      ViewMoreActionType.delete,
+      ViewMoreActionType.divider,
+    ];
+
+    final actions = [
+      if (widget.isDocument) ...[
+        const FontSizeAction(),
+      ],
+      ...viewMoreActionTypes.map(
+        (type) => ViewAction(
+          type: type,
+          view: widget.view,
+          mutex: popoverMutex,
+        ),
+      ),
+      if (state.documentCounters != null || state.createdAt != null) ...[
+        ViewMetaInfo(
+          dateFormat: dateFormat,
+          timeFormat: timeFormat,
+          documentCounters: state.documentCounters,
+          createdAt: state.createdAt,
+        ),
+        const VSpace(4.0),
+      ],
+    ];
+    return actions;
+  }
+}
+
+class _ThreeDots extends StatelessWidget {
+  const _ThreeDots();
+
+  @override
+  Widget build(BuildContext context) {
+    return FlowyTooltip(
+      message: LocaleKeys.moreAction_moreOptions.tr(),
+      child: FlowyHover(
+        style: HoverStyle(
+          foregroundColorOnHover: Theme.of(context).colorScheme.onPrimary,
+        ),
+        builder: (context, isHovering) => Padding(
+          padding: const EdgeInsets.all(6),
+          child: FlowySvg(
+            FlowySvgs.three_dots_s,
+            size: const Size.square(18),
+            color: isHovering
+                ? Theme.of(context).colorScheme.onSurface
+                : Theme.of(context).iconTheme.color,
+          ),
+        ),
+      ),
     );
   }
 }
