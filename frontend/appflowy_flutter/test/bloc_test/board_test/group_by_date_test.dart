@@ -1,14 +1,14 @@
-import 'package:appflowy/plugins/database/application/cell/bloc/date_cell_editor_bloc.dart';
+import 'package:appflowy/generated/locale_keys.g.dart';
+import 'package:appflowy/plugins/database/application/cell/bloc/date_cell_editor_bloc.codegen.dart';
 import 'package:appflowy/plugins/database/application/cell/cell_controller_builder.dart';
 import 'package:appflowy/plugins/database/application/database_controller.dart';
-import 'package:appflowy/plugins/database/application/setting/group_bloc.dart';
-import 'package:appflowy/plugins/database/board/application/board_bloc.dart';
+import 'package:appflowy/plugins/database/application/setting/group_bloc.codegen.dart';
+import 'package:appflowy/plugins/database/board/application/board_bloc.codegen.dart';
 import 'package:appflowy/startup/startup.dart';
-import 'package:appflowy/user/application/reminder/reminder_bloc.dart';
+import 'package:appflowy/user/application/reminder/reminder_bloc.codegen.dart';
 import 'package:appflowy_backend/protobuf/flowy-database2/protobuf.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:appflowy/generated/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 import 'util.dart';
 

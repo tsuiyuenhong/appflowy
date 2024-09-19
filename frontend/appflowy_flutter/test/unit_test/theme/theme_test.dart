@@ -1,4 +1,4 @@
-import 'package:flowy_infra/colorscheme/colorscheme.dart';
+import 'package:flowy_infra/colorscheme/colorscheme.codegen.dart';
 import 'package:flowy_infra/plugins/service/location_service.dart';
 import 'package:flowy_infra/plugins/service/models/flowy_dynamic_plugin.dart';
 import 'package:flowy_infra/plugins/service/plugin_service.dart';

@@ -1,5 +1,5 @@
 import 'package:appflowy/user/application/user_settings_service.dart';
-import 'package:appflowy/workspace/application/settings/appearance/appearance_cubit.dart';
+import 'package:appflowy/workspace/application/settings/appearance/appearance_cubit.codegen.dart';
 import 'package:appflowy/workspace/application/settings/appearance/base_appearance.dart';
 import 'package:appflowy_backend/protobuf/flowy-user/user_setting.pb.dart';
 import 'package:bloc_test/bloc_test.dart';

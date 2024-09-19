@@ -1,5 +1,5 @@
-import 'package:appflowy/plugins/trash/application/trash_bloc.dart';
-import 'package:appflowy/workspace/application/view/view_bloc.dart';
+import 'package:appflowy/plugins/trash/application/trash_bloc.codegen.dart';
+import 'package:appflowy/workspace/application/view/view_bloc.codegen.dart';
 import 'package:appflowy_backend/protobuf/flowy-folder/view.pb.dart';
 import 'package:flutter_test/flutter_test.dart';
 

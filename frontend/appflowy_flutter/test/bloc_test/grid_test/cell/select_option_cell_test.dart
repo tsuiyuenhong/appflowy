@@ -1,4 +1,4 @@
-import 'package:appflowy/plugins/database/application/cell/bloc/select_option_cell_editor_bloc.dart';
+import 'package:appflowy/plugins/database/application/cell/bloc/select_option_cell_editor_bloc.codegen.dart';
 import 'package:appflowy_backend/protobuf/flowy-database2/field_entities.pbenum.dart';
 import 'package:appflowy_backend/protobuf/flowy-database2/select_option_entities.pb.dart';
 import 'package:flutter_test/flutter_test.dart';
