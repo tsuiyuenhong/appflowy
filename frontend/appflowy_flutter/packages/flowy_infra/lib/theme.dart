@@ -1,4 +1,4 @@
-import 'package:flowy_infra/colorscheme/colorscheme.dart';
+import 'package:flowy_infra/colorscheme/colorscheme.codegen.dart';
 import 'package:flowy_infra/colorscheme/default_colorscheme.dart';
 import 'plugins/service/plugin_service.dart';
 

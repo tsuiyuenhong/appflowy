@@ -16,7 +16,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:styled_widget/styled_widget.dart';
 
-import 'application/trash_bloc.dart';
+import 'application/trash_bloc.codegen.dart';
 import 'src/trash_cell.dart';
 
 class TrashPage extends StatefulWidget {

@@ -4,8 +4,8 @@ import 'dart:isolate';
 
 import 'package:appflowy/generated/locale_keys.g.dart';
 import 'package:appflowy/plugins/document/presentation/editor_plugins/openai/service/ai_client.dart';
-import 'package:appflowy/plugins/document/presentation/editor_plugins/openai/service/error.dart';
-import 'package:appflowy/plugins/document/presentation/editor_plugins/openai/service/text_completion.dart';
+import 'package:appflowy/plugins/document/presentation/editor_plugins/openai/service/error.codegen.dart';
+import 'package:appflowy/plugins/document/presentation/editor_plugins/openai/service/text_completion.codegen.dart';
 import 'package:appflowy/plugins/document/presentation/editor_plugins/openai/widgets/smart_edit_action.dart';
 import 'package:appflowy_backend/dispatch/dispatch.dart';
 import 'package:appflowy_backend/protobuf/flowy-ai/entities.pb.dart';

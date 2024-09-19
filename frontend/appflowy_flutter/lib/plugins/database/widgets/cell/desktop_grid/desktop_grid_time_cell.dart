@@ -1,6 +1,6 @@
 import 'package:appflowy/plugins/database/grid/presentation/layout/sizes.dart';
 import 'package:appflowy/plugins/database/widgets/row/cells/cell_container.dart';
-import 'package:appflowy/plugins/database/application/cell/bloc/time_cell_bloc.dart';
+import 'package:appflowy/plugins/database/application/cell/bloc/time_cell_bloc.codegen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -1,4 +1,4 @@
-import 'package:appflowy/env/env.dart';
+import 'package:appflowy/env/env.codegen.dart';
 import 'package:appflowy_backend/log.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flowy_infra/colorscheme/default_colorscheme.dart';
 import 'package:flutter/material.dart';
 
-import 'colorscheme.dart';
+import 'colorscheme.codegen.dart';
 
 const _black = Color(0xff000000);
 const _white = Color(0xFFFFFFFF);

@@ -1,6 +1,6 @@
 import 'package:appflowy/plugins/database/application/database_controller.dart';
 import 'package:appflowy/plugins/database/application/field/field_controller.dart';
-import 'package:appflowy/plugins/database/grid/application/grid_accessory_bloc.dart';
+import 'package:appflowy/plugins/database/grid/application/grid_accessory_bloc.codegen.dart';
 import 'package:appflowy/plugins/database/grid/presentation/grid_page.dart';
 import 'package:appflowy/plugins/database/grid/presentation/layout/sizes.dart';
 import 'package:appflowy/plugins/database/grid/presentation/widgets/filter/filter_menu.dart';

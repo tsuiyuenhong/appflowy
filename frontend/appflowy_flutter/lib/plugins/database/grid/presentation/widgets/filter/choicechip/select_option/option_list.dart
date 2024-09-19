@@ -1,6 +1,6 @@
 import 'package:appflowy/generated/flowy_svgs.g.dart';
-import 'package:appflowy/plugins/database/grid/application/filter/select_option_filter_bloc.dart';
-import 'package:appflowy/plugins/database/grid/application/filter/select_option_filter_list_bloc.dart';
+import 'package:appflowy/plugins/database/grid/application/filter/select_option_filter_bloc.codegen.dart';
+import 'package:appflowy/plugins/database/grid/application/filter/select_option_filter_list_bloc.codegen.dart';
 import 'package:appflowy/plugins/database/grid/presentation/layout/sizes.dart';
 import 'package:appflowy/plugins/database/grid/presentation/widgets/filter/filter_info.dart';
 import 'package:appflowy/plugins/database/widgets/cell_editor/select_option_cell_editor.dart';

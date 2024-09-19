@@ -19,7 +19,7 @@ export 'extensions/flowy_tint_extension.dart';
 export 'file/file_block.dart';
 export 'find_and_replace/find_and_replace_menu.dart';
 export 'font/customize_font_toolbar_item.dart';
-export 'header/cover_editor_bloc.dart';
+export 'header/cover_editor_bloc.codegen.dart';
 export 'header/custom_cover_picker.dart';
 export 'header/document_cover_widget.dart';
 export 'heading/heading_toolbar_item.dart';

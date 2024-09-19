@@ -1,6 +1,6 @@
 import 'package:appflowy/startup/startup.dart';
-import 'package:appflowy/user/application/notification_filter/notification_filter_bloc.dart';
-import 'package:appflowy/user/application/reminder/reminder_bloc.dart';
+import 'package:appflowy/user/application/notification_filter/notification_filter_bloc.codegen.dart';
+import 'package:appflowy/user/application/reminder/reminder_bloc.codegen.dart';
 import 'package:appflowy/workspace/presentation/notifications/reminder_extension.dart';
 import 'package:appflowy/workspace/presentation/notifications/widgets/inbox_action_bar.dart';
 import 'package:appflowy/workspace/presentation/notifications/widgets/notification_hub_title.dart';

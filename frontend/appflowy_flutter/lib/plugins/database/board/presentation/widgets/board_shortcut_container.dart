@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:appflowy/generated/locale_keys.g.dart';
-import 'package:appflowy/plugins/database/board/application/board_actions_bloc.dart';
-import 'package:appflowy/plugins/database/board/application/board_bloc.dart';
+import 'package:appflowy/plugins/database/board/application/board_actions_bloc.codegen.dart';
+import 'package:appflowy/plugins/database/board/application/board_bloc.codegen.dart';
 import 'package:appflowy/plugins/shared/callback_shortcuts.dart';
 import 'package:appflowy/workspace/presentation/widgets/dialogs.dart';
 import 'package:easy_localization/easy_localization.dart';

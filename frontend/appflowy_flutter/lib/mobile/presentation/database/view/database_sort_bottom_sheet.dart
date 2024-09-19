@@ -2,7 +2,7 @@ import 'package:appflowy/generated/flowy_svgs.g.dart';
 import 'package:appflowy/generated/locale_keys.g.dart';
 import 'package:appflowy/mobile/presentation/base/app_bar/app_bar_actions.dart';
 import 'package:appflowy/mobile/presentation/widgets/widgets.dart';
-import 'package:appflowy/plugins/database/grid/application/sort/sort_editor_bloc.dart';
+import 'package:appflowy/plugins/database/grid/application/sort/sort_editor_bloc.codegen.dart';
 import 'package:appflowy/plugins/database/grid/presentation/widgets/sort/sort_info.dart';
 import 'package:appflowy_backend/protobuf/flowy-database2/protobuf.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import 'database_sort_bottom_sheet_cubit.dart';
+import 'database_sort_bottom_sheet_cubit.codegen.dart';
 
 class MobileSortEditor extends StatefulWidget {
   const MobileSortEditor({

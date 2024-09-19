@@ -8,7 +8,7 @@ import 'package:appflowy/mobile/presentation/widgets/navigation_bar_button.dart'
 import 'package:appflowy/shared/popup_menu/appflowy_popup_menu.dart';
 import 'package:appflowy/shared/red_dot.dart';
 import 'package:appflowy/startup/startup.dart';
-import 'package:appflowy/user/application/reminder/reminder_bloc.dart';
+import 'package:appflowy/user/application/reminder/reminder_bloc.codegen.dart';
 import 'package:appflowy/util/theme_extension.dart';
 import 'package:appflowy/workspace/presentation/widgets/dialogs.dart';
 import 'package:appflowy_backend/protobuf/flowy-folder/view.pb.dart';

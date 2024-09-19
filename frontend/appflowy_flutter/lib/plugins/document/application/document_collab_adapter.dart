@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:appflowy/plugins/document/application/document_awareness_metadata.dart';
+import 'package:appflowy/plugins/document/application/document_awareness_metadata.codegen.dart';
 import 'package:appflowy/plugins/document/application/document_data_pb_extension.dart';
 import 'package:appflowy/plugins/document/application/prelude.dart';
 import 'package:appflowy/shared/list_extension.dart';

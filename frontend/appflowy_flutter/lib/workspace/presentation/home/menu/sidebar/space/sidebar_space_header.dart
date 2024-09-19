@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart' hide Icon;
 
 import 'package:appflowy/generated/locale_keys.g.dart';
-import 'package:appflowy/shared/icon_emoji_picker/icon.dart';
-import 'package:appflowy/workspace/application/sidebar/space/space_bloc.dart';
+import 'package:appflowy/shared/icon_emoji_picker/icon.codegen.dart';
+import 'package:appflowy/workspace/application/sidebar/space/space_bloc.codegen.dart';
 import 'package:appflowy/workspace/presentation/home/home_sizes.dart';
 import 'package:appflowy/workspace/presentation/home/menu/sidebar/space/manage_space_popup.dart';
 import 'package:appflowy/workspace/presentation/home/menu/sidebar/space/shared_widget.dart';

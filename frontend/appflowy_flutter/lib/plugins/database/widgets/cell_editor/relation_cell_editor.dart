@@ -1,11 +1,11 @@
 import 'package:appflowy/generated/locale_keys.g.dart';
-import 'package:appflowy/plugins/database/application/field/type_option/relation_type_option_cubit.dart';
+import 'package:appflowy/plugins/database/application/field/type_option/relation_type_option_cubit.codegen.dart';
 import 'package:appflowy/plugins/database/grid/presentation/layout/sizes.dart';
 import 'package:appflowy/plugins/database/grid/presentation/widgets/common/type_option_separator.dart';
 import 'package:appflowy/plugins/database/tab_bar/tab_bar_view.dart';
 import 'package:appflowy/plugins/database/widgets/row/relation_row_detail.dart';
 import 'package:appflowy/startup/startup.dart';
-import 'package:appflowy/workspace/application/tabs/tabs_bloc.dart';
+import 'package:appflowy/workspace/application/tabs/tabs_bloc.codegen.dart';
 import 'package:appflowy/workspace/application/view/view_ext.dart';
 import 'package:appflowy_backend/dispatch/dispatch.dart';
 import 'package:appflowy_backend/log.dart';
@@ -22,8 +22,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../application/cell/bloc/relation_cell_bloc.dart';
-import '../../application/cell/bloc/relation_row_search_bloc.dart';
+import '../../application/cell/bloc/relation_cell_bloc.codegen.dart';
+import '../../application/cell/bloc/relation_row_search_bloc.codegen.dart';
 
 class RelationCellEditor extends StatelessWidget {
   const RelationCellEditor({

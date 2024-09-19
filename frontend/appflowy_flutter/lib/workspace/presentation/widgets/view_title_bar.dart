@@ -1,8 +1,8 @@
 import 'package:appflowy/generated/flowy_svgs.g.dart';
-import 'package:appflowy/workspace/application/tabs/tabs_bloc.dart';
+import 'package:appflowy/workspace/application/tabs/tabs_bloc.codegen.dart';
 import 'package:appflowy/workspace/application/view/view_ext.dart';
-import 'package:appflowy/workspace/application/view_title/view_title_bar_bloc.dart';
-import 'package:appflowy/workspace/application/view_title/view_title_bloc.dart';
+import 'package:appflowy/workspace/application/view_title/view_title_bar_bloc.codegen.dart';
+import 'package:appflowy/workspace/application/view_title/view_title_bloc.codegen.dart';
 import 'package:appflowy/workspace/presentation/home/menu/sidebar/space/space_icon.dart';
 import 'package:appflowy/workspace/presentation/widgets/rename_view_popover.dart';
 import 'package:appflowy_backend/protobuf/flowy-folder/view.pb.dart';

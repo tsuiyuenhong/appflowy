@@ -1,5 +1,5 @@
-import 'package:appflowy/plugins/database/grid/application/calculations/calculations_bloc.dart';
-import 'package:appflowy/plugins/database/grid/application/grid_bloc.dart';
+import 'package:appflowy/plugins/database/grid/application/calculations/calculations_bloc.codegen.dart';
+import 'package:appflowy/plugins/database/grid/application/grid_bloc.codegen.dart';
 import 'package:appflowy/plugins/database/grid/presentation/widgets/calculations/calculate_cell.dart';
 import 'package:appflowy/plugins/database/tab_bar/tab_bar_view.dart';
 import 'package:flutter/material.dart';

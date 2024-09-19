@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:appflowy/generated/locale_keys.g.dart';
-import 'package:appflowy/plugins/database/grid/application/filter/checklist_filter_bloc.dart';
+import 'package:appflowy/plugins/database/grid/application/filter/checklist_filter_bloc.codegen.dart';
 import 'package:appflowy/workspace/presentation/widgets/pop_up_action.dart';
 import 'package:appflowy_backend/protobuf/flowy-database2/checklist_filter.pbenum.dart';
 import 'package:appflowy_popover/appflowy_popover.dart';

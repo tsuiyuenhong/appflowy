@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'colorscheme.dart';
+import 'colorscheme.codegen.dart';
 
 class ColorSchemeConstants {
   static const white = Color(0xFFFFFFFF);

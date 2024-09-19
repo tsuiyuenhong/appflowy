@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'models/emoji_category_models.dart';
-import 'emji_picker_config.dart';
+import 'emji_picker_config.codegen.dart';
 import 'default_emoji_picker_view.dart';
 import 'models/emoji_model.dart';
 import 'emoji_lists.dart' as emoji_list;

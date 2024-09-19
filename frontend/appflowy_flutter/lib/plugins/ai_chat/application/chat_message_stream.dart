@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:ffi';
 import 'dart:isolate';
 
-import 'package:appflowy/plugins/ai_chat/application/chat_entity.dart';
+import 'package:appflowy/plugins/ai_chat/application/chat_entity.codegen.dart';
 import 'package:appflowy/plugins/ai_chat/application/chat_message_service.dart';
 
 class AnswerStream {

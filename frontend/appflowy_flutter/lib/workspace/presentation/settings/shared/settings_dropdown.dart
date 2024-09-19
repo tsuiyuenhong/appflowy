@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:appflowy/flutter/af_dropdown_menu.dart';
 import 'package:appflowy/shared/google_fonts_extension.dart';
-import 'package:appflowy/workspace/application/settings/appearance/appearance_cubit.dart';
+import 'package:appflowy/workspace/application/settings/appearance/appearance_cubit.codegen.dart';
 import 'package:appflowy/workspace/application/settings/appearance/base_appearance.dart';
 import 'package:collection/collection.dart';
 import 'package:flowy_infra/size.dart';

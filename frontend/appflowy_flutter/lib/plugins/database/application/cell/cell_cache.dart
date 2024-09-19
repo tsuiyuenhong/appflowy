@@ -1,6 +1,6 @@
 import 'package:appflowy/plugins/database/application/row/row_service.dart';
 
-import 'cell_controller.dart';
+import 'cell_controller.codegen.dart';
 
 /// CellMemCache is used to cache cell data of each block.
 /// We use CellContext to index the cell in the cache.

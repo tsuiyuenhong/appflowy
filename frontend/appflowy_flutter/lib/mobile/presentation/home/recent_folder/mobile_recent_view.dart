@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:appflowy/mobile/application/mobile_router.dart';
-import 'package:appflowy/mobile/application/page_style/document_page_style_bloc.dart';
-import 'package:appflowy/mobile/application/recent/recent_view_bloc.dart';
+import 'package:appflowy/mobile/application/page_style/document_page_style_bloc.codegen.dart';
+import 'package:appflowy/mobile/application/recent/recent_view_bloc.codegen.dart';
 import 'package:appflowy/plugins/base/emoji/emoji_text.dart';
 import 'package:appflowy/plugins/document/presentation/editor_plugins/plugins.dart';
 import 'package:appflowy/shared/appflowy_network_image.dart';

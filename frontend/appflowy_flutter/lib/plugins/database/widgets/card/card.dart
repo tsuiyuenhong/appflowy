@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:appflowy/generated/flowy_svgs.g.dart';
 import 'package:appflowy/mobile/presentation/database/card/card.dart';
 import 'package:appflowy/plugins/database/application/field/field_controller.dart';
-import 'package:appflowy/plugins/database/application/row/row_cache.dart';
+import 'package:appflowy/plugins/database/application/row/row_cache.codegen.dart';
 import 'package:appflowy/plugins/database/application/row/row_controller.dart';
 import 'package:appflowy/plugins/database/grid/presentation/widgets/row/action.dart';
 import 'package:appflowy/shared/af_image.dart';
@@ -19,7 +19,7 @@ import 'package:universal_platform/universal_platform.dart';
 import '../cell/card_cell_builder.dart';
 import '../cell/card_cell_skeleton/card_cell.dart';
 
-import 'card_bloc.dart';
+import 'card_bloc.codegen.dart';
 import 'container/accessory.dart';
 import 'container/card_container.dart';
 

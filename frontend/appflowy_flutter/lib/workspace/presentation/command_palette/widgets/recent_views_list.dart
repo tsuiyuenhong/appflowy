@@ -1,6 +1,6 @@
 import 'package:appflowy/generated/flowy_svgs.g.dart';
 import 'package:appflowy/generated/locale_keys.g.dart';
-import 'package:appflowy/workspace/application/recent/recent_views_bloc.dart';
+import 'package:appflowy/workspace/application/recent/recent_views_bloc.codegen.dart';
 import 'package:appflowy/workspace/application/view/view_ext.dart';
 import 'package:appflowy/workspace/presentation/command_palette/widgets/recent_view_tile.dart';
 import 'package:appflowy_backend/protobuf/flowy-folder/view.pb.dart';

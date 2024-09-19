@@ -1,6 +1,6 @@
 import 'package:appflowy/generated/flowy_svgs.g.dart';
 import 'package:appflowy/plugins/database/application/database_controller.dart';
-import 'package:appflowy/plugins/database/board/application/board_bloc.dart';
+import 'package:appflowy/plugins/database/board/application/board_bloc.codegen.dart';
 import 'package:appflowy/plugins/database/board/group_ext.dart';
 import 'package:appflowy_board/appflowy_board.dart';
 import 'package:flowy_infra_ui/flowy_infra_ui.dart';
