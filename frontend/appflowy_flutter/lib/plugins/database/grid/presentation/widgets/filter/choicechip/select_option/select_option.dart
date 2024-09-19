@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:appflowy/plugins/database/grid/application/filter/select_option_filter_bloc.dart';
+import 'package:appflowy/plugins/database/grid/application/filter/select_option_filter_bloc.codegen.dart';
 import 'package:appflowy_backend/protobuf/flowy-database2/field_entities.pb.dart';
 import 'package:appflowy_backend/protobuf/flowy-database2/select_option_filter.pb.dart';
 import 'package:appflowy_popover/appflowy_popover.dart';

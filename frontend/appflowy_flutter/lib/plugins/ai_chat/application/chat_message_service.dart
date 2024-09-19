@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:appflowy/plugins/ai_chat/application/chat_entity.dart';
-import 'package:appflowy/plugins/ai_chat/application/chat_input_action_bloc.dart';
+import 'package:appflowy/plugins/ai_chat/application/chat_entity.codegen.dart';
+import 'package:appflowy/plugins/ai_chat/application/chat_input_action_bloc.codegen.dart';
 import 'package:appflowy/workspace/application/view/view_ext.dart';
 import 'package:appflowy_backend/dispatch/dispatch.dart';
 import 'package:appflowy_backend/log.dart';

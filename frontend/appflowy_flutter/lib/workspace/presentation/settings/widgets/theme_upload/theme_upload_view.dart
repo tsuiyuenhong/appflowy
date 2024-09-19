@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-
 import 'package:flowy_infra/plugins/bloc/dynamic_plugin_bloc.dart';
-import 'package:flowy_infra/plugins/bloc/dynamic_plugin_state.dart';
+import 'package:flowy_infra/plugins/bloc/dynamic_plugin_state.codegen.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'theme_upload_decoration.dart';

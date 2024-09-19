@@ -1,6 +1,6 @@
 import 'dart:collection';
 
-import 'package:appflowy/plugins/database/application/row/row_cache.dart';
+import 'package:appflowy/plugins/database/application/row/row_cache.codegen.dart';
 import 'package:appflowy/plugins/database/application/setting/setting_listener.dart';
 import 'package:appflowy/plugins/database/domain/database_view_service.dart';
 import 'package:appflowy/plugins/database/domain/field_listener.dart';
@@ -20,7 +20,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 
 import '../setting/setting_service.dart';
-import 'field_info.dart';
+import 'field_info.codegen.dart';
 
 class _GridFieldNotifier extends ChangeNotifier {
   List<FieldInfo> _fieldInfos = [];

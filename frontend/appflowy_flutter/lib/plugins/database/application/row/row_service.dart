@@ -3,7 +3,7 @@ import 'package:appflowy_backend/protobuf/flowy-database2/protobuf.dart';
 import 'package:appflowy_backend/protobuf/flowy-error/errors.pb.dart';
 import 'package:appflowy_result/appflowy_result.dart';
 
-import '../field/field_info.dart';
+import '../field/field_info.codegen.dart';
 
 typedef RowId = String;
 

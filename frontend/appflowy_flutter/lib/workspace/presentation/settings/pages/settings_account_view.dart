@@ -1,7 +1,7 @@
 import 'package:appflowy/env/cloud_env.dart';
 import 'package:appflowy/generated/locale_keys.g.dart';
 import 'package:appflowy/startup/startup.dart';
-import 'package:appflowy/workspace/application/user/settings_user_bloc.dart';
+import 'package:appflowy/workspace/application/user/settings_user_bloc.codegen.dart';
 import 'package:appflowy/workspace/presentation/settings/pages/account/account.dart';
 import 'package:appflowy/workspace/presentation/settings/shared/settings_body.dart';
 import 'package:appflowy/workspace/presentation/settings/shared/settings_category.dart';

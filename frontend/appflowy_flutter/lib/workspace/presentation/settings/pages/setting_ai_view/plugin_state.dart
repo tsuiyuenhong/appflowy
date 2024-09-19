@@ -1,8 +1,8 @@
 import 'package:appflowy/core/helpers/url_launcher.dart';
 import 'package:appflowy/generated/flowy_svgs.g.dart';
 import 'package:appflowy/generated/locale_keys.g.dart';
-import 'package:appflowy/workspace/application/settings/ai/download_offline_ai_app_bloc.dart';
-import 'package:appflowy/workspace/application/settings/ai/plugin_state_bloc.dart';
+import 'package:appflowy/workspace/application/settings/ai/download_offline_ai_app_bloc.codegen.dart';
+import 'package:appflowy/workspace/application/settings/ai/plugin_state_bloc.codegen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flowy_infra/size.dart';
 import 'package:flowy_infra_ui/style_widget/button.dart';

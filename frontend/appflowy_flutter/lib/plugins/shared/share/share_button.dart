@@ -1,7 +1,7 @@
 import 'package:appflowy/generated/locale_keys.g.dart';
-import 'package:appflowy/plugins/database/application/tab_bar_bloc.dart';
+import 'package:appflowy/plugins/database/application/tab_bar_bloc.codegen.dart';
 import 'package:appflowy/plugins/shared/share/_shared.dart';
-import 'package:appflowy/plugins/shared/share/share_bloc.dart';
+import 'package:appflowy/plugins/shared/share/share_bloc.codegen.dart';
 import 'package:appflowy/plugins/shared/share/share_menu.dart';
 import 'package:appflowy/startup/startup.dart';
 import 'package:appflowy/workspace/application/view/view_ext.dart';

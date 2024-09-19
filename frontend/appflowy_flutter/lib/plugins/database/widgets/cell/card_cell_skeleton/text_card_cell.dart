@@ -4,8 +4,8 @@ import 'package:flutter/services.dart';
 
 import 'package:appflowy/generated/flowy_svgs.g.dart';
 import 'package:appflowy/generated/locale_keys.g.dart';
-import 'package:appflowy/plugins/database/application/cell/bloc/text_cell_bloc.dart';
-import 'package:appflowy/plugins/database/application/cell/cell_controller.dart';
+import 'package:appflowy/plugins/database/application/cell/bloc/text_cell_bloc.codegen.dart';
+import 'package:appflowy/plugins/database/application/cell/cell_controller.codegen.dart';
 import 'package:appflowy/plugins/database/application/cell/cell_controller_builder.dart';
 import 'package:appflowy/plugins/database/application/database_controller.dart';
 import 'package:easy_localization/easy_localization.dart';

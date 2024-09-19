@@ -1,4 +1,4 @@
-import 'package:appflowy/plugins/database/grid/application/filter/text_filter_editor_bloc.dart';
+import 'package:appflowy/plugins/database/grid/application/filter/text_filter_editor_bloc.codegen.dart';
 import 'package:appflowy/plugins/database/grid/presentation/widgets/filter/choicechip/text.dart';
 import 'package:appflowy_backend/protobuf/flowy-database2/protobuf.dart';
 import 'package:appflowy_popover/appflowy_popover.dart';

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:appflowy/plugins/database/board/application/board_bloc.dart';
+import 'package:appflowy/plugins/database/board/application/board_bloc.codegen.dart';
 import 'package:appflowy/plugins/database/widgets/card/card.dart';
-import 'package:appflowy/plugins/database/widgets/card/card_bloc.dart';
+import 'package:appflowy/plugins/database/widgets/card/card_bloc.codegen.dart';
 import 'package:appflowy/plugins/database/widgets/cell/card_cell_builder.dart';
 import 'package:appflowy/plugins/database/widgets/cell/card_cell_style_maps/mobile_board_card_cell_style.dart';
 import 'package:appflowy_backend/protobuf/flowy-database2/protobuf.dart';

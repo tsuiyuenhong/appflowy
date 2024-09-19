@@ -1,4 +1,4 @@
-import 'package:appflowy/plugins/ai_chat/application/chat_user_message_bloc.dart';
+import 'package:appflowy/plugins/ai_chat/application/chat_user_message_bloc.codegen.dart';
 import 'package:flowy_infra/theme_extension.dart';
 import 'package:flowy_infra_ui/flowy_infra_ui.dart';
 import 'package:flutter/material.dart';

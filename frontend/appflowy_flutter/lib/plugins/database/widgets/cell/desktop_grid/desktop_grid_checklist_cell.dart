@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:appflowy/plugins/database/application/cell/bloc/checklist_cell_bloc.dart';
+import 'package:appflowy/plugins/database/application/cell/bloc/checklist_cell_bloc.codegen.dart';
 import 'package:appflowy/plugins/database/grid/presentation/layout/sizes.dart';
 import 'package:appflowy/plugins/database/widgets/cell_editor/checklist_cell_editor.dart';
 import 'package:appflowy/plugins/database/widgets/cell_editor/checklist_progress_bar.dart';

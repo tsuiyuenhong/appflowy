@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'package:appflowy/plugins/database/application/cell/cell_controller_builder.dart';
 import 'package:appflowy/startup/startup.dart';
-import 'package:appflowy/user/application/reminder/reminder_bloc.dart';
+import 'package:appflowy/user/application/reminder/reminder_bloc.codegen.dart';
 import 'package:appflowy/workspace/presentation/widgets/date_picker/appflowy_date_picker.dart';
 import 'package:appflowy/workspace/presentation/widgets/date_picker/widgets/clear_date_button.dart';
 import 'package:appflowy/workspace/presentation/widgets/date_picker/widgets/date_type_option_button.dart';
 import 'package:appflowy_popover/appflowy_popover.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../application/cell/bloc/date_cell_editor_bloc.dart';
+import '../../application/cell/bloc/date_cell_editor_bloc.codegen.dart';
 
 class DateCellEditor extends StatefulWidget {
   const DateCellEditor({

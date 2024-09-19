@@ -1,0 +1,11 @@
+targets:
+  $default:
+    builders:
+      freezed:freezed:
+        generate_for:
+          include:
+            - lib/**.codegen.dart
+      json_serializable:json_serializable:
+        generate_for:
+          include:
+            - lib/**.codegen.dart

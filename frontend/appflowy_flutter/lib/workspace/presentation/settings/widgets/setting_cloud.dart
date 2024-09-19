@@ -1,11 +1,11 @@
 import 'package:appflowy/env/cloud_env.dart';
-import 'package:appflowy/env/env.dart';
+import 'package:appflowy/env/env.codegen.dart';
 import 'package:appflowy/generated/flowy_svgs.g.dart';
 import 'package:appflowy/generated/locale_keys.g.dart';
 import 'package:appflowy/mobile/presentation/bottom_sheet/bottom_sheet.dart';
 import 'package:appflowy/mobile/presentation/widgets/widgets.dart';
 import 'package:appflowy/startup/startup.dart';
-import 'package:appflowy/workspace/application/settings/cloud_setting_bloc.dart';
+import 'package:appflowy/workspace/application/settings/cloud_setting_bloc.codegen.dart';
 import 'package:appflowy/workspace/presentation/settings/shared/af_dropdown_menu_entry.dart';
 import 'package:appflowy/workspace/presentation/settings/shared/settings_body.dart';
 import 'package:appflowy/workspace/presentation/settings/shared/settings_dropdown.dart';

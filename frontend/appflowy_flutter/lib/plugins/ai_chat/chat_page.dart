@@ -1,10 +1,10 @@
 import 'dart:math';
 
 import 'package:appflowy/generated/locale_keys.g.dart';
-import 'package:appflowy/plugins/ai_chat/application/chat_bloc.dart';
-import 'package:appflowy/plugins/ai_chat/application/chat_entity.dart';
-import 'package:appflowy/plugins/ai_chat/application/chat_file_bloc.dart';
-import 'package:appflowy/plugins/ai_chat/application/chat_input_bloc.dart';
+import 'package:appflowy/plugins/ai_chat/application/chat_bloc.codegen.dart';
+import 'package:appflowy/plugins/ai_chat/application/chat_entity.codegen.dart';
+import 'package:appflowy/plugins/ai_chat/application/chat_file_bloc.codegen.dart';
+import 'package:appflowy/plugins/ai_chat/application/chat_input_bloc.codegen.dart';
 import 'package:appflowy/plugins/ai_chat/application/chat_message_stream.dart';
 import 'package:appflowy/plugins/ai_chat/presentation/chat_related_question.dart';
 import 'package:appflowy/plugins/ai_chat/presentation/message/ai_message_bubble.dart';
@@ -24,8 +24,8 @@ import 'package:flutter_chat_ui/flutter_chat_ui.dart' show Chat;
 import 'package:styled_widget/styled_widget.dart';
 import 'package:universal_platform/universal_platform.dart';
 
-import 'application/chat_member_bloc.dart';
-import 'application/chat_side_pannel_bloc.dart';
+import 'application/chat_member_bloc.codegen.dart';
+import 'application/chat_side_pannel_bloc.codegen.dart';
 import 'presentation/chat_input/chat_input.dart';
 import 'presentation/chat_side_pannel.dart';
 import 'presentation/chat_theme.dart';

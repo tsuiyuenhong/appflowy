@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:appflowy/plugins/database/application/cell/bloc/media_cell_bloc.dart';
-import 'package:appflowy/plugins/database/application/cell/cell_controller.dart';
+import 'package:appflowy/plugins/database/application/cell/bloc/media_cell_bloc.codegen.dart';
+import 'package:appflowy/plugins/database/application/cell/cell_controller.codegen.dart';
 import 'package:appflowy/plugins/database/application/database_controller.dart';
 import 'package:appflowy/plugins/database/widgets/cell/desktop_grid/desktop_grid_media_cell.dart';
 import 'package:appflowy/plugins/database/widgets/cell/desktop_row_detail/desktop_row_detail_media_cell.dart';

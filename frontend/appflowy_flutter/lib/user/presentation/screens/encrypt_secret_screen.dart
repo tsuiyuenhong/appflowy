@@ -10,7 +10,7 @@ import 'package:flowy_infra_ui/flowy_infra_ui.dart';
 import 'package:flowy_infra_ui/widget/buttons/secondary_button.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../application/encrypt_secret_bloc.dart';
+import '../../application/encrypt_secret_bloc.codegen.dart';
 
 class EncryptSecretScreen extends StatefulWidget {
   const EncryptSecretScreen({required this.user, super.key});

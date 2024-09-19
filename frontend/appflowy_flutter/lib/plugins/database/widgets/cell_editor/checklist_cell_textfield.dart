@@ -7,7 +7,7 @@ import 'package:flowy_infra_ui/flowy_infra_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../application/cell/bloc/checklist_cell_bloc.dart';
+import '../../application/cell/bloc/checklist_cell_bloc.codegen.dart';
 
 class ChecklistCellCheckIcon extends StatelessWidget {
   const ChecklistCellCheckIcon({

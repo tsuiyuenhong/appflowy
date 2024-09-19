@@ -10,9 +10,9 @@ import 'package:appflowy/plugins/database/grid/presentation/widgets/toolbar/grid
 import 'package:appflowy/plugins/database/tab_bar/desktop/setting_menu.dart';
 import 'package:appflowy/plugins/database/widgets/cell/editable_cell_builder.dart';
 import 'package:appflowy/shared/flowy_error_page.dart';
-import 'package:appflowy/workspace/application/action_navigation/action_navigation_bloc.dart';
+import 'package:appflowy/workspace/application/action_navigation/action_navigation_bloc.codegen.dart';
 import 'package:appflowy/workspace/application/action_navigation/navigation_action.dart';
-import 'package:appflowy/workspace/application/view/view_bloc.dart';
+import 'package:appflowy/workspace/application/view/view_bloc.codegen.dart';
 import 'package:appflowy/workspace/presentation/widgets/dialogs.dart';
 import 'package:appflowy_backend/log.dart';
 import 'package:appflowy_backend/protobuf/flowy-folder/view.pb.dart';
@@ -27,7 +27,7 @@ import '../../application/database_controller.dart';
 import '../../application/row/row_controller.dart';
 import '../../tab_bar/tab_bar_view.dart';
 import '../../widgets/row/row_detail.dart';
-import '../application/grid_bloc.dart';
+import '../application/grid_bloc.codegen.dart';
 
 import 'grid_scroll.dart';
 import 'layout/layout.dart';

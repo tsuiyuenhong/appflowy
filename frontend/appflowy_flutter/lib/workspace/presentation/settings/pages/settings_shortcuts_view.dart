@@ -6,7 +6,7 @@ import 'package:appflowy/plugins/document/presentation/editor_plugins/copy_and_p
 import 'package:appflowy/plugins/document/presentation/editor_plugins/copy_and_paste/custom_cut_command.dart';
 import 'package:appflowy/plugins/document/presentation/editor_plugins/copy_and_paste/custom_paste_command.dart';
 import 'package:appflowy/plugins/document/presentation/editor_plugins/toggle/toggle_block_shortcut_event.dart';
-import 'package:appflowy/workspace/application/settings/shortcuts/settings_shortcuts_cubit.dart';
+import 'package:appflowy/workspace/application/settings/shortcuts/settings_shortcuts_cubit.codegen.dart';
 import 'package:appflowy/workspace/application/settings/shortcuts/settings_shortcuts_service.dart';
 import 'package:appflowy/workspace/presentation/settings/shared/settings_alert_dialog.dart';
 import 'package:appflowy/workspace/presentation/settings/shared/settings_body.dart';

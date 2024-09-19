@@ -4,9 +4,9 @@ import 'dart:collection';
 import 'package:appflowy/plugins/database/application/row/row_service.dart';
 import 'package:appflowy_backend/log.dart';
 
-import '../defines.dart';
+import '../defines.codegen.dart';
 import '../field/field_controller.dart';
-import '../row/row_cache.dart';
+import '../row/row_cache.codegen.dart';
 
 import 'view_listener.dart';
 

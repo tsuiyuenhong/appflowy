@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:appflowy/generated/locale_keys.g.dart';
-import 'package:appflowy/workspace/application/settings/ai/local_ai_bloc.dart';
-import 'package:appflowy/workspace/application/settings/ai/settings_ai_bloc.dart';
+import 'package:appflowy/workspace/application/settings/ai/local_ai_bloc.codegen.dart';
+import 'package:appflowy/workspace/application/settings/ai/settings_ai_bloc.codegen.dart';
 import 'package:appflowy/workspace/presentation/settings/pages/setting_ai_view/local_ai_chat_setting.dart';
 import 'package:appflowy/workspace/presentation/widgets/dialogs.dart';
 import 'package:appflowy/workspace/presentation/widgets/toggle/toggle.dart';

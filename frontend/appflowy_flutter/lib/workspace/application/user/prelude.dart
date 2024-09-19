@@ -1,2 +1,2 @@
-export 'settings_user_bloc.dart';
-export 'user_workspace_bloc.dart';
+export 'settings_user_bloc.codegen.dart';
+export 'user_workspace_bloc.codegen.dart';

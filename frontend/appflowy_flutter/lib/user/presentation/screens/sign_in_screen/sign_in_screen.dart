@@ -1,5 +1,5 @@
 import 'package:appflowy/startup/startup.dart';
-import 'package:appflowy/user/application/sign_in_bloc.dart';
+import 'package:appflowy/user/application/sign_in_bloc.codegen.dart';
 import 'package:appflowy/user/presentation/router.dart';
 import 'package:appflowy/user/presentation/screens/sign_in_screen/desktop_sign_in_screen.dart';
 import 'package:appflowy/user/presentation/screens/sign_in_screen/mobile_loading_screen.dart';
