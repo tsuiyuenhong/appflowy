@@ -9,3 +9,8 @@ targets:
         generate_for:
           include:
             - lib/**.codegen.dart
+      envied_generator:envied:
+        generate_for:
+          include:
+            - lib/env/cloud_env_test.codegen.dart
+            - lib/env/env.codegen.dart
