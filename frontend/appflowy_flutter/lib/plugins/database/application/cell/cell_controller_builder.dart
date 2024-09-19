@@ -1,7 +1,7 @@
 import 'package:appflowy/plugins/database/application/database_controller.dart';
 import 'package:appflowy_backend/protobuf/flowy-database2/protobuf.dart';
 
-import 'cell_controller.dart';
+import 'cell_controller.codegen.dart';
 import 'cell_data_loader.dart';
 import 'cell_data_persistence.dart';
 

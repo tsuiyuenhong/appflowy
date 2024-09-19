@@ -1,15 +1,15 @@
 import 'package:appflowy/plugins/database/domain/sort_service.dart';
-import 'package:appflowy/plugins/database/grid/application/grid_bloc.dart';
+import 'package:appflowy/plugins/database/grid/application/grid_bloc.codegen.dart';
 import 'package:appflowy/workspace/presentation/widgets/dialogs.dart';
 import 'package:flutter/material.dart';
 
 import 'package:appflowy/generated/flowy_svgs.g.dart';
 import "package:appflowy/generated/locale_keys.g.dart";
-import 'package:appflowy/plugins/database/application/cell/cell_controller.dart';
+import 'package:appflowy/plugins/database/application/cell/cell_controller.codegen.dart';
 import 'package:appflowy/plugins/database/application/field/field_controller.dart';
 import 'package:appflowy/plugins/database/application/row/row_controller.dart';
 import 'package:appflowy/plugins/database/application/row/row_service.dart';
-import 'package:appflowy/plugins/database/grid/application/row/row_bloc.dart';
+import 'package:appflowy/plugins/database/grid/application/row/row_bloc.codegen.dart';
 import 'package:appflowy/plugins/database/tab_bar/tab_bar_view.dart';
 import 'package:appflowy/plugins/database/widgets/cell/editable_cell_builder.dart';
 import 'package:appflowy_popover/appflowy_popover.dart';

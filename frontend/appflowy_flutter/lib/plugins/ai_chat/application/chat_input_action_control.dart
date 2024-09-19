@@ -1,4 +1,4 @@
-import 'package:appflowy/plugins/ai_chat/application/chat_input_action_bloc.dart';
+import 'package:appflowy/plugins/ai_chat/application/chat_input_action_bloc.codegen.dart';
 import 'package:appflowy/plugins/ai_chat/presentation/chat_input_action_menu.dart';
 import 'package:appflowy_backend/log.dart';
 import 'package:equatable/equatable.dart';

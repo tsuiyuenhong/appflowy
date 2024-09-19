@@ -1,8 +1,8 @@
-import 'package:appflowy/plugins/ai_chat/application/chat_entity.dart';
-import 'package:appflowy/plugins/ai_chat/application/chat_file_bloc.dart';
-import 'package:appflowy/plugins/ai_chat/application/chat_input_action_bloc.dart';
+import 'package:appflowy/plugins/ai_chat/application/chat_entity.codegen.dart';
+import 'package:appflowy/plugins/ai_chat/application/chat_file_bloc.codegen.dart';
+import 'package:appflowy/plugins/ai_chat/application/chat_input_action_bloc.codegen.dart';
 import 'package:appflowy/plugins/ai_chat/application/chat_input_action_control.dart';
-import 'package:appflowy/plugins/ai_chat/application/chat_input_bloc.dart';
+import 'package:appflowy/plugins/ai_chat/application/chat_input_bloc.codegen.dart';
 import 'package:appflowy/plugins/ai_chat/presentation/chat_input/chat_input_file.dart';
 import 'package:appflowy/plugins/ai_chat/presentation/chat_input_action_menu.dart';
 import 'package:appflowy/plugins/document/presentation/editor_plugins/mention/mobile_page_selector_sheet.dart';

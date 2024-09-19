@@ -1,6 +1,6 @@
 import 'package:appflowy/generated/flowy_svgs.g.dart';
-import 'package:appflowy/workspace/application/settings/ai/local_ai_chat_bloc.dart';
-import 'package:appflowy/workspace/application/settings/ai/local_ai_chat_toggle_bloc.dart';
+import 'package:appflowy/workspace/application/settings/ai/local_ai_chat_bloc.codegen.dart';
+import 'package:appflowy/workspace/application/settings/ai/local_ai_chat_toggle_bloc.codegen.dart';
 import 'package:appflowy/workspace/presentation/home/menu/sidebar/space/shared_widget.dart';
 import 'package:appflowy/workspace/presentation/settings/pages/setting_ai_view/downloading_model.dart';
 import 'package:appflowy/workspace/presentation/settings/pages/setting_ai_view/init_local_ai.dart';

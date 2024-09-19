@@ -1,7 +1,7 @@
 import 'dart:io' show Platform;
 import 'dart:math';
 
-import 'package:appflowy/workspace/application/home/home_setting_bloc.dart';
+import 'package:appflowy/workspace/application/home/home_setting_bloc.codegen.dart';
 import 'package:flowy_infra/size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

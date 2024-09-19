@@ -1,4 +1,4 @@
-import 'package:appflowy/workspace/application/edit_panel/edit_panel_bloc.dart';
+import 'package:appflowy/workspace/application/edit_panel/edit_panel_bloc.codegen.dart';
 import 'package:appflowy/workspace/application/edit_panel/edit_context.dart';
 import 'package:appflowy/startup/startup.dart';
 import 'package:appflowy/workspace/presentation/home/home_sizes.dart';

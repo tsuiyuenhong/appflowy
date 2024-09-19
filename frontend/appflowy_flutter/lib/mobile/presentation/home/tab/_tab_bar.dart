@@ -1,5 +1,5 @@
 import 'package:appflowy/mobile/presentation/home/tab/_round_underline_tab_indicator.dart';
-import 'package:appflowy/mobile/presentation/home/tab/space_order_bloc.dart';
+import 'package:appflowy/mobile/presentation/home/tab/space_order_bloc.codegen.dart';
 import 'package:flutter/material.dart';
 import 'package:reorderable_tabbar/reorderable_tabbar.dart';
 

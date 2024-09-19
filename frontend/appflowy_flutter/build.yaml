@@ -1,0 +1,23 @@
+targets:
+  $default:
+    builders:
+      freezed:freezed:
+        generate_for:
+          include:
+            - lib/**.codegen.dart
+      json_serializable:json_serializable:
+        generate_for:
+          include:
+            - lib/env/backend_env.codegen.dart
+            - lib/plugins/ai_chat/application/ai_chat_bloc.codegen.dart
+            - lib/plugins/ai_chat/application/chat_entity.codegen.dart
+            - lib/shared/icon_emoji_picker/icon.codegen.dart
+            - lib/plugins/document/application/document_awareness_metadata.codegen.dart
+            - lib/plugins/document/presentation/editor_plugins/openai/service/error.codegen.dart
+            - lib/plugins/document/presentation/editor_plugins/openai/service/text_completion.codegen.dart
+            - lib/plugins/document/presentation/editor_plugins/openai/service/text_edit.codegen.dart
+      envied_generator:envied:
+        generate_for:
+          include:
+            - lib/env/cloud_env_test.codegen.dart
+            - lib/env/env.codegen.dart

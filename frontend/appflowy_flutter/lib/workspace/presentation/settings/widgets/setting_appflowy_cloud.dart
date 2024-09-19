@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 
 import 'package:appflowy/core/helpers/url_launcher.dart';
 import 'package:appflowy/env/cloud_env.dart';
-import 'package:appflowy/env/env.dart';
+import 'package:appflowy/env/env.codegen.dart';
 import 'package:appflowy/generated/locale_keys.g.dart';
-import 'package:appflowy/workspace/application/settings/appflowy_cloud_setting_bloc.dart';
-import 'package:appflowy/workspace/application/settings/appflowy_cloud_urls_bloc.dart';
+import 'package:appflowy/workspace/application/settings/appflowy_cloud_setting_bloc.codegen.dart';
+import 'package:appflowy/workspace/application/settings/appflowy_cloud_urls_bloc.codegen.dart';
 import 'package:appflowy/workspace/presentation/settings/widgets/_restart_app_button.dart';
 import 'package:appflowy/workspace/presentation/widgets/dialogs.dart';
 import 'package:appflowy/workspace/presentation/widgets/toggle/toggle.dart';

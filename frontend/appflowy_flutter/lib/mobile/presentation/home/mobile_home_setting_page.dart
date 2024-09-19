@@ -1,5 +1,5 @@
 import 'package:appflowy/env/cloud_env.dart';
-import 'package:appflowy/env/env.dart';
+import 'package:appflowy/env/env.codegen.dart';
 import 'package:appflowy/generated/locale_keys.g.dart';
 import 'package:appflowy/mobile/presentation/base/app_bar/app_bar.dart';
 import 'package:appflowy/mobile/presentation/presentation.dart';

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 import 'package:appflowy/generated/flowy_svgs.g.dart';
 import 'package:appflowy/plugins/database/application/field/field_controller.dart';
-import 'package:appflowy/plugins/database/application/field/field_info.dart';
-import 'package:appflowy/plugins/database/application/setting/property_bloc.dart';
+import 'package:appflowy/plugins/database/application/field/field_info.codegen.dart';
+import 'package:appflowy/plugins/database/application/setting/property_bloc.codegen.dart';
 import 'package:appflowy/plugins/database/grid/presentation/layout/sizes.dart';
 import 'package:appflowy/plugins/database/widgets/field/field_editor.dart';
 import 'package:appflowy/plugins/database/widgets/setting/field_visibility_extension.dart';

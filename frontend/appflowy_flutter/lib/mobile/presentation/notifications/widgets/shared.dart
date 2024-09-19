@@ -1,7 +1,7 @@
 import 'package:appflowy/generated/flowy_svgs.g.dart';
 import 'package:appflowy/generated/locale_keys.g.dart';
-import 'package:appflowy/mobile/application/notification/notification_reminder_bloc.dart';
-import 'package:appflowy/mobile/application/page_style/document_page_style_bloc.dart';
+import 'package:appflowy/mobile/application/notification/notification_reminder_bloc.codegen.dart';
+import 'package:appflowy/mobile/application/page_style/document_page_style_bloc.codegen.dart';
 import 'package:appflowy/mobile/presentation/notifications/widgets/color.dart';
 import 'package:appflowy/plugins/document/presentation/editor_configuration.dart';
 import 'package:appflowy/plugins/document/presentation/editor_style.dart';

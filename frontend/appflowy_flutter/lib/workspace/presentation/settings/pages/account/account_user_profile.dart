@@ -1,7 +1,7 @@
 import 'package:appflowy/generated/flowy_svgs.g.dart';
 import 'package:appflowy/generated/locale_keys.g.dart';
 import 'package:appflowy/shared/icon_emoji_picker/flowy_icon_emoji_picker.dart';
-import 'package:appflowy/workspace/application/user/settings_user_bloc.dart';
+import 'package:appflowy/workspace/application/user/settings_user_bloc.codegen.dart';
 import 'package:appflowy/workspace/presentation/settings/shared/settings_input_field.dart';
 import 'package:appflowy/workspace/presentation/widgets/user_avatar.dart';
 import 'package:easy_localization/easy_localization.dart';

@@ -1,10 +1,10 @@
 import 'package:appflowy/generated/locale_keys.g.dart';
-import 'package:appflowy/mobile/application/user_profile/user_profile_bloc.dart';
+import 'package:appflowy/mobile/application/user_profile/user_profile_bloc.codegen.dart';
 import 'package:appflowy/mobile/presentation/notifications/widgets/mobile_notification_tab_bar.dart';
 import 'package:appflowy/startup/startup.dart';
-import 'package:appflowy/user/application/notification_filter/notification_filter_bloc.dart';
-import 'package:appflowy/user/application/reminder/reminder_bloc.dart';
-import 'package:appflowy/workspace/application/menu/sidebar_sections_bloc.dart';
+import 'package:appflowy/user/application/notification_filter/notification_filter_bloc.codegen.dart';
+import 'package:appflowy/user/application/reminder/reminder_bloc.codegen.dart';
+import 'package:appflowy/workspace/application/menu/sidebar_sections_bloc.codegen.dart';
 import 'package:appflowy/workspace/presentation/home/errors/workspace_failed_screen.dart';
 import 'package:appflowy/workspace/presentation/notifications/reminder_extension.dart';
 import 'package:appflowy/workspace/presentation/notifications/widgets/inbox_action_bar.dart';

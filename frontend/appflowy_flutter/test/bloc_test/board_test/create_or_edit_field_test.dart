@@ -1,8 +1,9 @@
 import 'package:appflowy/plugins/database/application/database_controller.dart';
-import 'package:appflowy/plugins/database/application/field/field_editor_bloc.dart';
-import 'package:appflowy/plugins/database/board/application/board_bloc.dart';
+import 'package:appflowy/plugins/database/application/field/field_editor_bloc.codegen.dart';
+import 'package:appflowy/plugins/database/board/application/board_bloc.codegen.dart';
 import 'package:appflowy_backend/protobuf/flowy-database2/field_entities.pb.dart';
 import 'package:flutter_test/flutter_test.dart';
+
 import 'util.dart';
 
 void main() {

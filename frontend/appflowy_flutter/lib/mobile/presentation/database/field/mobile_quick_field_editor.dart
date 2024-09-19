@@ -6,8 +6,8 @@ import 'package:appflowy/mobile/presentation/database/card/card_detail/widgets/w
 import 'package:appflowy/mobile/presentation/database/field/mobile_field_bottom_sheets.dart';
 import 'package:appflowy/mobile/presentation/widgets/widgets.dart';
 import 'package:appflowy/plugins/database/application/field/field_controller.dart';
-import 'package:appflowy/plugins/database/application/field/field_editor_bloc.dart';
-import 'package:appflowy/plugins/database/application/field/field_info.dart';
+import 'package:appflowy/plugins/database/application/field/field_editor_bloc.codegen.dart';
+import 'package:appflowy/plugins/database/application/field/field_info.codegen.dart';
 import 'package:appflowy/plugins/database/domain/field_backend_service.dart';
 import 'package:appflowy/plugins/database/widgets/setting/field_visibility_extension.dart';
 import 'package:appflowy_backend/protobuf/flowy-database2/protobuf.dart';

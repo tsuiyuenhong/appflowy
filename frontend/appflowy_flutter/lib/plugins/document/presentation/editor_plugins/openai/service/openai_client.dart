@@ -6,8 +6,8 @@ import 'package:appflowy_backend/protobuf/flowy-ai/entities.pbenum.dart';
 import 'package:appflowy_result/appflowy_result.dart';
 import 'package:http/http.dart' as http;
 
-import 'error.dart';
-import 'text_completion.dart';
+import 'error.codegen.dart';
+import 'text_completion.codegen.dart';
 
 enum OpenAIRequestType {
   textCompletion,

@@ -1,6 +1,6 @@
-import 'package:appflowy/plugins/ai_chat/application/chat_entity.dart';
-import 'package:appflowy/plugins/ai_chat/application/chat_member_bloc.dart';
-import 'package:appflowy/plugins/ai_chat/application/chat_user_message_bubble_bloc.dart';
+import 'package:appflowy/plugins/ai_chat/application/chat_entity.codegen.dart';
+import 'package:appflowy/plugins/ai_chat/application/chat_member_bloc.codegen.dart';
+import 'package:appflowy/plugins/ai_chat/application/chat_user_message_bubble_bloc.codegen.dart';
 import 'package:appflowy/plugins/ai_chat/presentation/chat_avatar.dart';
 import 'package:flowy_infra_ui/style_widget/text.dart';
 import 'package:flowy_infra_ui/widget/spacing.dart';

@@ -1,5 +1,5 @@
 import 'package:appflowy/plugins/database/application/database_controller.dart';
-import 'package:appflowy/plugins/database/grid/application/filter/filter_menu_bloc.dart';
+import 'package:appflowy/plugins/database/grid/application/filter/filter_menu_bloc.codegen.dart';
 import 'package:appflowy/plugins/database/grid/presentation/grid_page.dart';
 import 'package:appflowy/plugins/database/grid/presentation/widgets/toolbar/filter_button.dart';
 import 'package:appflowy/plugins/database/widgets/setting/setting_button.dart';

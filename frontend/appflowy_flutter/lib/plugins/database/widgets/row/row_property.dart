@@ -2,11 +2,11 @@ import 'dart:io';
 
 import 'package:appflowy/generated/flowy_svgs.g.dart';
 import 'package:appflowy/generated/locale_keys.g.dart';
-import 'package:appflowy/plugins/database/application/cell/cell_controller.dart';
+import 'package:appflowy/plugins/database/application/cell/cell_controller.codegen.dart';
 import 'package:appflowy/plugins/database/application/field/field_controller.dart';
-import 'package:appflowy/plugins/database/application/field/field_info.dart';
+import 'package:appflowy/plugins/database/application/field/field_info.codegen.dart';
 import 'package:appflowy/plugins/database/domain/field_service.dart';
-import 'package:appflowy/plugins/database/grid/application/row/row_detail_bloc.dart';
+import 'package:appflowy/plugins/database/grid/application/row/row_detail_bloc.codegen.dart';
 import 'package:appflowy/plugins/database/grid/presentation/widgets/header/desktop_field_cell.dart';
 import 'package:appflowy/plugins/database/widgets/field/field_editor.dart';
 import 'package:appflowy/plugins/document/presentation/editor_plugins/actions/block_action_button.dart';

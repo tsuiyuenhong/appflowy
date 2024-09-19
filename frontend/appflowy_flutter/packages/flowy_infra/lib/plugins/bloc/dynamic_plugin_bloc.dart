@@ -4,8 +4,8 @@ import 'package:flowy_infra/plugins/service/plugin_service.dart';
 
 import '../../file_picker/file_picker_impl.dart';
 
-import 'dynamic_plugin_event.dart';
-import 'dynamic_plugin_state.dart';
+import 'dynamic_plugin_event.codegen.dart';
+import 'dynamic_plugin_state.codegen.dart';
 
 class DynamicPluginBloc extends Bloc<DynamicPluginEvent, DynamicPluginState> {
   DynamicPluginBloc({FilePicker? filePicker})

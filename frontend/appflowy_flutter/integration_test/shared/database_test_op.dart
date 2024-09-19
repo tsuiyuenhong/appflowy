@@ -1,15 +1,11 @@
 import 'dart:io';
 
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-
 import 'package:appflowy/generated/flowy_svgs.g.dart';
 import 'package:appflowy/generated/locale_keys.g.dart';
 import 'package:appflowy/plugins/database/application/calculations/calculation_type_ext.dart';
 import 'package:appflowy/plugins/database/board/presentation/board_page.dart';
 import 'package:appflowy/plugins/database/board/presentation/widgets/board_column_header.dart';
-import 'package:appflowy/plugins/database/calendar/application/calendar_bloc.dart';
+import 'package:appflowy/plugins/database/calendar/application/calendar_bloc.codegen.dart';
 import 'package:appflowy/plugins/database/calendar/presentation/calendar_day.dart';
 import 'package:appflowy/plugins/database/calendar/presentation/calendar_event_card.dart';
 import 'package:appflowy/plugins/database/calendar/presentation/calendar_event_editor.dart';
@@ -85,6 +81,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flowy_infra_ui/flowy_infra_ui.dart';
 import 'package:flowy_infra_ui/style_widget/text_input.dart';
 import 'package:flowy_infra_ui/widget/buttons/primary_button.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:path/path.dart' as p;
 // Non-exported member of the table_calendar library

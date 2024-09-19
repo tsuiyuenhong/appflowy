@@ -1,8 +1,8 @@
-import 'package:appflowy/mobile/application/notification/notification_reminder_bloc.dart';
+import 'package:appflowy/mobile/application/notification/notification_reminder_bloc.codegen.dart';
 import 'package:appflowy/mobile/presentation/base/animated_gesture.dart';
 import 'package:appflowy/mobile/presentation/notifications/mobile_notifications_screen.dart';
 import 'package:appflowy/mobile/presentation/notifications/widgets/widgets.dart';
-import 'package:appflowy/workspace/application/settings/appearance/appearance_cubit.dart';
+import 'package:appflowy/workspace/application/settings/appearance/appearance_cubit.codegen.dart';
 import 'package:appflowy_backend/protobuf/flowy-user/protobuf.dart';
 import 'package:flowy_infra_ui/flowy_infra_ui.dart';
 import 'package:flutter/material.dart';

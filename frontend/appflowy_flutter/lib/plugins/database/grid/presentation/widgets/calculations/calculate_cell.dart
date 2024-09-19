@@ -1,7 +1,7 @@
 import 'package:appflowy/plugins/database/application/calculations/calculation_type_ext.dart';
-import 'package:appflowy/plugins/database/application/field/field_info.dart';
-import 'package:appflowy/plugins/database/application/field/type_option/number_format_bloc.dart';
-import 'package:appflowy/plugins/database/grid/application/calculations/calculations_bloc.dart';
+import 'package:appflowy/plugins/database/application/field/field_info.codegen.dart';
+import 'package:appflowy/plugins/database/application/field/type_option/number_format_bloc.codegen.dart';
+import 'package:appflowy/plugins/database/grid/application/calculations/calculations_bloc.codegen.dart';
 import 'package:appflowy/plugins/database/grid/application/calculations/field_type_calc_ext.dart';
 import 'package:appflowy/plugins/database/grid/presentation/widgets/calculations/calculation_selector.dart';
 import 'package:appflowy/plugins/database/grid/presentation/widgets/calculations/calculation_type_item.dart';

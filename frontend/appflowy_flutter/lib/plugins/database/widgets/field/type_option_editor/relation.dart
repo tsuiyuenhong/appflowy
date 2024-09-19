@@ -1,6 +1,6 @@
 import 'package:appflowy/generated/flowy_svgs.g.dart';
 import 'package:appflowy/generated/locale_keys.g.dart';
-import 'package:appflowy/plugins/database/application/field/type_option/relation_type_option_cubit.dart';
+import 'package:appflowy/plugins/database/application/field/type_option/relation_type_option_cubit.codegen.dart';
 import 'package:appflowy/plugins/database/application/field/type_option/type_option_data_parser.dart';
 import 'package:appflowy/plugins/database/grid/presentation/layout/sizes.dart';
 import 'package:appflowy_backend/protobuf/flowy-database2/protobuf.dart';

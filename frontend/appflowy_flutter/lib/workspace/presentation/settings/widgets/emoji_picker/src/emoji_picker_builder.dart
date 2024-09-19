@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'emji_picker_config.dart';
+import 'emji_picker_config.codegen.dart';
 import 'emoji_view_state.dart';
 
 /// Template class for custom implementation

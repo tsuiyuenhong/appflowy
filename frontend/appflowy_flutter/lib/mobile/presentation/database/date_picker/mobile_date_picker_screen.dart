@@ -1,10 +1,10 @@
 import 'package:appflowy/generated/locale_keys.g.dart';
 import 'package:appflowy/mobile/presentation/base/app_bar/app_bar.dart';
 import 'package:appflowy/plugins/base/drag_handler.dart';
-import 'package:appflowy/plugins/database/application/cell/bloc/date_cell_editor_bloc.dart';
+import 'package:appflowy/plugins/database/application/cell/bloc/date_cell_editor_bloc.codegen.dart';
 import 'package:appflowy/plugins/database/application/cell/cell_controller_builder.dart';
 import 'package:appflowy/startup/startup.dart';
-import 'package:appflowy/user/application/reminder/reminder_bloc.dart';
+import 'package:appflowy/user/application/reminder/reminder_bloc.codegen.dart';
 import 'package:appflowy/workspace/presentation/widgets/date_picker/mobile_appflowy_date_picker.dart';
 import 'package:appflowy/workspace/presentation/widgets/date_picker/widgets/mobile_date_header.dart';
 import 'package:appflowy_backend/protobuf/flowy-database2/date_entities.pb.dart';

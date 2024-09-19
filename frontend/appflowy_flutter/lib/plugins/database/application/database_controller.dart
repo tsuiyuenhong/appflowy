@@ -15,8 +15,8 @@ import 'package:appflowy_backend/protobuf/flowy-folder/view.pb.dart';
 import 'package:appflowy_result/appflowy_result.dart';
 import 'package:collection/collection.dart';
 
-import 'defines.dart';
-import 'row/row_cache.dart';
+import 'defines.codegen.dart';
+import 'row/row_cache.codegen.dart';
 
 typedef OnGroupConfigurationChanged = void Function(List<GroupSettingPB>);
 typedef OnGroupByField = void Function(List<GroupPB>);

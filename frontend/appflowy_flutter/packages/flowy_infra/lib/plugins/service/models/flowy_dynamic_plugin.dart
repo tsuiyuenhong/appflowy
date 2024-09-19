@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 import 'package:file/memory.dart';
-import 'package:flowy_infra/colorscheme/colorscheme.dart';
+import 'package:flowy_infra/colorscheme/colorscheme.codegen.dart';
 import 'package:flowy_infra/plugins/service/models/exceptions.dart';
 import 'package:flowy_infra/theme.dart';
 import 'package:path/path.dart' as p;

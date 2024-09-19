@@ -1,7 +1,7 @@
 import 'package:appflowy/generated/flowy_svgs.g.dart';
 import 'package:appflowy/generated/locale_keys.g.dart';
-import 'package:appflowy/plugins/database/application/field/field_info.dart';
-import 'package:appflowy/plugins/database/grid/application/sort/sort_editor_bloc.dart';
+import 'package:appflowy/plugins/database/application/field/field_info.codegen.dart';
+import 'package:appflowy/plugins/database/grid/application/sort/sort_editor_bloc.codegen.dart';
 import 'package:appflowy/plugins/database/grid/presentation/layout/sizes.dart';
 import 'package:appflowy/util/field_type_extension.dart';
 import 'package:easy_localization/easy_localization.dart';

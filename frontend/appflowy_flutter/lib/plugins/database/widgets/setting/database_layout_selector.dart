@@ -1,5 +1,5 @@
 import 'package:appflowy/generated/flowy_svgs.g.dart';
-import 'package:appflowy/plugins/database/application/layout/layout_bloc.dart';
+import 'package:appflowy/plugins/database/application/layout/layout_bloc.codegen.dart';
 import 'package:appflowy/plugins/database/widgets/database_layout_ext.dart';
 import 'package:appflowy_backend/protobuf/flowy-database2/setting_entities.pb.dart';
 import 'package:flowy_infra/theme_extension.dart';

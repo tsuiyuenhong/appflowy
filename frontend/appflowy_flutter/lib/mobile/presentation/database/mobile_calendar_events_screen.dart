@@ -1,7 +1,7 @@
 import 'package:appflowy/mobile/presentation/base/app_bar/app_bar.dart';
 import 'package:appflowy/mobile/presentation/database/mobile_calendar_events_empty.dart';
-import 'package:appflowy/plugins/database/application/row/row_cache.dart';
-import 'package:appflowy/plugins/database/calendar/application/calendar_bloc.dart';
+import 'package:appflowy/plugins/database/application/row/row_cache.codegen.dart';
+import 'package:appflowy/plugins/database/calendar/application/calendar_bloc.codegen.dart';
 import 'package:appflowy/plugins/database/calendar/presentation/calendar_event_card.dart';
 import 'package:calendar_view/calendar_view.dart';
 import 'package:collection/collection.dart';

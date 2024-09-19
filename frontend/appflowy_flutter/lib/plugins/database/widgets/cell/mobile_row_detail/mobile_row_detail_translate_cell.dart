@@ -1,4 +1,4 @@
-import 'package:appflowy/plugins/database/application/cell/bloc/translate_cell_bloc.dart';
+import 'package:appflowy/plugins/database/application/cell/bloc/translate_cell_bloc.codegen.dart';
 import 'package:appflowy/plugins/database/grid/presentation/layout/sizes.dart';
 import 'package:appflowy/plugins/database/widgets/cell/editable_cell_skeleton/translate.dart';
 import 'package:appflowy/plugins/database/widgets/row/cells/cell_container.dart';

@@ -3,7 +3,7 @@ import 'dart:math';
 
 import 'package:appflowy_backend/protobuf/flowy-database2/row_entities.pb.dart';
 
-import 'row_cache.dart';
+import 'row_cache.codegen.dart';
 import 'row_service.dart';
 
 class RowList {
