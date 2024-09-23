@@ -74,12 +74,10 @@ runs:
 
     - name: Build AppFlowy
       working-directory: frontend
-      run: cargo make --profile ${{ inputs.flutter_profile }} appflowy-core-dev
-      shell: bash
-
-    - name: Run code generation
-      working-directory: frontend
-      run: cargo make code_generation
+      run: |
+        cargo make --profile ${{ inputs.flutter_profile }} appflowy-core-dev &
+        cargo make code_generation
+        wait
       shell: bash
 
     - name: Flutter Analyzer
