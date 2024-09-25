@@ -50,7 +50,6 @@ runs:
       with:
         channel: "stable"
         flutter-version: ${{ inputs.flutter_version }}
-        cache: true
 
     - uses: Swatinem/rust-cache@v2
       with:
