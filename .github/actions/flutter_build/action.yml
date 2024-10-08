@@ -77,7 +77,26 @@ runs:
         esac
         cargo make appflowy-flutter-deps-tools
 
-    - name: Build AppFlowy
+    # hash the .rs files and the Cargo.toml files
+    - name: Hash Rust files and Cargo.toml
+      id: hash_rust_files
+      shell: bash
+      run: |
+        RUST_FILES_HASH=$(find frontend/rust-lib -type f -name '*.rs' -print0 | sort -z | xargs -0 sha1sum | sha1sum | awk '{print $1}')
+        CARGO_TOML_HASH=$(sha1sum frontend/rust-lib/Cargo.toml | awk '{print $1}')
+        COMBINED_HASH="${RUST_FILES_HASH}${CARGO_TOML_HASH}"
+        echo "combined_hash=$(echo $COMBINED_HASH | sha1sum | awk '{print $1}')" >> $GITHUB_OUTPUT
+
+    - name: Cache AppFlowy Core build
+      id: cache-appflowy-core
+      uses: actions/cache@v3
+      with:
+        path: frontend/appflowy_backend
+        key: ${{ runner.os }}-appflowy-core-${{ steps.hash_rust_files.outputs.combined_hash }}
+
+    - name: Build AppFlowy Core
+      # if the cache is hit, we skip the build
+      if: steps.cache-appflowy-core.outputs.cache-hit != 'true'
       working-directory: frontend
       run: cargo make --profile ${{ inputs.flutter_profile }} appflowy-core-dev
       shell: bash
