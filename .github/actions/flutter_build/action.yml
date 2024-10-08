@@ -110,7 +110,7 @@ runs:
 
     - name: Run code generation
       working-directory: frontend
-      run: cargo make code_generation
+      run: sh scripts/code_generation/generate.sh
       shell: bash
 
     - name: Flutter Analyzer
