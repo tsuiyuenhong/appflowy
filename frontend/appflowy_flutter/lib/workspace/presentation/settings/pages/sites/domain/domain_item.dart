@@ -91,6 +91,11 @@ class _HomePageButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final settingsSitesState = context.watch<SettingsSitesBloc>().state;
+    if (settingsSitesState.isLoading) {
+      return const SizedBox.shrink();
+    }
+
     final isOwner = context
             .watch<UserWorkspaceBloc>()
             .state
@@ -98,8 +103,8 @@ class _HomePageButton extends StatelessWidget {
             ?.role
             .isOwner ??
         false;
-    final homePageView = context.watch<SettingsSitesBloc>().state.homePageView;
 
+    final homePageView = settingsSitesState.homePageView;
     Widget child = homePageView == null
         ? _defaultHomePageButton(context)
         : PublishInfoViewItem(
@@ -108,43 +113,73 @@ class _HomePageButton extends StatelessWidget {
           );
 
     if (isOwner) {
-      child = AppFlowyPopover(
-        direction: PopoverDirection.bottomWithCenterAligned,
-        constraints: const BoxConstraints(
-          maxWidth: 260,
-          maxHeight: 345,
-        ),
-        margin: const EdgeInsets.symmetric(
-          horizontal: 14.0,
-          vertical: 12.0,
-        ),
-        popupBuilder: (_) {
-          final bloc = context.read<SettingsSitesBloc>();
-          return BlocProvider.value(
-            value: bloc,
-            child: SelectHomePageMenu(
-              userProfile: bloc.user,
-              workspaceId: bloc.workspaceId,
-              onSelected: (view) {},
-            ),
-          );
-        },
-        child: child,
-      );
+      child = _buildHomePageButtonForOwner(context, child);
     } else {
-      child = FlowyTooltip(
-        message: LocaleKeys
-            .settings_sites_namespace_onlyWorkspaceOwnerCanSetHomePage
-            .tr(),
-        child: IgnorePointer(
-          child: child,
-        ),
-      );
+      child = _buildHomePageButtonForNonOwner(context, child);
     }
 
     return Container(
       alignment: Alignment.centerLeft,
       child: child,
+    );
+  }
+
+  Widget _buildHomePageButtonForOwner(
+    BuildContext context,
+    Widget child,
+  ) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        AppFlowyPopover(
+          direction: PopoverDirection.bottomWithCenterAligned,
+          constraints: const BoxConstraints(
+            maxWidth: 260,
+            maxHeight: 345,
+          ),
+          margin: const EdgeInsets.symmetric(
+            horizontal: 14.0,
+            vertical: 12.0,
+          ),
+          popupBuilder: (_) {
+            final bloc = context.read<SettingsSitesBloc>();
+            return BlocProvider.value(
+              value: bloc,
+              child: SelectHomePageMenu(
+                userProfile: bloc.user,
+                workspaceId: bloc.workspaceId,
+                onSelected: (view) {},
+              ),
+            );
+          },
+          child: child,
+        ),
+        const FlowyTooltip(
+          message: 'clear the home page for this namespace',
+          child: FlowyButton(
+            margin: EdgeInsets.all(4.0),
+            useIntrinsicWidth: true,
+            text: FlowySvg(
+              FlowySvgs.close_m,
+              size: Size.square(18.0),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildHomePageButtonForNonOwner(
+    BuildContext context,
+    Widget child,
+  ) {
+    return FlowyTooltip(
+      message: LocaleKeys
+          .settings_sites_namespace_onlyWorkspaceOwnerCanSetHomePage
+          .tr(),
+      child: IgnorePointer(
+        child: child,
+      ),
     );
   }
 

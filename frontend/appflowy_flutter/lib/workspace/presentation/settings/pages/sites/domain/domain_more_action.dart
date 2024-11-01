@@ -51,18 +51,9 @@ class _DomainMoreActionState extends State<DomainMoreAction> {
       popupBuilder: (builderContext) {
         return BlocProvider.value(
           value: context.read<SettingsSitesBloc>(),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              _buildUpdateNamespaceButton(
-                context,
-                builderContext,
-              ),
-              _buildRemoveHomePageButton(
-                context,
-                builderContext,
-              ),
-            ],
+          child: _buildUpdateNamespaceButton(
+            context,
+            builderContext,
           ),
         );
       },
