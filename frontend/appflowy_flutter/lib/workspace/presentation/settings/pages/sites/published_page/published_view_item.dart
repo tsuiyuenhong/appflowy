@@ -23,11 +23,6 @@ class PublishedViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final formattedDate = SettingsPageSitesConstants.dateFormat.format(
-      DateTime.fromMillisecondsSinceEpoch(
-        publishInfoView.info.publishTimestampSec.toInt() * 1000,
-      ),
-    );
     final flexes = SettingsPageSitesConstants.publishedViewItemFlexes;
 
     return Row(
