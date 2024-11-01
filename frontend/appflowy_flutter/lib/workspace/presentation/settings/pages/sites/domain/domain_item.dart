@@ -154,9 +154,9 @@ class _HomePageButton extends StatelessWidget {
           },
           child: child,
         ),
-        const FlowyTooltip(
-          message: 'clear the home page for this namespace',
-          child: FlowyButton(
+        FlowyTooltip(
+          message: LocaleKeys.settings_sites_clearHomePage.tr(),
+          child: const FlowyButton(
             margin: EdgeInsets.all(4.0),
             useIntrinsicWidth: true,
             text: FlowySvg(
