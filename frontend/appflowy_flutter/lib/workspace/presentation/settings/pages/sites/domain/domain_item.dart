@@ -10,6 +10,7 @@ import 'package:appflowy/workspace/presentation/settings/pages/sites/domain/home
 import 'package:appflowy/workspace/presentation/settings/pages/sites/publish_info_view_item.dart';
 import 'package:appflowy/workspace/presentation/settings/pages/sites/settings_sites_bloc.dart';
 import 'package:appflowy/workspace/presentation/widgets/dialogs.dart';
+import 'package:appflowy_backend/protobuf/flowy-folder/protobuf.dart';
 import 'package:appflowy_backend/protobuf/flowy-user/protobuf.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flowy_infra_ui/flowy_infra_ui.dart';
@@ -113,7 +114,11 @@ class _HomePageButton extends StatelessWidget {
           );
 
     if (isOwner) {
-      child = _buildHomePageButtonForOwner(context, child);
+      child = _buildHomePageButtonForOwner(
+        context,
+        homePageView: homePageView,
+        child: child,
+      );
     } else {
       child = _buildHomePageButtonForNonOwner(context, child);
     }
@@ -125,9 +130,10 @@ class _HomePageButton extends StatelessWidget {
   }
 
   Widget _buildHomePageButtonForOwner(
-    BuildContext context,
-    Widget child,
-  ) {
+    BuildContext context, {
+    required PublishInfoViewPB? homePageView,
+    required Widget child,
+  }) {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -154,17 +160,23 @@ class _HomePageButton extends StatelessWidget {
           },
           child: child,
         ),
-        FlowyTooltip(
-          message: LocaleKeys.settings_sites_clearHomePage.tr(),
-          child: const FlowyButton(
-            margin: EdgeInsets.all(4.0),
-            useIntrinsicWidth: true,
-            text: FlowySvg(
-              FlowySvgs.close_m,
-              size: Size.square(18.0),
+        if (homePageView != null)
+          FlowyTooltip(
+            message: LocaleKeys.settings_sites_clearHomePage.tr(),
+            child: FlowyButton(
+              margin: const EdgeInsets.all(4.0),
+              useIntrinsicWidth: true,
+              onTap: () {
+                context.read<SettingsSitesBloc>().add(
+                      const SettingsSitesEvent.removeHomePage(),
+                    );
+              },
+              text: const FlowySvg(
+                FlowySvgs.close_m,
+                size: Size.square(18.0),
+              ),
             ),
           ),
-        ),
       ],
     );
   }

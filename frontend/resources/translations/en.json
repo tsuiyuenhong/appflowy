@@ -461,7 +461,9 @@
         "date": "Published date",
         "emptyHinText": "You have no published pages in this workspace",
         "noPublishedPages": "No published pages",
-        "settings": "Publish settings"
+        "settings": "Publish settings",
+        "clickToOpenPageInApp": "Open page in app",
+        "clickToOpenPageInBrowser": "Open page in browser"
       },
       "error": {
         "failedToGeneratePaymentLink": "Failed to generate payment link for pro plan",
