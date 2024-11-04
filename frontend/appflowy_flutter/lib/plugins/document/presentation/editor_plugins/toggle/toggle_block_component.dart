@@ -293,16 +293,16 @@ class _ToggleListBlockComponentWidgetState
         minHeight: buttonHeight,
       ),
       padding: EdgeInsets.only(top: top, right: 4.0),
-      child: AnimatedRotation(
-        turns: collapsed ? 0.0 : 0.25,
-        duration: const Duration(milliseconds: 200),
-        child: FlowyIconButton(
-          width: 20.0,
-          icon: const Icon(
+      child: FlowyIconButton(
+        width: 20.0,
+        onPressed: onCollapsed,
+        icon: AnimatedRotation(
+          turns: collapsed ? 0.0 : 0.25,
+          duration: const Duration(milliseconds: 200),
+          child: const Icon(
             Icons.arrow_right,
             size: 18.0,
           ),
-          onPressed: onCollapsed,
         ),
       ),
     );
