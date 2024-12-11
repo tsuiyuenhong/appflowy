@@ -487,7 +487,7 @@ class SpaceBloc extends Bloc<SpaceEvent, SpaceState> {
           await _workspaceService.getPrivateViews().getOrThrow();
       return SidebarSection(
         publicViews: publicViews,
-        privateViews: privateViews,
+        privateViews: [],
       );
     } catch (e) {
       Log.error('Failed to get section views: $e');

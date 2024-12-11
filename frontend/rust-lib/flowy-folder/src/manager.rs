@@ -639,12 +639,12 @@ impl FolderManager {
     // trash views and other private views should not be accessed
     let view_ids_should_be_filtered = Self::get_view_ids_should_be_filtered(&folder);
 
-    if view_ids_should_be_filtered.contains(&view_id) {
-      return Err(FlowyError::new(
-        ErrorCode::RecordNotFound,
-        format!("View: {} is in trash or other private sections", view_id),
-      ));
-    }
+    // if view_ids_should_be_filtered.contains(&view_id) {
+    //   return Err(FlowyError::new(
+    //     ErrorCode::RecordNotFound,
+    //     format!("View: {} is in trash or other private sections", view_id),
+    //   ));
+    // }
 
     match folder.get_view(&view_id) {
       None => {
@@ -713,7 +713,7 @@ impl FolderManager {
 
     // trash views and other private views should not be accessed
     let folder = lock.read().await;
-    let view_ids_should_be_filtered = Self::get_view_ids_should_be_filtered(&folder);
+    let view_ids_should_be_filtered = vec![];
 
     let all_views = folder.get_all_views();
     let views = all_views
@@ -1945,6 +1945,7 @@ impl FolderManager {
 
   /// Filter the views that are in the trash and belong to the other private sections.
   fn get_view_ids_should_be_filtered(folder: &Folder) -> Vec<String> {
+    return vec![];
     let trash_ids = Self::get_all_trash_ids(folder);
     let other_private_view_ids = Self::get_other_private_view_ids(folder);
     [trash_ids, other_private_view_ids].concat()
@@ -2042,7 +2043,7 @@ pub(crate) fn get_workspace_private_view_pbs(workspace_id: &str, folder: &Folder
 
   let mut views = folder.get_views_belong_to(workspace_id);
   // filter the views that are in the trash and not in the private view ids
-  views.retain(|view| !trash_ids.contains(&view.id) && private_view_ids.contains(&view.id));
+  views.retain(|view| !trash_ids.contains(&view.id));
 
   views
     .into_iter()

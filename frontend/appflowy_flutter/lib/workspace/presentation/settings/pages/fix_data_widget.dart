@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:appflowy/generated/locale_keys.g.dart';
 import 'package:appflowy/user/application/user_service.dart';
 import 'package:appflowy/workspace/application/view/view_ext.dart';
@@ -25,7 +27,7 @@ class FixDataWidget extends StatelessWidget {
               .tr(),
           buttonLabel: LocaleKeys.settings_manageDataPage_data_fixButton.tr(),
           onPressed: () {
-            WorkspaceDataManager.checkWorkspaceHealth(dryRun: true);
+            WorkspaceDataManager.checkWorkspaceHealth(dryRun: false);
           },
         ),
       ],
@@ -62,10 +64,18 @@ class WorkspaceDataManager {
       final workspace = workspaces.first;
 
       // check the health of the spaces
-      await checkSpaceHealth(workspace: workspace, allViews: allViews);
+      await checkSpaceHealth(
+        workspace: workspace,
+        allViews: allViews,
+        dryRun: dryRun,
+      );
 
       // check the health of the views
-      await checkViewHealth(workspace: workspace, allViews: allViews);
+      await checkViewHealth(
+        workspace: workspace,
+        allViews: allViews,
+        dryRun: dryRun,
+      );
 
       // add other checks here
       // ...
@@ -93,14 +103,33 @@ class WorkspaceDataManager {
         if (space.parentViewId != workspace.id ||
             !workspaceChildViewIds.contains(space.id)) {
           Log.info('found an issue: space is not in the workspace: $space');
-          if (!dryRun) {
-            // move the space to the workspace if it is not in the workspace
-            await ViewBackendService.moveViewV2(
+          // if (!dryRun) {
+          // move the space to the workspace if it is not in the workspace
+          await ViewBackendService.moveViewV2(
+            viewId: space.id,
+            newParentId: workspace.id,
+            prevViewId: null,
+          );
+          try {
+            final extra = space.extra;
+            final current = extra.isNotEmpty == true
+                ? jsonDecode(extra)
+                : <String, dynamic>{};
+            final updated = <String, dynamic>{};
+            updated[ViewExtKeys.spacePermissionKey] = 0;
+            final merged = mergeMaps(current, updated);
+            await ViewBackendService.updateView(
               viewId: space.id,
-              newParentId: workspace.id,
-              prevViewId: null,
+              extra: jsonEncode(merged),
             );
+
+            Log.info(
+              'update space: ${space.name}(${space.id}), merged: $merged',
+            );
+          } catch (e) {
+            Log.error('Failed to migrating cover: $e');
           }
+          // }
           workspaceChildViewIds.add(space.id);
         }
       }
