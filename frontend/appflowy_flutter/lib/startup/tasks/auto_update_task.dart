@@ -1,9 +1,9 @@
-import 'package:appflowy/core/config/kv.dart';
-import 'package:appflowy/core/config/kv_keys.dart';
 import 'package:appflowy/startup/tasks/app_widget.dart';
 import 'package:appflowy/startup/tasks/device_info_task.dart';
 import 'package:appflowy/workspace/presentation/widgets/dialogs.dart';
+import 'package:appflowy_backend/log.dart';
 import 'package:auto_updater/auto_updater.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:universal_platform/universal_platform.dart';
 
@@ -13,7 +13,7 @@ class AutoUpdateTask extends LaunchTask {
   AutoUpdateTask();
 
   static const _feedUrl =
-      'https://github.com/LucasXu0/AppFlowy/releases/latest/download/appcast.xml';
+      'https://github.com/LucasXu0/AppFlowy/releases/latest/download/appcast-{os}-{arch}.xml';
   final _listener = _AppFlowyAutoUpdaterListener();
 
   @override
@@ -23,18 +23,32 @@ class AutoUpdateTask extends LaunchTask {
       return;
     }
 
-    autoUpdater.addListener(_listener);
-    await autoUpdater.setFeedURL(_feedUrl);
-    // await autoUpdater.checkForUpdateInformation();
-    await autoUpdater.checkForUpdates(inBackground: true);
+    Log.info(
+      '[AutoUpdate] current version: ${ApplicationInfo.applicationVersion}, current cpu architecture: ${ApplicationInfo.architecture}',
+    );
 
-    ApplicationInfo.isCriticalUpdateNotifier
-        .addListener(_showCriticalUpdateDialog);
+    autoUpdater.addListener(_listener);
+
+    // Since the appcast.xml is not supported the arch, we separate the feed url by os and arch.
+    final feedUrl = _feedUrl
+        .replaceAll('{os}', ApplicationInfo.os)
+        .replaceAll('{arch}', ApplicationInfo.architecture);
+    Log.info('[AutoUpdate] feed url: $feedUrl');
+    await autoUpdater.setFeedURL(feedUrl);
+    await autoUpdater.checkForUpdateInformation();
+
+    ApplicationInfo.isCriticalUpdateNotifier.addListener(
+      _showCriticalUpdateDialog,
+    );
   }
 
   @override
   Future<void> dispose() async {
     autoUpdater.removeListener(_listener);
+
+    ApplicationInfo.isCriticalUpdateNotifier.removeListener(
+      _showCriticalUpdateDialog,
+    );
   }
 
   void _showCriticalUpdateDialog() {
@@ -59,37 +73,58 @@ class AutoUpdateTask extends LaunchTask {
 
 class _AppFlowyAutoUpdaterListener extends UpdaterListener {
   @override
-  void onUpdaterBeforeQuitForUpdate(AppcastItem? item) {
-    debugPrint('[Updater] Before quit for update ${item?.toJson()}');
-  }
+  void onUpdaterBeforeQuitForUpdate(AppcastItem? item) {}
 
   @override
   void onUpdaterCheckingForUpdate(Appcast? appcast) {
-    debugPrint('[Updater] Checking for update ${appcast?.toJson()}');
+    // Due to the reason documented in the following link, the update will not be found if the user has skipped the update.
+    // We have to check the skipped version manually.
+    // https://sparkle-project.org/documentation/api-reference/Classes/SPUUpdater.html#/c:objc(cs)SPUUpdater(im)checkForUpdateInformation
+    final items = appcast?.items;
+    if (items != null) {
+      final String? currentPlatform;
+      if (UniversalPlatform.isMacOS) {
+        currentPlatform = 'macos';
+      } else if (UniversalPlatform.isWindows) {
+        currentPlatform = 'windows';
+      } else {
+        currentPlatform = null;
+      }
+
+      final matchingItem = items.firstWhereOrNull(
+        (item) => item.os == currentPlatform,
+      );
+
+      if (matchingItem != null) {
+        _updateVersionNotifier(matchingItem);
+
+        Log.info(
+          '[AutoUpdate] latest version: ${matchingItem.displayVersionString}',
+        );
+      }
+    }
   }
 
   @override
   void onUpdaterError(UpdaterError? error) {
-    debugPrint('[Updater] Error: $error');
+    Log.error('[AutoUpdate] On update error: $error');
   }
 
   @override
   void onUpdaterUpdateNotAvailable(UpdaterError? error) {
-    debugPrint('[Updater] Update not available $error');
+    Log.info('[AutoUpdate] Update not available $error');
   }
 
   @override
   void onUpdaterUpdateAvailable(AppcastItem? item) {
-    debugPrint('[Updater] Update available: ${item?.toJson()}');
+    _updateVersionNotifier(item);
 
-    ApplicationInfo.latestAppcastItem = item;
-    ApplicationInfo.latestVersionNotifier.value =
-        item?.displayVersionString ?? '';
+    Log.info('[AutoUpdate] Update available: ${item?.displayVersionString}');
   }
 
   @override
   void onUpdaterUpdateDownloaded(AppcastItem? item) {
-    debugPrint('[Updater] Update downloaded: ${item?.toJson()}');
+    Log.info('[AutoUpdate] Update downloaded: ${item?.displayVersionString}');
   }
 
   @override
@@ -97,16 +132,17 @@ class _AppFlowyAutoUpdaterListener extends UpdaterListener {
     UserUpdateChoice? choice,
     AppcastItem? appcastItem,
   ) {
-    if (choice == UserUpdateChoice.skip) {
-      // save the skipped version
-      final latestVersion = appcastItem?.displayVersionString;
-      if (latestVersion != null) {
-        getIt<KeyValueStorage>().set(KVKeys.skippedVersion, latestVersion);
-      }
-    }
+    _updateVersionNotifier(appcastItem);
+    Log.info('[AutoUpdate] User update choice: $choice');
+  }
 
-    ApplicationInfo.latestAppcastItem = appcastItem;
-    debugPrint('[Updater] User update choice: $choice');
+  // call this function when getting the latest appcast item
+  void _updateVersionNotifier(AppcastItem? item) {
+    if (item != null) {
+      ApplicationInfo.latestAppcastItem = item;
+      ApplicationInfo.latestVersionNotifier.value =
+          item.displayVersionString ?? '';
+    }
   }
 }
 

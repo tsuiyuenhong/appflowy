@@ -45,7 +45,7 @@ class SettingsAppVersion extends StatelessWidget {
             Opacity(
               opacity: 0.7,
               child: FlowyText.regular(
-                'Current Version ${ApplicationInfo.applicationVersion} (Official build) → ${ApplicationInfo.latestVersion}',
+                'Current Version: ${ApplicationInfo.applicationVersion} (Official build) → ${ApplicationInfo.latestVersion}',
                 fontSize: 12,
                 figmaLineHeight: 13,
               ),

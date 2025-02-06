@@ -55,5 +55,7 @@
 		<string>NSApplication</string>
 		<key>SUPublicEDKey</key>
 		<string>Bs++IOmOwYmNTjMMC2jMqLNldP+mndDp/LwujCg2/kw=</string>
+		<key>SUAllowsAutomaticUpdates</key>
+		<false />
 	</dict>
 </plist>

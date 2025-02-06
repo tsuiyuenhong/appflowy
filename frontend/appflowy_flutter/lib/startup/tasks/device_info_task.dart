@@ -14,6 +14,8 @@ class ApplicationInfo {
   static String applicationVersion = '';
   static String buildNumber = '';
   static String deviceId = '';
+  static String architecture = '';
+  static String os = '';
 
   // macOS major version
   static int? macOSMajorVersion;
@@ -70,32 +72,50 @@ class ApplicationInfoTask extends LaunchTask {
     ApplicationInfo.buildNumber = packageInfo.buildNumber;
 
     String? deviceId;
+    String? architecture;
+    String? os;
     try {
       if (Platform.isAndroid) {
         final AndroidDeviceInfo androidInfo =
             await deviceInfoPlugin.androidInfo;
         deviceId = androidInfo.device;
+        architecture = androidInfo.supportedAbis.firstOrNull;
+        os = 'android';
       } else if (Platform.isIOS) {
         final IosDeviceInfo iosInfo = await deviceInfoPlugin.iosInfo;
         deviceId = iosInfo.identifierForVendor;
+        architecture = iosInfo.utsname.machine;
+        os = 'ios';
       } else if (Platform.isMacOS) {
         final MacOsDeviceInfo macInfo = await deviceInfoPlugin.macOsInfo;
         deviceId = macInfo.systemGUID;
+        architecture = macInfo.arch;
+        os = 'macos';
       } else if (Platform.isWindows) {
         final WindowsDeviceInfo windowsInfo =
             await deviceInfoPlugin.windowsInfo;
         deviceId = windowsInfo.deviceId;
+        // we only support x86_64 on Windows
+        architecture = 'x86_64';
+        os = 'windows';
       } else if (Platform.isLinux) {
         final LinuxDeviceInfo linuxInfo = await deviceInfoPlugin.linuxInfo;
         deviceId = linuxInfo.machineId;
+        // we only support x86_64 on Linux
+        architecture = 'x86_64';
+        os = 'linux';
       } else {
         deviceId = null;
+        architecture = null;
+        os = null;
       }
     } catch (e) {
       Log.error('Failed to get platform version, $e');
     }
 
     ApplicationInfo.deviceId = deviceId ?? '';
+    ApplicationInfo.architecture = architecture ?? '';
+    ApplicationInfo.os = os ?? '';
   }
 
   @override

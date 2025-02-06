@@ -6,18 +6,26 @@
         <language>en</language>
         <item>
             <title>Version 0.8.3</title>
-            <!-- For the macOS item, it is recommended to add 'sparkle:version' and
-            'sparkle:shortVersionString' to the item node, rather than as part of the enclosure. -->
             <sparkle:version>2</sparkle:version>
             <sparkle:shortVersionString>0.8.3</sparkle:shortVersionString>
             <sparkle:releaseNotesLink>
                 https://github.com/LucasXu0/AppFlowy/releases/download/v0.8.3/release_notes.html
             </sparkle:releaseNotesLink>
             <pubDate>Wed, 04 Feb 2025 12:00:00 +0800</pubDate>
+            <!-- Intel Mac -->
             <enclosure
                 url="https://github.com/LucasXu0/AppFlowy/releases/download/v0.8.3/AppFlowy-0.8.2-macos-x86_64.zip"
                 sparkle:edSignature="HolY07jM6QwZWIkRfD4EoYPtvS/uqStS2EbRx9O8I6r+GvecaAu6QN86mrNJvkJizcrfWAFhypN58wJGdTzsAg=="
                 sparkle:os="macos"
+                sparkle:arch="x86_64"
+                length="72188401"
+                type="application/octet-stream" />
+            <!-- Apple Silicon Mac -->
+            <enclosure
+                url="https://github.com/LucasXu0/AppFlowy/releases/download/v0.8.3/AppFlowy-0.8.2-macos-arm64.zip"
+                sparkle:edSignature="YOUR_SIGNATURE_HERE"
+                sparkle:os="macos"
+                sparkle:arch="arm64"
                 length="72188401"
                 type="application/octet-stream" />
         </item>
@@ -28,10 +36,12 @@
                 https://your_domain/your_path/release_notes.html
             </sparkle:releaseNotesLink>
             <pubDate>Sun, 16 Feb 2022 12:00:00 +0800</pubDate>
-            <enclosure url="1.1.0+2/auto_updater_example-1.1.0+2-windows.exe"
+            <enclosure
+                url="1.1.0+2/auto_updater_example-1.1.0+2-windows.exe"
                 sparkle:dsaSignature="MEUCIQCVbVzVID7H3aUzAY5znpi+ySZKznkukV8whlMFzKh66AIgREUGOmvavlcg6hwAwkb2o4IqVE/D56ipIBshIqCH8rk="
                 sparkle:version="1.1.0+2"
                 sparkle:os="windows"
+                sparkle:arch="x64"
                 length="0"
                 type="application/octet-stream" />
         </item>
